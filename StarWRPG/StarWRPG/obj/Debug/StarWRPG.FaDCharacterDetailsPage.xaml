@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:StarWRPG" x:Class="StarWRPG.FaDCharacterDetailsPage">
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+	</ContentPage.Padding>
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="DefaultLabel" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="Center" />
+				<Setter Property="VerticalOptions" Value="Center" />
+			</Style>
+			<Style x:Key="BoldLabel" TargetType="Label">
+				<Setter Property="HorizontalOptions" Value="Center" />
+				<Setter Property="VerticalOptions" Value="Center" />
+				<Setter Property="FontAttributes" Value="Bold" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<StackLayout>
+		<Label Text="Name" Style="{StaticResource BoldLabel}" />
+		<Label Text="{Binding Name}" Style="{StaticResource DefaultLabel}" />
+		<Label Text="Species" Style="{StaticResource BoldLabel}" />
+		<Label Text="{Binding Species}" Style="{StaticResource DefaultLabel}" />
+		<Label Text="Career" Style="{StaticResource BoldLabel}" />
+		<Label Text="{Binding Career}" Style="{StaticResource DefaultLabel}" />
+		<Label Text="Specializations" Style="{StaticResource BoldLabel}" />
+		<Label Text="{Binding SpecializationTrees}" Style="{StaticResource DefaultLabel}" />
+		<Label Text="Force Rating" Style="{StaticResource BoldLabel}" />
+		<Label Text="{Binding ForceRating}" Style="{StaticResource DefaultLabel}" />
+		<StackLayout Orientation="Horizontal">
+			<StackLayout>
+				<Label Text="Soak Value" Style="{StaticResource BoldLabel}" />
+				<Label Text="{Binding SoakValue}" Style="{StaticResource DefaultLabel}" />
+			</StackLayout>
+			<StackLayout>
+				<Label Text="Defense" Style="{StaticResource BoldLabel}" />
+				<Label Text="M | R" Style="{StaticResource DefaultLabel}" />
+				<StackLayout Orientation="Horizontal">
+					<Label Text="{Binding MeleeDefense}" Style="{StaticResource DefaultLabel}" />
+					<Label Text=" | " Style="{StaticResource DefaultLabel}" />
+					<Label Text="{Binding RangedDefense}" Style="{StaticResource DefaultLabel}" />
+				</StackLayout>
+			</StackLayout>
+		</StackLayout>
+		<Label Text="Characteristics" Style="{StaticResource BoldLabel}" />
+		<StackLayout Orientation="Horizontal">
+			<StackLayout>
+				<Label Text="{Binding Brawn}" Style="{StaticResource DefaultLabel}" />
+				<Label Text="Brawn" Style="{StaticResource BoldLabel}" />
+			</StackLayout>
+			<StackLayout>
+				<Label Text="{Binding Agility}" Style="{StaticResource DefaultLabel}" />
+				<Label Text="Agility" Style="{StaticResource BoldLabel}" />
+			</StackLayout>
+			<StackLayout>
+				<Label Text="{Binding Intellect}" Style="{StaticResource DefaultLabel}" />
+				<Label Text="Intellect" Style="{StaticResource BoldLabel}" />
+			</StackLayout>
+			<StackLayout>
+				<Label Text="{Binding Cunning}" Style="{StaticResource DefaultLabel}" />
+				<Label Text="Cunning" Style="{StaticResource BoldLabel}" />
+			</StackLayout>
+			<StackLayout>
+				<Label Text="{Binding Willpower}" Style="{StaticResource DefaultLabel}" />
+				<Label Text="Willpower" Style="{StaticResource BoldLabel}" />
+			</StackLayout>
+			<StackLayout>
+				<Label Text="{Binding Presence}" Style="{StaticResource DefaultLabel}" />
+				<Label Text="Presence" Style="{StaticResource BoldLabel}" />
+			</StackLayout>
+		</StackLayout>
+	</StackLayout>
+</ContentPage>

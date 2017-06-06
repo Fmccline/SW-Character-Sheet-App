@@ -1,0 +1,2 @@
+android.app.Application
+com.cline.starw_rpg

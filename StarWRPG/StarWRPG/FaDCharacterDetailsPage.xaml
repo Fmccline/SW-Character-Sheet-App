@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:StarWRPG" 
+             x:Class="StarWRPG.FaDCharacterDetailsPage">
+    <TabbedPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+    </TabbedPage.Padding>
+
+    <TabbedPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CenterLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="CenterBoldLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+        </ResourceDictionary>
+    </TabbedPage.Resources>
+
+    <ContentPage Title="Basic Info">
+        <StackLayout>
+            <Label Text="Name" Style="{StaticResource CenterBoldLabel}" />
+            <Label Text="{Binding Name}" Style="{StaticResource CenterLabel}" />
+            <Label Text="Species" Style="{StaticResource CenterBoldLabel}" />
+            <Label Text="{Binding Species}" Style="{StaticResource CenterLabel}" />
+            <Label Text="Career" Style="{StaticResource CenterBoldLabel}" />
+            <Label Text="{Binding Career}" Style="{StaticResource CenterLabel}" />
+            <Label Text="Specializations" Style="{StaticResource CenterBoldLabel}" />
+            <Label Text="{Binding SpecializationTrees}" Style="{StaticResource CenterLabel}" />
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Soak Value" Style="{StaticResource CenterBoldLabel}" />
+                    <Label Text="{Binding SoakValue}" Style="{StaticResource CenterLabel}" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Defense" Style="{StaticResource CenterBoldLabel}" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="M " Style="{StaticResource CenterLabel}" />
+                        <Label Text="{Binding MeleeDefense}" Style="{StaticResource CenterLabel}" />
+                        <Label Text="| R " Style="{StaticResource CenterLabel}" />
+                        <Label Text="{Binding RangedDefense}" Style="{StaticResource CenterLabel}" />
+                    </StackLayout>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Force Rating" Style="{StaticResource CenterBoldLabel}" />
+                    <Label Text="{Binding ForceRating}" Style="{StaticResource CenterLabel}" />
+                </StackLayout>
+            </StackLayout>
+
+            <!--Eventually change the Steppers to buttons that increase or decrease by a custom amount.-->
+            <StackLayout Orientation="Horizontal">
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Wounds" 
+                       Style="{StaticResource CenterBoldLabel}" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="{Binding CurrentWounds}" Style="{StaticResource CenterLabel}" />
+                        <Label Text=" / " Style="{StaticResource CenterLabel}"/>
+                        <Label Text="{Binding MaxWounds}" Style="{StaticResource CenterLabel}" />
+                    </StackLayout>
+                    <Stepper HorizontalOptions="FillAndExpand"
+                         Increment="1"
+                         Maximum="{Binding MaxWounds}"
+                         Minimum="0"
+                         Value="{Binding CurrentWounds}" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="Strain" Style="{StaticResource CenterBoldLabel}" />
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="{Binding CurrentStrain}" Style="{StaticResource CenterLabel}" />
+                        <Label Text=" / " Style="{StaticResource CenterLabel}"/>
+                        <Label Text="{Binding MaxStrain}" Style="{StaticResource CenterLabel}" />
+                    </StackLayout>
+                    <Stepper HorizontalOptions="FillAndExpand"
+                     Increment="1"
+                     Maximum="{Binding MaxStrain}"
+                     Minimum="0"
+                     Value="{Binding CurrentStrain}" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage>
+
+    <ContentPage Title="Skills">
+        <StackLayout>
+            <Label Text="Characteristics" Style="{StaticResource CenterBoldLabel}" />
+            <StackLayout Orientation="Horizontal">
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding Brawn}" Style="{StaticResource CenterLabel}" />
+                    <Label Text="Br" Style="{StaticResource CenterBoldLabel}" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding Agility}" Style="{StaticResource CenterLabel}" />
+                    <Label Text="Ag" Style="{StaticResource CenterBoldLabel}" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding Intellect}" Style="{StaticResource CenterLabel}" />
+                    <Label Text="Int" Style="{StaticResource CenterBoldLabel}" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding Cunning}" Style="{StaticResource CenterLabel}" />
+                    <Label Text="Cun" Style="{StaticResource CenterBoldLabel}" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding Willpower}" Style="{StaticResource CenterLabel}" />
+                    <Label Text="Will" Style="{StaticResource CenterBoldLabel}" />
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding Presence}" Style="{StaticResource CenterLabel}" />
+                    <Label Text="Pr" Style="{StaticResource CenterBoldLabel}" />
+                </StackLayout>
+            </StackLayout>
+            <ListView x:Name="Skills" ItemsSource="{Binding Skills}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding Name}"/>
+                                <Label Grid.Column="1" Text="{Binding Rank}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>
+
+</TabbedPage>

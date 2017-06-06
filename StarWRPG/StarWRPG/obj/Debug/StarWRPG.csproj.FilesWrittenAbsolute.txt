@@ -1,0 +1,12 @@
+/Users/frank/Projects/StarWRPG/StarWRPG/obj/Debug/.NETPortable,Version=v4.5,Profile=Profile111.AssemblyAttribute.cs
+/Users/frank/Projects/StarWRPG/StarWRPG/obj/Debug/StarWRPG.App.xaml
+/Users/frank/Projects/StarWRPG/StarWRPG/obj/Debug/StarWRPG.FaDCharacterDetailsPage.xaml
+/Users/frank/Projects/StarWRPG/StarWRPG/obj/Debug/StarWRPG.App.xaml.g.cs
+/Users/frank/Projects/StarWRPG/StarWRPG/obj/Debug/StarWRPG.FaDCharacterDetailsPage.xaml.g.cs
+/Users/frank/Projects/StarWRPG/StarWRPG/bin/Debug/StarWRPG.pdb
+/Users/frank/Projects/StarWRPG/StarWRPG/bin/Debug/StarWRPG.dll
+/Users/frank/Projects/StarWRPG/StarWRPG/obj/Debug/StarWRPG.dll
+/Users/frank/Projects/StarWRPG/StarWRPG/obj/Debug/StarWRPG.pdb
+/Users/frank/Projects/StarWRPG/StarWRPG/bin/Debug/Xamarin.Forms.Core.dll
+/Users/frank/Projects/StarWRPG/StarWRPG/bin/Debug/Xamarin.Forms.Platform.dll
+/Users/frank/Projects/StarWRPG/StarWRPG/bin/Debug/Xamarin.Forms.Xaml.dll
