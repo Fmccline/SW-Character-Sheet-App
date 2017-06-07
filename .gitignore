@@ -1,2 +1,6 @@
-iOS/obj/*
-obj/Debug/*
+obj/
+bin/
+*.user
+*.userprefs
+*.suo
+.DS_Store
