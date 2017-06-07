@@ -25,7 +25,7 @@ namespace StarWRPG
                 EmotionalStrengths = "Selfless",
                 EmotionalWeaknesses = "Reckless",
                 Conflict = 0,
-                Morality = 0,
+                Morality = 50,
 			};
 
 			MainPage = new FaDCharacterDetailsPage(FaDCharacter);
