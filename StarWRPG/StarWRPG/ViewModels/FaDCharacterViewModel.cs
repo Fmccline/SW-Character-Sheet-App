@@ -1,7 +1,7 @@
 ﻿using StarWRPG.Models;
-using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
 namespace StarWRPG.ViewModels
@@ -240,17 +240,93 @@ namespace StarWRPG.ViewModels
             }
         }
 
+        public uint TotalXP
+        {
+            get { return fadCharacter.XP.TotalXP; }
+        }
+
+        public uint AvailableXP
+        {
+            get { return fadCharacter.XP.AvailableXP; }
+
+            set
+            {
+                uint availableXP = fadCharacter.XP.AvailableXP;
+                if (value > availableXP)
+                {
+                    fadCharacter.XP.AddXP(value - availableXP);
+                    // Need to notify the view that TotalXP also changed when adding XP
+                    OnPropertyChanged("TotalXP");
+                }
+                else
+                {
+                    fadCharacter.XP.SpendXP(availableXP - value);
+                }
+                OnPropertyChanged();
+            } 
+        }
+
+        public string Motivation
+        {
+            get { return fadCharacter.Motivation; }
+            set
+            {
+                fadCharacter.Motivation = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string EmotionalStrengths
+        {
+            get { return fadCharacter.EmotionalStrengths; }
+            set
+            {
+                fadCharacter.EmotionalStrengths = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string EmotionalWeaknesses
+        {
+            get { return fadCharacter.EmotionalWeaknesses; }
+            set
+            {
+                fadCharacter.EmotionalWeaknesses = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public uint Conflict
+        {
+            get { return fadCharacter.Conflict; }
+            set
+            {
+                fadCharacter.Conflict = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public uint Morality
+        {
+            get { return fadCharacter.Morality; }
+            set
+            {
+                fadCharacter.Morality = value;
+                OnPropertyChanged();
+            }
+        }
+
         public FaDCharacterViewModel(FaDCharacter character)
         {
-			fadCharacter = character;
+            fadCharacter = character;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-		protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-		{
-			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-		}
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
-	}
+    }
 }

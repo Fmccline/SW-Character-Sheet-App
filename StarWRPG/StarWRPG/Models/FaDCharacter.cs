@@ -29,9 +29,11 @@ namespace StarWRPG.Models
 		public WillpowerCharacteristic Willpower { get; set; }
         public ObservableCollection<Skill> Skills { get; set; }
 		public Experience XP { get; set; }
-		// Motivations
-		// Emotional Strengths/Weaknesses
-		// Conflict and Morality
+		public string Motivation { get; set; }
+		public string EmotionalStrengths { get; set; }
+        public string EmotionalWeaknesses { get; set; }
+		public uint Conflict { get; set; }
+        public uint Morality { get; set; }
 		// Inventory (Holds equipped items)
 		// Critical Injuries
 		// Talents

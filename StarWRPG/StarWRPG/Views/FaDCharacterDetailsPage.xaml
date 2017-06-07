@@ -42,13 +42,24 @@
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                         <Label Text="M " Style="{StaticResource CenterLabel}" />
                         <Label Text="{Binding MeleeDefense}" Style="{StaticResource CenterLabel}" />
-                        <Label Text="| R " Style="{StaticResource CenterLabel}" />
+                        <Label Text=" R " Style="{StaticResource CenterLabel}" />
                         <Label Text="{Binding RangedDefense}" Style="{StaticResource CenterLabel}" />
                     </StackLayout>
                 </StackLayout>
                 <StackLayout HorizontalOptions="FillAndExpand">
                     <Label Text="Force Rating" Style="{StaticResource CenterBoldLabel}" />
                     <Label Text="{Binding ForceRating}" Style="{StaticResource CenterLabel}" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding TotalXP}" HorizontalOptions="Center"/>
+                    <Label Text="Total XP" Style="{StaticResource CenterBoldLabel}"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label Text="{Binding AvailableXP}" HorizontalOptions="Center"/>
+                    <Label Text="Available XP" Style="{StaticResource CenterBoldLabel}"/>
                 </StackLayout>
             </StackLayout>
 
@@ -85,7 +96,7 @@
         </StackLayout>
     </ContentPage>
 
-    <ContentPage Title="Skills">
+    <ContentPage Title="Stats">
         <StackLayout>
             <Label Text="Characteristics" Style="{StaticResource CenterBoldLabel}" />
             <StackLayout Orientation="Horizontal">

@@ -22,10 +22,12 @@ namespace StarWRPG.Models
             AvailableXP -= xp;
         }
 
-        public Experience()
+        public Experience() : this(0) { }
+
+        public Experience(uint xp)
         {
-            TotalXP = 0;
-            AvailableXP = 0;
+            TotalXP = xp;
+            AvailableXP = xp;
         }
     }
 }
