@@ -1,4 +1,6 @@
 using Xamarin.Forms;
+using StarWRPG.Models;
+using StarWRPG.Views;
 
 namespace StarWRPG
 {

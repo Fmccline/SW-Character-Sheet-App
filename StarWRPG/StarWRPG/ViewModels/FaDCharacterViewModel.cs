@@ -1,9 +1,10 @@
-﻿using System;
+﻿using StarWRPG.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace StarWRPG
+namespace StarWRPG.ViewModels
 {
     public class FaDCharacterViewModel : INotifyPropertyChanged
     {

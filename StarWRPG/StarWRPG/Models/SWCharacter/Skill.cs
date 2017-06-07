@@ -1,5 +1,5 @@
 ﻿using System;
-namespace StarWRPG
+namespace StarWRPG.Models
 {
 	public abstract class Skill : CharacteristicOrSkill
 	{

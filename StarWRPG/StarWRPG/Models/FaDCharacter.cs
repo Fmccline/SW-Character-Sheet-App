@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
-namespace StarWRPG
+namespace StarWRPG.Models
 {
     // FaDCharacter
     // Invariants:
@@ -21,17 +21,14 @@ namespace StarWRPG
 		public Threshold Wounds { get; set; }
 		public Threshold Strain { get; set; }
 		public Defense Defense { get; set; }
-		// Characteristics
 		public AgilityCharacteristic Agility { get; set; }
 		public BrawnCharacteristic Brawn { get; set; }
 		public CunningCharacteristic Cunning { get; set; }
 		public IntellectCharacteristic Intellect { get; set; }
 		public PresenceCharacteristic Presence { get; set; }
 		public WillpowerCharacteristic Willpower { get; set; }
-		// Skills
         public ObservableCollection<Skill> Skills { get; set; }
-
-		// XP
+		public Experience XP { get; set; }
 		// Motivations
 		// Emotional Strengths/Weaknesses
 		// Conflict and Morality
@@ -47,6 +44,7 @@ namespace StarWRPG
 			Defense = new Defense();
 			ForceRating = 0;
 			SoakValue = 0;
+            XP = new Experience();
 			initializeCharacteristics();
 			initializeSkills();
 		}
