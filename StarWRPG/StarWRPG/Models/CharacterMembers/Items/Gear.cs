@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StarWRPG.Models
 {
-    abstract class Gear : Item
+    public abstract class Gear : Item
     {
         public uint HardPoints { get; set; }
 

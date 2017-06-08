@@ -37,11 +37,10 @@
     </Compile>
     <Compile Include="Models\CharacterMembers\Items\Armor.cs" />
     <Compile Include="Models\CharacterMembers\Items\Gear.cs" />
+    <Compile Include="Models\CharacterMembers\Items\Inventory.cs" />
     <Compile Include="Models\CharacterMembers\Items\Item.cs" />
     <Compile Include="Models\CharacterMembers\Items\Weapon.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
-    <Compile Include="ViewModels\ItemViewModel.cs" />
-    <Compile Include="ViewModels\WeaponViewModel.cs" />
     <Compile Include="Views\FaDBasicInfoPage.xaml.cs">
       <DependentUpon>FaDBasicInfoPage.xaml</DependentUpon>
     </Compile>
@@ -69,6 +68,9 @@
     <Compile Include="Views\FaDStatsPage.xaml.cs">
       <DependentUpon>FaDStatsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FaDInventoryPage.xaml.cs">
+      <DependentUpon>FaDInventoryPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -92,6 +94,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\FaDStatsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\FaDInventoryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

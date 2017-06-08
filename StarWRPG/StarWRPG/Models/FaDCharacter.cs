@@ -34,7 +34,7 @@ namespace StarWRPG.Models
         public string EmotionalWeaknesses { get; set; }
 		public uint Conflict { get; set; }
         public uint Morality { get; set; }
-		public ObservableCollection<Item> Inventory { get; set; }
+		public Inventory Inventory { get; set; }
 		// Critical Injuries
 		// Talents
 		// Force Powers
@@ -47,6 +47,7 @@ namespace StarWRPG.Models
 			ForceRating = 0;
 			SoakValue = 0;
             XP = new Experience();
+            Inventory = new Inventory();
 			initializeCharacteristics();
 			initializeSkills();
 		}

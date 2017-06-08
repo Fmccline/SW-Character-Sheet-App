@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StarWRPG.Models
 {
-    class Weapon : Gear
+    public class Weapon : Gear
     {
         public uint Crit { get; set; }
         public uint Damage { get; set; }

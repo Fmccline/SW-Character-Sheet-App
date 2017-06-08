@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StarWRPG.Views.FaDInventoryPage"
+             Title="Inventory">
+    <StackLayout>
+        <ListView x:Name="Weapons" 
+                  ItemsSource="{Binding Weapons}">
+            <ListView.Header>
+                <Grid>
+                    <Label Grid.Column="0" Text="Name" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Text="Skill" FontAttributes="Bold"/>
+                    <Label Grid.Column="2" Text="Damage" FontAttributes="Bold"/>
+                    <Label Grid.Column="3" Text="Crit" FontAttributes="Bold"/>
+                    <Label Grid.Column="4" Text="Range" FontAttributes="Bold"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Label Grid.Column="0" Text="{Binding Name}"/>
+                            <Label Grid.Column="1" Text="{Binding Skill}"/>
+                            <Label Grid.Column="2" Text="{Binding Damage}"/>
+                            <Label Grid.Column="3" Text="{Binding Crit}"/>
+                            <Label Grid.Column="4" Text="{Binding Range}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="Armor" 
+                  ItemsSource="{Binding Armors}">
+            <ListView.Header>
+                <Grid>
+                    <Label Grid.Column="0" Text="Name" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Text="Soak" FontAttributes="Bold"/>
+                    <Label Grid.Column="2" Text="Ranged Defense" FontAttributes="Bold"/>
+                    <Label Grid.Column="3" Text="Melee Defense" FontAttributes="Bold"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Label Grid.Column="0" Text="{Binding Name}"/>
+                            <Label Grid.Column="1" Text="{Binding Soak}"/>
+                            <Label Grid.Column="2" Text="{Binding RangedDefense}"/>
+                            <Label Grid.Column="3" Text="{Binding MeleeDefense}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ListView x:Name="Items" 
+                  ItemsSource="{Binding Items}">
+            <ListView.Header>
+                <Grid>
+                    <Label Grid.Column="0" Text="Name" FontAttributes="Bold"/>
+                    <Label Grid.Column="1" Text="Description" FontAttributes="Bold"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Label Grid.Column="0" Text="{Binding Name}"/>
+                            <Label Grid.Column="1" Text="{Binding Description}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

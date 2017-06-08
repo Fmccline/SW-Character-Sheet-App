@@ -1,6 +1,7 @@
 using Xamarin.Forms;
 using StarWRPG.Models;
 using StarWRPG.Views;
+using System.Collections.ObjectModel;
 
 namespace StarWRPG
 {
@@ -9,6 +10,12 @@ namespace StarWRPG
 		public App()
 		{
 			InitializeComponent();
+
+            var inventory = new Inventory();
+            inventory.Add(new Item { Name = "Stimpack", Description = "Add 4 health" });
+            inventory.Add(new Weapon { Skill = "Ranged (light)", Name = "Blaster Pistol", Damage = 6, Crit = 3 });
+            inventory.Add(new Armor { Name = "Concealed Robes", RangedDefense = 1, MeleeDefense = 2, Soak = 2 });
+
 
             FaDCharacter FaDCharacter = new FaDCharacter(10, 12)
             {
@@ -26,6 +33,7 @@ namespace StarWRPG
                 EmotionalWeaknesses = "Reckless",
                 Conflict = 0,
                 Morality = 50,
+                Inventory = inventory,
 			};
 
 			MainPage = new FaDCharacterDetailsPage(FaDCharacter);

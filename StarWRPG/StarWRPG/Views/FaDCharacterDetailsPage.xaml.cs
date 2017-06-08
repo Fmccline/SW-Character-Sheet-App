@@ -16,6 +16,7 @@ namespace StarWRPG.Views
 
             Children.Add(new FaDBasicInfoPage(character));
             Children.Add(new FaDStatsPage(character));
+            Children.Add(new FaDInventoryPage(character.Inventory));
 		}
 	}
 }

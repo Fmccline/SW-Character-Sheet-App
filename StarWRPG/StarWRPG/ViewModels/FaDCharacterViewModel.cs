@@ -9,16 +9,12 @@ namespace StarWRPG.ViewModels
 {
     public class FaDCharacterViewModel : INotifyPropertyChanged
     {
-        FaDCharacter fadCharacter { get; set; }
+        FaDCharacter fadCharacter;
 
         public ObservableCollection<Skill> Skills
         {
             get { return fadCharacter.Skills; }
-
-            set
-            {
-                fadCharacter.Skills = value;
-            }
+            set { fadCharacter.Skills = value; }
         }
 
         public string Name
