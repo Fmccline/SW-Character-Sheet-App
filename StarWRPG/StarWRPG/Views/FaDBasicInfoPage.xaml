@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StarWRPG.Views.FaDBasicInfoPage"
+             Title="Basic Info">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CenterBoldLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <StackLayout>
+            <Label Text="Name" Style="{StaticResource CenterBoldLabel}" />
+            <Label Text="{Binding Name}" HorizontalOptions="Center" />
+            <Label Text="Species" Style="{StaticResource CenterBoldLabel}" />
+            <Label Text="{Binding Species}" HorizontalOptions="Center" />
+            <Label Text="Career" Style="{StaticResource CenterBoldLabel}" />
+            <Label Text="{Binding Career}" HorizontalOptions="Center" />
+            <Label Text="Specializations" Style="{StaticResource CenterBoldLabel}" />
+            <Label Text="{Binding SpecializationTrees}" HorizontalOptions="Center" />
+            <Label Text="Description" Style="{StaticResource CenterBoldLabel}"/>
+            <Label Text="{Binding Description}" HorizontalOptions="Center"/>
+            <Label Text="Background" Style="{StaticResource CenterBoldLabel}"/>
+            <Label Text="{Binding Background}" HorizontalOptions="Center"/>
+            <Label Text="Motivations" Style="{StaticResource CenterBoldLabel}"/>
+            <Label Text="{Binding Motivation}" HorizontalOptions="Center"/>
+            <StackLayout Orientation="Horizontal">
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Emotional Strengths" Style="{StaticResource CenterBoldLabel}"/>
+                    <Label Text="{Binding EmotionalStrengths}" HorizontalOptions="Center"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Emotional Weaknesses" Style="{StaticResource CenterBoldLabel}"/>
+                    <Label Text="{Binding EmotionalWeaknesses}" HorizontalOptions="Center"/>
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Morality" Style="{StaticResource CenterBoldLabel}"/>
+                    <Label Text="{Binding Morality}" HorizontalOptions="Center"/>
+                </StackLayout>
+                <StackLayout HorizontalOptions="CenterAndExpand">
+                    <Label Text="Conflict" Style="{StaticResource CenterBoldLabel}"/>
+                    <Label Text="{Binding Conflict}" HorizontalOptions="Center"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

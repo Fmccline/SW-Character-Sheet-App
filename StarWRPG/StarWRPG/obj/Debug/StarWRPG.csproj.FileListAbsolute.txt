@@ -28,3 +28,5 @@ C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWR
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\bin\Debug\Xamarin.Forms.Platform.pdb
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\bin\Debug\Xamarin.Forms.Xaml.pdb
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.FaDBasicInfoPage.xaml.g.cs
+C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.FaDStatsPage.xaml.g.cs

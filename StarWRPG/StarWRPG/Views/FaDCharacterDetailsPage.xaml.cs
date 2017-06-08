@@ -8,16 +8,14 @@ namespace StarWRPG.Views
 	{
         FaDCharacterViewModel fadCharacterViewModel;
 
-		public FaDCharacterDetailsPage(FaDCharacter FaDCharacter)
+		public FaDCharacterDetailsPage(FaDCharacter character)
 		{
 			InitializeComponent();
-            fadCharacterViewModel = new FaDCharacterViewModel(FaDCharacter);
+            fadCharacterViewModel = new FaDCharacterViewModel(character);
             BindingContext = fadCharacterViewModel;
-		}
 
-        void SkillSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            fadCharacterViewModel.SkillSelected(sender, e);
-        }
+            Children.Add(new FaDBasicInfoPage(character));
+            Children.Add(new FaDStatsPage(character));
+		}
 	}
 }
