@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using Xamarin.Forms;
 
 namespace StarWRPG.ViewModels
 {
@@ -263,7 +264,7 @@ namespace StarWRPG.ViewModels
                     fadCharacter.XP.SpendXP(availableXP - value);
                 }
                 OnPropertyChanged();
-            } 
+            }
         }
 
         public string Motivation
@@ -319,6 +320,15 @@ namespace StarWRPG.ViewModels
         public FaDCharacterViewModel(FaDCharacter character)
         {
             fadCharacter = character;
+        }
+
+        public void SkillSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e == null)
+                return;
+            // TODO: Change this to eventually do something else
+            Skill skill = (e.SelectedItem as Skill);
+            skill.Rank += 1;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -3,11 +3,11 @@ namespace StarWRPG.Models
 {
 	public abstract class CharacteristicOrSkill
 	{
-		uint maxRank = 5;
+		protected uint maxRank = 5;
 		protected uint rank { get; set; }
 
 		public abstract string Name { get; }
-		public uint Rank
+		public virtual uint Rank
 		{
 			get { return rank; }
 

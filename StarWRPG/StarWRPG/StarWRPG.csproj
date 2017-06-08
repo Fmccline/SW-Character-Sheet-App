@@ -35,6 +35,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\CharacterMembers\Inventory\Inventory.cs" />
+    <Compile Include="Models\CharacterMembers\Inventory\Item.cs" />
     <Compile Include="Views\FaDCharacterDetailsPage.xaml.cs">
       <DependentUpon>FaDCharacterDetailsPage.xaml</DependentUpon>
     </Compile>

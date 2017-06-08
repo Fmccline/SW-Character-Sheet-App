@@ -137,7 +137,9 @@
                     <Label Text="Pr" Style="{StaticResource CenterBoldLabel}" />
                 </StackLayout>
             </StackLayout>
-            <ListView x:Name="Skills" ItemsSource="{Binding Skills}">
+            <ListView x:Name="Skills" 
+                      ItemsSource="{Binding Skills}"
+                      ItemSelected="SkillSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

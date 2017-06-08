@@ -34,7 +34,7 @@ namespace StarWRPG.Models
         public string EmotionalWeaknesses { get; set; }
 		public uint Conflict { get; set; }
         public uint Morality { get; set; }
-		// Inventory (Holds equipped items)
+		public ObservableCollection<Item> Inventory { get; set; }
 		// Critical Injuries
 		// Talents
 		// Force Powers
