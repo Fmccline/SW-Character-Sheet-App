@@ -8,11 +8,14 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class FaDBasicInfoPage : ContentPage
     {
-        public FaDBasicInfoPage(FaDCharacter character)
+        FaDCharacterViewModel fadCharacterViewModel;
+
+        public FaDBasicInfoPage(FaDCharacterViewModel character)
         {
             InitializeComponent();
 
-            BindingContext = new FaDCharacterViewModel(character);
+            fadCharacterViewModel = character;
+            BindingContext = fadCharacterViewModel;
         }
     }
 }

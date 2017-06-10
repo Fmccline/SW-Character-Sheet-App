@@ -20,6 +20,8 @@ namespace StarWRPG.Views
         {
             InitializeComponent();
 
+            // TODO:
+            //      Make ctor take InventoryViewModel instead of Inventory object
             Inventory = new InventoryViewModel(inventory);
             BindingContext = Inventory;
         }
