@@ -313,6 +313,16 @@ namespace StarWRPG.ViewModels
             }
         }
 
+        public Inventory Inventory
+        {
+            get { return fadCharacter.Inventory; }
+            set
+            {
+                fadCharacter.Inventory = value;
+                OnPropertyChanged();
+            }
+        }
+
         public FaDCharacterViewModel(FaDCharacter character)
         {
             fadCharacter = character;

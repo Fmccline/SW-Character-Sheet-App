@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 
 namespace StarWRPG.ViewModels
 {
-    class InventoryViewModel
+    public class InventoryViewModel
     {
         public Inventory Inventory;
 

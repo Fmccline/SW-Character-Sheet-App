@@ -2,6 +2,7 @@ using Xamarin.Forms;
 using StarWRPG.Models;
 using StarWRPG.Views;
 using System.Collections.ObjectModel;
+using StarWRPG.ViewModels;
 
 namespace StarWRPG
 {
@@ -17,7 +18,7 @@ namespace StarWRPG
             inventory.Add(new Armor { Name = "Concealed Robes", RangedDefense = 1, MeleeDefense = 2, Soak = 2 });
 
 
-            FaDCharacter FaDCharacter = new FaDCharacter(10, 12)
+            FaDCharacter fadCharacter = new FaDCharacter(10, 12)
             {
                 Name = "Randy Randall",
                 Background = "Randy grew up on a farm.",
@@ -36,7 +37,9 @@ namespace StarWRPG
                 Inventory = inventory,
 			};
 
-			MainPage = new FaDCharacterDetailsPage(FaDCharacter);
+            FaDCharacterViewModel fadCharacterViewModel = new FaDCharacterViewModel(fadCharacter);
+
+			MainPage = new FaDCharacterDetailsPage(fadCharacterViewModel);
 		}
 
 		protected override void OnStart()
