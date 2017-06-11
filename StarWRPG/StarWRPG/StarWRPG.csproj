@@ -29,7 +29,7 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
-    <EmbeddedResource Include="Views\FaDCharacterDetailsPage.xaml" />
+    <EmbeddedResource Include="Views\FaDMainDetailPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -46,8 +46,8 @@
     <Compile Include="Views\FaDBasicInfoPage.xaml.cs">
       <DependentUpon>FaDBasicInfoPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FaDCharacterDetailsPage.xaml.cs">
-      <DependentUpon>FaDCharacterDetailsPage.xaml</DependentUpon>
+    <Compile Include="Views\FaDMainDetailPage.xaml.cs">
+      <DependentUpon>FaDMainDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\CharacterMembers\Experience.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
