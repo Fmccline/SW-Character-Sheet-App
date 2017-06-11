@@ -94,11 +94,21 @@
         <ListView x:Name="Skills" 
                   ItemsSource="{Binding Skills}"
                   ItemSelected="SkillSelected">
+            <ListView.Header>
+                <Grid>
+                    <Label Grid.Column="0" 
+                           Text="Name" 
+                           FontAttributes="Bold"/>
+                    <Label Grid.Column="1" 
+                           Text="Rank" 
+                           FontAttributes="Bold"/>
+                </Grid>
+            </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid>
-                            <Label Text="{Binding Name}"/>
+                            <Label Grid.Column="0" Text="{Binding Name}"/>
                             <Label Grid.Column="1" Text="{Binding Rank}"/>
                         </Grid>
                     </ViewCell>

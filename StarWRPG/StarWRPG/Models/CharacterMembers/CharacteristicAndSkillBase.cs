@@ -1,7 +1,7 @@
 ﻿using System;
 namespace StarWRPG.Models
 {
-	public abstract class CharacteristicOrSkill
+	public abstract class CharacterAndSkillBase
 	{
 		protected uint maxRank = 5;
 		protected uint rank { get; set; }
@@ -19,7 +19,7 @@ namespace StarWRPG.Models
 			}
 		}
 
-		protected CharacteristicOrSkill()
+		protected CharacterAndSkillBase()
 		{
 			Rank = 0;
 		}

@@ -18,7 +18,7 @@ namespace StarWRPG.Views
             BindingContext = fadCharacterViewModel;
         }
 
-        void SkillSelected(object sender, SelectedItemChangedEventArgs e)
+        public void SkillSelected(object sender, SelectedItemChangedEventArgs e)
         {
             fadCharacterViewModel.SkillSelected(sender, e);
         }

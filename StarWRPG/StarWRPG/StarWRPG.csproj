@@ -63,7 +63,7 @@
     <Compile Include="Models\CharacterMembers\Characteristics\WillpowerCharacteristic.cs" />
     <Compile Include="Models\CharacterMembers\Characteristics\PresenceCharacteristic.cs" />
     <Compile Include="Models\CharacterMembers\Skills\Skill.cs" />
-    <Compile Include="Models\CharacterMembers\CharacteristicOrSkill.cs" />
+    <Compile Include="Models\CharacterMembers\CharacteristicAndSkillBase.cs" />
     <Compile Include="Models\CharacterMembers\Skills\AstrogationSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\LightsaberSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\AthleticsSkill.cs" />

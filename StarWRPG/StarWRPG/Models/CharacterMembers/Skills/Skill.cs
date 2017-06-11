@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace StarWRPG.Models
 {
-	public abstract class Skill : CharacteristicOrSkill, INotifyPropertyChanged
+	public abstract class Skill : CharacterAndSkillBase, INotifyPropertyChanged
 	{
         bool isCareer { get; set; }
 
