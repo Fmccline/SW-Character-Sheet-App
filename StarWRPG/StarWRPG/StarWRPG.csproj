@@ -40,7 +40,9 @@
     <Compile Include="Models\CharacterMembers\Items\Inventory.cs" />
     <Compile Include="Models\CharacterMembers\Items\Item.cs" />
     <Compile Include="Models\CharacterMembers\Items\Weapon.cs" />
+    <Compile Include="ViewModelFactory.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\FaDBasicInfoPage.xaml.cs">
       <DependentUpon>FaDBasicInfoPage.xaml</DependentUpon>
     </Compile>

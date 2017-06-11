@@ -3,22 +3,34 @@ using StarWRPG.Models;
 using StarWRPG.Views;
 using System.Collections.ObjectModel;
 using StarWRPG.ViewModels;
+using System.Diagnostics;
 
 namespace StarWRPG
 {
-	public partial class App : Application
-	{
-		public App()
-		{
-			InitializeComponent();
+    public partial class App : Application
+    {
+        FaDCharacter fadCharacter;
+        //static ViewModelFactory viewModelFactory { get; set; }
+        public static ViewModelFactory ViewModelFactory { get; private set; }
 
+        public App()
+        {
+            InitializeComponent();
+
+            fadCharacter = createCharacter();
+            ViewModelFactory = new ViewModelFactory(fadCharacter);
+
+            MainPage = new FaDCharacterDetailsPage();
+        }
+
+        FaDCharacter createCharacter()
+        {
             var inventory = new Inventory();
             inventory.Add(new Item { Name = "Stimpack", Description = "Add 4 health" });
             inventory.Add(new Weapon { Skill = "Ranged (light)", Name = "Blaster Pistol", Damage = 6, Crit = 3 });
             inventory.Add(new Armor { Name = "Concealed Robes", RangedDefense = 1, MeleeDefense = 2, Soak = 2 });
 
-
-            FaDCharacter fadCharacter = new FaDCharacter(10, 12)
+            return new FaDCharacter(10, 12)
             {
                 Name = "Randy Randall",
                 Background = "Randy grew up on a farm.",
@@ -35,12 +47,8 @@ namespace StarWRPG
                 Conflict = 0,
                 Morality = 50,
                 Inventory = inventory,
-			};
-
-            FaDCharacterViewModel fadCharacterViewModel = new FaDCharacterViewModel(fadCharacter);
-
-			MainPage = new FaDCharacterDetailsPage(fadCharacterViewModel);
-		}
+            };
+        }
 
 		protected override void OnStart()
 		{
@@ -49,12 +57,12 @@ namespace StarWRPG
 
 		protected override void OnSleep()
 		{
-			// Handle when your app sleeps
-		}
 
-		protected override void OnResume()
+        }
+
+        protected override void OnResume()
 		{
-			// Handle when your app resumes
-		}
+
+        }
 	}
 }

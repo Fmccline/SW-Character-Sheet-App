@@ -8,15 +8,15 @@ namespace StarWRPG.Views
 	{
         FaDCharacterViewModel fadCharacterViewModel;
 
-		public FaDCharacterDetailsPage(FaDCharacterViewModel characterViewModel)
+		public FaDCharacterDetailsPage()
 		{
 			InitializeComponent();
-            fadCharacterViewModel = characterViewModel;
+            fadCharacterViewModel = App.ViewModelFactory.FaDCharacterViewModel();
             BindingContext = fadCharacterViewModel;
 
-            Children.Add(new FaDBasicInfoPage(fadCharacterViewModel));
-            Children.Add(new FaDStatsPage(fadCharacterViewModel));
-            Children.Add(new FaDInventoryPage(new InventoryViewModel(fadCharacterViewModel.Inventory)));
+            Children.Add(new FaDBasicInfoPage());
+            Children.Add(new FaDStatsPage());
+            Children.Add(new FaDInventoryPage());
 		}
 	}
 }

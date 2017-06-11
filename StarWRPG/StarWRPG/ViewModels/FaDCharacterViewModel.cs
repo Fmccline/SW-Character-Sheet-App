@@ -7,7 +7,7 @@ using Xamarin.Forms;
 
 namespace StarWRPG.ViewModels
 {
-    public class FaDCharacterViewModel : INotifyPropertyChanged
+    public class FaDCharacterViewModel : ViewModelBase
     {
         FaDCharacter fadCharacter;
 
@@ -335,13 +335,6 @@ namespace StarWRPG.ViewModels
             // TODO: Change this to eventually do something else
             Skill skill = (e.SelectedItem as Skill);
             skill.Rank += 1;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }

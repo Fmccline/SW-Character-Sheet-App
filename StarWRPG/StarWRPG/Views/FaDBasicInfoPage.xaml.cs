@@ -10,11 +10,11 @@ namespace StarWRPG.Views
     {
         FaDCharacterViewModel fadCharacterViewModel;
 
-        public FaDBasicInfoPage(FaDCharacterViewModel character)
+        public FaDBasicInfoPage()
         {
             InitializeComponent();
 
-            fadCharacterViewModel = character;
+            fadCharacterViewModel = App.ViewModelFactory.FaDCharacterViewModel();
             BindingContext = fadCharacterViewModel;
         }
     }

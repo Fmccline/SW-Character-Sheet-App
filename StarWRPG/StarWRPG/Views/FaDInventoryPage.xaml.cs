@@ -16,13 +16,11 @@ namespace StarWRPG.Views
     {
         InventoryViewModel Inventory;
 
-        public FaDInventoryPage(InventoryViewModel inventory)
+        public FaDInventoryPage()
         {
             InitializeComponent();
 
-            // TODO:
-            //      Make ctor take InventoryViewModel instead of Inventory object
-            Inventory = inventory;
+            Inventory = App.ViewModelFactory.InventoryViewModel();
             BindingContext = Inventory;
         }
     }
