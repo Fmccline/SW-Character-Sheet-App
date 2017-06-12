@@ -35,7 +35,8 @@ namespace StarWRPG.Models
 		public uint Conflict { get; set; }
         public uint Morality { get; set; }
 		public Inventory Inventory { get; set; }
-		// Critical Injuries
+		public ObservableCollection<CriticalInjury> CriticalInjuries { get; set; }
+
 		// Talents
 		// Force Powers
 
