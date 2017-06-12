@@ -1,34 +1,21 @@
 ﻿using StarWRPG.Models;
 using System.Collections.ObjectModel;
+using System;
 
 namespace StarWRPG.ViewModels
 {
-    public class SkillsViewModel : ViewModelBase
+    public class SkillsViewModel : ViewModelCollection<SkillViewModel, Skill>
     {
-        public ObservableCollection<SkillViewModel> Skills { get; private set; }
-        ObservableCollection<Skill> skills { get; set; }
+        public SkillsViewModel(ObservableCollection<Skill> collection) : base(collection) { }
 
-        public SkillsViewModel(ObservableCollection<Skill> s)
+        protected override SkillViewModel createViewModel(Skill model)
         {
-            skills = s;
-            Skills = new ObservableCollection<SkillViewModel>();
-            foreach (Skill skill in skills)
-            {
-                Skills.Add(new SkillViewModel(skill));
-            }
+            return new SkillViewModel(model);
         }
 
-        public void AddSkill(SkillViewModel skill)
+        protected override bool viewModelContainsModel(SkillViewModel viewModel, Skill model)
         {
-            skills.Add(skill.Skill);
-            Skills.Add(skill);
+            return (viewModel.Skill == model);
         }
-
-        public void RemoveSkill(SkillViewModel skill)
-        {
-            skills.Remove(skill.Skill);
-            Skills.Remove(skill);
-        }
-
     }
 }

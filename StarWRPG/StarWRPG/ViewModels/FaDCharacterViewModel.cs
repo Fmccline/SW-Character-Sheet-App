@@ -15,7 +15,7 @@ namespace StarWRPG.ViewModels
 
         public ObservableCollection<SkillViewModel> Skills
         {
-            get { return SkillsViewModel.Skills; }
+            get { return SkillsViewModel.ViewModels; }
         }
 
         public string Name
@@ -327,7 +327,7 @@ namespace StarWRPG.ViewModels
         public FaDCharacterViewModel(FaDCharacter character)
         {
             fadCharacter = character;
-            SkillsViewModel = new SkillsViewModel(fadCharacter.Skills);
+            SkillsViewModel = App.ViewModelFactory.SkillsViewModel();
         }
 
         public void SkillSelected(object sender, SelectedItemChangedEventArgs e)
