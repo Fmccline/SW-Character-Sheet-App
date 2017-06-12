@@ -36,9 +36,7 @@ namespace StarWRPG.Models
         public uint Morality { get; set; }
 		public Inventory Inventory { get; set; }
 		public ObservableCollection<CriticalInjury> CriticalInjuries { get; set; }
-
-		// Talents
-		// Force Powers
+        public ObservableCollection<Talent> Talents { get; set; }
 
 		public FaDCharacter(uint maxWound, uint maxStrain)
 		{
@@ -49,6 +47,8 @@ namespace StarWRPG.Models
 			SoakValue = 0;
             XP = new Experience();
             Inventory = new Inventory();
+            CriticalInjuries = new ObservableCollection<CriticalInjury>();
+            Talents = new ObservableCollection<Talent>();
 			initializeCharacteristics();
 			initializeSkills();
 		}

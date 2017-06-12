@@ -35,11 +35,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\CharacterMembers\CriticalInjury.cs" />
     <Compile Include="Models\CharacterMembers\Items\Armor.cs" />
     <Compile Include="Models\CharacterMembers\Items\Gear.cs" />
     <Compile Include="Models\CharacterMembers\Items\Inventory.cs" />
     <Compile Include="Models\CharacterMembers\Items\Item.cs" />
     <Compile Include="Models\CharacterMembers\Items\Weapon.cs" />
+    <Compile Include="Models\CharacterMembers\Talent.cs" />
     <Compile Include="ViewModelFactory.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
