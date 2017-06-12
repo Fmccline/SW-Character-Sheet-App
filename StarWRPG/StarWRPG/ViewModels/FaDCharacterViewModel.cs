@@ -11,11 +11,10 @@ namespace StarWRPG.ViewModels
     {
         FaDCharacter fadCharacter;
 
-        public SkillsViewModel SkillsViewModel;
-
-        public ObservableCollection<SkillViewModel> Skills
+        public ObservableCollection<Skill> Skills
         {
-            get { return SkillsViewModel.ViewModels; }
+            get { return fadCharacter.Skills; }
+            set { fadCharacter.Skills = value; }
         }
 
         public string Name
@@ -327,7 +326,6 @@ namespace StarWRPG.ViewModels
         public FaDCharacterViewModel(FaDCharacter character)
         {
             fadCharacter = character;
-            SkillsViewModel = App.ViewModelFactory.SkillsViewModel();
         }
 
         public void SkillSelected(object sender, SelectedItemChangedEventArgs e)
@@ -335,7 +333,7 @@ namespace StarWRPG.ViewModels
             if (e == null)
                 return;
             // TODO: Change this to eventually do something else
-            SkillViewModel skill = (e.SelectedItem as SkillViewModel);
+            Skill skill = (e.SelectedItem as Skill);
             skill.Rank += 1;
         }
 

@@ -8,7 +8,16 @@ namespace StarWRPG.Models
 {
     public abstract class Gear : Item
     {
-        public uint HardPoints { get; set; }
+        uint hardPoints { get; set; }
+        public uint HardPoints
+        {
+            get { return hardPoints; }
+            set
+            {
+                hardPoints = value;
+                OnPropertyChanged();
+            }
+        }
 
         public Gear()
         {

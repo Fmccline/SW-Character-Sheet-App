@@ -10,9 +10,37 @@ namespace StarWRPG.Models
     ///     Defense and Soak are initialized
     public class Armor : Gear
     {
-        public uint RangedDefense { get; set; }
-        public uint MeleeDefense { get; set; }
-        public uint Soak { get; set; }
+        uint rangedDefense { get; set; }
+        uint meleeDefense { get; set; }
+        uint soak { get; set; }
+
+        public uint RangedDefense
+        {
+            get { return rangedDefense; }
+            set
+            {
+                rangedDefense = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint MeleeDefense
+        {
+            get { return meleeDefense; }
+            set
+            {
+                meleeDefense = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint Soak
+        {
+            get { return soak; }
+            set
+            {
+                soak = value;
+                OnPropertyChanged();
+            }
+        }
 
         public Armor()
         {

@@ -26,10 +26,5 @@ namespace StarWRPG
         {
             return new InventoryViewModel(FaDCharacter.Inventory);
         }
-
-        public SkillsViewModel SkillsViewModel()
-        {
-            return new SkillsViewModel(FaDCharacter.Skills);
-        }
     }
 }
