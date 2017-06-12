@@ -45,6 +45,8 @@ namespace StarWRPG.Models
 			Defense = new Defense();
 			ForceRating = 0;
 			SoakValue = 0;
+            Conflict = 0;
+            Morality = 0;
             XP = new Experience();
             Inventory = new Inventory();
             CriticalInjuries = new ObservableCollection<CriticalInjury>();

@@ -11,7 +11,7 @@ namespace StarWRPG.Models
 			Characteristic = c;
 		}
 
-		public override string SkillName
+		protected override string SkillName
         {
 			get
 			{

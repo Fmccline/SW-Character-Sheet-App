@@ -5,7 +5,7 @@ namespace StarWRPG.Models
 	{
         public AstrogationSkill(Characteristic c) : base(c) { }
 
-        public override string SkillName
+        protected override string SkillName
 		{
 			get
 			{

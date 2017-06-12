@@ -44,6 +44,8 @@
     <Compile Include="Models\CharacterMembers\Talent.cs" />
     <Compile Include="ViewModelFactory.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
+    <Compile Include="ViewModels\Skills\SkillsViewModel.cs" />
+    <Compile Include="ViewModels\Skills\SkillViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\FaDBasicInfoPage.xaml.cs">
       <DependentUpon>FaDBasicInfoPage.xaml</DependentUpon>
