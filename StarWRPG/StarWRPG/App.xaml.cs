@@ -10,7 +10,6 @@ namespace StarWRPG
     public partial class App : Application
     {
         FaDCharacter fadCharacter;
-        //static ViewModelFactory viewModelFactory { get; set; }
         public static ViewModelFactory ViewModelFactory { get; private set; }
 
         public App()
@@ -20,7 +19,8 @@ namespace StarWRPG
             fadCharacter = createCharacter();
             ViewModelFactory = new ViewModelFactory(fadCharacter);
 
-            MainPage = new FaDMainDetailPage();
+            //MainPage = new FaDMainDetailPage();
+            MainPage = new MainMasterDetailPage();
         }
 
         FaDCharacter createCharacter()
