@@ -10,7 +10,20 @@ namespace StarWRPG
     public partial class App : Application
     {
         FaDCharacter fadCharacter;
+        static CharacterDatabase characterDatabase;
+        public static CharacterDatabase CharacterDatabase
+        {
+            get
+            {
+                if (characterDatabase == null)
+                {
+                    characterDatabase = new CharacterDatabase(DependencyService.Get<IFileHelper>().GetLocalFilePath("CharacterSQLite.db3"));
+                }
+                return characterDatabase;
+            }
+        }
         public static ViewModelFactory ViewModelFactory { get; private set; }
+
 
         public App()
         {
