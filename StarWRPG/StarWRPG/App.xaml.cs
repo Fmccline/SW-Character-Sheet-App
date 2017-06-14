@@ -4,6 +4,7 @@ using StarWRPG.Views;
 using System.Collections.ObjectModel;
 using StarWRPG.ViewModels;
 using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace StarWRPG
 {
@@ -30,9 +31,9 @@ namespace StarWRPG
             InitializeComponent();
 
             fadCharacter = createCharacter();
+
             ViewModelFactory = new ViewModelFactory(fadCharacter);
 
-            //MainPage = new FaDMainDetailPage();
             MainPage = new MainMasterDetailPage();
         }
 
@@ -63,19 +64,19 @@ namespace StarWRPG
             };
         }
 
-		protected override void OnStart()
-		{
-			// Handle when your app starts
-		}
+        protected override void OnStart()
+        {
+            // Handle when your app starts
+        }
 
-		protected override void OnSleep()
-		{
+        protected override void OnSleep()
+        {
 
         }
 
         protected override void OnResume()
-		{
+        {
 
         }
-	}
+    }
 }

@@ -107,66 +107,66 @@ namespace StarWRPG.ViewModels
 
         public uint CurrentWounds
         {
-            get { return fadCharacter.Wounds.Current; }
+            get { return fadCharacter.CurrentWounds; }
 
             set
             {
-                fadCharacter.Wounds.Current = value;
+                fadCharacter.CurrentWounds = value;
                 OnPropertyChanged();
             }
         }
 
         public uint MaxWounds
         {
-            get { return fadCharacter.Wounds.Max; }
+            get { return fadCharacter.MaxWounds; }
 
             set
             {
-                fadCharacter.Wounds.Max = value;
+                fadCharacter.MaxWounds = value;
                 OnPropertyChanged();
             }
         }
 
         public uint CurrentStrain
         {
-            get { return fadCharacter.Strain.Current; }
+            get { return fadCharacter.CurrentStrain; }
 
             set
             {
-                fadCharacter.Strain.Current = value;
+                fadCharacter.CurrentStrain = value;
                 OnPropertyChanged();
             }
         }
 
         public uint MaxStrain
         {
-            get { return fadCharacter.Strain.Max; }
+            get { return fadCharacter.MaxStrain; }
 
             set
             {
-                fadCharacter.Strain.Max = value;
+                fadCharacter.MaxStrain = value;
                 OnPropertyChanged();
             }
         }
 
         public uint RangedDefense
         {
-            get { return fadCharacter.Defense.Ranged; }
+            get { return fadCharacter.RangedDefense; }
 
             set
             {
-                fadCharacter.Defense.Ranged = value;
+                fadCharacter.RangedDefense = value;
                 OnPropertyChanged();
             }
         }
 
         public uint MeleeDefense
         {
-            get { return fadCharacter.Defense.Melee; }
+            get { return fadCharacter.MeleeDefense; }
 
             set
             {
-                fadCharacter.Defense.Melee = value;
+                fadCharacter.MeleeDefense = value;
                 OnPropertyChanged();
             }
         }
