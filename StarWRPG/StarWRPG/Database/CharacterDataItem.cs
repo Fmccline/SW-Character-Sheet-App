@@ -3,6 +3,7 @@ using SQLite;
 using StarWRPG.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,9 @@ namespace StarWRPG
 {
     public class CharacterDataItem
     {
-        [PrimaryKey]
-        public uint ID { get; set; }
-        private string CharacterAsJson { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int ID { get; set; }
+        public string CharacterAsJson { get; private set; }
 
         JsonSerializerSettings serializerSettings;
 
@@ -38,7 +39,17 @@ namespace StarWRPG
 
         public FaDCharacter GetCharacter()
         {
-            return JsonConvert.DeserializeObject<FaDCharacter>(CharacterAsJson, serializerSettings);
+            try
+            {
+                return JsonConvert.DeserializeObject<FaDCharacter>(CharacterAsJson, serializerSettings);
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.StackTrace);
+                Debug.WriteLine(e.Source);
+                Debug.WriteLine(e.Message);
+                throw (e);
+            }
         }
     }
 }

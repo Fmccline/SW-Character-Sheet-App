@@ -30,6 +30,8 @@ namespace StarWRPG
         {
             InitializeComponent();
 
+            //CharacterDatabase.DeleteAllItems();
+
             fadCharacter = createCharacter();
 
             ViewModelFactory = new ViewModelFactory(fadCharacter);
@@ -44,13 +46,15 @@ namespace StarWRPG
             inventory.Add(new Weapon { Skill = "Ranged (light)", Name = "Blaster Pistol", Damage = 6, Crit = 3 });
             inventory.Add(new Armor { Name = "Concealed Robes", RangedDefense = 1, MeleeDefense = 2, Soak = 2 });
 
-            return new FaDCharacter(10, 12)
+            return new FaDCharacter()
             {
                 Name = "Randy Randall",
                 Background = "Randy grew up on a farm.",
                 Description = "Tall, slender guy with short black hair.",
                 Species = "Human",
                 Career = "Consular",
+                MaxStrain = 12,
+                MaxWounds = 10,
                 SpecializationTrees = "Makashi Duelist",
                 ForceRating = 1,
                 SoakValue = 3,

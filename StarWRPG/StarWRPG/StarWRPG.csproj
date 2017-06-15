@@ -31,15 +31,15 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
-    <EmbeddedResource Include="Views\CharacterDetailPage\FaDMainDetailPage.xaml" />
+    <EmbeddedResource Include="Views\CharacterDetail\FaDMainDetailPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="CharacterDatabase.cs" />
-    <Compile Include="CharacterDataItem.cs" />
-    <Compile Include="IFileHelper.cs" />
+    <Compile Include="Database\CharacterDatabase.cs" />
+    <Compile Include="Database\CharacterDataItem.cs" />
+    <Compile Include="Database\IFileHelper.cs" />
     <Compile Include="Models\CharacterMembers\CriticalInjury.cs" />
     <Compile Include="Models\CharacterMembers\Items\Armor.cs" />
     <Compile Include="Models\CharacterMembers\Items\Gear.cs" />
@@ -50,20 +50,18 @@
     <Compile Include="ViewModelFactory.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
-    <Compile Include="Views\CharacterCreationPage.xaml.cs">
+    <Compile Include="Views\CharacterCreation\CharacterCreationPage.xaml.cs">
       <DependentUpon>CharacterCreationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterDetailPage\FaDBasicInfoPage.xaml.cs">
+    <Compile Include="Views\CharacterDetail\FaDBasicInfoPage.xaml.cs">
       <DependentUpon>FaDBasicInfoPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterDetailPage\FaDMainDetailPage.xaml.cs">
+    <Compile Include="Views\CharacterDetail\FaDMainDetailPage.xaml.cs">
       <DependentUpon>FaDMainDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\CharacterMembers\Experience.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\FaDCharacter.cs" />
-    <Compile Include="Models\CharacterMembers\Threshold.cs" />
-    <Compile Include="Models\CharacterMembers\Defense.cs" />
     <Compile Include="ViewModels\FaDCharacterViewModel.cs" />
     <Compile Include="Models\CharacterMembers\Characteristics\Characteristic.cs" />
     <Compile Include="Models\CharacterMembers\Characteristics\BrawnCharacteristic.cs" />
@@ -77,10 +75,10 @@
     <Compile Include="Models\CharacterMembers\Skills\AstrogationSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\LightsaberSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\AthleticsSkill.cs" />
-    <Compile Include="Views\CharacterDetailPage\FaDStatsPage.xaml.cs">
+    <Compile Include="Views\CharacterDetail\FaDStatsPage.xaml.cs">
       <DependentUpon>FaDStatsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterDetailPage\FaDInventoryPage.xaml.cs">
+    <Compile Include="Views\CharacterDetail\FaDInventoryPage.xaml.cs">
       <DependentUpon>FaDInventoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage\MainMasterDetailPage.xaml.cs">
@@ -92,19 +90,19 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterDetailPage\FaDBasicInfoPage.xaml">
+    <EmbeddedResource Include="Views\CharacterDetail\FaDBasicInfoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterDetailPage\FaDStatsPage.xaml">
+    <EmbeddedResource Include="Views\CharacterDetail\FaDStatsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterDetailPage\FaDInventoryPage.xaml">
+    <EmbeddedResource Include="Views\CharacterDetail\FaDInventoryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -116,7 +114,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterCreationPage.xaml">
+    <EmbeddedResource Include="Views\CharacterCreation\CharacterCreationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

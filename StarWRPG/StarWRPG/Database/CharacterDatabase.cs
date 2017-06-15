@@ -2,6 +2,7 @@
 using StarWRPG.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,30 @@ namespace StarWRPG
         {
             database = new SQLiteAsyncConnection(dbPath);
             database.CreateTableAsync<CharacterDataItem>().Wait();
+        }
+
+        // TODO: Remove this method eventually
+        public async void DeleteAllItems()
+        {
+            var items = await database.Table<CharacterDataItem>().ToListAsync();
+            foreach (var item in items)
+            {
+                await database.DeleteAsync(item);
+            }
+        }
+
+        public async Task<List<FaDCharacter>> GetCharactersAsync()
+        {
+            var characters = new List<FaDCharacter>();
+            var characterDataItems = await database.Table<CharacterDataItem>().ToListAsync();
+            if (characterDataItems.Count > 0)
+            {
+                foreach (CharacterDataItem character in characterDataItems)
+                {
+                    characters.Add(character.GetCharacter());
+                }
+            }
+            return characters;
         }
 
         public Task<List<CharacterDataItem>> GetItemsAsync()

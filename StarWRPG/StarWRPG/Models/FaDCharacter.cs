@@ -5,8 +5,8 @@ using System.Collections.ObjectModel;
 
 namespace StarWRPG.Models
 {
-	public class FaDCharacter
-	{
+    public class FaDCharacter
+    {
         // If any change happens here, change should also happen in the ViewModel!
         public string Background { get; set; }
         public string Career { get; set; }
@@ -29,12 +29,12 @@ namespace StarWRPG.Models
         public uint RangedDefense { get; set; }
         public uint SoakValue { get; set; }
 
-		public AgilityCharacteristic Agility { get; set; }
-		public BrawnCharacteristic Brawn { get; set; }
-		public CunningCharacteristic Cunning { get; set; }
-		public IntellectCharacteristic Intellect { get; set; }
-		public PresenceCharacteristic Presence { get; set; }
-		public WillpowerCharacteristic Willpower { get; set; }
+        public AgilityCharacteristic Agility { get; set; }
+        public BrawnCharacteristic Brawn { get; set; }
+        public CunningCharacteristic Cunning { get; set; }
+        public IntellectCharacteristic Intellect { get; set; }
+        public PresenceCharacteristic Presence { get; set; }
+        public WillpowerCharacteristic Willpower { get; set; }
 
         public ObservableCollection<CriticalInjury> CriticalInjuries { get; set; }
         public ObservableCollection<Skill> Skills { get; set; }
@@ -43,46 +43,56 @@ namespace StarWRPG.Models
         public Inventory Inventory { get; set; }
         public Experience XP { get; set; }
 
-        public FaDCharacter() : this(0, 0) { }
+        public FaDCharacter()
+        {
+            Background = "";
+            Career = "";
+            Description = "";
+            EmotionalStrengths = "";
+            EmotionalWeaknesses = "";
+            Motivation = "";
+            Name = "";
+            SpecializationTrees = "";
+            Species = "";
 
-		public FaDCharacter(uint maxWound, uint maxStrain)
-		{
-            MaxStrain = maxStrain;
-            MaxWounds = maxWound;
+            Conflict = 0;
             CurrentStrain = 0;
             CurrentWounds = 0;
+            ForceRating = 0;
+            MaxWounds = 0;
+            MaxStrain = 0;
             MeleeDefense = 0;
-            RangedDefense = 0;
-			ForceRating = 0;
-			SoakValue = 0;
-            Conflict = 0;
             Morality = 0;
-            XP = new Experience();
-            Inventory = new Inventory();
+            RangedDefense = 0;
+            SoakValue = 0;
+
             CriticalInjuries = new ObservableCollection<CriticalInjury>();
+            Inventory = new Inventory();
             Talents = new ObservableCollection<Talent>();
-			initializeCharacteristics();
-			initializeSkills();
-		}
+            XP = new Experience();
 
-		void initializeCharacteristics()
-		{
-			Agility = new AgilityCharacteristic();
-			Brawn = new BrawnCharacteristic();
-			Cunning = new CunningCharacteristic();
-			Intellect = new IntellectCharacteristic();
-			Presence = new PresenceCharacteristic();
-			Willpower = new WillpowerCharacteristic();
-		}
+            initializeCharacteristics();
+            initializeSkills();
+        }
 
-		void initializeSkills()
-		{
+        void initializeCharacteristics()
+        {
+            Agility = new AgilityCharacteristic();
+            Brawn = new BrawnCharacteristic();
+            Cunning = new CunningCharacteristic();
+            Intellect = new IntellectCharacteristic();
+            Presence = new PresenceCharacteristic();
+            Willpower = new WillpowerCharacteristic();
+        }
+
+        void initializeSkills()
+        {
             Skills = new ObservableCollection<Skill>
             {
                 new AstrogationSkill(Intellect),
                 new AthleticsSkill(Brawn),
                 new LightsaberSkill(Brawn),
             };
-		}
+        }
     }
 }
