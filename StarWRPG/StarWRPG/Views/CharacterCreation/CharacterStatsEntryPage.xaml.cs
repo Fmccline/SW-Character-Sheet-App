@@ -20,7 +20,6 @@ namespace StarWRPG.Views
             InitializeComponent();
             fadCharacterViewModel = characterViewModel;
             BindingContext = fadCharacterViewModel;
-
             MainStackLayout.Children.Insert(0, new CharacterCreationNavigationButtons(fadCharacterViewModel, GetType()));
         }
     }
