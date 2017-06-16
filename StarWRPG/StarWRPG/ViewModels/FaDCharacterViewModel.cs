@@ -323,6 +323,8 @@ namespace StarWRPG.ViewModels
             }
         }
 
+        public FaDCharacterViewModel() : this(new FaDCharacter()) { }
+
         public FaDCharacterViewModel(FaDCharacter character)
         {
             fadCharacter = character;

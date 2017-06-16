@@ -50,8 +50,8 @@
     <Compile Include="ViewModelFactory.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
-    <Compile Include="Views\CharacterCreation\CharacterCreationPage.xaml.cs">
-      <DependentUpon>CharacterCreationPage.xaml</DependentUpon>
+    <Compile Include="Views\CharacterCreation\CharacterBasicInfoEntryPage.xaml.cs">
+      <DependentUpon>CharacterBasicInfoEntryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CharacterDetail\FaDBasicInfoPage.xaml.cs">
       <DependentUpon>FaDBasicInfoPage.xaml</DependentUpon>
@@ -81,6 +81,13 @@
     <Compile Include="Views\CharacterDetail\FaDInventoryPage.xaml.cs">
       <DependentUpon>FaDInventoryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CharacterCreation\CharacterStatsEntryPage.xaml.cs">
+      <DependentUpon>CharacterStatsEntryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CharacterCreation\CharacterInventoryEntryPage.xaml.cs">
+      <DependentUpon>CharacterInventoryEntryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CharacterCreation\EditorPage.cs" />
     <Compile Include="Views\MainPage\MainMasterDetailPage.xaml.cs">
       <DependentUpon>MainMasterDetailPage.xaml</DependentUpon>
     </Compile>
@@ -88,6 +95,8 @@
     <Compile Include="Views\MainPage\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CharacterCreationNavigationButtons.cs" />
+    <Compile Include="Views\ToPageButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\CharacterDetail\FaDBasicInfoPage.xaml">
@@ -109,12 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\MainPage\MainMasterDetailPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterCreation\CharacterCreationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -153,6 +156,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CharacterCreation\CharacterBasicInfoEntryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CharacterCreation\CharacterStatsEntryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CharacterCreation\CharacterInventoryEntryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />

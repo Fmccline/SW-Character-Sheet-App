@@ -6,7 +6,7 @@ namespace StarWRPG.Views
 {
 	public partial class FaDMainDetailPage : TabbedPage
 	{
-		public FaDMainDetailPage()
+		public FaDMainDetailPage(FaDCharacterViewModel character)
 		{
 			InitializeComponent();
 		}

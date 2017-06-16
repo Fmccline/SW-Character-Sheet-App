@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:StarWRPG.Views" 
+             Title="Basic Info"
+             x:Class="StarWRPG.Views.CharacterBasicInfoEntryPage">
+
+    <StackLayout x:Name="MainStackLayout">
+        <Entry Placeholder="Name" Text="{Binding Name}"/>
+        <Entry Placeholder="Species" Text="{Binding Species}"/>
+        <Entry Placeholder="Career" Text="{Binding Career}"/>
+        <Entry Placeholder="Specialization Trees" Text="{Binding SpecializationTrees}"/>
+        <Label Text="Description" FontAttributes="Bold"/>
+        <Label Text="{Binding Description}"/>
+        <Button Text="Edit" Clicked="EditDescriptionAsync"/>
+
+    </StackLayout>
+</ContentPage>

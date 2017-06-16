@@ -40,4 +40,6 @@ C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWR
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.CharacterDetail.FaDBasicInfoPage.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.CharacterDetail.FaDStatsPage.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.CharacterDetail.FaDInventoryPage.xaml.g.cs
-C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.CharacterCreation.CharacterCreationPage.xaml.g.cs
+C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.CharacterCreation.CharacterBasicInfoEntryPage.xaml.g.cs
+C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.CharacterCreation.CharacterStatsEntryPage.xaml.g.cs
+C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.CharacterCreation.CharacterInventoryEntryPage.xaml.g.cs
