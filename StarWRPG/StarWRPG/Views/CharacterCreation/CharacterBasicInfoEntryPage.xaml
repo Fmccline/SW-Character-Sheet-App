@@ -5,14 +5,53 @@
              Title="Basic Info"
              x:Class="StarWRPG.Views.CharacterBasicInfoEntryPage">
 
-    <StackLayout x:Name="MainStackLayout">
-        <Entry Placeholder="Name" Text="{Binding Name}"/>
-        <Entry Placeholder="Species" Text="{Binding Species}"/>
-        <Entry Placeholder="Career" Text="{Binding Career}"/>
-        <Entry Placeholder="Specialization Trees" Text="{Binding SpecializationTrees}"/>
-        <Label Text="Description" FontAttributes="Bold"/>
-        <Label Text="{Binding Description}"/>
-        <Button Text="Edit" Clicked="EditDescriptionAsync"/>
+    <ScrollView>
+        <StackLayout x:Name="MainStackLayout">
+            <Entry Placeholder="Name" Text="{Binding Name}"/>
+            <Entry Placeholder="Species" Text="{Binding Species}"/>
+            <Entry Placeholder="Career" Text="{Binding Career}"/>
+            <Entry Placeholder="Specialization Trees" Text="{Binding SpecializationTrees}"/>
 
-    </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Description" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+                <Button x:Name="EditDescriptionButton"
+                    Text="Edit" 
+                    Clicked="EditValueAsync"
+                    VerticalOptions="Center"/>
+            </StackLayout>
+            <Label Text="{Binding Description}"/>
+            
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Background" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+                <Button x:Name="EditBackgroundButton" 
+                    Text="Edit" 
+                    Clicked="EditValueAsync"
+                    VerticalOptions="Center"/>
+            </StackLayout>
+            <Label Text="{Binding Background}"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Motivations" 
+                   FontAttributes="Bold"
+                   VerticalOptions="Center"/>
+                <Button x:Name="EditMotivationsButton" 
+                    Text="Edit" 
+                    Clicked="EditValueAsync"
+                    VerticalOptions="Center"/>
+            </StackLayout>
+            <Label Text="{Binding Motivation}"/>
+
+            <Entry Placeholder="Emotional Strengths" Text="{Binding EmotionalStrengths}"/>
+            <Entry Placeholder="Emotional Weaknesses" Text="{Binding EmotionalWeaknesses}"/>
+            <Label Text="Conflict" FontAttributes="Bold"/>
+            <Entry Keyboard="Numeric" Text="{Binding Conflict}"/>
+            <Label Text="Morality" FontAttributes="Bold"/>
+            <Entry Keyboard="Numeric" Text="{Binding Morality}"/>
+            
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

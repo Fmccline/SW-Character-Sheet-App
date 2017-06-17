@@ -26,9 +26,15 @@ namespace StarWRPG.Views
             MainStackLayout.Children.Insert(0, new CharacterCreationNavigationButtons(fadCharacterViewModel, GetType()));
         }
 
-        public async void EditDescriptionAsync(object sender, EventArgs e)
+        public async void EditValueAsync(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new EditorPage("Description", "Description", fadCharacterViewModel));
+            var button = sender as Button;
+            if (button == EditBackgroundButton)
+                await Navigation.PushModalAsync(new EditorPage("Character Background", "Background", fadCharacterViewModel));
+            else if (button == EditDescriptionButton)
+                await Navigation.PushModalAsync(new EditorPage("Character Description", "Description", fadCharacterViewModel));
+            else if (button == EditMotivationsButton)
+                await Navigation.PushModalAsync(new EditorPage("Character Motivations", "Motivation", fadCharacterViewModel));
         }
     }
 }

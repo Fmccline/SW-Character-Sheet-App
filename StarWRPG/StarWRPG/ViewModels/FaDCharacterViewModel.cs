@@ -1,4 +1,5 @@
 ﻿using StarWRPG.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -97,7 +98,6 @@ namespace StarWRPG.ViewModels
         public uint SoakValue
         {
             get { return fadCharacter.SoakValue; }
-
             set
             {
                 fadCharacter.SoakValue = value;

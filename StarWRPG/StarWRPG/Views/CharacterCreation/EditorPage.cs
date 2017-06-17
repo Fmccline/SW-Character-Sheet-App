@@ -49,7 +49,7 @@ namespace StarWRPG.Views
         {
             try
             {
-                await Navigation.PopAsync();
+                await Navigation.PopModalAsync();
             }
             catch (Exception ex)
             {
