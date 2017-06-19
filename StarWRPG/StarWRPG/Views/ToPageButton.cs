@@ -1,6 +1,7 @@
 ﻿using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,11 +24,19 @@ namespace StarWRPG.Views
 
         private async void toPageButtonClickedAsync(object sender, EventArgs e)
         {
-            RemovePreviousPageFromStack();
-            await Navigation.PushAsync((Page)Activator.CreateInstance(PageType, fadCharacterViewModel));
+            try
+            {
+                removePreviousPageFromStack();
+                await Navigation.PushAsync((Page)Activator.CreateInstance(PageType, fadCharacterViewModel));
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex.StackTrace);
+                Debug.WriteLine(ex.Message);
+            }
         }
 
-        private void RemovePreviousPageFromStack()
+        private void removePreviousPageFromStack()
         {
             foreach (var page in Navigation.NavigationStack)
             {

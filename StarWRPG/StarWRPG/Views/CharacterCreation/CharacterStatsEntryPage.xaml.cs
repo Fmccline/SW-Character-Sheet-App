@@ -18,17 +18,10 @@ namespace StarWRPG.Views
 
         public CharacterStatsEntryPage(FaDCharacterViewModel characterViewModel)
         {
-            try
-            {
-                InitializeComponent();
-                fadCharacterViewModel = characterViewModel;
-                BindingContext = fadCharacterViewModel;
-            }
-            catch(Exception ex)
-            {
-                Debug.WriteLine(ex.StackTrace);
-                Debug.WriteLine(ex.Message);
-            }
+            InitializeComponent();
+
+            fadCharacterViewModel = characterViewModel;
+            BindingContext = fadCharacterViewModel;
 
             MainStackLayout.Children.Insert(0, new CharacterCreationNavigationButtons(fadCharacterViewModel, GetType()));
         }

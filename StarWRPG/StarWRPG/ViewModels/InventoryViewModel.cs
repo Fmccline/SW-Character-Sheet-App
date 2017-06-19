@@ -1,6 +1,6 @@
 ﻿using StarWRPG.Models;
 using System.Collections.ObjectModel;
-
+using Xamarin.Forms;
 
 namespace StarWRPG.ViewModels
 {
@@ -24,10 +24,47 @@ namespace StarWRPG.ViewModels
             set { Inventory.Armors = value; }
         }
 
+        bool weaponsIsVisible { get; set; }
+        bool armorsIsVisible { get; set; }
+        bool itemsIsVisible { get; set; }
+
+        public bool WeaponsIsVisible
+        {
+            get { return weaponsIsVisible; }
+            set
+            {
+                weaponsIsVisible = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool ArmorsIsVisible
+        {
+            get { return armorsIsVisible; }
+            set
+            {
+                armorsIsVisible = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool ItemsIsVisible
+        {
+            get { return itemsIsVisible; }
+            set
+            {
+                itemsIsVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
         public InventoryViewModel(Inventory inventory)
         {
             Inventory = inventory;
+            weaponsIsVisible = true;
+            armorsIsVisible = true;
+            itemsIsVisible = true;
         }
+
+        public InventoryViewModel(FaDCharacter character) : this(character.Inventory) { }
 
         public void Add(Item item)
         {

@@ -10,254 +10,254 @@ namespace StarWRPG.ViewModels
 {
     public class FaDCharacterViewModel : ViewModelBase
     {
-        FaDCharacter fadCharacter;
+        public FaDCharacter FaDCharacter { get; private set; }
 
         public ObservableCollection<Skill> Skills
         {
-            get { return fadCharacter.Skills; }
-            set { fadCharacter.Skills = value; }
+            get { return FaDCharacter.Skills; }
+            set { FaDCharacter.Skills = value; }
         }
 
         public string Name
         {
-            get { return fadCharacter.Name; }
+            get { return FaDCharacter.Name; }
 
             set
             {
-                fadCharacter.Name = value;
+                FaDCharacter.Name = value;
                 OnPropertyChanged();
             }
         }
 
         public string Background
         {
-            get { return fadCharacter.Background; }
+            get { return FaDCharacter.Background; }
 
             set
             {
-                fadCharacter.Background = value;
+                FaDCharacter.Background = value;
                 OnPropertyChanged();
             }
         }
 
         public string Description
         {
-            get { return fadCharacter.Description; }
+            get { return FaDCharacter.Description; }
 
             set
             {
-                fadCharacter.Description = value;
+                FaDCharacter.Description = value;
                 OnPropertyChanged();
             }
         }
 
         public string Species
         {
-            get { return fadCharacter.Species; }
+            get { return FaDCharacter.Species; }
 
             set
             {
-                fadCharacter.Species = value;
+                FaDCharacter.Species = value;
                 OnPropertyChanged();
             }
         }
 
         public string Career
         {
-            get { return fadCharacter.Career; }
+            get { return FaDCharacter.Career; }
 
             set
             {
-                fadCharacter.Career = value;
+                FaDCharacter.Career = value;
                 OnPropertyChanged();
             }
         }
 
         public string SpecializationTrees
         {
-            get { return fadCharacter.SpecializationTrees; }
+            get { return FaDCharacter.SpecializationTrees; }
 
             set
             {
-                fadCharacter.SpecializationTrees = value;
+                FaDCharacter.SpecializationTrees = value;
                 OnPropertyChanged();
             }
         }
 
         public uint ForceRating
         {
-            get { return fadCharacter.ForceRating; }
+            get { return FaDCharacter.ForceRating; }
 
             set
             {
-                fadCharacter.ForceRating = value;
+                FaDCharacter.ForceRating = value;
                 OnPropertyChanged();
             }
         }
 
         public uint SoakValue
         {
-            get { return fadCharacter.SoakValue; }
+            get { return FaDCharacter.SoakValue; }
             set
             {
-                fadCharacter.SoakValue = value;
+                FaDCharacter.SoakValue = value;
                 OnPropertyChanged();
             }
         }
 
         public uint CurrentWounds
         {
-            get { return fadCharacter.CurrentWounds; }
+            get { return FaDCharacter.CurrentWounds; }
 
             set
             {
-                fadCharacter.CurrentWounds = value;
+                FaDCharacter.CurrentWounds = value;
                 OnPropertyChanged();
             }
         }
 
         public uint MaxWounds
         {
-            get { return fadCharacter.MaxWounds; }
+            get { return FaDCharacter.MaxWounds; }
 
             set
             {
-                fadCharacter.MaxWounds = value;
+                FaDCharacter.MaxWounds = value;
                 OnPropertyChanged();
             }
         }
 
         public uint CurrentStrain
         {
-            get { return fadCharacter.CurrentStrain; }
+            get { return FaDCharacter.CurrentStrain; }
 
             set
             {
-                fadCharacter.CurrentStrain = value;
+                FaDCharacter.CurrentStrain = value;
                 OnPropertyChanged();
             }
         }
 
         public uint MaxStrain
         {
-            get { return fadCharacter.MaxStrain; }
+            get { return FaDCharacter.MaxStrain; }
 
             set
             {
-                fadCharacter.MaxStrain = value;
+                FaDCharacter.MaxStrain = value;
                 OnPropertyChanged();
             }
         }
 
         public uint RangedDefense
         {
-            get { return fadCharacter.RangedDefense; }
+            get { return FaDCharacter.RangedDefense; }
 
             set
             {
-                fadCharacter.RangedDefense = value;
+                FaDCharacter.RangedDefense = value;
                 OnPropertyChanged();
             }
         }
 
         public uint MeleeDefense
         {
-            get { return fadCharacter.MeleeDefense; }
+            get { return FaDCharacter.MeleeDefense; }
 
             set
             {
-                fadCharacter.MeleeDefense = value;
+                FaDCharacter.MeleeDefense = value;
                 OnPropertyChanged();
             }
         }
 
         public uint Agility
         {
-            get { return fadCharacter.Agility.Rank; }
+            get { return FaDCharacter.Agility.Rank; }
 
             set
             {
-                fadCharacter.Agility.Rank = value;
+                FaDCharacter.Agility.Rank = value;
                 OnPropertyChanged();
             }
         }
 
         public uint Brawn
         {
-            get { return fadCharacter.Brawn.Rank; }
+            get { return FaDCharacter.Brawn.Rank; }
 
             set
             {
-                fadCharacter.Brawn.Rank = value;
+                FaDCharacter.Brawn.Rank = value;
                 OnPropertyChanged();
             }
         }
 
         public uint Cunning
         {
-            get { return fadCharacter.Cunning.Rank; }
+            get { return FaDCharacter.Cunning.Rank; }
 
             set
             {
-                fadCharacter.Cunning.Rank = value;
+                FaDCharacter.Cunning.Rank = value;
                 OnPropertyChanged();
             }
         }
 
         public uint Intellect
         {
-            get { return fadCharacter.Intellect.Rank; }
+            get { return FaDCharacter.Intellect.Rank; }
 
             set
             {
-                fadCharacter.Intellect.Rank = value;
+                FaDCharacter.Intellect.Rank = value;
                 OnPropertyChanged();
             }
         }
 
         public uint Presence
         {
-            get { return fadCharacter.Presence.Rank; }
+            get { return FaDCharacter.Presence.Rank; }
 
             set
             {
-                fadCharacter.Presence.Rank = value;
+                FaDCharacter.Presence.Rank = value;
                 OnPropertyChanged();
             }
         }
 
         public uint Willpower
         {
-            get { return fadCharacter.Willpower.Rank; }
+            get { return FaDCharacter.Willpower.Rank; }
 
             set
             {
-                fadCharacter.Willpower.Rank = value;
+                FaDCharacter.Willpower.Rank = value;
                 OnPropertyChanged();
             }
         }
 
         public uint TotalXP
         {
-            get { return fadCharacter.XP.TotalXP; }
+            get { return FaDCharacter.XP.TotalXP; }
         }
 
         public uint AvailableXP
         {
-            get { return fadCharacter.XP.AvailableXP; }
+            get { return FaDCharacter.XP.AvailableXP; }
 
             set
             {
-                uint availableXP = fadCharacter.XP.AvailableXP;
+                uint availableXP = FaDCharacter.XP.AvailableXP;
                 if (value > availableXP)
                 {
-                    fadCharacter.XP.AddXP(value - availableXP);
+                    FaDCharacter.XP.AddXP(value - availableXP);
                     // Need to notify the view that TotalXP also changed when adding XP
                     OnPropertyChanged("TotalXP");
                 }
                 else
                 {
-                    fadCharacter.XP.SpendXP(availableXP - value);
+                    FaDCharacter.XP.SpendXP(availableXP - value);
                 }
                 OnPropertyChanged();
             }
@@ -265,60 +265,60 @@ namespace StarWRPG.ViewModels
 
         public string Motivation
         {
-            get { return fadCharacter.Motivation; }
+            get { return FaDCharacter.Motivation; }
             set
             {
-                fadCharacter.Motivation = value;
+                FaDCharacter.Motivation = value;
                 OnPropertyChanged();
             }
         }
 
         public string EmotionalStrengths
         {
-            get { return fadCharacter.EmotionalStrengths; }
+            get { return FaDCharacter.EmotionalStrengths; }
             set
             {
-                fadCharacter.EmotionalStrengths = value;
+                FaDCharacter.EmotionalStrengths = value;
                 OnPropertyChanged();
             }
         }
 
         public string EmotionalWeaknesses
         {
-            get { return fadCharacter.EmotionalWeaknesses; }
+            get { return FaDCharacter.EmotionalWeaknesses; }
             set
             {
-                fadCharacter.EmotionalWeaknesses = value;
+                FaDCharacter.EmotionalWeaknesses = value;
                 OnPropertyChanged();
             }
         }
 
         public uint Conflict
         {
-            get { return fadCharacter.Conflict; }
+            get { return FaDCharacter.Conflict; }
             set
             {
-                fadCharacter.Conflict = value;
+                FaDCharacter.Conflict = value;
                 OnPropertyChanged();
             }
         }
 
         public uint Morality
         {
-            get { return fadCharacter.Morality; }
+            get { return FaDCharacter.Morality; }
             set
             {
-                fadCharacter.Morality = value;
+                FaDCharacter.Morality = value;
                 OnPropertyChanged();
             }
         }
 
         public Inventory Inventory
         {
-            get { return fadCharacter.Inventory; }
+            get { return FaDCharacter.Inventory; }
             set
             {
-                fadCharacter.Inventory = value;
+                FaDCharacter.Inventory = value;
                 OnPropertyChanged();
             }
         }
@@ -327,7 +327,7 @@ namespace StarWRPG.ViewModels
 
         public FaDCharacterViewModel(FaDCharacter character)
         {
-            fadCharacter = character;
+            FaDCharacter = character;
         }
 
         public void SkillSelected(object sender, SelectedItemChangedEventArgs e)

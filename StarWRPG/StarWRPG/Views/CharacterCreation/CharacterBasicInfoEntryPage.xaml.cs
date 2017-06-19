@@ -28,12 +28,12 @@ namespace StarWRPG.Views
 
         public async void EditValueAsync(object sender, EventArgs e)
         {
-            var button = sender as Button;
-            if (button == EditBackgroundButton)
+            var buttonClicked = sender as Button;
+            if (buttonClicked == EditBackgroundButton)
                 await Navigation.PushModalAsync(new EditorPage("Character Background", "Background", fadCharacterViewModel));
-            else if (button == EditDescriptionButton)
+            else if (buttonClicked == EditDescriptionButton)
                 await Navigation.PushModalAsync(new EditorPage("Character Description", "Description", fadCharacterViewModel));
-            else if (button == EditMotivationsButton)
+            else if (buttonClicked == EditMotivationsButton)
                 await Navigation.PushModalAsync(new EditorPage("Character Motivations", "Motivation", fadCharacterViewModel));
         }
     }
