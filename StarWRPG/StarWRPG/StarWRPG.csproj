@@ -48,10 +48,17 @@
     <Compile Include="Models\CharacterMembers\Items\Weapon.cs" />
     <Compile Include="Models\CharacterMembers\Talent.cs" />
     <Compile Include="ViewModelFactory.cs" />
+    <Compile Include="ViewModels\ArmorViewModel.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
+    <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
-    <Compile Include="Views\CharacterCreation\AddItemPage.xaml.cs">
-      <DependentUpon>AddItemPage.xaml</DependentUpon>
+    <Compile Include="ViewModels\WeaponViewModel.cs" />
+    <Compile Include="Views\ItemPages\ArmorPage.xaml.cs">
+      <DependentUpon>ArmorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ItemPages\ItemBasePage.cs" />
+    <Compile Include="Views\ItemPages\ItemPage.xaml.cs">
+      <DependentUpon>ItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CharacterCreation\CharacterBasicInfoEntryPage.xaml.cs">
       <DependentUpon>CharacterBasicInfoEntryPage.xaml</DependentUpon>
@@ -91,6 +98,9 @@
       <DependentUpon>CharacterInventoryEntryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CharacterCreation\EditorPage.cs" />
+    <Compile Include="Views\ItemPages\WeaponPage.xaml.cs">
+      <DependentUpon>WeaponPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainPage\MainMasterDetailPage.xaml.cs">
       <DependentUpon>MainMasterDetailPage.xaml</DependentUpon>
     </Compile>
@@ -179,7 +189,19 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterCreation\AddItemPage.xaml">
+    <EmbeddedResource Include="Views\ItemPages\ItemPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ItemPages\WeaponPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\ItemPages\ArmorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

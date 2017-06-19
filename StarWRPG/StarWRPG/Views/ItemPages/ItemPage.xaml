@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:ItemBasePage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:StarWRPG.Views" 
+             x:Class="StarWRPG.Views.ItemPage">
+    <ContentPage.Content>
+        <StackLayout x:Name="MainStackLayout">
+            <TableView Intent="Form">
+                <TableRoot>
+                    <TableSection>
+                        <EntryCell Label="Name"
+                                   Text="{Binding Name}"/>
+                        <EntryCell Label="Description"
+                                   Text="{Binding Description}"/>
+                        <EntryCell Label="Encumbrance"
+                                   Text="{Binding Encumbrance}"
+                                   Keyboard="Numeric"/>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </StackLayout>
+    </ContentPage.Content>
+</local:ItemBasePage>

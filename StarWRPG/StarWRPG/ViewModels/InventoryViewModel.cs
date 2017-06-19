@@ -1,4 +1,5 @@
 ﻿using StarWRPG.Models;
+using System;
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 

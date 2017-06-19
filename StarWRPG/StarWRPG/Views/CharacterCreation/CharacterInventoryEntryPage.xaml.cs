@@ -31,21 +31,26 @@ namespace StarWRPG.Views
 
         }
 
-        private void OnSwitchChanged(object sender, ToggledEventArgs e)
+        public async void AddItemAsync(object sender, EventArgs e)
         {
-            //var switchChanged = sender as Switch;
+            const string weapon = "Weapon";
+            const string armor = "Armor";
+            const string item = "Item";
 
-            //if (switchChanged == WeaponsSwitch)
-            //    WeaponsListView.IsVisible = !WeaponsListView.IsVisible;
-            //else if (switchChanged == ArmorsSwitch)
-            //    ArmorsListView.IsVisible = !ArmorsListView.IsVisible;
-            //else if (switchChanged == ItemsSwitch)
-            //    ItemsListView.IsVisible = !ItemsListView.IsVisible;
-        }
+            string itemType = await DisplayActionSheet("Type", "Cancel", null, weapon, armor, item);
 
-        private async void AddItemAsync(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new AddItemPage(inventoryViewModel));
+            switch (itemType)
+            {
+                case weapon:
+                    await Navigation.PushModalAsync(new WeaponPage(inventoryViewModel));
+                    break;
+                case armor:
+                    await Navigation.PushModalAsync(new ArmorPage(inventoryViewModel));
+                    break;
+                case item:
+                    await Navigation.PushModalAsync(new ItemPage(inventoryViewModel));
+                    break;
+            }
         }
     }
 }

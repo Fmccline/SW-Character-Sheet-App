@@ -56,6 +56,8 @@ namespace StarWRPG.Models
 
         public Item()
         {
+            Name = "";
+            Description = "";
             IsEquipped = false;
             Encumbrance = 0;
         }
