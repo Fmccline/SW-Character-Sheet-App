@@ -11,9 +11,13 @@ namespace StarWRPG.Views
 {
     public class EditorPage : ContentPage
     {
+        Editor editor;
+        string binding;
+
         public EditorPage(string title, string binding, FaDCharacterViewModel characterViewModel)
         {
             BindingContext = characterViewModel;
+            this.binding = binding;
 
             Label titleLabel = new Label
             {
@@ -23,16 +27,23 @@ namespace StarWRPG.Views
                 HorizontalOptions = LayoutOptions.Center,
             };
 
-            Editor editor = new Editor();
-            editor.SetBinding(Editor.TextProperty, binding);
+            editor = new Editor();
+            editor.SetBinding(Editor.TextProperty, binding, BindingMode.OneWay);
             editor.VerticalOptions = LayoutOptions.FillAndExpand;
 
             Button accept = new Button
             {
                 Text = "Accept",
-                HorizontalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
             };
             accept.Clicked += AcceptClickedAsync;
+
+            Button cancel = new Button
+            {
+                Text = "Cancel",
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+            };
+            cancel.Clicked += CancelClickedAsync;
 
             Content = new StackLayout
             {
@@ -40,22 +51,32 @@ namespace StarWRPG.Views
                 {
                     titleLabel,
                     editor,
-                    accept,
+                    new StackLayout
+                    {
+                        Orientation = StackOrientation.Horizontal,
+                        Children =
+                        {
+                            cancel,
+                            accept,
+                        }
+                    },
                 }
             };
         }
 
-        private async void AcceptClickedAsync(object sender, EventArgs e)
+        private async void CancelClickedAsync(object sender, EventArgs e)
         {
-            try
+            var answer = await DisplayAlert("Are you sure?", "Your changes will not be saved.", "Yes", "No");
+            if (answer)
             {
                 await Navigation.PopModalAsync();
             }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.StackTrace);
-                Debug.WriteLine(ex.Message);
-            }
+        }
+
+        private async void AcceptClickedAsync(object sender, EventArgs e)
+        {
+            editor.SetBinding(Editor.TextProperty, binding, BindingMode.OneWayToSource);
+            await Navigation.PopModalAsync();
         }
     }
 }

@@ -25,9 +25,10 @@ namespace StarWRPG.Views
             MainStackLayout.Children.Insert(0, new CharacterCreationNavigationButtons(fadCharacterViewModel, GetType()));
         }
 
-        private void SkillSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void SkillSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            fadCharacterViewModel.SkillSelected(sender, e);
+            var skill = e.SelectedItem as SkillViewModel;
+            await Navigation.PushModalAsync(new SkillPage(skill));
         }
     }
 }
