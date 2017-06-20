@@ -23,6 +23,7 @@ namespace StarWRPG.Views
             {
                 new ToPageButton("Basic Info", typeof(CharacterBasicInfoEntryPage), fadCharacterViewModel),
                 new ToPageButton("Stats", typeof(CharacterStatsEntryPage), fadCharacterViewModel),
+                new ToPageButton("Skills", typeof(CharacterSkillsPage), fadCharacterViewModel),
                 new ToPageButton("Inventory", typeof(CharacterInventoryEntryPage), fadCharacterViewModel),
             };
             foreach (var button in pageButtons)

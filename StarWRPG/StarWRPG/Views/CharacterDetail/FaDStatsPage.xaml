@@ -4,16 +4,6 @@
              x:Class="StarWRPG.Views.FaDStatsPage"
              Title="Stats">
 
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="CenterBoldLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="FontAttributes" Value="Bold" />
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
     <StackLayout>
         <StackLayout Orientation="Horizontal">
             <StackLayout HorizontalOptions="FillAndExpand">

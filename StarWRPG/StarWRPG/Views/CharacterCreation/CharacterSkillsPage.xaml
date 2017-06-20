@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StarWRPG.Views.CharacterSkillsPage"
+             Title="Skills">
+
+    <StackLayout x:Name="MainStackLayout">
+        <ListView x:Name="Skills" 
+                  ItemsSource="{Binding Skills}"
+                  ItemSelected="SkillSelected">
+            <ListView.Header>
+                <Grid>
+                    <Label Grid.Column="0" 
+                           Text="Name" 
+                           FontAttributes="Bold"/>
+                    <Label Grid.Column="1" 
+                           Text="Rank" 
+                           FontAttributes="Bold"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Label Grid.Column="0" Text="{Binding Name}"/>
+                            <Label Grid.Column="1" Text="{Binding Rank}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        
+        <StackLayout Orientation="Horizontal">
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <Label Text="{Binding TotalXP}" HorizontalOptions="Center"/>
+                <Label Text="Total XP" Style="{StaticResource CenterBoldLabel}"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <Label Text="{Binding AvailableXP}" HorizontalOptions="Center"/>
+                <Label Text="Available XP" Style="{StaticResource CenterBoldLabel}"/>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

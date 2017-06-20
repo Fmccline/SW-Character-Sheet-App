@@ -18,7 +18,7 @@ namespace StarWRPG.Views
         {
             fadCharacterViewModel = character;
             Text = text;
-            this.PageType = pageType;
+            PageType = pageType;
             Clicked += toPageButtonClickedAsync;
         }
 

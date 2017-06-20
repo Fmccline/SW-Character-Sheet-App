@@ -65,8 +65,6 @@ namespace StarWRPG.ViewModels
             itemsIsVisible = true;
         }
 
-        public InventoryViewModel(FaDCharacter character) : this(character.Inventory) { }
-
         public void Add(Item item)
         {
             Inventory.Add(item);

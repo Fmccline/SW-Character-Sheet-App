@@ -6,11 +6,6 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="CenterBoldLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="FontAttributes" Value="Bold" />
-            </Style>
             <Style x:Key="CenterLabel" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />

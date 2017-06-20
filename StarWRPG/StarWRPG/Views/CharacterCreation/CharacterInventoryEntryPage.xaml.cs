@@ -20,7 +20,7 @@ namespace StarWRPG.Views
         {
             InitializeComponent();
 
-            inventoryViewModel = new InventoryViewModel(characterViewModel.FaDCharacter);
+            inventoryViewModel = new InventoryViewModel(characterViewModel.Inventory);
             BindingContext = inventoryViewModel;
 
             MainStackLayout.Children.Insert(0, new CharacterCreationNavigationButtons(characterViewModel, GetType()));
