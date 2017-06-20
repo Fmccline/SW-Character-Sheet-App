@@ -2,9 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarWRPG.Views.SkillPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
+
+    <StackLayout>
+        
+        <Label Text="{Binding Name}"
+               FontAttributes="Bold"
+               FontSize="Medium"/>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Rank: "/>
+            <Label Text="{Binding Rank}"/>
         </StackLayout>
-    </ContentPage.Content>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Career: "/>
+            <Switch IsToggled="{Binding IsCareer}"/>
+        </StackLayout>
+
+        <Button Text="Accept"
+                Clicked="AcceptClickedAsync"/>
+
+    </StackLayout>
+    
 </ContentPage>

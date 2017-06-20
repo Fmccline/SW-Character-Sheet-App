@@ -22,5 +22,10 @@ namespace StarWRPG.Views
             skillViewModel = skill;
             BindingContext = skillViewModel;
         }
+
+        private async void AcceptClickedAsync(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
+        }
     }
 }
