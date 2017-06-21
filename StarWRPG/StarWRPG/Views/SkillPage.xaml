@@ -12,6 +12,12 @@
         <StackLayout Orientation="Horizontal">
             <Label Text="Rank: "/>
             <Label Text="{Binding Rank}"/>
+            <Button Text="-" 
+                    Clicked="RankDownClickedAsync"
+                    IsEnabled="{Binding IsNotMin}"/>
+            <Button Text="+" 
+                    Clicked="RankUpClickedAsync"
+                    IsEnabled="{Binding IsNotMax}"/>
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">

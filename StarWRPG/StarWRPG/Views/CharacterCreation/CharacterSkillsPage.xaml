@@ -32,11 +32,15 @@
         
         <StackLayout Orientation="Horizontal">
             <StackLayout HorizontalOptions="FillAndExpand">
-                <Label Text="{Binding TotalXP}" HorizontalOptions="Center"/>
+                <Entry Text="{Binding TotalXP}" 
+                       HorizontalOptions="Center"
+                       Keyboard="Numeric"/>
                 <Label Text="Total XP" Style="{StaticResource CenterBoldLabel}"/>
             </StackLayout>
             <StackLayout HorizontalOptions="FillAndExpand">
-                <Label Text="{Binding AvailableXP}" HorizontalOptions="Center"/>
+                <Entry Text="{Binding AvailableXP}" 
+                       HorizontalOptions="Center"
+                       Keyboard="Numeric"/>
                 <Label Text="Available XP" Style="{StaticResource CenterBoldLabel}"/>
             </StackLayout>
         </StackLayout>

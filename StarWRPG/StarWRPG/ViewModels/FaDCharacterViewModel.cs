@@ -247,7 +247,7 @@ namespace StarWRPG.ViewModels
                 uint availableXP = FaDCharacter.XP.AvailableXP;
                 if (value > availableXP)
                 {
-                    FaDCharacter.XP.AddXP(value - availableXP);
+                    FaDCharacter.XP.GainXP(value - availableXP);
                     // Need to notify the view that TotalXP also changed when adding XP
                     OnPropertyChanged("TotalXP");
                 }
@@ -332,7 +332,7 @@ namespace StarWRPG.ViewModels
             Skills = new ObservableCollection<SkillViewModel>();
             foreach (var skill in FaDCharacter.Skills)
             {
-                Skills.Add(new SkillViewModel(skill));
+                Skills.Add(new SkillViewModel(skill,FaDCharacter.XP));
             }
         }
 
