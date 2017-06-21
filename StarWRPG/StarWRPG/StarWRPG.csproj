@@ -57,6 +57,9 @@
     <Compile Include="Views\CharacterCreation\CharacterSkillsPage.xaml.cs">
       <DependentUpon>CharacterSkillsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CharacterCreation\CharacterTalentsPage.xaml.cs">
+      <DependentUpon>CharacterTalentsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EditorPage.xaml.cs">
       <DependentUpon>EditorPage.xaml</DependentUpon>
     </Compile>
@@ -97,9 +100,6 @@
     </Compile>
     <Compile Include="Views\CharacterDetail\FaDInventoryPage.xaml.cs">
       <DependentUpon>FaDInventoryPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CharacterCreation\CharacterStatsEntryPage.xaml.cs">
-      <DependentUpon>CharacterStatsEntryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CharacterCreation\CharacterInventoryEntryPage.xaml.cs">
       <DependentUpon>CharacterInventoryEntryPage.xaml</DependentUpon>
@@ -186,12 +186,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterCreation\CharacterStatsEntryPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Views\CharacterCreation\CharacterInventoryEntryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
@@ -229,6 +223,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\EditorPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CharacterCreation\CharacterTalentsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

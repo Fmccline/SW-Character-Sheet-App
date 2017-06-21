@@ -20,6 +20,8 @@ namespace StarWRPG.Views
             Text = text;
             PageType = pageType;
             Clicked += toPageButtonClickedAsync;
+
+            HorizontalOptions = LayoutOptions.FillAndExpand;
         }
 
         private async void toPageButtonClickedAsync(object sender, EventArgs e)

@@ -18,13 +18,13 @@ namespace StarWRPG.Views
             fadCharacterViewModel = character;
 
             Orientation = StackOrientation.Horizontal;
-            HorizontalOptions = LayoutOptions.CenterAndExpand;
+
             pageButtons = new List<ToPageButton>
             {
-                new ToPageButton("Basic Info", typeof(CharacterBasicInfoEntryPage), fadCharacterViewModel),
-                new ToPageButton("Stats", typeof(CharacterStatsEntryPage), fadCharacterViewModel),
+                new ToPageButton("Info", typeof(CharacterBasicInfoEntryPage), fadCharacterViewModel),
                 new ToPageButton("Skills", typeof(CharacterSkillsPage), fadCharacterViewModel),
-                new ToPageButton("Inventory", typeof(CharacterInventoryEntryPage), fadCharacterViewModel),
+                new ToPageButton("Items", typeof(CharacterInventoryEntryPage), fadCharacterViewModel),
+                new ToPageButton("Talents", typeof(CharacterTalentsPage), fadCharacterViewModel),
             };
             foreach (var button in pageButtons)
             {
