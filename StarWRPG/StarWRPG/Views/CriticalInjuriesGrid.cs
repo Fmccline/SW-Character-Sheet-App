@@ -10,7 +10,7 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Views
 {
-    class CriticalInjuriesGrid : Grid
+    class CriticalInjuriesGrid : StackLayout
     {
         ObservableCollection<CriticalInjuryViewModel> criticalInjuries;
         CriticalInjuriesViewModel criticalInjuriesViewModel;
@@ -20,37 +20,40 @@ namespace StarWRPG.Views
             criticalInjuriesViewModel = injuriesViewModel;
             criticalInjuries = criticalInjuriesViewModel.CriticalInjuryViewModels;
 
-            HorizontalOptions = LayoutOptions.CenterAndExpand;
-
             criticalInjuries.CollectionChanged += (obj, e) =>
             {
-                Children.Clear();
-                RowDefinitions.Clear();
-                GenerateGrid();
+                GenerateLayout();
             };
 
-            ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-            ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(4, GridUnitType.Star) });
-
-            GenerateGrid();
+            GenerateLayout();
         }
 
-        private void GenerateGrid()
+        private void GenerateLayout()
         {
-            AddTitle();
+            HorizontalOptions = LayoutOptions.FillAndExpand;
+
+            Children.Clear();
+
+            Children.Add(Title());
             if (criticalInjuries.Count > 0)
             {
-                AddHeader();
-                AddChildren();
+                Children.Add(GenerateGrid());
             }
-            AddButtons();
+            Children.Add(ButtonsLayout());
         }
 
-        private void AddButtons()
+        private Grid GenerateGrid()
         {
-            RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
-            RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+            Grid injuriesGrid = new Grid();
+            injuriesGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
+            injuriesGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(4, GridUnitType.Star) });
+            AddHeader(injuriesGrid);
+            AddChildren(injuriesGrid);
+            return injuriesGrid;
+        }
 
+        private StackLayout ButtonsLayout()
+        {
             Button addButton = new Button
             {
                 Text = "Add",
@@ -71,20 +74,25 @@ namespace StarWRPG.Views
                 await Navigation.PushModalAsync(new RemoveCriticalInjuryPage(criticalInjuriesViewModel));
             };
 
-            Children.Add(addButton, 1, RowDefinitions.Count - 2);
-            Children.Add(removeButton, 1, RowDefinitions.Count - 1);
-            SetColumnSpan(addButton, 2);
-            SetColumnSpan(removeButton, 2);
-
             if (criticalInjuries.Count == 0)
                 removeButton.IsEnabled = false;
+
+            return new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+                Children =
+                {
+                    addButton,
+                    removeButton,
+                }
+            };
         }
 
-        private void AddChildren()
+        private void AddChildren(Grid grid)
         {
             for (var index = 0; index < criticalInjuries.Count; ++index)
             {
-                RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+                grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
                 Label injurySeverity = new Label
                 {
                     Text = criticalInjuries[index].Severity,
@@ -95,14 +103,14 @@ namespace StarWRPG.Views
                     Text = criticalInjuries[index].Result,
                     Style = (Style)Application.Current.Resources["CenterLabel"]
                 };
-                Children.Add(injurySeverity, 0, index + 2);
-                Children.Add(injuryResult, 1, index + 2);
+                grid.Children.Add(injurySeverity, 0, index + 2);
+                grid.Children.Add(injuryResult, 1, index + 2);
             }
         }
 
-        private void AddHeader()
+        private void AddHeader(Grid grid)
         {
-            RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+            grid.RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
 
             Label severity = new Label
             {
@@ -116,24 +124,19 @@ namespace StarWRPG.Views
                 Style = (Style)Application.Current.Resources["CenterLabel"]
             };
 
-            Children.Add(severity, 0, 1);
-            Children.Add(result, 1, 1);
+            grid.Children.Add(severity, 0, 1);
+            grid.Children.Add(result, 1, 1);
         }
 
-        private void AddTitle()
+        private Label Title()
         {
-            RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
-
-            Label title = new Label
+            return new Label
             {
                 Text = "Critical Injuries",
                 HorizontalOptions=LayoutOptions.CenterAndExpand,
                 Style = (Style)Application.Current.Resources["CenterBoldLabel"],
-            };
-
-            Children.Add(title, 0, 0);
-
-            SetColumnSpan(title, 2);
+                FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
+        };
         }
     }
 }
