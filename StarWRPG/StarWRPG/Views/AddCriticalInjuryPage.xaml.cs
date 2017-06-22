@@ -28,15 +28,20 @@ namespace StarWRPG.Views
 
         private async void AcceptClickedAsync(object sender, EventArgs e)
         {
-            criticalInjuriesViewModel.AddCriticalInjury(criticalInjury);
-            await Navigation.PopModalAsync();
+            if (criticalInjury.Result.Equals("") || criticalInjury.Severity.Equals(""))
+            {
+                await DisplayAlert("Invalid", "Please enter the Result and Severity of the critical injury.", "Of course, silly me!");
+            }
+            else
+            {
+                criticalInjuriesViewModel.AddCriticalInjury(criticalInjury);
+                await Navigation.PopModalAsync();
+            }
         }
 
         private async void CancelClickedAsync(object sender, EventArgs e)
         {
-            var answer = await DisplayAlert("Are you sure?", "Cancelling will not save the critical injury.", "Yes", "No");
-            if (answer)
-                await Navigation.PopModalAsync();
+            await Navigation.PopModalAsync();
         }
     }
 }

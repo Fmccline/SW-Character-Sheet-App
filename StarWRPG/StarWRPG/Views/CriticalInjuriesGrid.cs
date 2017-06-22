@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,8 @@ namespace StarWRPG.Views
         {
             criticalInjuriesViewModel = injuriesViewModel;
             criticalInjuries = criticalInjuriesViewModel.CriticalInjuryViewModels;
+
+            HorizontalOptions = LayoutOptions.CenterAndExpand;
 
             criticalInjuries.CollectionChanged += (obj, e) =>
             {
@@ -40,6 +43,41 @@ namespace StarWRPG.Views
                 AddHeader();
                 AddChildren();
             }
+            AddButtons();
+        }
+
+        private void AddButtons()
+        {
+            RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+            RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
+
+            Button addButton = new Button
+            {
+                Text = "Add",
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+            };
+            addButton.Clicked += async (obj, e) => 
+            {
+                await Navigation.PushModalAsync(new AddCriticalInjuryPage(criticalInjuriesViewModel));
+            };
+
+            Button removeButton = new Button
+            {
+                Text = "Remove",
+                HorizontalOptions = LayoutOptions.CenterAndExpand,
+            };
+            removeButton.Clicked += async (obj, e) =>
+            {
+                await Navigation.PushModalAsync(new RemoveCriticalInjuryPage(criticalInjuriesViewModel));
+            };
+
+            Children.Add(addButton, 1, RowDefinitions.Count - 2);
+            Children.Add(removeButton, 1, RowDefinitions.Count - 1);
+            SetColumnSpan(addButton, 2);
+            SetColumnSpan(removeButton, 2);
+
+            if (criticalInjuries.Count == 0)
+                removeButton.IsEnabled = false;
         }
 
         private void AddChildren()
@@ -89,6 +127,7 @@ namespace StarWRPG.Views
             Label title = new Label
             {
                 Text = "Critical Injuries",
+                HorizontalOptions=LayoutOptions.CenterAndExpand,
                 Style = (Style)Application.Current.Resources["CenterBoldLabel"],
             };
 
