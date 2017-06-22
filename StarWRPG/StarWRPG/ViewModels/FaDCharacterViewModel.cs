@@ -23,6 +23,7 @@ namespace StarWRPG.ViewModels
         }
 
         public CriticalInjuriesViewModel CriticalInjuriesViewModel { get; private set; }
+        public TalentsViewModel TalentsViewModel { get; private set; }
         public ObservableCollection<SkillViewModel> Skills { get; set; }
 
         public string Background
@@ -302,6 +303,7 @@ namespace StarWRPG.ViewModels
             FaDCharacter = character;
             InitializeSkills();
             CriticalInjuriesViewModel = new CriticalInjuriesViewModel(FaDCharacter.CriticalInjuries);
+            TalentsViewModel = new TalentsViewModel(FaDCharacter.Talents);
         }
 
         private void InitializeSkills()

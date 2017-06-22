@@ -5,7 +5,52 @@
              Title="Talents">
     
     <StackLayout x:Name="MainStackLayout">
-        <Label Text="Welcome to Xamarin Forms!" />
+
+        <ListView ItemsSource="{Binding TalentViewModels}"
+                  ItemSelected="TalentSelectedAsync"
+                  HasUnevenRows="True"
+                  Margin="10">
+            <ListView.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="10*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="0" 
+                           Text="Name" 
+                           Style="{StaticResource StartBoldLabel}"/>
+                    <Label Grid.Column="1" 
+                           Text="Page #" 
+                           Style="{StaticResource StartBoldLabel}"/>
+                    <Label Grid.Column="2" 
+                           Text="Description" 
+                           Style="{StaticResource StartBoldLabel}"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="10*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0" 
+                                   Text="{Binding Name}"
+                                   Style="{StaticResource StartLabel}"/>
+                            <Label Grid.Column="1" 
+                                   Text="{Binding PageNumber}"
+                                   Style="{StaticResource StartLabel}"/>
+                            <Label Grid.Column="2" 
+                                   Text="{Binding Description}"
+                                   Style="{StaticResource StartLabel}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
     
 </ContentPage>

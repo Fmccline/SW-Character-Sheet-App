@@ -54,9 +54,11 @@
     <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\SkillViewModel.cs" />
+    <Compile Include="ViewModels\TalentsViewModel.cs" />
+    <Compile Include="ViewModels\TalentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeaponViewModel.cs" />
-    <Compile Include="Views\AddCriticalInjuryPage.xaml.cs">
+    <Compile Include="Views\CriticalInjuryPages\AddCriticalInjuryPage.xaml.cs">
       <DependentUpon>AddCriticalInjuryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CharacterCreation\CharacterSkillsPage.xaml.cs">
@@ -65,7 +67,7 @@
     <Compile Include="Views\CharacterCreation\CharacterTalentsPage.xaml.cs">
       <DependentUpon>CharacterTalentsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CriticalInjuriesGrid.cs" />
+    <Compile Include="Views\CriticalInjuryPages\CriticalInjuriesGrid.cs" />
     <Compile Include="Views\EditorPage.xaml.cs">
       <DependentUpon>EditorPage.xaml</DependentUpon>
     </Compile>
@@ -120,8 +122,8 @@
     <Compile Include="Views\MainPage\WelcomePage.xaml.cs">
       <DependentUpon>WelcomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterCreationNavigationButtons.cs" />
-    <Compile Include="Views\RemoveCriticalInjuryPage.xaml.cs">
+    <Compile Include="Views\CriticalInjuryPages\CharacterCreationNavigationButtons.cs" />
+    <Compile Include="Views\CriticalInjuryPages\RemoveCriticalInjuryPage.xaml.cs">
       <DependentUpon>RemoveCriticalInjuryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SkillPage.xaml.cs">
@@ -243,13 +245,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\AddCriticalInjuryPage.xaml">
+    <EmbeddedResource Include="Views\CriticalInjuryPages\AddCriticalInjuryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\RemoveCriticalInjuryPage.xaml">
+    <EmbeddedResource Include="Views\CriticalInjuryPages\RemoveCriticalInjuryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

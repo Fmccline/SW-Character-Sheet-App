@@ -12,10 +12,10 @@
                 <Grid>
                     <Label Grid.Column="0" 
                            Text="Name" 
-                           FontAttributes="Bold"/>
+                           Style="{StaticResource CenterBoldLabel}"/>
                     <Label Grid.Column="1" 
                            Text="Rank" 
-                           FontAttributes="Bold"/>
+                           Style="{StaticResource CenterBoldLabel}"/>
                 </Grid>
             </ListView.Header>
             <ListView.ItemTemplate>
