@@ -25,6 +25,7 @@ namespace StarWRPG.Views
             BindingContext = fadCharacterViewModel;
 
             MainStackLayout.Children.Insert(0, new CharacterCreationNavigationButtons(fadCharacterViewModel, GetType()));
+            MainStackLayout.Children.Insert(MainStackLayout.Children.Count - 1, new CriticalInjuriesGrid(fadCharacterViewModel.CriticalInjuriesViewModel));
         }
 
         public async void EditValueAsync(object sender, EventArgs e)
@@ -36,6 +37,16 @@ namespace StarWRPG.Views
                 await Navigation.PushModalAsync(new EditorPage("Character Description", "Description", fadCharacterViewModel));
             else if (buttonClicked == EditMotivationsButton)
                 await Navigation.PushModalAsync(new EditorPage("Character Motivations", "Motivation", fadCharacterViewModel));
+        }
+
+        private async void AddCriticalInjuryAsync(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new AddCriticalInjuryPage(fadCharacterViewModel.CriticalInjuriesViewModel));
+        }
+
+        private void RemoveCriticalInjuryAsync(object sender, EventArgs e)
+        {
+
         }
     }
 }

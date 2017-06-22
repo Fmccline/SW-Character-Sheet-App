@@ -12,18 +12,18 @@ namespace StarWRPG.ViewModels
     {
         public FaDCharacter FaDCharacter { get; private set; }
 
-        public ObservableCollection<SkillViewModel> Skills { get; set; }
-
-        public string Name
+        public Inventory Inventory
         {
-            get { return FaDCharacter.Name; }
-
+            get { return FaDCharacter.Inventory; }
             set
             {
-                FaDCharacter.Name = value;
+                FaDCharacter.Inventory = value;
                 OnPropertyChanged();
             }
         }
+
+        public CriticalInjuriesViewModel CriticalInjuriesViewModel { get; private set; }
+        public ObservableCollection<SkillViewModel> Skills { get; set; }
 
         public string Background
         {
@@ -35,29 +35,6 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        public string Description
-        {
-            get { return FaDCharacter.Description; }
-
-            set
-            {
-                FaDCharacter.Description = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public string Species
-        {
-            get { return FaDCharacter.Species; }
-
-            set
-            {
-                FaDCharacter.Species = value;
-                OnPropertyChanged();
-            }
-        }
-
         public string Career
         {
             get { return FaDCharacter.Career; }
@@ -68,7 +45,53 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
+        public string Description
+        {
+            get { return FaDCharacter.Description; }
 
+            set
+            {
+                FaDCharacter.Description = value;
+                OnPropertyChanged();
+            }
+        }
+        public string EmotionalStrengths
+        {
+            get { return FaDCharacter.EmotionalStrengths; }
+            set
+            {
+                FaDCharacter.EmotionalStrengths = value;
+                OnPropertyChanged();
+            }
+        }
+        public string EmotionalWeaknesses
+        {
+            get { return FaDCharacter.EmotionalWeaknesses; }
+            set
+            {
+                FaDCharacter.EmotionalWeaknesses = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Motivation
+        {
+            get { return FaDCharacter.Motivation; }
+            set
+            {
+                FaDCharacter.Motivation = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Name
+        {
+            get { return FaDCharacter.Name; }
+
+            set
+            {
+                FaDCharacter.Name = value;
+                OnPropertyChanged();
+            }
+        }
         public string SpecializationTrees
         {
             get { return FaDCharacter.SpecializationTrees; }
@@ -79,90 +102,13 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        public uint ForceRating
+        public string Species
         {
-            get { return FaDCharacter.ForceRating; }
+            get { return FaDCharacter.Species; }
 
             set
             {
-                FaDCharacter.ForceRating = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public uint SoakValue
-        {
-            get { return FaDCharacter.SoakValue; }
-            set
-            {
-                FaDCharacter.SoakValue = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public uint CurrentWounds
-        {
-            get { return FaDCharacter.CurrentWounds; }
-
-            set
-            {
-                FaDCharacter.CurrentWounds = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public uint MaxWounds
-        {
-            get { return FaDCharacter.MaxWounds; }
-
-            set
-            {
-                FaDCharacter.MaxWounds = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public uint CurrentStrain
-        {
-            get { return FaDCharacter.CurrentStrain; }
-
-            set
-            {
-                FaDCharacter.CurrentStrain = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public uint MaxStrain
-        {
-            get { return FaDCharacter.MaxStrain; }
-
-            set
-            {
-                FaDCharacter.MaxStrain = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public uint RangedDefense
-        {
-            get { return FaDCharacter.RangedDefense; }
-
-            set
-            {
-                FaDCharacter.RangedDefense = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public uint MeleeDefense
-        {
-            get { return FaDCharacter.MeleeDefense; }
-
-            set
-            {
-                FaDCharacter.MeleeDefense = value;
+                FaDCharacter.Species = value;
                 OnPropertyChanged();
             }
         }
@@ -177,67 +123,6 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        public uint Brawn
-        {
-            get { return FaDCharacter.Brawn.Rank; }
-
-            set
-            {
-                FaDCharacter.Brawn.Rank = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public uint Cunning
-        {
-            get { return FaDCharacter.Cunning.Rank; }
-
-            set
-            {
-                FaDCharacter.Cunning.Rank = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public uint Intellect
-        {
-            get { return FaDCharacter.Intellect.Rank; }
-
-            set
-            {
-                FaDCharacter.Intellect.Rank = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public uint Presence
-        {
-            get { return FaDCharacter.Presence.Rank; }
-
-            set
-            {
-                FaDCharacter.Presence.Rank = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public uint Willpower
-        {
-            get { return FaDCharacter.Willpower.Rank; }
-
-            set
-            {
-                FaDCharacter.Willpower.Rank = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public uint TotalXP
-        {
-            get { return FaDCharacter.XP.TotalXP; }
-        }
-
         public uint AvailableXP
         {
             get { return FaDCharacter.XP.AvailableXP; }
@@ -258,37 +143,16 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        public string Motivation
+        public uint Brawn
         {
-            get { return FaDCharacter.Motivation; }
+            get { return FaDCharacter.Brawn.Rank; }
+
             set
             {
-                FaDCharacter.Motivation = value;
+                FaDCharacter.Brawn.Rank = value;
                 OnPropertyChanged();
             }
         }
-
-        public string EmotionalStrengths
-        {
-            get { return FaDCharacter.EmotionalStrengths; }
-            set
-            {
-                FaDCharacter.EmotionalStrengths = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public string EmotionalWeaknesses
-        {
-            get { return FaDCharacter.EmotionalWeaknesses; }
-            set
-            {
-                FaDCharacter.EmotionalWeaknesses = value;
-                OnPropertyChanged();
-            }
-        }
-
         public uint Conflict
         {
             get { return FaDCharacter.Conflict; }
@@ -298,7 +162,86 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
+        public uint Cunning
+        {
+            get { return FaDCharacter.Cunning.Rank; }
 
+            set
+            {
+                FaDCharacter.Cunning.Rank = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint CurrentStrain
+        {
+            get { return FaDCharacter.CurrentStrain; }
+
+            set
+            {
+                FaDCharacter.CurrentStrain = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint CurrentWounds
+        {
+            get { return FaDCharacter.CurrentWounds; }
+
+            set
+            {
+                FaDCharacter.CurrentWounds = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint ForceRating
+        {
+            get { return FaDCharacter.ForceRating; }
+
+            set
+            {
+                FaDCharacter.ForceRating = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint Intellect
+        {
+            get { return FaDCharacter.Intellect.Rank; }
+
+            set
+            {
+                FaDCharacter.Intellect.Rank = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint MaxStrain
+        {
+            get { return FaDCharacter.MaxStrain; }
+
+            set
+            {
+                FaDCharacter.MaxStrain = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint MaxWounds
+        {
+            get { return FaDCharacter.MaxWounds; }
+
+            set
+            {
+                FaDCharacter.MaxWounds = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint MeleeDefense
+        {
+            get { return FaDCharacter.MeleeDefense; }
+
+            set
+            {
+                FaDCharacter.MeleeDefense = value;
+                OnPropertyChanged();
+            }
+        }
         public uint Morality
         {
             get { return FaDCharacter.Morality; }
@@ -308,13 +251,46 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        public Inventory Inventory
+        public uint RangedDefense
         {
-            get { return FaDCharacter.Inventory; }
+            get { return FaDCharacter.RangedDefense; }
+
             set
             {
-                FaDCharacter.Inventory = value;
+                FaDCharacter.RangedDefense = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint Presence
+        {
+            get { return FaDCharacter.Presence.Rank; }
+
+            set
+            {
+                FaDCharacter.Presence.Rank = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint SoakValue
+        {
+            get { return FaDCharacter.SoakValue; }
+            set
+            {
+                FaDCharacter.SoakValue = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint TotalXP
+        {
+            get { return FaDCharacter.XP.TotalXP; }
+        }
+        public uint Willpower
+        {
+            get { return FaDCharacter.Willpower.Rank; }
+
+            set
+            {
+                FaDCharacter.Willpower.Rank = value;
                 OnPropertyChanged();
             }
         }
@@ -325,6 +301,7 @@ namespace StarWRPG.ViewModels
         {
             FaDCharacter = character;
             InitializeSkills();
+            CriticalInjuriesViewModel = new CriticalInjuriesViewModel(FaDCharacter.CriticalInjuries);
         }
 
         private void InitializeSkills()

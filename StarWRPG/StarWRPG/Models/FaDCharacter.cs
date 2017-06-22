@@ -55,17 +55,6 @@ namespace StarWRPG.Models
             SpecializationTrees = "";
             Species = "";
 
-            Conflict = 0;
-            CurrentStrain = 0;
-            CurrentWounds = 0;
-            ForceRating = 0;
-            MaxWounds = 0;
-            MaxStrain = 0;
-            MeleeDefense = 0;
-            Morality = 0;
-            RangedDefense = 0;
-            SoakValue = 0;
-
             CriticalInjuries = new ObservableCollection<CriticalInjury>();
             Inventory = new Inventory();
             Talents = new ObservableCollection<Talent>();

@@ -202,6 +202,15 @@
             <Label Text="Morality" FontAttributes="Bold"/>
             <Entry Keyboard="Numeric" Text="{Binding Morality}"/>
 
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Add" 
+                        Clicked="AddCriticalInjuryAsync"
+                        HorizontalOptions="CenterAndExpand"/>
+                <Button Text="Remove" 
+                        Clicked="RemoveCriticalInjuryAsync"
+                        HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+            
         </StackLayout>
     </ScrollView>
 </ContentPage>
