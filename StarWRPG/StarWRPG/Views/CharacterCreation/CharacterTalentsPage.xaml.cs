@@ -49,9 +49,16 @@ namespace StarWRPG.Views
             });
         }
 
-        private void TalentSelectedAsync(object sender, SelectedItemChangedEventArgs e)
+        private async void TalentSelectedAsync(object sender, SelectedItemChangedEventArgs e)
         {
+            if (e.SelectedItem is TalentViewModel talent)
+                await Navigation.PushModalAsync(new TalentPage(talentsViewModel, talent));
+            TalentsListView.SelectedItem = null;
+        }
 
+        private async void AddTalentClickedAsync(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new TalentPage(talentsViewModel));
         }
     }
 }

@@ -3,13 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarWRPG.Views.CharacterTalentsPage"
              Title="Talents">
+
+    <ContentPage.Padding>
+        5,5,5,20
+    </ContentPage.Padding>
     
     <StackLayout x:Name="MainStackLayout">
 
-        <ListView ItemsSource="{Binding TalentViewModels}"
+        <ListView x:Name="TalentsListView"
+                  ItemsSource="{Binding TalentViewModels}"
                   ItemSelected="TalentSelectedAsync"
-                  HasUnevenRows="True"
-                  Margin="10">
+                  HasUnevenRows="True">
             <ListView.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -31,7 +35,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid Padding="5">
+                        <Grid RowSpacing="10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="3*"/>
                                 <ColumnDefinition Width="2*"/>
@@ -51,6 +55,10 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Button Text="Add Talent"
+                Clicked="AddTalentClickedAsync"
+                HorizontalOptions="CenterAndExpand"/>
     </StackLayout>
     
 </ContentPage>

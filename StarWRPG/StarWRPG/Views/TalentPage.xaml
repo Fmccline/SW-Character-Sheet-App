@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StarWRPG.Views.TalentPage">
+
+    <ContentPage.Padding>
+        10,10,10,20
+    </ContentPage.Padding>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Talent" 
+                   Style="{StaticResource CenterBoldLabel}"
+                   FontSize="Medium"/>
+
+            <Label Text="Name" Style="{StaticResource StartLabel}"/>
+            <Entry Text="{Binding Name}"/>
+
+            <Label Text="Page #" Style="{StaticResource StartLabel}"/>
+            <Entry Text="{Binding PageNumber}" Keyboard="Numeric"/>
+
+            <Label Text="Description"
+                   HorizontalOptions="Start"
+                   VerticalOptions="Start"/>
+            <Editor Text="{Binding Description}" VerticalOptions="FillAndExpand"/>
+
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Accept" 
+                        Clicked="AcceptClickedAsync"
+                        HorizontalOptions="CenterAndExpand"/>
+                <Button Text="Delete"
+                        Clicked="DeleteButtonClickedAsync"
+                        HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

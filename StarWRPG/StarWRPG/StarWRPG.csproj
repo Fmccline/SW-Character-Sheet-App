@@ -129,6 +129,9 @@
     <Compile Include="Views\SkillPage.xaml.cs">
       <DependentUpon>SkillPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TalentPage.xaml.cs">
+      <DependentUpon>TalentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ToPageButton.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -252,6 +255,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\CriticalInjuryPages\RemoveCriticalInjuryPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\TalentPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
