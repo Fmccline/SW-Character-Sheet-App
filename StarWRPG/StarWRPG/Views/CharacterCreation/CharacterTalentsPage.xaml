@@ -13,7 +13,8 @@
         <ListView x:Name="TalentsListView"
                   ItemsSource="{Binding TalentViewModels}"
                   ItemSelected="TalentSelectedAsync"
-                  HasUnevenRows="True">
+                  HasUnevenRows="True"
+                  SeparatorVisibility="None">
             <ListView.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -35,7 +36,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Grid RowSpacing="10">
+                        <Grid Margin="0,10,0,10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="3*"/>
                                 <ColumnDefinition Width="2*"/>
