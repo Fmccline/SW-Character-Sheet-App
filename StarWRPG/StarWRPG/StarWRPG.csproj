@@ -53,6 +53,7 @@
     <Compile Include="ViewModels\CriticalInjuryViewModel.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\SkillViewModel.cs" />
     <Compile Include="ViewModels\TalentsViewModel.cs" />
     <Compile Include="ViewModels\TalentViewModel.cs" />
@@ -115,12 +116,8 @@
     <Compile Include="Views\ItemPages\WeaponPage.xaml.cs">
       <DependentUpon>WeaponPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MainPage\MainMasterDetailPage.xaml.cs">
-      <DependentUpon>MainMasterDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\MainPage\MasterPageItem.cs" />
-    <Compile Include="Views\MainPage\WelcomePage.xaml.cs">
-      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    <Compile Include="Views\MainPage\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CriticalInjuryPages\CharacterCreationNavigationButtons.cs" />
     <Compile Include="Views\CriticalInjuryPages\RemoveCriticalInjuryPage.xaml.cs">
@@ -148,18 +145,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\CharacterDetail\FaDInventoryPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\MainPage\MainMasterDetailPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\MainPage\WelcomePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -261,6 +246,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\TalentPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MainPage\MainPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

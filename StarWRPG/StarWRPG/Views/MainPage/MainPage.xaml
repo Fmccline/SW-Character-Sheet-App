@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StarWRPG.Views.MainPage"
+             Title="FFG Character Sheet">
+
+    <ContentPage.Padding>
+        5,0,5,20
+    </ContentPage.Padding>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MediumStartBoldLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+            <Style x:Key="CreateCharacterButton" TargetType="Button">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Text" Value="Create"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Label Text="Character Creation" Style="{StaticResource MediumStartBoldLabel}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <Label Grid.Column="0" Grid.Row="0"
+                       Text="Edge of the Empire Character" 
+                       Style="{StaticResource StartLabel}"/>
+                <Label Grid.Column="0" Grid.Row="1"
+                       Text="Age of Rebellion Character" 
+                       Style="{StaticResource StartLabel}"/>
+                <Label Grid.Column="0" Grid.Row="2"
+                       Text="Force and Destiny Character" 
+                       Style="{StaticResource StartLabel}"/>
+                <Button Grid.Column="1" Grid.Row="0" 
+                        Clicked="EotEButtonClickedAsync"
+                        Style="{StaticResource CreateCharacterButton}"/>
+                <Button Grid.Column="1" Grid.Row="1" 
+                        Clicked="AoRButtonClickedAsync"
+                        Style="{StaticResource CreateCharacterButton}"/>
+                <Button Grid.Column="1" Grid.Row="2"
+                        Clicked="FaDButtonClickedAsync"
+                        Style="{StaticResource CreateCharacterButton}"/>
+            </Grid>
+
+            <Label Text="Characters" Style="{StaticResource MediumStartBoldLabel}"/>
+
+            <Label Text="You have no characters; we should fix that!"
+                   IsVisible="{Binding CharactersIsEmpty}"/>
+
+            <ListView x:Name="charactersListView"
+                      ItemsSource="characters"
+                      ItemSelected="CharactersListViewItemSelected"
+                      IsVisible="{Binding CharactersIsNotEmpty}">
+                <ListView.Header>
+                    <Grid>
+                        <Label Grid.Column="0" 
+                           Text="Name" 
+                           Style="{StaticResource StartBoldLabel}"/>
+                        <Label Grid.Column="1" 
+                           Text="Species" 
+                           Style="{StaticResource StartBoldLabel}"/>
+                        <Label Grid.Column="2" 
+                           Text="Career" 
+                           Style="{StaticResource StartBoldLabel}"/>
+                        <Label Grid.Column="3" 
+                           Text="Total XP" 
+                           Style="{StaticResource StartBoldLabel}"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Label Grid.Column="0" 
+                                       Text="{Binding Name}" 
+                                       Style="{StaticResource StartLabel}"/>
+                                <Label Grid.Column="1" 
+                                       Text="{Binding Species}" 
+                                       Style="{StaticResource StartLabel}"/>
+                                <Label Grid.Column="2" 
+                                       Text="{Binding Career}" 
+                                       Style="{StaticResource StartLabel}"/>
+                                <Label Grid.Column="3" 
+                                       Text="{Binding TotalXP}" 
+                                       Style="{StaticResource StartLabel}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

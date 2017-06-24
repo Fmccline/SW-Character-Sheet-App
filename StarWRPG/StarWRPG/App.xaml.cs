@@ -36,7 +36,7 @@ namespace StarWRPG
 
             ViewModelFactory = new ViewModelFactory(fadCharacter);
 
-            MainPage = new MainMasterDetailPage();
+            MainPage = new NavigationPage(new MainPage());
         }
 
         FaDCharacter createCharacter()

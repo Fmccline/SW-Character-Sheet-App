@@ -1,5 +1,6 @@
 ﻿using SQLite;
 using StarWRPG.Models;
+using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -29,15 +30,15 @@ namespace StarWRPG
             }
         }
 
-        public async Task<List<FaDCharacter>> GetCharactersAsync()
+        public async Task<List<FaDCharacterViewModel>> GetCharacterViewModelsAsync()
         {
-            var characters = new List<FaDCharacter>();
+            var characters = new List<FaDCharacterViewModel>();
             var characterDataItems = await database.Table<CharacterDataItem>().ToListAsync();
             if (characterDataItems.Count > 0)
             {
                 foreach (CharacterDataItem character in characterDataItems)
                 {
-                    characters.Add(character.GetCharacter());
+                    characters.Add(new FaDCharacterViewModel(character.GetCharacter()));
                 }
             }
             return characters;
