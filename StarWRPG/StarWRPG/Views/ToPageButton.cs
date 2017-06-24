@@ -28,10 +28,11 @@ namespace StarWRPG.Views
         {
             try
             {
-                removePreviousPageFromStack();
-                await Navigation.PushAsync((Page)Activator.CreateInstance(PageType, fadCharacterViewModel));
+                var rootPage = Navigation.NavigationStack.First();
+                Navigation.InsertPageBefore((Page)Activator.CreateInstance(PageType, fadCharacterViewModel), rootPage);
+                await Navigation.PopToRootAsync();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.StackTrace);
                 Debug.WriteLine(ex.Message);
