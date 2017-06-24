@@ -66,6 +66,22 @@ namespace StarWRPG
             }
         }
 
+        public async void SaveCharacterViewModelAsync(FaDCharacterViewModel characterViewModel)
+        {
+            var character = characterViewModel.FaDCharacter;
+            var characterDataItems = await database.Table<CharacterDataItem>().ToListAsync();
+            foreach (var characterDataItem in characterDataItems)
+            {
+                if (characterDataItem.GetCharacter() == character)
+                {
+                    characterDataItem.CharacterToJson(character);
+                    await database.UpdateAsync(characterDataItem);
+                    return;
+                }
+            }
+            await database.InsertAsync(new CharacterDataItem(character));
+        }
+
         public Task<int> DeleteItemAsync(CharacterDataItem item)
         {
             return database.DeleteAsync(item);

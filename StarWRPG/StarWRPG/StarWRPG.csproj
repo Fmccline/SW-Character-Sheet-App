@@ -59,6 +59,7 @@
     <Compile Include="ViewModels\TalentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeaponViewModel.cs" />
+    <Compile Include="Views\CharacterCreation\CharacterCreationBasePage.cs" />
     <Compile Include="Views\CriticalInjuryPages\AddCriticalInjuryPage.xaml.cs">
       <DependentUpon>AddCriticalInjuryPage.xaml</DependentUpon>
     </Compile>

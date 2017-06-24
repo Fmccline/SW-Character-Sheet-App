@@ -12,11 +12,11 @@ using Xamarin.Forms.Xaml;
 namespace StarWRPG.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CharacterInventoryEntryPage : ContentPage
+    public partial class CharacterInventoryEntryPage : CharacterCreationBasePage
     {
         InventoryViewModel inventoryViewModel;
 
-        public CharacterInventoryEntryPage(FaDCharacterViewModel characterViewModel)
+        public CharacterInventoryEntryPage(FaDCharacterViewModel characterViewModel) : base(characterViewModel)
         {
             InitializeComponent();
 
