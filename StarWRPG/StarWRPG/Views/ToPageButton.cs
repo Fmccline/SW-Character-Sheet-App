@@ -28,9 +28,9 @@ namespace StarWRPG.Views
         {
             try
             {
-                var rootPage = Navigation.NavigationStack.First();
-                Navigation.InsertPageBefore((Page)Activator.CreateInstance(PageType, fadCharacterViewModel), rootPage);
-                await Navigation.PopToRootAsync();
+                var previousPage = Navigation.NavigationStack.Last();
+                Navigation.InsertPageBefore((Page)Activator.CreateInstance(PageType, fadCharacterViewModel), previousPage);
+                await Navigation.PopAsync();
             }
             catch (Exception ex)
             {

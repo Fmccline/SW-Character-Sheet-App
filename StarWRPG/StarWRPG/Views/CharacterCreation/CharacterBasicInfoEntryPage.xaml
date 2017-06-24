@@ -5,6 +5,10 @@
              Title="Basic Info"
              x:Class="StarWRPG.Views.CharacterBasicInfoEntryPage">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Name="Save" Activated="SaveActivatedAsync"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="CenterLabel" TargetType="Label">

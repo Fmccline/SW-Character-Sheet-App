@@ -38,5 +38,10 @@ namespace StarWRPG.Views
             else if (buttonClicked == EditMotivationsButton)
                 await Navigation.PushModalAsync(new EditorPage("Character Motivations", "Motivation", fadCharacterViewModel));
         }
+
+        private async void SaveActivatedAsync(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
+        }
     }
 }
