@@ -35,5 +35,21 @@ namespace StarWRPG.Models
                 Items.Add(item);
             }
         }
+
+        public void Remove(Item item)
+        {
+            if (item.GetType() == typeof(Weapon))
+            {
+                Weapons.Remove((Weapon)item);
+            }
+            else if (item.GetType() == typeof(Armor))
+            {
+                Armors.Remove((Armor)item);
+            }
+            else
+            {
+                Items.Remove(item);
+            }
+        }
     }
 }

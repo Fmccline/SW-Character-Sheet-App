@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="StarWRPG.App">
+<Application xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:StarWRPG" 
+             x:Class="StarWRPG.App">
 	<Application.Resources>
 		<!-- Application resource dictionary -->
         <ResourceDictionary>
@@ -20,6 +23,11 @@
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            <Style x:Key="CenterNumericEntry" TargetType="Entry">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="Keyboard" Value="Numeric" />
             </Style>
         </ResourceDictionary>
 	</Application.Resources>

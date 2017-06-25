@@ -11,27 +11,34 @@ namespace StarWRPG.Views
     public abstract class ItemBasePage : ContentPage
     {
         protected InventoryViewModel inventoryViewModel;
-        protected Button save;
-        protected Button cancel;
-        protected StackLayout SaveAndCancelLayout;
+        protected ItemViewModel itemViewModel;
 
-        protected abstract void OnSaveClickedAsync(object sender, EventArgs e);
-        protected async void OnCancelClickedAsync(object sender, EventArgs e)
-        {
-            var answer = await DisplayAlert("Are you sure?", "Cancelling will not save the item to your inventory.", "Yes", "No");
-            if (answer)
-                await Navigation.PopModalAsync();
-        }
+        Button save;
+        Button delete;
+        Button cancel;
+        protected StackLayout SaveAndCancelLayout;
 
         public ItemBasePage(InventoryViewModel inventoryViewModel)
         {
             this.inventoryViewModel = inventoryViewModel;
+            CreateSaveAndCancelLayout();
+        }
+
+        private void CreateSaveAndCancelLayout()
+        {
             save = new Button
             {
                 Text = "Save",
                 HorizontalOptions = LayoutOptions.FillAndExpand,
             };
             save.Clicked += OnSaveClickedAsync;
+
+            delete = new Button
+            {
+                Text = "Delete",
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+            };
+            delete.Clicked += OnDeleteClickedAsync;
 
             cancel = new Button
             {
@@ -46,9 +53,33 @@ namespace StarWRPG.Views
                 Children =
                 {
                     save,
+                    delete,
                     cancel,
                 }
             };
+        }
+
+        private async void OnDeleteClickedAsync(object sender, EventArgs e)
+        {
+            var answer = await DisplayAlert("Are you sure?", "This will permanently delete the item.", "Yes", "No");
+            if (answer)
+            {
+                inventoryViewModel.Remove(itemViewModel);
+                await Navigation.PopModalAsync();
+            }
+        }
+
+        protected async void OnSaveClickedAsync(object sender, EventArgs e)
+        {
+            inventoryViewModel.Insert(itemViewModel);
+            await Navigation.PopModalAsync();
+        }
+
+        protected async void OnCancelClickedAsync(object sender, EventArgs e)
+        {
+            var answer = await DisplayAlert("Are you sure?", "Cancelling will not save the item.", "Yes", "No");
+            if (answer)
+                await Navigation.PopModalAsync();
         }
     }
 }

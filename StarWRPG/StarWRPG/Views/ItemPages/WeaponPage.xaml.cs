@@ -13,26 +13,18 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WeaponPage : ItemBasePage
     {
-        WeaponViewModel weaponViewModel;
-
         public WeaponPage(InventoryViewModel inventoryViewModel, WeaponViewModel weaponViewModel = null) : base(inventoryViewModel)
         {
             InitializeComponent();
 
             if (weaponViewModel == null)
             {
-                this.weaponViewModel = new WeaponViewModel();
+                weaponViewModel = new WeaponViewModel();
             }
-
-            BindingContext = this.weaponViewModel;
+            itemViewModel = weaponViewModel;
+            BindingContext = itemViewModel;
 
             MainStackLayout.Children.Add(SaveAndCancelLayout);
-        }
-
-        protected override async void OnSaveClickedAsync(object sender, EventArgs e)
-        {
-            inventoryViewModel.Add(weaponViewModel.Weapon);
-            await Navigation.PopModalAsync();
         }
     }
 }

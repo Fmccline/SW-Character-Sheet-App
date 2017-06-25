@@ -5,203 +5,202 @@
                                  Title="Basic Info"
                                  x:Class="StarWRPG.Views.CharacterBasicInfoEntryPage">
 
-    <ContentPage.Resources>
+    <local:CharacterCreationBasePage.Resources>
         <ResourceDictionary>
-            <Style x:Key="CenterLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
-            </Style>
             <Style x:Key="CenterNumericEntry" TargetType="Entry">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="Keyboard" Value="Numeric" />
             </Style>
         </ResourceDictionary>
-    </ContentPage.Resources>
+    </local:CharacterCreationBasePage.Resources>
+    
+    <StackLayout x:Name="MainStackLayout">
+        <ScrollView>
+            <StackLayout>
+                <Entry Placeholder="Name" Text="{Binding Name}"/>
+                <Entry Placeholder="Species" Text="{Binding Species}"/>
+                <Entry Placeholder="Career" Text="{Binding Career}"/>
+                <Entry Placeholder="Specialization Trees" Text="{Binding SpecializationTrees}"/>
 
-    <ScrollView>
-        <StackLayout x:Name="MainStackLayout">
-            <Entry Placeholder="Name" Text="{Binding Name}"/>
-            <Entry Placeholder="Species" Text="{Binding Species}"/>
-            <Entry Placeholder="Career" Text="{Binding Career}"/>
-            <Entry Placeholder="Specialization Trees" Text="{Binding SpecializationTrees}"/>
+                <StackLayout Orientation="Horizontal">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="Soak Value" Style="{StaticResource CenterBoldLabel}" />
+                        <Entry Text="{Binding SoakValue}" Style="{StaticResource CenterNumericEntry}"/>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="Defense" Style="{StaticResource CenterBoldLabel}" />
+                        <Grid HorizontalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-            <StackLayout Orientation="Horizontal">
-                <StackLayout HorizontalOptions="FillAndExpand">
-                    <Label Text="Soak Value" Style="{StaticResource CenterBoldLabel}" />
-                    <Entry Text="{Binding SoakValue}" Style="{StaticResource CenterNumericEntry}"/>
-                </StackLayout>
-                <StackLayout HorizontalOptions="FillAndExpand">
-                    <Label Text="Defense" Style="{StaticResource CenterBoldLabel}" />
-                    <Grid HorizontalOptions="FillAndExpand">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-
-                        <Entry Text="{Binding MeleeDefense}"
-                           Style="{StaticResource CenterNumericEntry}"
-                           Grid.Column="0" 
-                           Grid.Row="0" />
-                        <Entry Text="{Binding RangedDefense}"
-                           Style="{StaticResource CenterNumericEntry}"
-                           Grid.Column="1" 
-                           Grid.Row="0"/>
-                        <Label Text="Melee"
-                           Style="{StaticResource CenterLabel}"
-                           Grid.Column="0" 
-                           Grid.Row="1" />
-                        <Label Text="Ranged"
-                           Style="{StaticResource CenterLabel}"
-                           Grid.Column="1" 
-                           Grid.Row="1"/>
-                    </Grid>
-                </StackLayout>
-                <StackLayout HorizontalOptions="FillAndExpand">
-                    <Label Text="Force Rating" Style="{StaticResource CenterBoldLabel}" />
-                    <Entry Text="{Binding ForceRating}" Style="{StaticResource CenterNumericEntry}"/>
-                </StackLayout>
-            </StackLayout>
-
-            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                <StackLayout HorizontalOptions="FillAndExpand">
-                    <Label Text="Wounds" Style="{StaticResource CenterBoldLabel}"/>
-                    <Grid HorizontalOptions="FillAndExpand">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-
-                        <Entry Text="{Binding CurrentWounds}"
-                           Keyboard="Numeric"
-                           Grid.Column="0" 
-                           Grid.Row="0" />
-                        <Entry Text="{Binding MaxWounds}"
-                           Keyboard="Numeric"
-                           Grid.Column="1" 
-                           Grid.Row="0"/>
-                        <Label Text="Current"
-                           Style="{StaticResource CenterLabel}"
-                           Grid.Column="0" 
-                           Grid.Row="1" />
-                        <Label Text="Max"
-                           Style="{StaticResource CenterLabel}"
-                           Grid.Column="1" 
-                           Grid.Row="1"/>
-                    </Grid>
+                            <Entry Text="{Binding MeleeDefense}"
+                                   Style="{StaticResource CenterNumericEntry}"
+                                   Grid.Column="0" 
+                                   Grid.Row="0" />
+                            <Entry Text="{Binding RangedDefense}"
+                                   Style="{StaticResource CenterNumericEntry}"
+                                   Grid.Column="1" 
+                                   Grid.Row="0"/>
+                            <Label Text="Melee"
+                                   Style="{StaticResource CenterLabel}"
+                                   Grid.Column="0" 
+                                   Grid.Row="1" />
+                            <Label Text="Ranged"
+                                   Style="{StaticResource CenterLabel}"
+                                   Grid.Column="1" 
+                                   Grid.Row="1"/>
+                        </Grid>
+                    </StackLayout>
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="Force Rating" Style="{StaticResource CenterBoldLabel}" />
+                        <Entry Text="{Binding ForceRating}" Style="{StaticResource CenterNumericEntry}"/>
+                    </StackLayout>
                 </StackLayout>
 
-                <StackLayout HorizontalOptions="FillAndExpand">
-                    <Label Text="Strain" Style="{StaticResource CenterBoldLabel}"/>
-                    <Grid HorizontalOptions="FillAndExpand">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="Wounds" Style="{StaticResource CenterBoldLabel}"/>
+                        <Grid HorizontalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                        <Entry Text="{Binding CurrentStrain}"
-                           Keyboard="Numeric"
-                           Grid.Column="0" 
-                           Grid.Row="0" />
-                        <Entry Text="{Binding MaxStrain}"
-                           Keyboard="Numeric"
-                           Grid.Column="1" 
-                           Grid.Row="0"/>
-                        <Label Text="Current"
-                           Style="{StaticResource CenterLabel}"
-                           Grid.Column="0" 
-                           Grid.Row="1" />
-                        <Label Text="Max"
-                           Style="{StaticResource CenterLabel}"
-                           Grid.Column="1" 
-                           Grid.Row="1"/>
-                    </Grid>
+                            <Entry Text="{Binding CurrentWounds}"
+                                   Keyboard="Numeric"                         
+                                   Grid.Column="0"                           
+                                   Grid.Row="0" />
+                            <Entry Text="{Binding MaxWounds}"
+                                   Keyboard="Numeric"                        
+                                   Grid.Column="1"                         
+                                   Grid.Row="0"/>
+                            <Label Text="Current"                          
+                                   Style="{StaticResource CenterLabel}"
+                                   Grid.Column="0"                          
+                                   Grid.Row="1" />
+                            <Label Text="Max"                          
+                                   Style="{StaticResource CenterLabel}"
+                                   Grid.Column="1" 
+                                   Grid.Row="1"/>
+                        </Grid>
+                    </StackLayout>
+
+                    <StackLayout HorizontalOptions="FillAndExpand">
+                        <Label Text="Strain" Style="{StaticResource CenterBoldLabel}"/>
+                        <Grid HorizontalOptions="FillAndExpand">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Entry Text="{Binding CurrentStrain}"
+                                   Keyboard="Numeric"                          
+                                   Grid.Column="0"                          
+                                   Grid.Row="0" />
+                            <Entry Text="{Binding MaxStrain}"                          
+                                   Keyboard="Numeric"
+                                   Grid.Column="1" 
+                                   Grid.Row="0"/>
+                            <Label Text="Current"
+                                   Style="{StaticResource CenterLabel}"
+                                   Grid.Column="0"                          
+                                   Grid.Row="1" />
+                            <Label Text="Max"                          
+                                   Style="{StaticResource CenterLabel}"
+                                   Grid.Column="1"                          
+                                   Grid.Row="1"/>
+                        </Grid>
+                    </StackLayout>
                 </StackLayout>
+
+                <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6"                       
+                           Text="Characteristics" Style="{StaticResource CenterBoldLabel}" />
+                    <Entry Grid.Column="0" Grid.Row="1"                      
+                           Text="{Binding Brawn}" Style="{StaticResource CenterNumericEntry}" />
+                    <Entry Grid.Column="1" Grid.Row="1"                    
+                           Text="{Binding Agility}" Style="{StaticResource CenterNumericEntry}" />
+                    <Entry Grid.Column="2" Grid.Row="1"                     
+                           Text="{Binding Intellect}" Style="{StaticResource CenterNumericEntry}" />
+                    <Entry Grid.Column="3" Grid.Row="1"                   
+                           Text="{Binding Cunning}" Style="{StaticResource CenterNumericEntry}" />
+                    <Entry Grid.Column="4" Grid.Row="1"                    
+                           Text="{Binding Willpower}" Style="{StaticResource CenterNumericEntry}" />
+                    <Entry Grid.Column="5" Grid.Row="1"                    
+                           Text="{Binding Presence}" Style="{StaticResource CenterNumericEntry}" />
+                    <Label Grid.Column="0" Grid.Row="2"                    
+                           Text="Br" Style="{StaticResource CenterBoldLabel}" />
+                    <Label Grid.Column="1" Grid.Row="2"                     
+                           Text="Ag" Style="{StaticResource CenterBoldLabel}" />
+                    <Label Grid.Column="2" Grid.Row="2"                     
+                           Text="Int" Style="{StaticResource CenterBoldLabel}" />
+                    <Label Grid.Column="3" Grid.Row="2"                     
+                           Text="Cun" Style="{StaticResource CenterBoldLabel}" />
+                    <Label Grid.Column="4" Grid.Row="2"                     
+                           Text="Will" Style="{StaticResource CenterBoldLabel}" />
+                    <Label Grid.Column="5" Grid.Row="2"                      
+                           Text="Pr" Style="{StaticResource CenterBoldLabel}" />
+                </Grid>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Description"                   
+                           FontAttributes="Bold"                  
+                           VerticalOptions="Center"/>
+                    <Button x:Name="EditDescriptionButton"                   
+                            Text="Edit"                    
+                            Clicked="EditValueAsync"
+                            VerticalOptions="Center"/>
+                </StackLayout>
+                <Label Text="{Binding Description}"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Background"                    
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"/>
+                    <Button x:Name="EditBackgroundButton" 
+                            Text="Edit" 
+                            Clicked="EditValueAsync"
+                            VerticalOptions="Center"/>
+                </StackLayout>
+                <Label Text="{Binding Background}"/>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Motivations" 
+                           FontAttributes="Bold"
+                           VerticalOptions="Center"/>
+                    <Button x:Name="EditMotivationsButton" 
+                            Text="Edit" 
+                            Clicked="EditValueAsync"
+                            VerticalOptions="Center"/>
+                </StackLayout>
+                <Label Text="{Binding Motivation}"/>
+
+                <Entry Placeholder="Emotional Strengths" Text="{Binding EmotionalStrengths}"/>
+                <Entry Placeholder="Emotional Weaknesses" Text="{Binding EmotionalWeaknesses}"/>
+                
+                <Label Text="Conflict" FontAttributes="Bold"/>
+                <Entry Keyboard="Numeric" Text="{Binding Conflict}"/>
+                
+                <Label Text="Morality" FontAttributes="Bold"/>
+                <Entry Keyboard="Numeric" Text="{Binding Morality}"/>
             </StackLayout>
-
-            <Grid HorizontalOptions="FillAndExpand">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6"
-                       Text="Characteristics" Style="{StaticResource CenterBoldLabel}" />
-                <Entry Grid.Column="0" Grid.Row="1"
-                       Text="{Binding Brawn}" Style="{StaticResource CenterNumericEntry}" />
-                <Entry Grid.Column="1" Grid.Row="1"
-                       Text="{Binding Agility}" Style="{StaticResource CenterNumericEntry}" />
-                <Entry Grid.Column="2" Grid.Row="1"
-                       Text="{Binding Intellect}" Style="{StaticResource CenterNumericEntry}" />
-                <Entry Grid.Column="3" Grid.Row="1"
-                       Text="{Binding Cunning}" Style="{StaticResource CenterNumericEntry}" />
-                <Entry Grid.Column="4" Grid.Row="1"
-                       Text="{Binding Willpower}" Style="{StaticResource CenterNumericEntry}" />
-                <Entry Grid.Column="5" Grid.Row="1"
-                       Text="{Binding Presence}" Style="{StaticResource CenterNumericEntry}" />
-                <Label Grid.Column="0" Grid.Row="2"
-                       Text="Br" Style="{StaticResource CenterBoldLabel}" />
-                <Label Grid.Column="1" Grid.Row="2"
-                       Text="Ag" Style="{StaticResource CenterBoldLabel}" />
-                <Label Grid.Column="2" Grid.Row="2"
-                       Text="Int" Style="{StaticResource CenterBoldLabel}" />
-                <Label Grid.Column="3" Grid.Row="2"
-                       Text="Cun" Style="{StaticResource CenterBoldLabel}" />
-                <Label Grid.Column="4" Grid.Row="2"
-                       Text="Will" Style="{StaticResource CenterBoldLabel}" />
-                <Label Grid.Column="5" Grid.Row="2"
-                       Text="Pr" Style="{StaticResource CenterBoldLabel}" />
-            </Grid>
-
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Description" 
-                   FontAttributes="Bold"
-                   VerticalOptions="Center"/>
-                <Button x:Name="EditDescriptionButton"
-                    Text="Edit" 
-                    Clicked="EditValueAsync"
-                    VerticalOptions="Center"/>
-            </StackLayout>
-            <Label Text="{Binding Description}"/>
-
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Background" 
-                   FontAttributes="Bold"
-                   VerticalOptions="Center"/>
-                <Button x:Name="EditBackgroundButton" 
-                    Text="Edit" 
-                    Clicked="EditValueAsync"
-                    VerticalOptions="Center"/>
-            </StackLayout>
-            <Label Text="{Binding Background}"/>
-
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Motivations" 
-                   FontAttributes="Bold"
-                   VerticalOptions="Center"/>
-                <Button x:Name="EditMotivationsButton" 
-                    Text="Edit" 
-                    Clicked="EditValueAsync"
-                    VerticalOptions="Center"/>
-            </StackLayout>
-            <Label Text="{Binding Motivation}"/>
-
-            <Entry Placeholder="Emotional Strengths" Text="{Binding EmotionalStrengths}"/>
-            <Entry Placeholder="Emotional Weaknesses" Text="{Binding EmotionalWeaknesses}"/>
-            <Label Text="Conflict" FontAttributes="Bold"/>
-            <Entry Keyboard="Numeric" Text="{Binding Conflict}"/>
-            <Label Text="Morality" FontAttributes="Bold"/>
-            <Entry Keyboard="Numeric" Text="{Binding Morality}"/>
-
-        </StackLayout>
-    </ScrollView>
+        </ScrollView>
+    </StackLayout>
 </local:CharacterCreationBasePage>

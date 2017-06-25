@@ -12,17 +12,8 @@ namespace StarWRPG.ViewModels
     {
         public FaDCharacter FaDCharacter { get; private set; }
 
-        public Inventory Inventory
-        {
-            get { return FaDCharacter.Inventory; }
-            set
-            {
-                FaDCharacter.Inventory = value;
-                OnPropertyChanged();
-            }
-        }
-
         public CriticalInjuriesViewModel CriticalInjuriesViewModel { get; private set; }
+        public InventoryViewModel InventoryViewModel { get; private set; }
         public TalentsViewModel TalentsViewModel { get; private set; }
         public ObservableCollection<SkillViewModel> Skills { get; set; }
 
@@ -303,6 +294,7 @@ namespace StarWRPG.ViewModels
             FaDCharacter = character;
             InitializeSkills();
             CriticalInjuriesViewModel = new CriticalInjuriesViewModel(FaDCharacter.CriticalInjuries);
+            InventoryViewModel = new InventoryViewModel(FaDCharacter.Inventory);
             TalentsViewModel = new TalentsViewModel(FaDCharacter.Talents);
         }
 
