@@ -17,7 +17,7 @@
     
     <StackLayout x:Name="MainStackLayout">
         <ScrollView>
-            <StackLayout>
+            <StackLayout x:Name="ScrollViewStackLayout">
                 <Entry Placeholder="Name" Text="{Binding Name}"/>
                 <Entry Placeholder="Species" Text="{Binding Species}"/>
                 <Entry Placeholder="Career" Text="{Binding Career}"/>

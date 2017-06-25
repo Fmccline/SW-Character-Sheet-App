@@ -135,8 +135,7 @@ namespace StarWRPG.Views
                 Text = "Critical Injuries",
                 HorizontalOptions=LayoutOptions.CenterAndExpand,
                 Style = (Style)Application.Current.Resources["CenterBoldLabel"],
-                FontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label)),
-        };
+            };
         }
     }
 }
