@@ -41,7 +41,9 @@ namespace StarWRPG
         {
             try
             {
-                return JsonConvert.DeserializeObject<FaDCharacter>(CharacterAsJson, serializerSettings);
+                var character =  JsonConvert.DeserializeObject<FaDCharacter>(CharacterAsJson, serializerSettings);
+                character.ID = ID;
+                return character;
             }
             catch (Exception e)
             {

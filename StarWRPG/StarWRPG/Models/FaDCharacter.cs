@@ -7,7 +7,8 @@ namespace StarWRPG.Models
 {
     public class FaDCharacter
     {
-        // If any change happens here, change should also happen in the ViewModel!
+        public int ID { get; set; }
+
         public string Background { get; set; }
         public string Career { get; set; }
         public string Description { get; set; }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<local:CharacterCreationBasePage xmlns="http://xamarin.com/schemas/2014/forms"
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                xmlns:local="clr-namespace:StarWRPG.Views" 
              x:Class="StarWRPG.Views.CharacterTalentsPage"
@@ -63,4 +63,4 @@
                 HorizontalOptions="CenterAndExpand"/>
     </StackLayout>
     
-</local:CharacterCreationBasePage>
+</local:BasePage>

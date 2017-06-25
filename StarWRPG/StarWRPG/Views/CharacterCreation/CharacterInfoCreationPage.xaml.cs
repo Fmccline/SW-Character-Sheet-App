@@ -1,4 +1,5 @@
-﻿using StarWRPG.Models;
+﻿using StarWRPG.Controls;
+using StarWRPG.Models;
 using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,11 +14,16 @@ using Xamarin.Forms.Xaml;
 namespace StarWRPG.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CharacterBasicInfoEntryPage : CharacterCreationBasePage
+    public partial class CharacterInfoCreationPage : BasePage
     {
         FaDCharacterViewModel fadCharacterViewModel;
 
-        public CharacterBasicInfoEntryPage(FaDCharacterViewModel characterViewModel) : base(characterViewModel)
+        protected override StackLayout mainStackLayout
+        {
+            get { return MainStackLayout; }
+        }
+
+        public CharacterInfoCreationPage(FaDCharacterViewModel characterViewModel)
         {
             InitializeComponent();
 
@@ -26,6 +32,7 @@ namespace StarWRPG.Views
 
             MainStackLayout.Children.Insert(0, new CharacterCreationNavigationButtons(fadCharacterViewModel, GetType()));
             MainStackLayout.Children.Add(new CriticalInjuriesGrid(fadCharacterViewModel.CriticalInjuriesViewModel));
+            ToolbarItems.Add(new SaveCharacterToolbarItem(fadCharacterViewModel, this));
         }
 
         public async void EditValueAsync(object sender, EventArgs e)

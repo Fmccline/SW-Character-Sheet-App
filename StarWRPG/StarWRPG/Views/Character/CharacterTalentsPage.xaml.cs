@@ -12,25 +12,27 @@ using Xamarin.Forms.Xaml;
 namespace StarWRPG.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CharacterTalentsPage : CharacterCreationBasePage
+    public partial class CharacterTalentsPage : BasePage
     {
         TalentsViewModel talentsViewModel;
 
-        public CharacterTalentsPage(FaDCharacterViewModel fadCharacterViewModel) : base(fadCharacterViewModel)
+        protected override StackLayout mainStackLayout { get { return MainStackLayout; } }
+
+        public CharacterTalentsPage(FaDCharacterViewModel fadCharacterViewModel)
         {
             InitializeComponent();
 
             talentsViewModel = fadCharacterViewModel.TalentsViewModel;
             BindingContext = talentsViewModel;
-
-            MainStackLayout.Children.Insert(0, new CharacterCreationNavigationButtons(fadCharacterViewModel, GetType()));
         }
 
         private async void TalentSelectedAsync(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem is TalentViewModel talent)
+            {
                 await Navigation.PushModalAsync(new TalentPage(talentsViewModel, talent));
-            TalentsListView.SelectedItem = null;
+                TalentsListView.SelectedItem = null;
+            }
         }
 
         private async void AddTalentClickedAsync(object sender, EventArgs e)

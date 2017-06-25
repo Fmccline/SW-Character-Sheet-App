@@ -11,24 +11,30 @@ using Xamarin.Forms.Xaml;
 namespace StarWRPG.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CharacterSkillsPage : CharacterCreationBasePage
+    public partial class CharacterSkillsPage : BasePage
     {
         FaDCharacterViewModel fadCharacterViewModel;
 
-        public CharacterSkillsPage(FaDCharacterViewModel character) : base(character)
+        protected override StackLayout mainStackLayout
+        {
+            get { return MainStackLayout; }
+        }
+
+        public CharacterSkillsPage(FaDCharacterViewModel character)
         {
             InitializeComponent();
 
             fadCharacterViewModel = character;
             BindingContext = fadCharacterViewModel;
-
-            MainStackLayout.Children.Insert(0, new CharacterCreationNavigationButtons(fadCharacterViewModel, GetType()));
         }
 
         private async void SkillSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var skill = e.SelectedItem as SkillViewModel;
-            await Navigation.PushModalAsync(new SkillPage(skill));
+            if (e.SelectedItem is SkillViewModel skill)
+            {
+                await Navigation.PushModalAsync(new SkillPage(skill));
+                SkillsListView.SelectedItem = null;
+            }
         }
     }
 }

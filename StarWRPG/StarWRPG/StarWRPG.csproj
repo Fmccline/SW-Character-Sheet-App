@@ -31,12 +31,13 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="App.xaml" />
-    <EmbeddedResource Include="Views\CharacterDetail\FaDMainDetailPage.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\EditCharacterToolbarItem.cs" />
+    <Compile Include="Controls\SaveCharacterToolbarItem.cs" />
     <Compile Include="Database\CharacterDatabase.cs" />
     <Compile Include="Database\CharacterDataItem.cs" />
     <Compile Include="Database\IFileHelper.cs" />
@@ -59,20 +60,27 @@
     <Compile Include="ViewModels\TalentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeaponViewModel.cs" />
-    <Compile Include="Views\CharacterCreation\CharacterCreationBasePage.cs" />
+    <Compile Include="Views\BasePage.cs" />
+    <Compile Include="Views\CharacterCreation\CharacterTalentsCreationPage.cs" />
+    <Compile Include="Views\CharacterDetail\CharacterDetailNavigationButtons.cs" />
+    <Compile Include="Views\CharacterDetail\CharacterInventoryDetailPage.cs" />
+    <Compile Include="Views\CharacterDetail\CharacterSkillsDetailPage.cs" />
+    <Compile Include="Views\CharacterDetail\CharacterTalentsDetailPage.cs" />
+    <Compile Include="Views\Character\NavigationButtonsBase.cs" />
     <Compile Include="Views\CriticalInjuryPages\AddCriticalInjuryPage.xaml.cs">
       <DependentUpon>AddCriticalInjuryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterCreation\CharacterSkillsPage.xaml.cs">
+    <Compile Include="Views\Character\CharacterSkillsPage.xaml.cs">
       <DependentUpon>CharacterSkillsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterCreation\CharacterTalentsPage.xaml.cs">
+    <Compile Include="Views\Character\CharacterTalentsPage.xaml.cs">
       <DependentUpon>CharacterTalentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CriticalInjuryPages\CriticalInjuriesGrid.cs" />
     <Compile Include="Views\EditorPage.xaml.cs">
       <DependentUpon>EditorPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CharacterCreation\CharacterInventoryCreationPage.cs" />
     <Compile Include="Views\ItemPages\ArmorPage.xaml.cs">
       <DependentUpon>ArmorPage.xaml</DependentUpon>
     </Compile>
@@ -80,14 +88,11 @@
     <Compile Include="Views\ItemPages\ItemPage.xaml.cs">
       <DependentUpon>ItemPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterCreation\CharacterBasicInfoEntryPage.xaml.cs">
-      <DependentUpon>CharacterBasicInfoEntryPage.xaml</DependentUpon>
+    <Compile Include="Views\CharacterCreation\CharacterInfoCreationPage.xaml.cs">
+      <DependentUpon>CharacterInfoCreationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterDetail\FaDBasicInfoPage.xaml.cs">
-      <DependentUpon>FaDBasicInfoPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CharacterDetail\FaDMainDetailPage.xaml.cs">
-      <DependentUpon>FaDMainDetailPage.xaml</DependentUpon>
+    <Compile Include="Views\CharacterDetail\CharacterInfoDetailPage.xaml.cs">
+      <DependentUpon>CharacterInfoDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\CharacterMembers\Experience.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,14 +110,8 @@
     <Compile Include="Models\CharacterMembers\Skills\AstrogationSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\LightsaberSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\AthleticsSkill.cs" />
-    <Compile Include="Views\CharacterDetail\FaDStatsPage.xaml.cs">
-      <DependentUpon>FaDStatsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CharacterDetail\FaDInventoryPage.xaml.cs">
-      <DependentUpon>FaDInventoryPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\CharacterCreation\CharacterInventoryEntryPage.xaml.cs">
-      <DependentUpon>CharacterInventoryEntryPage.xaml</DependentUpon>
+    <Compile Include="Views\Character\CharacterInventoryPage.xaml.cs">
+      <DependentUpon>CharacterInventoryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ItemPages\WeaponPage.xaml.cs">
       <DependentUpon>WeaponPage.xaml</DependentUpon>
@@ -120,32 +119,21 @@
     <Compile Include="Views\MainPage\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CriticalInjuryPages\CharacterCreationNavigationButtons.cs" />
+    <Compile Include="Views\CharacterCreation\CharacterCreationNavigationButtons.cs" />
     <Compile Include="Views\CriticalInjuryPages\RemoveCriticalInjuryPage.xaml.cs">
       <DependentUpon>RemoveCriticalInjuryPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SkillPage.xaml.cs">
       <DependentUpon>SkillPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CharacterCreation\CharacterSkillsCreationPage.cs" />
     <Compile Include="Views\TalentPage.xaml.cs">
       <DependentUpon>TalentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ToPageButton.cs" />
+    <Compile Include="Controls\ToPageButton.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterDetail\FaDBasicInfoPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterDetail\FaDStatsPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterDetail\FaDInventoryPage.xaml">
+    <EmbeddedResource Include="Views\CharacterDetail\CharacterInfoDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -180,13 +168,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterCreation\CharacterBasicInfoEntryPage.xaml">
+    <EmbeddedResource Include="Views\CharacterCreation\CharacterInfoCreationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterCreation\CharacterInventoryEntryPage.xaml">
+    <EmbeddedResource Include="Views\Character\CharacterInventoryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -210,7 +198,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterCreation\CharacterSkillsPage.xaml">
+    <EmbeddedResource Include="Views\Character\CharacterSkillsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -228,7 +216,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterCreation\CharacterTalentsPage.xaml">
+    <EmbeddedResource Include="Views\Character\CharacterTalentsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
