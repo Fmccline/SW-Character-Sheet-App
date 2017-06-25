@@ -8,62 +8,10 @@ namespace StarWRPG.Models
 {
     public class Weapon : Gear
     {
-        uint crit { get; set; }
-        uint damage { get; set; }
-        string range { get; set; }
-        string special { get; set; }
-        string skill { get; set; }
-
-        public uint Crit
-        {
-            get { return crit; }
-            set
-            {
-                crit = value;
-                OnPropertyChanged();
-            }
-        }
-        public uint Damage
-        {
-            get { return damage; }
-            set
-            {
-                damage = value;
-                OnPropertyChanged();
-            }
-        }
-        public string Range
-        {
-            get { return range; }
-            set
-            {
-                range = value;
-                OnPropertyChanged();
-            }
-        }
-        public string Special
-        {
-            get { return special; }
-            set
-            {
-                special = value;
-                OnPropertyChanged();
-            }
-        }
-        public string Skill
-        {
-            get { return skill; }
-            set
-            {
-                skill = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public Weapon()
-        {
-            Crit = 0;
-            Damage = 0;
-        }
+        public uint Crit { get; set; }
+        public uint Damage { get; set; }
+        public string Range { get; set; }
+        public string Special { get; set; }
+        public string Skill { get; set; }
     }
 }
