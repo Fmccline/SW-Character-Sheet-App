@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StarWRPG.Views.CharacterInfoDetailPage"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="StarWRPG.Views.CharacterInfoDetailPage"
                 xmlns:local="clr-namespace:StarWRPG.Views" 
-             Title="Basic Info">
+                Title="Basic Info">
 
     <local:BasePage.Padding>
-        5,0,5,20
+        10,0,10,20
     </local:BasePage.Padding>
 
     <StackLayout x:Name="MainStackLayout">
@@ -25,23 +25,21 @@
                     </Grid.RowDefinitions>
 
                     <Label Grid.Column="0" Grid.Row="0"  
-                       Text="Name" Style="{StaticResource CenterBoldLabel}" 
-                       FontSize="Medium"/>
+                           Text="Name" Style="{StaticResource CenterBoldLabel}" />
                     <Label Grid.Column="1" Grid.Row="0" 
-                       Text="{Binding Name}" Style="{StaticResource CenterLabel}"
-                       FontSize="Medium"/>
+                           Text="{Binding Name}" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="0" Grid.Row="1" 
-                       Text="Species" Style="{StaticResource CenterBoldLabel}" />
+                           Text="Species" Style="{StaticResource CenterBoldLabel}" />
                     <Label Grid.Column="1" Grid.Row="1" 
-                       Text="{Binding Species}" Style="{StaticResource CenterLabel}" />
+                           Text="{Binding Species}" Style="{StaticResource CenterLabel}" />
                     <Label Grid.Column="0" Grid.Row="2" 
-                       Text="Career" Style="{StaticResource CenterBoldLabel}" />
+                           Text="Career" Style="{StaticResource CenterBoldLabel}" />
                     <Label Grid.Column="1" Grid.Row="2" 
-                       Text="{Binding Career}" Style="{StaticResource CenterLabel}" />
+                           Text="{Binding Career}" Style="{StaticResource CenterLabel}" />
                     <Label Grid.Column="0" Grid.Row="3" 
-                       Text="Specializations" Style="{StaticResource CenterBoldLabel}" />
+                           Text="Specializations" Style="{StaticResource CenterBoldLabel}" />
                     <Label Grid.Column="1" Grid.Row="3" 
-                       Text="{Binding SpecializationTrees}" Style="{StaticResource CenterLabel}" />
+                           Text="{Binding SpecializationTrees}" Style="{StaticResource CenterLabel}" />
                 </Grid>
 
                 <Grid Padding="0,20,0,0">
@@ -58,23 +56,23 @@
                     </Grid.RowDefinitions>
 
                     <Label Grid.Column="0" Grid.Row="0"
-                       Text="Soak" Style="{StaticResource CenterBoldLabel}"/>
+                           Text="Soak" Style="{StaticResource CenterBoldLabel}"/>
                     <Label Grid.Column="0" Grid.Row="1"
-                       Text="{Binding SoakValue}" Style="{StaticResource CenterLabel}"/>
+                           Text="{Binding SoakValue}" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" 
-                       Text="Defense" Style="{StaticResource CenterBoldLabel}"/>
+                           Text="Defense" Style="{StaticResource CenterBoldLabel}"/>
                     <Label Grid.Column="1" Grid.Row="1"
-                       Text="{Binding RangedDefense}" Style="{StaticResource CenterLabel}"/>
+                           Text="{Binding RangedDefense}" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="2" Grid.Row="1"
-                       Text="{Binding MeleeDefense}" Style="{StaticResource CenterLabel}"/>
+                           Text="{Binding MeleeDefense}" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="1" Grid.Row="2"
-                       Text="Ranged" Style="{StaticResource CenterLabel}"/>
+                           Text="Ranged" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="2" Grid.Row="2"
-                       Text="Melee" Style="{StaticResource CenterLabel}"/>
+                           Text="Melee" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="3" Grid.Row="0"
-                       Text="Force Rating" Style="{StaticResource CenterBoldLabel}"/>
+                           Text="Force Rating" Style="{StaticResource CenterBoldLabel}"/>
                     <Label Grid.Column="3" Grid.Row="1"
-                       Text="{Binding ForceRating}" Style="{StaticResource CenterLabel}"/>
+                           Text="{Binding ForceRating}" Style="{StaticResource CenterLabel}"/>
                 </Grid>
 
                 <Grid Padding="0,20,0,0">
@@ -91,25 +89,25 @@
                     </Grid.RowDefinitions>
 
                     <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
-                       Text="Wounds" Style="{StaticResource CenterBoldLabel}"/>
+                           Text="Wounds" Style="{StaticResource CenterBoldLabel}"/>
                     <Label Grid.Column="0" Grid.Row="1"
-                       Text="{Binding CurrentWounds}" Style="{StaticResource CenterLabel}"/>
+                           Text="{Binding CurrentWounds}" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="1" Grid.Row="1"
-                       Text="{Binding MaxWounds}" Style="{StaticResource CenterLabel}"/>
+                           Text="{Binding MaxWounds}" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="0" Grid.Row="2"
-                       Text="Current" Style="{StaticResource CenterLabel}"/>
+                           Text="Current" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="1" Grid.Row="2"
-                       Text="Max" Style="{StaticResource CenterLabel}"/>
+                           Text="Max" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2"
-                       Text="Strain" Style="{StaticResource CenterBoldLabel}"/>
+                           Text="Strain" Style="{StaticResource CenterBoldLabel}"/>
                     <Label Grid.Column="2" Grid.Row="1"
-                       Text="{Binding CurrentStrain}" Style="{StaticResource CenterLabel}"/>
+                           Text="{Binding CurrentStrain}" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="3" Grid.Row="1"
-                       Text="{Binding MaxStrain}" Style="{StaticResource CenterLabel}"/>
+                           Text="{Binding MaxStrain}" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="2" Grid.Row="2"
-                       Text="Current" Style="{StaticResource CenterLabel}"/>
+                           Text="Current" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="3" Grid.Row="2"
-                       Text="Max" Style="{StaticResource CenterLabel}"/>
+                           Text="Max" Style="{StaticResource CenterLabel}"/>
                 </Grid>
 
                 <Grid Padding="0,20,0,0">
@@ -128,31 +126,31 @@
                     </Grid.RowDefinitions>
 
                     <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6"
-                       Text="Characteristics" Style="{StaticResource CenterBoldLabel}"/>
+                           Text="Characteristics" Style="{StaticResource CenterBoldLabel}"/>
                     <Label Grid.Column="0" Grid.Row="1"
-                       Text="{Binding Brawn}" Style="{StaticResource CenterLabel}"/>
+                           Text="{Binding Brawn}" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="1" Grid.Row="1"
-                       Text="{Binding Agility}" Style="{StaticResource CenterLabel}"/>
+                           Text="{Binding Agility}" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="2" Grid.Row="1"
-                       Text="{Binding Intellect}" Style="{StaticResource CenterLabel}"/>
+                           Text="{Binding Intellect}" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="3" Grid.Row="1"
-                       Text="{Binding Cunning}" Style="{StaticResource CenterLabel}"/>
+                           Text="{Binding Cunning}" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="4" Grid.Row="1"
-                       Text="{Binding Willpower}" Style="{StaticResource CenterLabel}"/>
+                           Text="{Binding Willpower}" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="5" Grid.Row="1"
-                       Text="{Binding Presence}" Style="{StaticResource CenterLabel}"/>
+                           Text="{Binding Presence}" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="0" Grid.Row="2"
-                       Text="Br" Style="{StaticResource CenterLabel}"/>
+                           Text="Br" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="1" Grid.Row="2"
-                       Text="Ag" Style="{StaticResource CenterLabel}"/>
+                           Text="Ag" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="2" Grid.Row="2"
-                       Text="Int" Style="{StaticResource CenterLabel}"/>
+                           Text="Int" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="3" Grid.Row="2"
-                       Text="Cun" Style="{StaticResource CenterLabel}"/>
+                           Text="Cun" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="4" Grid.Row="2"
-                       Text="Will" Style="{StaticResource CenterLabel}"/>
+                           Text="Will" Style="{StaticResource CenterLabel}"/>
                     <Label Grid.Column="5" Grid.Row="2"
-                       Text="Pr" Style="{StaticResource CenterLabel}"/>
+                           Text="Pr" Style="{StaticResource CenterLabel}"/>
                 </Grid>
 
                 <Grid Padding="0,20,0,0">
@@ -168,37 +166,50 @@
                     <Label Grid.Column="0" Grid.Row="0" 
                            Text="Description" Style="{StaticResource StartBoldLabel}"/>
                     <Label Grid.Column="0" Grid.Row="1" 
-                           Text="{Binding Description}" Style="{StaticResource StartLabel}"/>
+                           Text="{Binding Description}" 
+                           Style="{StaticResource StartLabel}"
+                           VerticalOptions="Start"/>
                     <Label Grid.Column="1" Grid.Row="0" 
                            Text="Background" Style="{StaticResource StartBoldLabel}"/>
                     <Label Grid.Column="1" Grid.Row="1" 
-                           Text="{Binding Background}" Style="{StaticResource StartLabel}"/>
+                           Text="{Binding Background}" 
+                           Style="{StaticResource StartLabel}"
+                           VerticalOptions="Start"/>
                 </Grid>
-                
-                
-                <Label Text="Motivations" Style="{StaticResource CenterBoldLabel}"/>
-                <Label Text="{Binding Motivation}" HorizontalOptions="Center"/>
-                <StackLayout Orientation="Horizontal">
-                    <StackLayout HorizontalOptions="CenterAndExpand">
-                        <Label Text="Emotional Strengths" Style="{StaticResource CenterBoldLabel}"/>
-                        <Label Text="{Binding EmotionalStrengths}" HorizontalOptions="Center"/>
-                    </StackLayout>
-                    <StackLayout HorizontalOptions="CenterAndExpand">
-                        <Label Text="Emotional Weaknesses" Style="{StaticResource CenterBoldLabel}"/>
-                        <Label Text="{Binding EmotionalWeaknesses}" HorizontalOptions="Center"/>
-                    </StackLayout>
-                </StackLayout>
 
-                <StackLayout Orientation="Horizontal">
-                    <StackLayout HorizontalOptions="CenterAndExpand">
-                        <Label Text="Morality" Style="{StaticResource CenterBoldLabel}"/>
-                        <Label Text="{Binding Morality}" HorizontalOptions="Center"/>
-                    </StackLayout>
-                    <StackLayout HorizontalOptions="CenterAndExpand">
-                        <Label Text="Conflict" Style="{StaticResource CenterBoldLabel}"/>
-                        <Label Text="{Binding Conflict}" HorizontalOptions="Center"/>
-                    </StackLayout>
-                </StackLayout>
+                <Label Margin="0,20,0,0" Text="Motivations" Style="{StaticResource StartBoldLabel}"/>
+                <Label Text="{Binding Motivation}" HorizontalOptions="Start"/>
+                
+                <Grid Padding="0,20,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="0" 
+                           Text="Emotional Strengths" Style="{StaticResource StartBoldLabel}"/>
+                    <Label Grid.Column="0" Grid.Row="1" 
+                           Text="{Binding EmotionalStrengths}" HorizontalOptions="Start"/>
+                    <Label Grid.Column="0" Grid.Row="2" 
+                           Text="Emotional Weaknesses" Style="{StaticResource StartBoldLabel}"/>
+                    <Label Grid.Column="0" Grid.Row="3" 
+                           Text="{Binding EmotionalWeaknesses}" HorizontalOptions="Start"/>
+
+                    <Label Grid.Column="1" Grid.Row="0" 
+                           Text="Morality" Style="{StaticResource StartBoldLabel}"/>
+                    <Label Grid.Column="1" Grid.Row="1" 
+                           Text="{Binding Morality}" HorizontalOptions="Start"/>
+                    <Label Grid.Column="1" Grid.Row="2" 
+                           Text="Conflict" Style="{StaticResource StartBoldLabel}"/>
+                    <Label Grid.Column="1" Grid.Row="3" 
+                           Text="{Binding Conflict}" HorizontalOptions="Start"/>
+                </Grid>
             </StackLayout>
         </ScrollView>
     </StackLayout>

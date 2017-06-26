@@ -76,7 +76,7 @@
     <Compile Include="Views\Character\CharacterTalentsPage.xaml.cs">
       <DependentUpon>CharacterTalentsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CriticalInjuryPages\CriticalInjuriesGrid.cs" />
+    <Compile Include="Views\CriticalInjuryPages\CriticalInjuriesLayout.cs" />
     <Compile Include="Views\EditorPage.xaml.cs">
       <DependentUpon>EditorPage.xaml</DependentUpon>
     </Compile>

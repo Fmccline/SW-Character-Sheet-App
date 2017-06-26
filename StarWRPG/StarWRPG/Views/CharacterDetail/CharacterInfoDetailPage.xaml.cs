@@ -22,7 +22,7 @@ namespace StarWRPG.Views
 
             mainStackLayout.Children.Insert(0, new CharacterDetailNavigationButtons(character, GetType()));
             ToolbarItems.Add(new EditCharacterToolbarItem(character, this));
-            ScrollViewStackLayout.Children.Add(new CriticalInjuriesGrid(fadCharacterViewModel.CriticalInjuriesViewModel));
+            ScrollViewStackLayout.Children.Add(new CriticalInjuriesLayout(fadCharacterViewModel.CriticalInjuriesViewModel));
         }
     }
 }

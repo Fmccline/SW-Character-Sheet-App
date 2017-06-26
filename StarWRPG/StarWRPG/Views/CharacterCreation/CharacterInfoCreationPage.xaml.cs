@@ -31,7 +31,7 @@ namespace StarWRPG.Views
             BindingContext = fadCharacterViewModel;
 
             MainStackLayout.Children.Insert(0, new CharacterCreationNavigationButtons(fadCharacterViewModel, GetType()));
-            ScrollViewStackLayout.Children.Add(new CriticalInjuriesGrid(fadCharacterViewModel.CriticalInjuriesViewModel));
+            ScrollViewStackLayout.Children.Add(new CriticalInjuriesLayout(fadCharacterViewModel.CriticalInjuriesViewModel));
             ToolbarItems.Add(new SaveCharacterToolbarItem(fadCharacterViewModel, this));
         }
 

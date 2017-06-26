@@ -10,12 +10,12 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Views
 {
-    class CriticalInjuriesGrid : StackLayout
+    class CriticalInjuriesLayout : StackLayout
     {
         ObservableCollection<CriticalInjuryViewModel> criticalInjuries;
         CriticalInjuriesViewModel criticalInjuriesViewModel;
 
-        public CriticalInjuriesGrid(CriticalInjuriesViewModel injuriesViewModel)
+        public CriticalInjuriesLayout(CriticalInjuriesViewModel injuriesViewModel)
         {
             criticalInjuriesViewModel = injuriesViewModel;
             criticalInjuries = criticalInjuriesViewModel.CriticalInjuryViewModels;
@@ -54,38 +54,48 @@ namespace StarWRPG.Views
 
         private StackLayout ButtonsLayout()
         {
+            return new StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+                HorizontalOptions = LayoutOptions.Center,
+                Children =
+                {
+                    RemoveButton(),
+                    AddButton(),
+                }
+            };
+        }
+
+        private Button AddButton()
+        {
             Button addButton = new Button
             {
-                Text = "Add",
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                Text = "+",
+                HorizontalOptions = LayoutOptions.Center,
             };
-            addButton.Clicked += async (obj, e) => 
+            addButton.Clicked += async (obj, e) =>
             {
                 await Navigation.PushModalAsync(new AddCriticalInjuryPage(criticalInjuriesViewModel));
             };
 
+            return addButton;
+        }
+
+        private Button RemoveButton()
+        {
             Button removeButton = new Button
             {
-                Text = "Remove",
-                HorizontalOptions = LayoutOptions.CenterAndExpand,
+                Text = "-",
+                HorizontalOptions = LayoutOptions.Center,
             };
             removeButton.Clicked += async (obj, e) =>
             {
                 await Navigation.PushModalAsync(new RemoveCriticalInjuryPage(criticalInjuriesViewModel));
             };
-
             if (criticalInjuries.Count == 0)
                 removeButton.IsEnabled = false;
 
-            return new StackLayout
-            {
-                Orientation = StackOrientation.Horizontal,
-                Children =
-                {
-                    addButton,
-                    removeButton,
-                }
-            };
+            return removeButton;
         }
 
         private void AddChildren(Grid grid)
@@ -115,13 +125,13 @@ namespace StarWRPG.Views
             Label severity = new Label
             {
                 Text = "Severity",
-                Style = (Style)Application.Current.Resources["CenterLabel"]
+                Style = (Style)Application.Current.Resources["CenterBoldLabel"]
             };
 
             Label result = new Label
             {
                 Text = "Result",
-                Style = (Style)Application.Current.Resources["CenterLabel"]
+                Style = (Style)Application.Current.Resources["CenterBoldLabel"]
             };
 
             grid.Children.Add(severity, 0, 1);
