@@ -6,7 +6,7 @@ namespace StarWRPG.Models
 		public uint MaxRank;
 		protected uint rank { get; set; }
 
-		public abstract string Name { get; }
+		public string Name { get; set; }
 		public virtual uint Rank
 		{
 			get { return rank; }

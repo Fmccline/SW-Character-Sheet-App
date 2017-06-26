@@ -7,7 +7,7 @@
 
     <StackLayout x:Name="MainStackLayout">
         <ListView x:Name="SkillsListView" 
-                  ItemsSource="{Binding Skills}"
+                  ItemsSource="{Binding SkillViewModels}"
                   ItemSelected="SkillSelected">
             <ListView.Header>
                 <Grid>
@@ -33,15 +33,11 @@
         
         <StackLayout Orientation="Horizontal">
             <StackLayout HorizontalOptions="FillAndExpand">
-                <Entry Text="{Binding TotalXP}" 
-                       HorizontalOptions="Center"
-                       Keyboard="Numeric"/>
+                <Label Text="{Binding TotalXP}" Style="{StaticResource CenterLabel}"/>
                 <Label Text="Total XP" Style="{StaticResource CenterBoldLabel}"/>
             </StackLayout>
             <StackLayout HorizontalOptions="FillAndExpand">
-                <Entry Text="{Binding AvailableXP}" 
-                       HorizontalOptions="Center"
-                       Keyboard="Numeric"/>
+                <Label Text="{Binding AvailableXP}" Style="{StaticResource CenterLabel}"/>
                 <Label Text="Available XP" Style="{StaticResource CenterBoldLabel}"/>
             </StackLayout>
         </StackLayout>

@@ -15,7 +15,7 @@ namespace StarWRPG.ViewModels
         public CriticalInjuriesViewModel CriticalInjuriesViewModel { get; private set; }
         public InventoryViewModel InventoryViewModel { get; private set; }
         public TalentsViewModel TalentsViewModel { get; private set; }
-        public ObservableCollection<SkillViewModel> Skills { get; set; }
+        public SkillsViewModel SkillsViewModel { get; set; }
 
         public string Background
         {
@@ -292,28 +292,15 @@ namespace StarWRPG.ViewModels
         public FaDCharacterViewModel(FaDCharacter character)
         {
             FaDCharacter = character;
-            InitializeSkills();
+            InitializeViewModels();
+        }
+
+        private void InitializeViewModels()
+        {
             CriticalInjuriesViewModel = new CriticalInjuriesViewModel(FaDCharacter.CriticalInjuries);
             InventoryViewModel = new InventoryViewModel(FaDCharacter.Inventory);
+            SkillsViewModel = new SkillsViewModel(FaDCharacter.Skills, FaDCharacter.XP);
             TalentsViewModel = new TalentsViewModel(FaDCharacter.Talents);
-        }
-
-        private void InitializeSkills()
-        {
-            Skills = new ObservableCollection<SkillViewModel>();
-            foreach (var skill in FaDCharacter.Skills)
-            {
-                Skills.Add(new SkillViewModel(skill,FaDCharacter.XP));
-            }
-        }
-
-        public void SkillSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            if (e == null)
-                return;
-            // TODO: Change this to eventually do something else
-            var skill = (e.SelectedItem as SkillViewModel);
-            skill.Rank += 1;
         }
 
     }

@@ -25,6 +25,14 @@
             <Switch IsToggled="{Binding IsCareer}"/>
         </StackLayout>
 
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Characteristic: "/>
+            <Label Text="{Binding CharacteristicName}"/>
+            <Button Text="Change" 
+                    Clicked="ChangeCharacteristicClickedAsync" 
+                    IsVisible="{Binding CanSetCharacteristic}"/>
+        </StackLayout>
+
         <Button Text="Accept"
                 Clicked="AcceptClickedAsync"/>
 

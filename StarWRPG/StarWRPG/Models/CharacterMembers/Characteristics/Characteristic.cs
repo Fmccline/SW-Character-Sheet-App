@@ -3,7 +3,7 @@ namespace StarWRPG.Models
 {
 	public abstract class Characteristic : CharacteristicAndSkillBase
 	{
-		public abstract string ShortName { get; }
+		public string ShortName { get; protected set; }
 
         public Characteristic()
         {

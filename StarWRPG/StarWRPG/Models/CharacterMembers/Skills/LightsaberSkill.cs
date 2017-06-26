@@ -1,22 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+
 namespace StarWRPG.Models
 {
 	public class LightsaberSkill : Skill
 	{
-		
-		public LightsaberSkill(Characteristic c) : base(c) { }
-
-		public void SetCharacteristic(Characteristic c)
-		{
-			Characteristic = c;
-		}
-
-		protected override string SkillName
+        public LightsaberSkill(Characteristic c) : base(c)
         {
-			get
-			{
-				return "Lightsaber";
-			}
-		}
-	}
+            SkillName = "Lightsaber";
+        }
+    }
 }

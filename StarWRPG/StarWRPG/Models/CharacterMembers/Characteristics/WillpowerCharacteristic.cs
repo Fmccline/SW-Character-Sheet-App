@@ -3,20 +3,10 @@ namespace StarWRPG.Models
 {
 	public class WillpowerCharacteristic : Characteristic
 	{
-		public override string Name
-		{
-			get
-			{
-				return "Willpower";
-			}
-		}
-
-		public override string ShortName
-		{
-			get
-			{
-				return "Will";
-			}
-		}
-	}
+        public WillpowerCharacteristic()
+        {
+            Name = "Willpower";
+            ShortName = "Will";
+        }
+    }
 }

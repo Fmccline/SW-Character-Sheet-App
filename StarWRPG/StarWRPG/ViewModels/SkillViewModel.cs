@@ -10,37 +10,58 @@ namespace StarWRPG.ViewModels
 {
     public class SkillViewModel : ViewModelBase
     {
-        Skill skill;
+        public Skill Skill;
         Experience xp;
 
         public Characteristic Characteristic
         {
-            get { return skill.Characteristic; }
+            get { return Skill.Characteristic; }
             set
             {
-                skill.Characteristic = value;
+                Skill.Characteristic = value;
                 OnPropertyChanged();
             }
         }
+        public bool CanSetCharacteristic
+        {
+            get { return Skill.CanSetCharacteristic; }
+        }
         public bool IsCareer
         {
-            get { return skill.IsCareer; }
+            get { return Skill.IsCareer; }
             set
             {
-                skill.IsCareer = value;
+                Skill.IsCareer = value;
                 OnPropertyChanged();
             }
         }
         public string Name
         {
-            get { return skill.Name; }
+            get { return Skill.Name; }
+            set
+            {
+                Skill.Name = value;
+                OnPropertyChanged();
+            }
         }
         public uint Rank
         {
-            get { return skill.Rank; }
+            get { return Skill.Rank; }
             set
             {
-                skill.Rank = value;
+                Skill.Rank = value;
+                OnPropertyChanged();
+            }
+        }
+
+        string characteristicName;
+        public string CharacteristicName
+        {
+            get { return characteristicName; }
+            set
+            {
+                characteristicName = value;
+                Name = Skill.Name + "(" + CharacteristicName + ")";
                 OnPropertyChanged();
             }
         }
@@ -66,10 +87,10 @@ namespace StarWRPG.ViewModels
             }
         }
 
-
         public SkillViewModel(Skill skill, Experience xp)
         {
-            this.skill = skill;
+            Skill = skill;
+            CharacteristicName = Characteristic.Name;
             this.xp = xp;
             if (Rank > 0)
                 isNotMin = true;
@@ -79,6 +100,19 @@ namespace StarWRPG.ViewModels
                 isNotMax = true;
             else
                 isNotMax = false;
+        }
+
+        public void ChangeCharacteristic(string characteristicType)
+        {
+            const string AGILITY = "Agility";
+            const string BRAWN = "Brawn";
+            const string CUNNING = "Cunning";
+            const string INTELLECT = "Intellect";
+            const string PRESENCE = "Presence";
+            const string WILLPOWER = "Willpower";
+
+            // TODO: Change Characteristic here
+            CharacteristicName = characteristicType;
         }
 
         public uint XPToNextRank()
@@ -92,7 +126,6 @@ namespace StarWRPG.ViewModels
 
         public uint XPToPreviousRank()
         {
-            // Page 102 of FaD book for this formula to calculate xp cost
             uint xpToPreviousRank = 5 * Rank;
             if (!IsCareer)
                 xpToPreviousRank += 5;
@@ -116,7 +149,7 @@ namespace StarWRPG.ViewModels
         public void IncreaseRank()
         {
             Rank += 1;
-            if (Rank == skill.MaxRank)
+            if (Rank == Skill.MaxRank)
                 IsNotMax = false;
             IsNotMin = true;
         }

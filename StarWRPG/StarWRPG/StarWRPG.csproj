@@ -55,6 +55,7 @@
     <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\SkillsViewModel.cs" />
     <Compile Include="ViewModels\SkillViewModel.cs" />
     <Compile Include="ViewModels\TalentsViewModel.cs" />
     <Compile Include="ViewModels\TalentViewModel.cs" />

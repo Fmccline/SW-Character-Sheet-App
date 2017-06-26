@@ -3,14 +3,9 @@ namespace StarWRPG.Models
 {
 	public class AthleticsSkill : Skill
 	{
-		public AthleticsSkill(Characteristic c) : base(c) { }
-
-        protected override string SkillName
+		public AthleticsSkill(Characteristic c) : base(c)
         {
-			get
-			{
-				return "Athletics";
-			}
-		}
+            SkillName = "Athletics";
+        }
 	}
 }

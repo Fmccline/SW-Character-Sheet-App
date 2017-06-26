@@ -13,7 +13,7 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterSkillsPage : BasePage
     {
-        FaDCharacterViewModel fadCharacterViewModel;
+        SkillsViewModel skillsViewModel;
 
         protected override StackLayout mainStackLayout
         {
@@ -24,8 +24,8 @@ namespace StarWRPG.Views
         {
             InitializeComponent();
 
-            fadCharacterViewModel = character;
-            BindingContext = fadCharacterViewModel;
+            skillsViewModel = character.SkillsViewModel;
+            BindingContext = skillsViewModel;
         }
 
         private async void SkillSelected(object sender, SelectedItemChangedEventArgs e)

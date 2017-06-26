@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace StarWRPG.Models
@@ -6,19 +7,18 @@ namespace StarWRPG.Models
     public abstract class Skill : CharacteristicAndSkillBase
     {
         public Characteristic Characteristic { get; set; }
+        public bool CanSetCharacteristic { get; protected set; }
         public bool IsCareer { get; set; }
-        public override string Name
-        {
-            get { return SkillName + " (" + Characteristic.ShortName + ")"; }
-        }
-        protected abstract string SkillName { get; }
+        protected string SkillName { get; set; }
 
         protected Skill(Characteristic characteristic)
         {
             Characteristic = characteristic;
+            CanSetCharacteristic = false;
             IsCareer = false;
             // Page 102 of FaD book says max skill rank is 5
             MaxRank = 5;
+            Name = SkillName + "(" + Characteristic.ShortName + ")";
         }
     }
 }

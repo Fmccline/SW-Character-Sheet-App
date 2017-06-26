@@ -51,5 +51,17 @@ namespace StarWRPG.Views
             else
                 skillViewModel.DecreaseRank();
         }
+
+        private async void ChangeCharacteristicClickedAsync(object sender, EventArgs e)
+        {
+            const string AGILITY = "Agility";
+            const string BRAWN = "Brawn";
+            const string CUNNING = "Cunning";
+            const string INTELLECT = "Intellect";
+            const string PRESENCE = "Presence";
+            const string WILLPOWER = "Willpower";
+            string characteristicType = await DisplayActionSheet("Characteristic", "Cancel", null, AGILITY, BRAWN, CUNNING, INTELLECT, PRESENCE, WILLPOWER);
+            skillViewModel.ChangeCharacteristic(characteristicType);
+        }
     }
 }
