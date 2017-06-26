@@ -27,9 +27,13 @@ namespace StarWRPG.Views
             charactersListView.ItemsSource = await mainPageViewModel.GetCharacters();
         }
 
-        private void CharactersListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void CharacterSelectedAsync(object sender, SelectedItemChangedEventArgs e)
         {
-
+            if (e.SelectedItem is FaDCharacterViewModel character)
+            {
+                await Navigation.PushAsync(new CharacterInfoDetailPage(character));
+                charactersListView.SelectedItem = null;
+            }
         }
 
         private void EotEButtonClickedAsync(object sender, EventArgs e)
@@ -44,7 +48,7 @@ namespace StarWRPG.Views
 
         private async void FaDButtonClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CharacterBasicInfoEntryPage(new FaDCharacterViewModel()));
+            await Navigation.PushAsync(new CharacterInfoCreationPage(new FaDCharacterViewModel()));
         }
     }
 }

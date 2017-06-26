@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
-namespace StarWRPG.Views
+namespace StarWRPG.Controls
 {
     public class ToPageButton : Button
     {

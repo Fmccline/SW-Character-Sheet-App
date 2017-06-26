@@ -12,18 +12,21 @@ using Xamarin.Forms.Xaml;
 namespace StarWRPG.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CharacterInventoryEntryPage : CharacterCreationBasePage
+    public partial class CharacterInventoryPage : BasePage
     {
         InventoryViewModel inventoryViewModel;
 
-        public CharacterInventoryEntryPage(FaDCharacterViewModel characterViewModel) : base(characterViewModel)
+        protected override StackLayout mainStackLayout
+        {
+            get { return MainStackLayout; }
+        }
+
+        public CharacterInventoryPage(FaDCharacterViewModel characterViewModel)
         {
             InitializeComponent();
 
             inventoryViewModel = characterViewModel.InventoryViewModel;
             BindingContext = inventoryViewModel;
-
-            MainStackLayout.Children.Insert(0, new CharacterCreationNavigationButtons(characterViewModel, GetType()));
         }
 
         public async void AddItemAsync(object sender, EventArgs e)

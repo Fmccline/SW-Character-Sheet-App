@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<local:CharacterCreationBasePage xmlns="http://xamarin.com/schemas/2014/forms"
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
                                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                                  xmlns:local="clr-namespace:StarWRPG.Views" 
                                  Title="Basic Info"
-                                 x:Class="StarWRPG.Views.CharacterBasicInfoEntryPage">
+                                 x:Class="StarWRPG.Views.CharacterInfoCreationPage">
 
-    <local:CharacterCreationBasePage.Resources>
+    <local:BasePage.Resources>
         <ResourceDictionary>
             <Style x:Key="CenterNumericEntry" TargetType="Entry">
                 <Setter Property="HorizontalOptions" Value="Center" />
@@ -13,11 +13,11 @@
                 <Setter Property="Keyboard" Value="Numeric" />
             </Style>
         </ResourceDictionary>
-    </local:CharacterCreationBasePage.Resources>
+    </local:BasePage.Resources>
     
     <StackLayout x:Name="MainStackLayout">
         <ScrollView>
-            <StackLayout>
+            <StackLayout x:Name="ScrollViewStackLayout">
                 <Entry Placeholder="Name" Text="{Binding Name}"/>
                 <Entry Placeholder="Species" Text="{Binding Species}"/>
                 <Entry Placeholder="Career" Text="{Binding Career}"/>
@@ -203,4 +203,4 @@
             </StackLayout>
         </ScrollView>
     </StackLayout>
-</local:CharacterCreationBasePage>
+</local:BasePage>
