@@ -3,9 +3,6 @@ namespace StarWRPG.Models
 {
 	public class AstrogationSkill : Skill
 	{
-        public AstrogationSkill(Characteristic c) : base(c)
-        {
-            SkillName = "Astrogation";
-        }
-	}
+        public AstrogationSkill(Characteristic c) : base(c, "Astrogation") { }
+    }
 }

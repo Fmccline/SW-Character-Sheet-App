@@ -9,16 +9,26 @@ namespace StarWRPG.Models
         public Characteristic Characteristic { get; set; }
         public bool CanSetCharacteristic { get; protected set; }
         public bool IsCareer { get; set; }
-        protected string SkillName { get; set; }
+        public string SkillName { get; set; }
 
-        protected Skill(Characteristic characteristic)
+        public override string Name
+        {
+            get { return SkillName + " (" + Characteristic.ShortName + ")"; }
+            set
+            {
+                base.Name = value;
+            }
+        }
+
+        protected Skill(Characteristic characteristic, string skillName)
         {
             Characteristic = characteristic;
             CanSetCharacteristic = false;
             IsCareer = false;
             // Page 102 of FaD book says max skill rank is 5
             MaxRank = 5;
-            Name = SkillName + "(" + Characteristic.ShortName + ")";
+
+            SkillName = skillName;
         }
     }
 }

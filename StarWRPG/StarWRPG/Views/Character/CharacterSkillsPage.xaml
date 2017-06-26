@@ -30,7 +30,11 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
+
+        <Button Text="Add Skill"
+                Clicked="AddCustomSkillClickedAsync"
+                HorizontalOptions="Center"/>
+
         <StackLayout Orientation="Horizontal">
             <StackLayout HorizontalOptions="FillAndExpand">
                 <Label Text="{Binding TotalXP}" Style="{StaticResource CenterLabel}"/>

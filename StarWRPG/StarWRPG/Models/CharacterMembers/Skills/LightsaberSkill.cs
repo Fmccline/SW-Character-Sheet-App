@@ -6,9 +6,9 @@ namespace StarWRPG.Models
 {
 	public class LightsaberSkill : Skill
 	{
-        public LightsaberSkill(Characteristic c) : base(c)
+        public LightsaberSkill(Characteristic c) : base(c, "Lightsaber")
         {
-            SkillName = "Lightsaber";
+            CanSetCharacteristic = true;
         }
     }
 }

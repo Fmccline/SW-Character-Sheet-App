@@ -11,6 +11,7 @@ namespace StarWRPG.ViewModels
     public class SkillViewModel : ViewModelBase
     {
         public Skill Skill;
+        Characteristics characteristics;
         Experience xp;
 
         public Characteristic Characteristic
@@ -61,7 +62,7 @@ namespace StarWRPG.ViewModels
             set
             {
                 characteristicName = value;
-                Name = Skill.Name + "(" + CharacteristicName + ")";
+                Name = Skill.Name;
                 OnPropertyChanged();
             }
         }
@@ -87,9 +88,10 @@ namespace StarWRPG.ViewModels
             }
         }
 
-        public SkillViewModel(Skill skill, Experience xp)
+        public SkillViewModel(Skill skill, Characteristics characteristics, Experience xp)
         {
             Skill = skill;
+            this.characteristics = characteristics;
             CharacteristicName = Characteristic.Name;
             this.xp = xp;
             if (Rank > 0)
@@ -111,7 +113,27 @@ namespace StarWRPG.ViewModels
             const string PRESENCE = "Presence";
             const string WILLPOWER = "Willpower";
 
-            // TODO: Change Characteristic here
+            switch(characteristicType)
+            {
+                case AGILITY:
+                    Skill.Characteristic = characteristics.Agility;
+                    break;
+                case BRAWN:
+                    Skill.Characteristic = characteristics.Brawn;
+                    break;
+                case CUNNING:
+                    Skill.Characteristic = characteristics.Cunning;
+                    break;
+                case INTELLECT:
+                    Skill.Characteristic = characteristics.Intellect;
+                    break;
+                case PRESENCE:
+                    Skill.Characteristic = characteristics.Presence;
+                    break;
+                case WILLPOWER:
+                    Skill.Characteristic = characteristics.Willpower;
+                    break;
+            }
             CharacteristicName = characteristicType;
         }
 

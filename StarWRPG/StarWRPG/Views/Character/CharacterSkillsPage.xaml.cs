@@ -36,5 +36,10 @@ namespace StarWRPG.Views
                 SkillsListView.SelectedItem = null;
             }
         }
+
+        private void AddCustomSkillClickedAsync(object sender, EventArgs e)
+        {
+
+        }
     }
 }

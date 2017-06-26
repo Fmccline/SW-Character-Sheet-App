@@ -30,12 +30,7 @@ namespace StarWRPG.Models
         public uint RangedDefense { get; set; }
         public uint SoakValue { get; set; }
 
-        public AgilityCharacteristic Agility { get; set; }
-        public BrawnCharacteristic Brawn { get; set; }
-        public CunningCharacteristic Cunning { get; set; }
-        public IntellectCharacteristic Intellect { get; set; }
-        public PresenceCharacteristic Presence { get; set; }
-        public WillpowerCharacteristic Willpower { get; set; }
+        public Characteristics Characteristics { get; set; }
 
         public ObservableCollection<CriticalInjury> CriticalInjuries { get; set; }
         public ObservableCollection<Skill> Skills { get; set; }
@@ -56,27 +51,19 @@ namespace StarWRPG.Models
             SpecializationTrees = "";
             Species = "";
 
+            Characteristics = new Characteristics();
             CriticalInjuries = new ObservableCollection<CriticalInjury>();
             Inventory = new Inventory();
             Talents = new ObservableCollection<Talent>();
             XP = new Experience();
 
-            initializeCharacteristics();
-            initializeSkills();
+            InitializeSkills();
         }
 
-        void initializeCharacteristics()
+        void InitializeSkills()
         {
-            Agility = new AgilityCharacteristic();
-            Brawn = new BrawnCharacteristic();
-            Cunning = new CunningCharacteristic();
-            Intellect = new IntellectCharacteristic();
-            Presence = new PresenceCharacteristic();
-            Willpower = new WillpowerCharacteristic();
-        }
-
-        void initializeSkills()
-        {
+            var Intellect = Characteristics.Intellect;
+            var Brawn = Characteristics.Brawn;
             Skills = new ObservableCollection<Skill>
             {
                 new AstrogationSkill(Intellect),

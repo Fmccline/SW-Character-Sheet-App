@@ -10,8 +10,10 @@ namespace StarWRPG.ViewModels
 {
     public class SkillsViewModel : ViewModelBase
     {
-        public  ObservableCollection<SkillViewModel> SkillViewModels { get; private set; }
+        public ObservableCollection<SkillViewModel> SkillViewModels { get; private set; }
         ObservableCollection<Skill> skills;
+
+        Characteristics characteristics;
         Experience xp;
 
         public uint AvailableXP
@@ -23,14 +25,15 @@ namespace StarWRPG.ViewModels
             get { return xp.TotalXP; }
         }
 
-        public SkillsViewModel(ObservableCollection<Skill> skills, Experience xp)
+        public SkillsViewModel(ObservableCollection<Skill> skills, Characteristics characteristics, Experience xp)
         {
             this.skills = skills;
+            this.characteristics = characteristics;
             this.xp = xp;
             SkillViewModels = new ObservableCollection<SkillViewModel>();
             foreach (var skill in this.skills)
             {
-                SkillViewModels.Add(new SkillViewModel(skill, xp));
+                SkillViewModels.Add(new SkillViewModel(skill, characteristics, xp));
             }
         }
 

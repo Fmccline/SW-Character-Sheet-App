@@ -3,11 +3,11 @@ namespace StarWRPG.Models
 {
 	public abstract class CharacteristicAndSkillBase
 	{
-		public uint MaxRank;
-		protected uint rank { get; set; }
+        protected uint rank;
 
-		public string Name { get; set; }
-		public virtual uint Rank
+        public virtual string Name { get; set; }
+        public uint MaxRank;
+		public uint Rank
 		{
 			get { return rank; }
 

@@ -15,7 +15,7 @@ namespace StarWRPG.ViewModels
         public CriticalInjuriesViewModel CriticalInjuriesViewModel { get; private set; }
         public InventoryViewModel InventoryViewModel { get; private set; }
         public TalentsViewModel TalentsViewModel { get; private set; }
-        public SkillsViewModel SkillsViewModel { get; set; }
+        public SkillsViewModel SkillsViewModel { get; private set; }
 
         public string Background
         {
@@ -107,11 +107,11 @@ namespace StarWRPG.ViewModels
 
         public uint Agility
         {
-            get { return FaDCharacter.Agility.Rank; }
+            get { return FaDCharacter.Characteristics.Agility.Rank; }
 
             set
             {
-                FaDCharacter.Agility.Rank = value;
+                FaDCharacter.Characteristics.Agility.Rank = value;
                 OnPropertyChanged();
             }
         }
@@ -137,11 +137,11 @@ namespace StarWRPG.ViewModels
         }
         public uint Brawn
         {
-            get { return FaDCharacter.Brawn.Rank; }
+            get { return FaDCharacter.Characteristics.Brawn.Rank; }
 
             set
             {
-                FaDCharacter.Brawn.Rank = value;
+                FaDCharacter.Characteristics.Brawn.Rank = value;
                 OnPropertyChanged();
             }
         }
@@ -156,11 +156,11 @@ namespace StarWRPG.ViewModels
         }
         public uint Cunning
         {
-            get { return FaDCharacter.Cunning.Rank; }
+            get { return FaDCharacter.Characteristics.Cunning.Rank; }
 
             set
             {
-                FaDCharacter.Cunning.Rank = value;
+                FaDCharacter.Characteristics.Cunning.Rank = value;
                 OnPropertyChanged();
             }
         }
@@ -196,11 +196,11 @@ namespace StarWRPG.ViewModels
         }
         public uint Intellect
         {
-            get { return FaDCharacter.Intellect.Rank; }
+            get { return FaDCharacter.Characteristics.Intellect.Rank; }
 
             set
             {
-                FaDCharacter.Intellect.Rank = value;
+                FaDCharacter.Characteristics.Intellect.Rank = value;
                 OnPropertyChanged();
             }
         }
@@ -255,11 +255,11 @@ namespace StarWRPG.ViewModels
         }
         public uint Presence
         {
-            get { return FaDCharacter.Presence.Rank; }
+            get { return FaDCharacter.Characteristics.Presence.Rank; }
 
             set
             {
-                FaDCharacter.Presence.Rank = value;
+                FaDCharacter.Characteristics.Presence.Rank = value;
                 OnPropertyChanged();
             }
         }
@@ -278,11 +278,11 @@ namespace StarWRPG.ViewModels
         }
         public uint Willpower
         {
-            get { return FaDCharacter.Willpower.Rank; }
+            get { return FaDCharacter.Characteristics.Willpower.Rank; }
 
             set
             {
-                FaDCharacter.Willpower.Rank = value;
+                FaDCharacter.Characteristics.Willpower.Rank = value;
                 OnPropertyChanged();
             }
         }
@@ -299,7 +299,7 @@ namespace StarWRPG.ViewModels
         {
             CriticalInjuriesViewModel = new CriticalInjuriesViewModel(FaDCharacter.CriticalInjuries);
             InventoryViewModel = new InventoryViewModel(FaDCharacter.Inventory);
-            SkillsViewModel = new SkillsViewModel(FaDCharacter.Skills, FaDCharacter.XP);
+            SkillsViewModel = new SkillsViewModel(FaDCharacter.Skills, FaDCharacter.Characteristics, FaDCharacter.XP);
             TalentsViewModel = new TalentsViewModel(FaDCharacter.Talents);
         }
 

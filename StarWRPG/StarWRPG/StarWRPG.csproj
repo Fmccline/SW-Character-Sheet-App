@@ -41,12 +41,14 @@
     <Compile Include="Database\CharacterDatabase.cs" />
     <Compile Include="Database\CharacterDataItem.cs" />
     <Compile Include="Database\IFileHelper.cs" />
+    <Compile Include="Models\CharacterMembers\Characteristics\Characteristics.cs" />
     <Compile Include="Models\CharacterMembers\CriticalInjury.cs" />
     <Compile Include="Models\CharacterMembers\Items\Armor.cs" />
     <Compile Include="Models\CharacterMembers\Items\Gear.cs" />
     <Compile Include="Models\CharacterMembers\Items\Inventory.cs" />
     <Compile Include="Models\CharacterMembers\Items\Item.cs" />
     <Compile Include="Models\CharacterMembers\Items\Weapon.cs" />
+    <Compile Include="Models\CharacterMembers\Skills\CustomSkill.cs" />
     <Compile Include="Models\CharacterMembers\Talent.cs" />
     <Compile Include="ViewModelFactory.cs" />
     <Compile Include="ViewModels\ArmorViewModel.cs" />
@@ -61,6 +63,9 @@
     <Compile Include="ViewModels\TalentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeaponViewModel.cs" />
+    <Compile Include="Views\AddCustomSkillPage.xaml.cs">
+      <DependentUpon>AddCustomSkillPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\BasePage.cs" />
     <Compile Include="Views\CharacterCreation\CharacterTalentsCreationPage.cs" />
     <Compile Include="Views\CharacterDetail\CharacterDetailNavigationButtons.cs" />
@@ -242,6 +247,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\MainPage\MainPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\AddCustomSkillPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
