@@ -37,9 +37,9 @@ namespace StarWRPG.Views
             }
         }
 
-        private void AddCustomSkillClickedAsync(object sender, EventArgs e)
+        private async void AddCustomSkillClickedAsync(object sender, EventArgs e)
         {
-
+            await Navigation.PushModalAsync(new AddCustomSkillPage(skillsViewModel));
         }
     }
 }

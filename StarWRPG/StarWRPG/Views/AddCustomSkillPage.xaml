@@ -2,9 +2,42 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarWRPG.Views.AddCustomSkillPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin Forms!" />
+    <StackLayout>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0"
+                   Text="Name" Style="{StaticResource StartBoldLabel}"/>
+            <Entry Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
+                   Text="{Binding Name}" 
+                   Style="{StaticResource StartLabel}"
+                   HorizontalOptions="Fill"/>
+            <Label Grid.Column="0" Grid.Row="1"
+                   Text="Characteristic" Style="{StaticResource StartBoldLabel}"/>
+            <Label Grid.Column="1" Grid.Row="1"
+                   Text="{Binding CharacteristicName}" Style="{StaticResource StartLabel}"/>
+            <Button Grid.Column="2" Grid.Row="1"
+                    Text="Change" Clicked="ChangeCharacteristicClickedAsync"/>
+        </Grid>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Accept" 
+                    Clicked="AcceptClickedAsync"
+                    HorizontalOptions="Center"/>
+            <Button Text="Cancel" 
+                    Clicked="CancelClickedAsync"
+                    HorizontalOptions="Center"/>
         </StackLayout>
-    </ContentPage.Content>
+        
+
+    </StackLayout>
 </ContentPage>
