@@ -45,7 +45,7 @@ C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWR
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.CriticalInjuryPages.RemoveCriticalInjuryPage.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.TalentPage.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.MainPage.MainPage.xaml.g.cs
+C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.AddCustomSkillPage.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.dll
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.pdb
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.csprojResolveAssemblyReference.cache
-C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.AddCustomSkillPage.xaml.g.cs

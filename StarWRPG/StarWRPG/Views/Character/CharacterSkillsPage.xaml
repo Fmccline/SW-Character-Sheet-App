@@ -1,11 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                          xmlns:local="clr-namespace:StarWRPG.Views" 
-             x:Class="StarWRPG.Views.CharacterSkillsPage"
-             Title="Skills">
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:local="clr-namespace:StarWRPG.Views" 
+                x:Class="StarWRPG.Views.CharacterSkillsPage"
+                Title="Skills">
 
     <StackLayout x:Name="MainStackLayout">
+        <StackLayout Orientation="Horizontal">
+            <SearchBar x:Name="Search" 
+                       HorizontalOptions="FillAndExpand"
+                       Placeholder="Search by name, rank, or career."
+                       SearchCommand="{Binding SearchCommand}" 
+                       SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
+                       TextChanged="SearchTextChanged"/>
+            <Button Text="Add Skill"
+                Clicked="AddCustomSkillClickedAsync"
+                HorizontalOptions="End"/>
+        </StackLayout>
         <ListView x:Name="SkillsListView" 
                   ItemsSource="{Binding SkillViewModels}"
                   ItemSelected="SkillSelected">
@@ -30,10 +41,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <Button Text="Add Skill"
-                Clicked="AddCustomSkillClickedAsync"
-                HorizontalOptions="Center"/>
 
         <StackLayout Orientation="Horizontal">
             <StackLayout HorizontalOptions="FillAndExpand">
