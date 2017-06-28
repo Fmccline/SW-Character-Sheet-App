@@ -27,6 +27,7 @@ namespace StarWRPG.Models
             IsCareer = false;
             // Page 102 of FaD book says max skill rank is 5
             MaxRank = 5;
+            Rank = 0;
 
             SkillName = skillName;
         }

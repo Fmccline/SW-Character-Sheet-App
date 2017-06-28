@@ -112,6 +112,7 @@ namespace StarWRPG.ViewModels
             set
             {
                 FaDCharacter.Characteristics.Agility.Rank = value;
+                SetSkillsCharacteristic(FaDCharacter.Characteristics.Agility);
                 OnPropertyChanged();
             }
         }
@@ -142,6 +143,7 @@ namespace StarWRPG.ViewModels
             set
             {
                 FaDCharacter.Characteristics.Brawn.Rank = value;
+                SetSkillsCharacteristic(FaDCharacter.Characteristics.Brawn);
                 OnPropertyChanged();
             }
         }
@@ -161,6 +163,7 @@ namespace StarWRPG.ViewModels
             set
             {
                 FaDCharacter.Characteristics.Cunning.Rank = value;
+                SetSkillsCharacteristic(FaDCharacter.Characteristics.Cunning);
                 OnPropertyChanged();
             }
         }
@@ -201,6 +204,7 @@ namespace StarWRPG.ViewModels
             set
             {
                 FaDCharacter.Characteristics.Intellect.Rank = value;
+                SetSkillsCharacteristic(FaDCharacter.Characteristics.Intellect);
                 OnPropertyChanged();
             }
         }
@@ -260,6 +264,7 @@ namespace StarWRPG.ViewModels
             set
             {
                 FaDCharacter.Characteristics.Presence.Rank = value;
+                SetSkillsCharacteristic(FaDCharacter.Characteristics.Presence);
                 OnPropertyChanged();
             }
         }
@@ -283,6 +288,7 @@ namespace StarWRPG.ViewModels
             set
             {
                 FaDCharacter.Characteristics.Willpower.Rank = value;
+                SetSkillsCharacteristic(FaDCharacter.Characteristics.Willpower);
                 OnPropertyChanged();
             }
         }
@@ -301,6 +307,18 @@ namespace StarWRPG.ViewModels
             InventoryViewModel = new InventoryViewModel(FaDCharacter.Inventory);
             SkillsViewModel = new SkillsViewModel(FaDCharacter.Skills, FaDCharacter.Characteristics, FaDCharacter.XP);
             TalentsViewModel = new TalentsViewModel(FaDCharacter.Talents);
+        }
+
+        private void SetSkillsCharacteristic(Characteristic characteristic)
+        {
+            foreach (var skillViewModel in SkillsViewModel.SkillViewModels)
+            {
+                if (skillViewModel.Skill.Characteristic.GetType() == characteristic.GetType())
+                {
+                    skillViewModel.Skill.Characteristic = characteristic;
+                    skillViewModel.CalculateDicePool();
+                }
+            }
         }
 
     }

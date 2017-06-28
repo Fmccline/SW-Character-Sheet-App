@@ -18,10 +18,5 @@ namespace StarWRPG.Models
 					rank = MaxRank;
 			}
 		}
-
-		protected CharacteristicAndSkillBase()
-		{
-			Rank = 0;
-		}
 	}
 }

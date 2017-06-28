@@ -122,14 +122,14 @@ namespace StarWRPG.ViewModels
             isNotMin = (Rank > 0) ? true : false;
             isNotMax = (Rank < skill.MaxRank) ? true : false;
 
-            ImageSourceForDice = new string[6];
-            HasDice = new bool[6];
-
             CalculateDicePool();
         }
 
         public void CalculateDicePool()
         {
+            ImageSourceForDice = new string[6];
+            HasDice = new bool[6];
+
             uint greenDice, yellowDice;
             uint larger = Math.Max(Rank, Characteristic.Rank);
             uint smaller = Math.Min(Rank, Characteristic.Rank);
@@ -139,17 +139,17 @@ namespace StarWRPG.ViewModels
 
             for (int index = 0; index < ImageSourceForDice.Length; ++index)
             {
-                if (yellowDice > 0)
-                {
-                    ImageSourceForDice[index] = "yellow_die.png";
-                    HasDice[index] = true;
-                    --yellowDice;
-                }
-                else if (greenDice > 0)
+                if (greenDice > 0)
                 {
                     ImageSourceForDice[index] = "green_die.png";
                     HasDice[index] = true;
                     --greenDice;
+                }
+                else if (yellowDice > 0)
+                {
+                    ImageSourceForDice[index] = "yellow_die.png";
+                    HasDice[index] = true;
+                    --yellowDice;
                 }
                 else
                 {
