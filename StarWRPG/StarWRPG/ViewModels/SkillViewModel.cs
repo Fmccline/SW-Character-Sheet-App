@@ -20,6 +20,7 @@ namespace StarWRPG.ViewModels
             set
             {
                 Skill.Characteristic = value;
+                CalculateDicePool();
                 OnPropertyChanged();
             }
         }
@@ -51,6 +52,7 @@ namespace StarWRPG.ViewModels
             set
             {
                 Skill.Rank = value;
+                CalculateDicePool();
                 OnPropertyChanged();
             }
         }
@@ -88,20 +90,72 @@ namespace StarWRPG.ViewModels
             }
         }
 
+        private bool[] hasDice;
+        public bool[] HasDice
+        {
+            get { return hasDice; }
+            set
+            {
+                hasDice = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string[] imageSourceForDice;
+        public string[] ImageSourceForDice
+        {
+            get { return imageSourceForDice; }
+            set
+            {
+                imageSourceForDice = value;
+                OnPropertyChanged();
+            }
+        }
+
         public SkillViewModel(Skill skill, Characteristics characteristics, Experience xp)
         {
             Skill = skill;
             this.characteristics = characteristics;
             CharacteristicName = Characteristic.Name;
             this.xp = xp;
-            if (Rank > 0)
-                isNotMin = true;
-            else
-                isNotMin = false;
-            if (Rank < skill.MaxRank)
-                isNotMax = true;
-            else
-                isNotMax = false;
+
+            isNotMin = (Rank > 0) ? true : false;
+            isNotMax = (Rank < skill.MaxRank) ? true : false;
+
+            ImageSourceForDice = new string[6];
+            HasDice = new bool[6];
+
+            CalculateDicePool();
+        }
+
+        public void CalculateDicePool()
+        {
+            uint greenDice, yellowDice;
+            uint larger = Math.Max(Rank, Characteristic.Rank);
+            uint smaller = Math.Min(Rank, Characteristic.Rank);
+
+            yellowDice = smaller;
+            greenDice = larger - smaller;
+
+            for (int index = 0; index < ImageSourceForDice.Length; ++index)
+            {
+                if (yellowDice > 0)
+                {
+                    ImageSourceForDice[index] = "yellow_die.png";
+                    HasDice[index] = true;
+                    --yellowDice;
+                }
+                else if (greenDice > 0)
+                {
+                    ImageSourceForDice[index] = "green_die.png";
+                    HasDice[index] = true;
+                    --greenDice;
+                }
+                else
+                {
+                    HasDice[index] = false;
+                }
+            }
         }
 
         public void ChangeCharacteristic(string characteristicType)
@@ -113,7 +167,7 @@ namespace StarWRPG.ViewModels
             const string PRESENCE = "Presence";
             const string WILLPOWER = "Willpower";
 
-            switch(characteristicType)
+            switch (characteristicType)
             {
                 case AGILITY:
                     Skill.Characteristic = characteristics.Agility;

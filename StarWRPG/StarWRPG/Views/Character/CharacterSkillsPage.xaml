@@ -24,18 +24,54 @@
                 <Grid>
                     <Label Grid.Column="0" 
                            Text="Name" 
-                           Style="{StaticResource CenterBoldLabel}"/>
-                    <Label Grid.Column="1" 
+                           Style="{StaticResource StartBoldLabel}"/>
+                    <Label Grid.Column="1"
+                           Text="Dice Pool"
+                           Style="{StaticResource StartBoldLabel}"/>
+                    <Label Grid.Column="2" 
                            Text="Rank" 
-                           Style="{StaticResource CenterBoldLabel}"/>
+                           Style="{StaticResource StartBoldLabel}"/>
                 </Grid>
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <Grid>
-                            <Label Grid.Column="0" Text="{Binding Name}"/>
-                            <Label Grid.Column="1" Text="{Binding Rank}"/>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="12*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="10*"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Label Grid.Column="0" 
+                                   Text="{Binding Name}"
+                                   Style="{StaticResource StartLabel}"/>
+                            <Image Grid.Column="1" 
+                                   Source="{Binding ImageSourceForDice[0]}"
+                                   HorizontalOptions="Start"/>
+                            <Image Grid.Column="2"
+                                   Source="{Binding ImageSourceForDice[1]}"
+                                   HorizontalOptions="Start"/>
+                            <Image Grid.Column="3" 
+                                   Source="{Binding ImageSourceForDice[2]}"
+                                   HorizontalOptions="Start"/>
+                            <Image Grid.Column="4"
+                                   Source="{Binding ImageSourceForDice[3]}"
+                                   HorizontalOptions="Start"/>
+                            <Image Grid.Column="5" 
+                                   Source="{Binding ImageSourceForDice[4]}"
+                                   HorizontalOptions="Start"/>
+                            <Image Grid.Column="6"
+                                   Source="{Binding ImageSourceForDice[5]}"
+                                   HorizontalOptions="Start"/>
+                            <Label Grid.Column="7" 
+                                   Text="{Binding Rank}"
+                                   Style="{StaticResource StartLabel}"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
