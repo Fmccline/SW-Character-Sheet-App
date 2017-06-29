@@ -154,6 +154,7 @@ namespace StarWRPG.ViewModels
                 else
                 {
                     HasDice[index] = false;
+                    ImageSourceForDice[index] = null;
                 }
             }
         }

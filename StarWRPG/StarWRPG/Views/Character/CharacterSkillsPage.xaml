@@ -4,7 +4,12 @@
                 xmlns:local="clr-namespace:StarWRPG.Views" 
                 x:Class="StarWRPG.Views.CharacterSkillsPage"
                 Title="Skills">
-
+    
+    <local:BasePage.Padding>
+        10,0,10,20
+    </local:BasePage.Padding>
+    
+    
     <StackLayout x:Name="MainStackLayout">
         <SearchBar x:Name="Search" 
                    HorizontalOptions="FillAndExpand"
@@ -13,19 +18,35 @@
                    SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
                    TextChanged="SearchTextChanged"/>
         <ListView x:Name="SkillsListView" 
+                  CachingStrategy="RecycleElement"
                   ItemsSource="{Binding SkillViewModels}"
                   ItemSelected="SkillSelected">
             <ListView.Header>
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    
                     <Label Grid.Column="0" 
                            Text="Name" 
                            Style="{StaticResource StartBoldLabel}"/>
                     <Label Grid.Column="1"
+                           Text="Rank" 
+                           Style="{StaticResource CenterBoldLabel}"/>
+                    <Label Grid.Column="2" Grid.ColumnSpan="6"
                            Text="Dice Pool"
                            Style="{StaticResource StartBoldLabel}"/>
-                    <Label Grid.Column="2" 
-                           Text="Rank" 
-                           Style="{StaticResource StartBoldLabel}"/>
+                    <Label Grid.Column="8" 
+                           Text="Career"
+                           Style="{StaticResource CenterBoldLabel}"/>
                 </Grid>
             </ListView.Header>
             <ListView.ItemTemplate>
@@ -33,46 +54,51 @@
                     <ViewCell>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="12*"/>
+                                <ColumnDefinition Width="6*"/>
+                                <ColumnDefinition Width="5*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="10*"/>
+                                <ColumnDefinition Width="5*"/>
                             </Grid.ColumnDefinitions>
 
                             <Label Grid.Column="0" 
                                    Text="{Binding Name}"
                                    Style="{StaticResource StartLabel}"/>
-                            <Image Grid.Column="1" 
+                            <Label Grid.Column="1" 
+                                   Text="{Binding Rank}"
+                                   Style="{StaticResource CenterLabel}"/>
+                            <Image Grid.Column="2" 
                                    Source="{Binding ImageSourceForDice[0]}"
                                    IsVisible="{Binding HasDice[0]}"
                                    HorizontalOptions="Start"/>
-                            <Image Grid.Column="2"
+                            <Image Grid.Column="3"
                                    Source="{Binding ImageSourceForDice[1]}"
                                    IsVisible="{Binding HasDice[1]}"
                                    HorizontalOptions="Start"/>
-                            <Image Grid.Column="3" 
+                            <Image Grid.Column="4" 
                                    Source="{Binding ImageSourceForDice[2]}"
                                    IsVisible="{Binding HasDice[2]}"
                                    HorizontalOptions="Start"/>
-                            <Image Grid.Column="4"
+                            <Image Grid.Column="5"
                                    Source="{Binding ImageSourceForDice[3]}"
                                    IsVisible="{Binding HasDice[3]}"
                                    HorizontalOptions="Start"/>
-                            <Image Grid.Column="5" 
+                            <Image Grid.Column="6" 
                                    Source="{Binding ImageSourceForDice[4]}"
                                    IsVisible="{Binding HasDice[4]}"
                                    HorizontalOptions="Start"/>
-                            <Image Grid.Column="6"
+                            <Image Grid.Column="7"
                                    Source="{Binding ImageSourceForDice[5]}"
                                    IsVisible="{Binding HasDice[5]}"
                                    HorizontalOptions="Start"/>
-                            <Label Grid.Column="7" 
-                                   Text="{Binding Rank}"
-                                   Style="{StaticResource StartLabel}"/>
+                            <Label Grid.Column="8"
+                                   Text="X"
+                                   IsVisible="{Binding IsCareer}"
+                                   Style="{StaticResource CenterBoldLabel}"/>
                         </Grid>
                     </ViewCell>
                 </DataTemplate>
