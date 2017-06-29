@@ -10,10 +10,14 @@ namespace StarWRPG.ViewModels
 {
     public class SkillViewModel : ViewModelBase
     {
-        public Skill Skill;
+        bool useXP;
+        bool[] hasDice;
         Characteristics characteristics;
         Experience xp;
+        string characteristicName;
+        string[] imageSourceForDice;
 
+        public Skill Skill;
         public Characteristic Characteristic
         {
             get { return Skill.Characteristic; }
@@ -37,12 +41,50 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
+        public bool NotEnoughXP { get; set; }
+        public bool UseXP
+        {
+            get { return useXP; }
+            set
+            {
+                useXP = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool[] HasDice
+        {
+            get { return hasDice; }
+            set
+            {
+                hasDice = value;
+                OnPropertyChanged();
+            }
+        }
+        public string CharacteristicName
+        {
+            get { return characteristicName; }
+            set
+            {
+                characteristicName = value;
+                Name = Skill.Name;
+                OnPropertyChanged();
+            }
+        }
         public string Name
         {
             get { return Skill.Name; }
             set
             {
                 Skill.Name = value;
+                OnPropertyChanged();
+            }
+        }
+        public string[] ImageSourceForDice
+        {
+            get { return imageSourceForDice; }
+            set
+            {
+                imageSourceForDice = value;
                 OnPropertyChanged();
             }
         }
@@ -64,56 +106,41 @@ namespace StarWRPG.ViewModels
             get { return Skill.Rank; }
             set
             {
-                Skill.Rank = value;
-                CalculateDicePool();
-                OnPropertyChanged();
+                if (UseXP)
+                {
+                    if (value > Skill.Rank && CanRankUp(value))
+                    {
+                        SpendXPToRankUp(value);
+                        SetRank(value);
+                    }
+                    else if (value < Skill.Rank)
+                    {
+                        GainXPToRankDown(value);
+                        SetRank(value);
+                    }
+                    else
+                    {
+                        NotEnoughXP = true;
+                        OnPropertyChanged();
+                    }
+                }
+                else
+                {
+                    SetRank(value);
+                }
             }
         }
         public uint MaxRank
         {
             get { return Skill.MaxRank; }
         }
-
-        string characteristicName;
-        public string CharacteristicName
-        {
-            get { return characteristicName; }
-            set
-            {
-                characteristicName = value;
-                Name = Skill.Name;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool[] hasDice;
-        public bool[] HasDice
-        {
-            get { return hasDice; }
-            set
-            {
-                hasDice = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private string[] imageSourceForDice;
-        public string[] ImageSourceForDice
-        {
-            get { return imageSourceForDice; }
-            set
-            {
-                imageSourceForDice = value;
-                OnPropertyChanged();
-            }
-        }
-
+        
         public SkillViewModel(Skill skill, Characteristics characteristics, Experience xp)
         {
             Skill = skill;
             this.characteristics = characteristics;
-            CharacteristicName = Characteristic.Name;
             this.xp = xp;
+            CharacteristicName = Characteristic.Name;
 
             CalculateDicePool();
         }
@@ -203,6 +230,13 @@ namespace StarWRPG.ViewModels
         public uint XPToRank(uint rank)
         {
             return (IsCareer) ? 5 * rank : (5 * rank) + 5;
+        }
+
+        public void SetRank(uint rank)
+        {
+            Skill.Rank = rank;
+            CalculateDicePool();
+            OnPropertyChanged("Rank");
         }
     }
 }

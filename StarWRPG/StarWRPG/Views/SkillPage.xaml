@@ -16,45 +16,15 @@
                      Maximum="{Binding MaxRank}"
                      Minimum="0"
                      Value="{Binding Rank}"
-                     ValueChanged="Stepper_ValueChanged"
+                     ValueChanged="RankChangedAsync"
                      VerticalOptions="Center"/>
             <StackLayout>
                 <Label Text="Use XP" Style="{StaticResource CenterLabel}"/>
-                <Switch x:Name="SpendXPSwitch" 
-                        IsToggled="False"
+                <Switch IsToggled="{Binding UseXP}"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"/>
             </StackLayout>
         </StackLayout>        
-        
-        <!--<Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            
-            <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
-                   Text="Rank: "/>
-            <Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
-                   Text="{Binding Rank}"/>
-            <Stepper Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"
-                     Maximum="{Binding MaxRank}"
-                     Minimum="0"
-                     Increment="1"
-                     Value="{Binding Rank}"
-                     ValueChanged="Stepper_ValueChanged"/>
-            <Label Grid.Column="3" Grid.Row="0"
-                   Text="Use XP"/>
-            <Switch Grid.Column="3" Grid.Row="1"
-                    x:Name="SpendXPSwitch" 
-                    IsToggled="False"/>
-        </Grid>-->
 
         <StackLayout Orientation="Horizontal">
             <Label Text="Career: " Style="{StaticResource StartBoldLabel}"/>

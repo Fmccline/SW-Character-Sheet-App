@@ -29,31 +29,17 @@ namespace StarWRPG.Views
             await Navigation.PopModalAsync();
         }
 
-        private async void Stepper_ValueChanged(object sender, ValueChangedEventArgs e)
+        private async void RankChangedAsync(object sender, ValueChangedEventArgs e)
         {
-            if (SpendXPSwitch.IsToggled == true)
-            {
-                uint oldRank = Convert.ToUInt32(e.OldValue);
-                uint newRank = Convert.ToUInt32(e.NewValue);
+            uint oldRank = Convert.ToUInt32(e.OldValue);
+            uint newRank = Convert.ToUInt32(e.NewValue);
 
-                if (newRank > oldRank)
-                {
-                    if (skillViewModel.CanRankUp(newRank))
-                    {
-                        skillViewModel.SpendXPToRankUp(newRank);
-                    }
-                    else
-                    {
-                        string message = String.Format("You need {0} XP to go from Rank {1} to Rank {2}.", 
+            if (skillViewModel.NotEnoughXP && newRank > oldRank)
+            {
+                string message = String.Format("You need {0} XP to go from Rank {1} to Rank {2}.",
                                                         skillViewModel.XPToRank(newRank), oldRank, newRank);
-                        await DisplayAlert("Not enough XP", message, "Ok");
-                        --skillViewModel.Rank;
-                    }
-                }
-                else
-                {
-                    skillViewModel.GainXPToRankDown(newRank);
-                }
+                await DisplayAlert("Not enough XP", message, "Ok");
+                skillViewModel.NotEnoughXP = false;
             }
         }
 
