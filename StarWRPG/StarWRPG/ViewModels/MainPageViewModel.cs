@@ -8,7 +8,7 @@ namespace StarWRPG.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-        List<FaDCharacterViewModel> characters;
+        List<FFGCharacterViewModel> characters;
 
         bool charactersIsEmpty;
         bool charactersIsNotEmpty;
@@ -37,7 +37,7 @@ namespace StarWRPG.ViewModels
             SetCharactersIsEmpty(true);
         }
 
-        public async Task<List<FaDCharacterViewModel>> GetCharacters()
+        public async Task<List<FFGCharacterViewModel>> GetCharacters()
         {
             characters = await App.CharacterDatabase.GetCharacterViewModelsAsync();
 

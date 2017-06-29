@@ -10,21 +10,21 @@ namespace StarWRPG
 {
     public class ViewModelFactory
     {
-        public FaDCharacter FaDCharacter { private get; set; }
+        public FFGCharacter FFGCharacter { private get; set; }
 
-        public ViewModelFactory(FaDCharacter character)
+        public ViewModelFactory(FFGCharacter character)
         {
-            FaDCharacter = character;
+            FFGCharacter = character;
         }
 
-        public FaDCharacterViewModel FaDCharacterViewModel()
+        public FFGCharacterViewModel ffgCharacterViewModel()
         {
-            return new FaDCharacterViewModel(FaDCharacter);
+            return new FFGCharacterViewModel(FFGCharacter);
         }
 
         public InventoryViewModel InventoryViewModel()
         {
-            return new InventoryViewModel(FaDCharacter.Inventory);
+            return new InventoryViewModel(FFGCharacter.Inventory);
         }
     }
 }

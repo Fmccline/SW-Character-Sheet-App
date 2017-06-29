@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace StarWRPG.ViewModels
 {
-    public class FaDCharacterViewModel : ViewModelBase
+    public class FFGCharacterViewModel : ViewModelBase
     {
-        public FaDCharacter FaDCharacter { get; private set; }
+        public FFGCharacter FFGCharacter { get; private set; }
 
         public CriticalInjuriesViewModel CriticalInjuriesViewModel { get; private set; }
         public InventoryViewModel InventoryViewModel { get; private set; }
@@ -19,288 +19,288 @@ namespace StarWRPG.ViewModels
 
         public string Background
         {
-            get { return FaDCharacter.Background; }
+            get { return FFGCharacter.Background; }
 
             set
             {
-                FaDCharacter.Background = value;
+                FFGCharacter.Background = value;
                 OnPropertyChanged();
             }
         }
         public string Career
         {
-            get { return FaDCharacter.Career; }
+            get { return FFGCharacter.Career; }
 
             set
             {
-                FaDCharacter.Career = value;
+                FFGCharacter.Career = value;
                 OnPropertyChanged();
             }
         }
         public string Description
         {
-            get { return FaDCharacter.Description; }
+            get { return FFGCharacter.Description; }
 
             set
             {
-                FaDCharacter.Description = value;
+                FFGCharacter.Description = value;
                 OnPropertyChanged();
             }
         }
         public string EmotionalStrengths
         {
-            get { return FaDCharacter.EmotionalStrengths; }
+            get { return FFGCharacter.EmotionalStrengths; }
             set
             {
-                FaDCharacter.EmotionalStrengths = value;
+                FFGCharacter.EmotionalStrengths = value;
                 OnPropertyChanged();
             }
         }
         public string EmotionalWeaknesses
         {
-            get { return FaDCharacter.EmotionalWeaknesses; }
+            get { return FFGCharacter.EmotionalWeaknesses; }
             set
             {
-                FaDCharacter.EmotionalWeaknesses = value;
+                FFGCharacter.EmotionalWeaknesses = value;
                 OnPropertyChanged();
             }
         }
         public string Motivation
         {
-            get { return FaDCharacter.Motivation; }
+            get { return FFGCharacter.Motivation; }
             set
             {
-                FaDCharacter.Motivation = value;
+                FFGCharacter.Motivation = value;
                 OnPropertyChanged();
             }
         }
         public string Name
         {
-            get { return FaDCharacter.Name; }
+            get { return FFGCharacter.Name; }
 
             set
             {
-                FaDCharacter.Name = value;
+                FFGCharacter.Name = value;
                 OnPropertyChanged();
             }
         }
         public string SpecializationTrees
         {
-            get { return FaDCharacter.SpecializationTrees; }
+            get { return FFGCharacter.SpecializationTrees; }
 
             set
             {
-                FaDCharacter.SpecializationTrees = value;
+                FFGCharacter.SpecializationTrees = value;
                 OnPropertyChanged();
             }
         }
         public string Species
         {
-            get { return FaDCharacter.Species; }
+            get { return FFGCharacter.Species; }
 
             set
             {
-                FaDCharacter.Species = value;
+                FFGCharacter.Species = value;
                 OnPropertyChanged();
             }
         }
 
         public uint Agility
         {
-            get { return FaDCharacter.Characteristics.Agility.Rank; }
+            get { return FFGCharacter.Characteristics.Agility.Rank; }
 
             set
             {
-                FaDCharacter.Characteristics.Agility.Rank = value;
-                SetSkillsCharacteristic(FaDCharacter.Characteristics.Agility);
+                FFGCharacter.Characteristics.Agility.Rank = value;
+                SetSkillsCharacteristic(FFGCharacter.Characteristics.Agility);
                 OnPropertyChanged();
             }
         }
         public uint AvailableXP
         {
-            get { return FaDCharacter.XP.AvailableXP; }
+            get { return FFGCharacter.XP.AvailableXP; }
             set
             {
-                FaDCharacter.XP.AvailableXP = value;
+                FFGCharacter.XP.AvailableXP = value;
                 OnPropertyChanged();
             }
         }
         public uint Brawn
         {
-            get { return FaDCharacter.Characteristics.Brawn.Rank; }
+            get { return FFGCharacter.Characteristics.Brawn.Rank; }
 
             set
             {
-                FaDCharacter.Characteristics.Brawn.Rank = value;
-                SetSkillsCharacteristic(FaDCharacter.Characteristics.Brawn);
+                FFGCharacter.Characteristics.Brawn.Rank = value;
+                SetSkillsCharacteristic(FFGCharacter.Characteristics.Brawn);
                 OnPropertyChanged();
             }
         }
         public uint Conflict
         {
-            get { return FaDCharacter.Conflict; }
+            get { return FFGCharacter.Conflict; }
             set
             {
-                FaDCharacter.Conflict = value;
+                FFGCharacter.Conflict = value;
                 OnPropertyChanged();
             }
         }
         public uint Cunning
         {
-            get { return FaDCharacter.Characteristics.Cunning.Rank; }
+            get { return FFGCharacter.Characteristics.Cunning.Rank; }
 
             set
             {
-                FaDCharacter.Characteristics.Cunning.Rank = value;
-                SetSkillsCharacteristic(FaDCharacter.Characteristics.Cunning);
+                FFGCharacter.Characteristics.Cunning.Rank = value;
+                SetSkillsCharacteristic(FFGCharacter.Characteristics.Cunning);
                 OnPropertyChanged();
             }
         }
         public uint CurrentStrain
         {
-            get { return FaDCharacter.CurrentStrain; }
+            get { return FFGCharacter.CurrentStrain; }
 
             set
             {
-                FaDCharacter.CurrentStrain = value;
+                FFGCharacter.CurrentStrain = value;
                 OnPropertyChanged();
             }
         }
         public uint CurrentWounds
         {
-            get { return FaDCharacter.CurrentWounds; }
+            get { return FFGCharacter.CurrentWounds; }
 
             set
             {
-                FaDCharacter.CurrentWounds = value;
+                FFGCharacter.CurrentWounds = value;
                 OnPropertyChanged();
             }
         }
         public uint ForceRating
         {
-            get { return FaDCharacter.ForceRating; }
+            get { return FFGCharacter.ForceRating; }
 
             set
             {
-                FaDCharacter.ForceRating = value;
+                FFGCharacter.ForceRating = value;
                 OnPropertyChanged();
             }
         }
         public uint Intellect
         {
-            get { return FaDCharacter.Characteristics.Intellect.Rank; }
+            get { return FFGCharacter.Characteristics.Intellect.Rank; }
 
             set
             {
-                FaDCharacter.Characteristics.Intellect.Rank = value;
-                SetSkillsCharacteristic(FaDCharacter.Characteristics.Intellect);
+                FFGCharacter.Characteristics.Intellect.Rank = value;
+                SetSkillsCharacteristic(FFGCharacter.Characteristics.Intellect);
                 OnPropertyChanged();
             }
         }
         public uint MaxStrain
         {
-            get { return FaDCharacter.MaxStrain; }
+            get { return FFGCharacter.MaxStrain; }
 
             set
             {
-                FaDCharacter.MaxStrain = value;
+                FFGCharacter.MaxStrain = value;
                 OnPropertyChanged();
             }
         }
         public uint MaxWounds
         {
-            get { return FaDCharacter.MaxWounds; }
+            get { return FFGCharacter.MaxWounds; }
 
             set
             {
-                FaDCharacter.MaxWounds = value;
+                FFGCharacter.MaxWounds = value;
                 OnPropertyChanged();
             }
         }
         public uint MeleeDefense
         {
-            get { return FaDCharacter.MeleeDefense; }
+            get { return FFGCharacter.MeleeDefense; }
 
             set
             {
-                FaDCharacter.MeleeDefense = value;
+                FFGCharacter.MeleeDefense = value;
                 OnPropertyChanged();
             }
         }
         public uint Morality
         {
-            get { return FaDCharacter.Morality; }
+            get { return FFGCharacter.Morality; }
             set
             {
-                FaDCharacter.Morality = value;
+                FFGCharacter.Morality = value;
                 OnPropertyChanged();
             }
         }
         public uint RangedDefense
         {
-            get { return FaDCharacter.RangedDefense; }
+            get { return FFGCharacter.RangedDefense; }
 
             set
             {
-                FaDCharacter.RangedDefense = value;
+                FFGCharacter.RangedDefense = value;
                 OnPropertyChanged();
             }
         }
         public uint Presence
         {
-            get { return FaDCharacter.Characteristics.Presence.Rank; }
+            get { return FFGCharacter.Characteristics.Presence.Rank; }
 
             set
             {
-                FaDCharacter.Characteristics.Presence.Rank = value;
-                SetSkillsCharacteristic(FaDCharacter.Characteristics.Presence);
+                FFGCharacter.Characteristics.Presence.Rank = value;
+                SetSkillsCharacteristic(FFGCharacter.Characteristics.Presence);
                 OnPropertyChanged();
             }
         }
         public uint SoakValue
         {
-            get { return FaDCharacter.SoakValue; }
+            get { return FFGCharacter.SoakValue; }
             set
             {
-                FaDCharacter.SoakValue = value;
+                FFGCharacter.SoakValue = value;
                 OnPropertyChanged();
             }
         }
         public uint TotalXP
         {
-            get { return FaDCharacter.XP.TotalXP; }
+            get { return FFGCharacter.XP.TotalXP; }
             set
             {
-                FaDCharacter.XP.TotalXP = value;
+                FFGCharacter.XP.TotalXP = value;
                 OnPropertyChanged();
             }
         }
         public uint Willpower
         {
-            get { return FaDCharacter.Characteristics.Willpower.Rank; }
+            get { return FFGCharacter.Characteristics.Willpower.Rank; }
 
             set
             {
-                FaDCharacter.Characteristics.Willpower.Rank = value;
-                SetSkillsCharacteristic(FaDCharacter.Characteristics.Willpower);
+                FFGCharacter.Characteristics.Willpower.Rank = value;
+                SetSkillsCharacteristic(FFGCharacter.Characteristics.Willpower);
                 OnPropertyChanged();
             }
         }
 
-        public FaDCharacterViewModel() : this(new FaDCharacter()) { }
+        public FFGCharacterViewModel() : this(new FFGCharacter()) { }
 
-        public FaDCharacterViewModel(FaDCharacter character)
+        public FFGCharacterViewModel(FFGCharacter character)
         {
-            FaDCharacter = character;
+            FFGCharacter = character;
             InitializeViewModels();
         }
 
         private void InitializeViewModels()
         {
-            CriticalInjuriesViewModel = new CriticalInjuriesViewModel(FaDCharacter.CriticalInjuries);
-            InventoryViewModel = new InventoryViewModel(FaDCharacter.Inventory);
-            SkillsViewModel = new SkillsViewModel(FaDCharacter.Skills, FaDCharacter.Characteristics, FaDCharacter.XP);
-            TalentsViewModel = new TalentsViewModel(FaDCharacter.Talents);
+            CriticalInjuriesViewModel = new CriticalInjuriesViewModel(FFGCharacter.CriticalInjuries);
+            InventoryViewModel = new InventoryViewModel(FFGCharacter.Inventory);
+            SkillsViewModel = new SkillsViewModel(FFGCharacter.Skills, FFGCharacter.Characteristics, FFGCharacter.XP);
+            TalentsViewModel = new TalentsViewModel(FFGCharacter.Talents);
         }
 
         private void SetSkillsCharacteristic(Characteristic characteristic)

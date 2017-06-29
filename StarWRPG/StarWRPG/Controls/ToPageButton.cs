@@ -12,11 +12,11 @@ namespace StarWRPG.Controls
     public class ToPageButton : Button
     {
         public Type PageType { get; private set; }
-        FaDCharacterViewModel fadCharacterViewModel;
+        FFGCharacterViewModel ffgCharacterViewModel;
 
-        public ToPageButton(string text, Type pageType, FaDCharacterViewModel character)
+        public ToPageButton(string text, Type pageType, FFGCharacterViewModel character)
         {
-            fadCharacterViewModel = character;
+            ffgCharacterViewModel = character;
             Text = text;
             PageType = pageType;
             Clicked += ToPageButtonClickedAsync;
@@ -27,7 +27,7 @@ namespace StarWRPG.Controls
         private async void ToPageButtonClickedAsync(object sender, EventArgs e)
         {
             var previousPage = Navigation.NavigationStack.Last();
-            Navigation.InsertPageBefore((Page)Activator.CreateInstance(PageType, fadCharacterViewModel), previousPage);
+            Navigation.InsertPageBefore((Page)Activator.CreateInstance(PageType, ffgCharacterViewModel), previousPage);
             await Navigation.PopAsync();
         }
 

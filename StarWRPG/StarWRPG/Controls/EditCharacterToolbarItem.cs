@@ -11,12 +11,12 @@ namespace StarWRPG.Controls
 {
     class EditCharacterToolbarItem : ToolbarItem
     {
-        FaDCharacterViewModel fadCharacterViewModel;
+        FFGCharacterViewModel ffgCharacterViewModel;
         Page currentPage;
 
-        public EditCharacterToolbarItem(FaDCharacterViewModel fadCharacterViewModel, Page currentPage)
+        public EditCharacterToolbarItem(FFGCharacterViewModel ffgCharacterViewModel, Page currentPage)
         {
-            this.fadCharacterViewModel = fadCharacterViewModel;
+            this.ffgCharacterViewModel = ffgCharacterViewModel;
             this.currentPage = currentPage;
             Text = "Edit";
             Clicked += EditButtonActivatedAsync;
@@ -24,7 +24,7 @@ namespace StarWRPG.Controls
 
         private async void EditButtonActivatedAsync(object sender, EventArgs e)
         {
-            await currentPage.Navigation.PushAsync(new CharacterInfoCreationPage(fadCharacterViewModel));
+            await currentPage.Navigation.PushAsync(new CharacterInfoCreationPage(ffgCharacterViewModel));
         }
     }
 }

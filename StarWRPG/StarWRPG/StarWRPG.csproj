@@ -103,8 +103,8 @@
     </Compile>
     <Compile Include="Models\CharacterMembers\Experience.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Models\FaDCharacter.cs" />
-    <Compile Include="ViewModels\FaDCharacterViewModel.cs" />
+    <Compile Include="Models\FFGCharacter.cs" />
+    <Compile Include="ViewModels\FFGCharacterViewModel.cs" />
     <Compile Include="Models\CharacterMembers\Characteristics\Characteristic.cs" />
     <Compile Include="Models\CharacterMembers\Characteristics\BrawnCharacteristic.cs" />
     <Compile Include="Models\CharacterMembers\Characteristics\IntellectCharacteristic.cs" />

@@ -10,7 +10,7 @@ namespace StarWRPG.Views
 {
     class CharacterTalentsDetailPage : CharacterTalentsPage
     {
-        public CharacterTalentsDetailPage(FaDCharacterViewModel character) : base(character)
+        public CharacterTalentsDetailPage(FFGCharacterViewModel character) : base(character)
         {
             mainStackLayout.Children.Insert(0, new CharacterDetailNavigationButtons(character, GetType()));
             ToolbarItems.Add(new EditCharacterToolbarItem(character, this));

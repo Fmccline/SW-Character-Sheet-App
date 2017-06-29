@@ -29,7 +29,7 @@ namespace StarWRPG.Views
 
         private async void CharacterSelectedAsync(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem is FaDCharacterViewModel character)
+            if (e.SelectedItem is FFGCharacterViewModel character)
             {
                 await Navigation.PushAsync(new CharacterInfoDetailPage(character));
                 charactersListView.SelectedItem = null;
@@ -48,7 +48,7 @@ namespace StarWRPG.Views
 
         private async void FaDButtonClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CharacterInfoCreationPage(new FaDCharacterViewModel()));
+            await Navigation.PushAsync(new CharacterInfoCreationPage(new FFGCharacterViewModel()));
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Collections.ObjectModel;
 
 namespace StarWRPG.Models
 {
-    public class FaDCharacter
+    public class FFGCharacter
     {
         public int ID { get; set; }
 
@@ -39,7 +39,7 @@ namespace StarWRPG.Models
         public Inventory Inventory { get; set; }
         public Experience XP { get; set; }
 
-        public FaDCharacter()
+        public FFGCharacter()
         {
             Background = "";
             Career = "";

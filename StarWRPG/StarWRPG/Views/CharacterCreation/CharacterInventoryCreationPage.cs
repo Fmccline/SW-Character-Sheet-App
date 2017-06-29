@@ -11,7 +11,7 @@ namespace StarWRPG.Views
 {
     public class CharacterInventoryCreationPage : CharacterInventoryPage
     {
-        public CharacterInventoryCreationPage(FaDCharacterViewModel character) : base(character)
+        public CharacterInventoryCreationPage(FFGCharacterViewModel character) : base(character)
         {
             mainStackLayout.Children.Insert(0, new CharacterCreationNavigationButtons(character, GetType()));
             ToolbarItems.Add(new SaveCharacterToolbarItem(character, this));
