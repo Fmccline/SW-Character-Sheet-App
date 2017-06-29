@@ -12,9 +12,14 @@
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="Keyboard" Value="Numeric" />
             </Style>
+            <Style x:Key="FillAndExpandNumericEntry" TargetType="Entry">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="Keyboard" Value="Numeric" />
+            </Style>
         </ResourceDictionary>
     </local:BasePage.Resources>
-    
+
     <StackLayout x:Name="MainStackLayout">
         <ScrollView>
             <StackLayout x:Name="ScrollViewStackLayout">
@@ -159,6 +164,22 @@
                            Text="Pr" Style="{StaticResource CenterBoldLabel}" />
                 </Grid>
 
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Entry Grid.Column="0" Grid.Row="0" 
+                           Text="{Binding TotalXP}" Style="{StaticResource FillAndExpandNumericEntry}"/>
+                    <Label Grid.Column="0" Grid.Row="1" 
+                           Text="Total XP" Style="{StaticResource StartBoldLabel}"/>
+                    <Entry Grid.Column="2" Grid.Row="0" 
+                           Text="{Binding AvailableXP}" Style="{StaticResource FillAndExpandNumericEntry}"/>
+                    <Label Grid.Column="2" Grid.Row="1" 
+                           Text="Available XP" Style="{StaticResource StartBoldLabel}"/>
+                </Grid>
+
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Description"                   
                            FontAttributes="Bold"                  
@@ -194,10 +215,10 @@
 
                 <Entry Placeholder="Emotional Strengths" Text="{Binding EmotionalStrengths}"/>
                 <Entry Placeholder="Emotional Weaknesses" Text="{Binding EmotionalWeaknesses}"/>
-                
+
                 <Label Text="Conflict" FontAttributes="Bold"/>
                 <Entry Keyboard="Numeric" Text="{Binding Conflict}"/>
-                
+
                 <Label Text="Morality" FontAttributes="Bold"/>
                 <Entry Keyboard="Numeric" Text="{Binding Morality}"/>
             </StackLayout>

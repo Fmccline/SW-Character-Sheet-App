@@ -23,17 +23,9 @@ namespace StarWRPG.Views
 
         public CharacterSkillsPage(FaDCharacterViewModel character)
         {
-            try
-            {
-                InitializeComponent();
-                skillsViewModel = character.SkillsViewModel;
-                BindingContext = skillsViewModel;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.StackTrace);
-                Debug.WriteLine(ex.Message);
-            }
+            InitializeComponent();
+            skillsViewModel = character.SkillsViewModel;
+            BindingContext = skillsViewModel;
         }
 
         private async void SkillSelected(object sender, SelectedItemChangedEventArgs e)

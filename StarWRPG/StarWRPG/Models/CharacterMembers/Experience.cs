@@ -8,8 +8,8 @@ namespace StarWRPG.Models
 { 
     public class Experience
     {
-        public uint TotalXP { get; private set; }
-        public uint AvailableXP { get; private set; }
+        public uint TotalXP { get; set; }
+        public uint AvailableXP { get; set; }
 
         public void GainXP(uint xp)
         {

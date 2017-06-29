@@ -31,10 +31,20 @@ namespace StarWRPG.ViewModels
         public uint AvailableXP
         {
             get { return XP.AvailableXP; }
+            set
+            {
+                XP.AvailableXP = value;
+                OnPropertyChanged();
+            }
         }
         public uint TotalXP
         {
             get { return XP.TotalXP; }
+            set
+            {
+                XP.TotalXP = value;
+                OnPropertyChanged();
+            }
         }
 
         public SkillsViewModel(ObservableCollection<Skill> skills, Characteristics characteristics, Experience xp)

@@ -119,20 +119,9 @@ namespace StarWRPG.ViewModels
         public uint AvailableXP
         {
             get { return FaDCharacter.XP.AvailableXP; }
-
             set
             {
-                uint availableXP = FaDCharacter.XP.AvailableXP;
-                if (value > availableXP)
-                {
-                    FaDCharacter.XP.GainXP(value - availableXP);
-                    // Need to notify the view that TotalXP also changed when adding XP
-                    OnPropertyChanged("TotalXP");
-                }
-                else
-                {
-                    FaDCharacter.XP.SpendXP(availableXP - value);
-                }
+                FaDCharacter.XP.AvailableXP = value;
                 OnPropertyChanged();
             }
         }
@@ -280,6 +269,11 @@ namespace StarWRPG.ViewModels
         public uint TotalXP
         {
             get { return FaDCharacter.XP.TotalXP; }
+            set
+            {
+                FaDCharacter.XP.TotalXP = value;
+                OnPropertyChanged();
+            }
         }
         public uint Willpower
         {
