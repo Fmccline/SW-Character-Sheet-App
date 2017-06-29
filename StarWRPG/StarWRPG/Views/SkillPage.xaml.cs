@@ -29,27 +29,32 @@ namespace StarWRPG.Views
             await Navigation.PopModalAsync();
         }
 
-        private async void RankUpClickedAsync(object sender, EventArgs e)
+        private async void Stepper_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            string message = String.Format("Spend {0} XP to increase rank? \nPressing \"No\" will increase the rank without spending XP.",
-                                                skillViewModel.XPToNextRank());
+            if (SpendXPSwitch.IsToggled == true)
+            {
+                uint oldRank = Convert.ToUInt32(e.OldValue);
+                uint newRank = Convert.ToUInt32(e.NewValue);
 
-            var answer = await DisplayAlert("Increase Rank", message, "Yes", "No");
-            if (answer)
-                skillViewModel.IncreaseRankWithXP();
-            else
-                skillViewModel.IncreaseRank();
-        }
-
-        private async void RankDownClickedAsync(object sender, EventArgs e)
-        {
-            string message = String.Format("Decrease rank and refund {0} XP? \nPressing \"No\" will decrease the rank without refunding XP.",
-                                                skillViewModel.XPToPreviousRank());
-            var answer = await DisplayAlert("Decrease Rank", message, "Yes", "No");
-            if (answer)
-                skillViewModel.DecreaseRankWithXP();
-            else
-                skillViewModel.DecreaseRank();
+                if (newRank > oldRank)
+                {
+                    if (skillViewModel.CanRankUp(newRank))
+                    {
+                        skillViewModel.SpendXPToRankUp(newRank);
+                    }
+                    else
+                    {
+                        string message = String.Format("You need {0} XP to go from Rank {1} to Rank {2}.", 
+                                                        skillViewModel.XPToRank(newRank), oldRank, newRank);
+                        await DisplayAlert("Not enough XP", message, "Ok");
+                        --skillViewModel.Rank;
+                    }
+                }
+                else
+                {
+                    skillViewModel.GainXPToRankDown(newRank);
+                }
+            }
         }
 
         private async void ChangeCharacteristicClickedAsync(object sender, EventArgs e)

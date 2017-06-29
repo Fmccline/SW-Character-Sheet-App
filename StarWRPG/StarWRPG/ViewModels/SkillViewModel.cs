@@ -46,6 +46,19 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
+        public uint AvailableXP
+        {
+            get { return xp.AvailableXP; }
+            set
+            {
+                xp.AvailableXP = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint TotalXP
+        {
+            get { return xp.TotalXP; }
+        }
         public uint Rank
         {
             get { return Skill.Rank; }
@@ -56,6 +69,10 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
+        public uint MaxRank
+        {
+            get { return Skill.MaxRank; }
+        }
 
         string characteristicName;
         public string CharacteristicName
@@ -65,27 +82,6 @@ namespace StarWRPG.ViewModels
             {
                 characteristicName = value;
                 Name = Skill.Name;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool isNotMax;
-        private bool isNotMin;
-        public bool IsNotMax
-        {
-            get { return isNotMax; }
-            private set
-            {
-                isNotMax = value;
-                OnPropertyChanged();
-            }
-        }
-        public bool IsNotMin
-        {
-            get { return isNotMin; }
-            private set
-            {
-                isNotMin = value;
                 OnPropertyChanged();
             }
         }
@@ -118,9 +114,6 @@ namespace StarWRPG.ViewModels
             this.characteristics = characteristics;
             CharacteristicName = Characteristic.Name;
             this.xp = xp;
-
-            isNotMin = (Rank > 0) ? true : false;
-            isNotMax = (Rank < skill.MaxRank) ? true : false;
 
             CalculateDicePool();
         }
@@ -159,6 +152,11 @@ namespace StarWRPG.ViewModels
             }
         }
 
+        public bool CanRankUp(uint newRank)
+        {
+            return (XPToRank(newRank) <= AvailableXP);
+        }
+
         public void ChangeCharacteristic(string characteristicType)
         {
             const string AGILITY = "Agility";
@@ -192,49 +190,19 @@ namespace StarWRPG.ViewModels
             CharacteristicName = characteristicType;
         }
 
-        public uint XPToNextRank()
+        public void GainXPToRankDown(uint newRank)
         {
-            // Page 102 of FaD book for this formula to calculate xp cost
-            uint xpToNextRank = 5 * (Rank + 1);
-            if (!IsCareer)
-                xpToNextRank += 5;
-            return xpToNextRank;
+            AvailableXP += XPToRank(newRank + 1);
         }
 
-        public uint XPToPreviousRank()
+        public void SpendXPToRankUp(uint newRank)
         {
-            uint xpToPreviousRank = 5 * Rank;
-            if (!IsCareer)
-                xpToPreviousRank += 5;
-            return xpToPreviousRank;
+            AvailableXP -= XPToRank(newRank);
         }
 
-        public void DecreaseRank()
+        public uint XPToRank(uint rank)
         {
-            Rank -= 1;
-            if (Rank == 0)
-                IsNotMin = false;
-            IsNotMax = true;
-        }
-
-        public void DecreaseRankWithXP()
-        {
-            xp.RefundXP(XPToPreviousRank());
-            DecreaseRank();
-        }
-
-        public void IncreaseRank()
-        {
-            Rank += 1;
-            if (Rank == Skill.MaxRank)
-                IsNotMax = false;
-            IsNotMin = true;
-        }
-
-        public void IncreaseRankWithXP()
-        {
-            xp.SpendXP(XPToNextRank());
-            IncreaseRank();
+            return (IsCareer) ? 5 * rank : (5 * rank) + 5;
         }
     }
 }

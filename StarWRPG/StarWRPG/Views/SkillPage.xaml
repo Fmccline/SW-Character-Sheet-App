@@ -10,32 +10,91 @@
                FontSize="Medium"/>
 
         <StackLayout Orientation="Horizontal">
-            <Label Text="Rank: "/>
-            <Label Text="{Binding Rank}"/>
-            <Button Text="-" 
-                    Clicked="RankDownClickedAsync"
-                    IsEnabled="{Binding IsNotMin}"/>
-            <Button Text="+" 
-                    Clicked="RankUpClickedAsync"
-                    IsEnabled="{Binding IsNotMax}"/>
-        </StackLayout>
+            <Label Text="Rank: " Style="{StaticResource StartBoldLabel}"/>
+            <Label Text="{Binding Rank}" Style="{StaticResource StartLabel}"/>
+            <Stepper Increment="1"
+                     Maximum="{Binding MaxRank}"
+                     Minimum="0"
+                     Value="{Binding Rank}"
+                     ValueChanged="Stepper_ValueChanged"
+                     VerticalOptions="Center"/>
+            <StackLayout>
+                <Label Text="Use XP" Style="{StaticResource CenterLabel}"/>
+                <Switch x:Name="SpendXPSwitch" 
+                        IsToggled="False"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+            </StackLayout>
+        </StackLayout>        
+        
+        <!--<Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            
+            <Label Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"
+                   Text="Rank: "/>
+            <Label Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+                   Text="{Binding Rank}"/>
+            <Stepper Grid.Column="2" Grid.Row="0" Grid.RowSpan="2"
+                     Maximum="{Binding MaxRank}"
+                     Minimum="0"
+                     Increment="1"
+                     Value="{Binding Rank}"
+                     ValueChanged="Stepper_ValueChanged"/>
+            <Label Grid.Column="3" Grid.Row="0"
+                   Text="Use XP"/>
+            <Switch Grid.Column="3" Grid.Row="1"
+                    x:Name="SpendXPSwitch" 
+                    IsToggled="False"/>
+        </Grid>-->
 
         <StackLayout Orientation="Horizontal">
-            <Label Text="Career: "/>
+            <Label Text="Career: " Style="{StaticResource StartBoldLabel}"/>
             <Switch IsToggled="{Binding IsCareer}"/>
         </StackLayout>
 
         <StackLayout Orientation="Horizontal">
-            <Label Text="Characteristic: "/>
-            <Label Text="{Binding CharacteristicName}"/>
+            <Label Text="Characteristic: " Style="{StaticResource StartBoldLabel}"/>
+            <Label Text="{Binding CharacteristicName}" Style="{StaticResource StartLabel}"/>
             <Button Text="Change" 
                     Clicked="ChangeCharacteristicClickedAsync" 
-                    IsVisible="{Binding CanSetCharacteristic}"/>
+                    IsVisible="{Binding CanSetCharacteristic}"
+                    VerticalOptions="Center"/>
         </StackLayout>
 
-        <Button Text="Accept"
-                Clicked="AcceptClickedAsync"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
+            <Label Grid.Column="0" Grid.Row="0"
+                   Text="{Binding TotalXP}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="0" Grid.Row="1"
+                   Text="Total XP" Style="{StaticResource CenterLabel}"/>
+            <Button Grid.Column="1" Grid.Row="0" Grid.RowSpan="2"
+                    Text="Accept" 
+                    Clicked="AcceptClickedAsync"
+                    HorizontalOptions="Center"/>
+            <Label Grid.Column="2" Grid.Row="0"
+                   Text="{Binding AvailableXP}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="2" Grid.Row="1"
+                   Text="Available XP" Style="{StaticResource CenterLabel}"/>
+        </Grid>
+        
     </StackLayout>
     
 </ContentPage>
