@@ -14,13 +14,18 @@ namespace StarWRPG.Models
         public List<Talent> Talents;
         public List<Skill> Skills;
 
+        public string Name;
+        public string SpecialAbilities;
+
         public uint MaxWounds;
         public uint MaxStrain;
+        public uint StartingXP;
 
-        protected abstract void InitializeThresholds();
         protected abstract void InitializeCharacteristics();
+        protected abstract void InitializeName();
         protected abstract void InitializeSkills();
         protected abstract void InitializeTalents();
+        protected abstract void InitializeStartingStats();
 
         public SpeciePreset()
         {
@@ -30,9 +35,10 @@ namespace StarWRPG.Models
         protected override void InitializePresetAttributes()
         {
             InitializeCharacteristics();
+            InitializeName();
             InitializeSkills();
             InitializeTalents();
-            InitializeThresholds();
+            InitializeStartingStats();
         }
     }
 }

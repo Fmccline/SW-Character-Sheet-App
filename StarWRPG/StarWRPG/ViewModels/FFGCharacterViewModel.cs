@@ -17,6 +17,8 @@ namespace StarWRPG.ViewModels
         public TalentsViewModel TalentsViewModel { get; private set; }
         public SkillsViewModel SkillsViewModel { get; private set; }
 
+        private SpeciePresetViewModel speciePreset;
+
         public string Background
         {
             get { return FFGCharacter.Background; }
@@ -313,6 +315,16 @@ namespace StarWRPG.ViewModels
                     skillViewModel.CalculateDicePool();
                 }
             }
+        }
+
+        public void SetSpeciePreset(SpeciePresetViewModel preset)
+        {
+            if (speciePreset != null)
+            {
+                speciePreset.RemovePreset();
+            }
+            speciePreset = preset;
+            speciePreset.SetPreset();
         }
 
     }

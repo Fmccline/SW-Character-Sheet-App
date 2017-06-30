@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StarWRPG.Views.SpeciePresetPage">
+
+    <StackLayout>
+
+        <Label Text="{Binding SpecieName}" Style="{StaticResource StartLabel}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" 
+                   Text="Starting Max Wounds: " Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="0" Grid.Row="1" 
+                   Text="Starting Max Strain: " Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="1" Grid.Row="0" 
+                   Text="{Binding MaxWounds}" Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="1" Grid.Row="1" 
+                   Text="{Binding MaxStrain}" Style="{StaticResource StartLabel}"/>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6"
+                           Text="Characteristics" Style="{StaticResource CenterBoldLabel}"/>
+            <Label Grid.Column="0" Grid.Row="1"
+                           Text="{Binding Brawn}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="1" Grid.Row="1"
+                           Text="{Binding Agility}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="2" Grid.Row="1"
+                           Text="{Binding Intellect}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="3" Grid.Row="1"
+                           Text="{Binding Cunning}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="4" Grid.Row="1"
+                           Text="{Binding Willpower}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="5" Grid.Row="1"
+                           Text="{Binding Presence}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="0" Grid.Row="2"
+                           Text="Br" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="1" Grid.Row="2"
+                           Text="Ag" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="2" Grid.Row="2"
+                           Text="Int" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="3" Grid.Row="2"
+                           Text="Cun" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="4" Grid.Row="2"
+                           Text="Will" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="5" Grid.Row="2"
+                           Text="Pr" Style="{StaticResource CenterLabel}"/>
+        </Grid>
+
+        <StackLayout x:Name="SkillsAndTalentsLayout"/>
+
+        <StackLayout Orientation="Horizontal">
+            <Button Text="Accept" 
+                    Clicked="AcceptClickedAsync"
+                    HorizontalOptions="Center"/>
+            <Button Text="Cancel"
+                    Clicked="CancelClickedAsync"
+                    HorizontalOptions="Center"/>
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

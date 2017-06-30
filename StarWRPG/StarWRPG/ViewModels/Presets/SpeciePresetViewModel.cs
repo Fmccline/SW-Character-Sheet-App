@@ -9,62 +9,96 @@ namespace StarWRPG.ViewModels
 {
     public class SpeciePresetViewModel : FFGPresetViewModelBase
     {
-        public SpeciePreset SpeciePreset;
+        SpeciePreset speciePreset;
         public FFGCharacterViewModel FFGCharacterViewModel;
 
+        public string SpecieName
+        {
+            get { return speciePreset.Name; }
+        }
         public uint Agility
         {
-            get { return SpeciePreset.Characteristics.Agility.Rank; }
+            get { return speciePreset.Characteristics.Agility.Rank; }
         }
         public uint Brawn
         {
-            get { return SpeciePreset.Characteristics.Brawn.Rank; }
+            get { return speciePreset.Characteristics.Brawn.Rank; }
         }
         public uint Cunning
         {
-            get { return SpeciePreset.Characteristics.Cunning.Rank; }
+            get { return speciePreset.Characteristics.Cunning.Rank; }
         }
         public uint Intellect
         {
-            get { return SpeciePreset.Characteristics.Intellect.Rank; }
+            get { return speciePreset.Characteristics.Intellect.Rank; }
         }
         public uint Presence
         {
-            get { return SpeciePreset.Characteristics.Presence.Rank; }
+            get { return speciePreset.Characteristics.Presence.Rank; }
         }
         public uint Willpower
         {
-            get { return SpeciePreset.Characteristics.Willpower.Rank; }
+            get { return speciePreset.Characteristics.Willpower.Rank; }
         }
-        public List<Skill> Skills
-        {
-            get { return SpeciePreset.Skills; }
-        }
-        public List<Talent> Talents
-        {
-            get { return SpeciePreset.Talents; }
-        }
+        public List<SkillViewModel> SkillViewModels;
+        public List<TalentViewModel> TalentViewModels;
 
+        public uint StartingXP
+        {
+            get { return speciePreset.StartingXP; }
+        }
         public uint MaxWounds
         {
-            get { return SpeciePreset.MaxWounds; }
+            get { return speciePreset.MaxWounds; }
         }
         public uint MaxStrain
         {
-            get { return SpeciePreset.MaxStrain; }
+            get { return speciePreset.MaxStrain; }
         }
 
-        public SpeciePresetViewModel(FFGCharacterViewModel character)
+        public SpeciePresetViewModel(FFGCharacterViewModel character, SpeciePreset preset)
         {
             FFGCharacterViewModel = character;
+            speciePreset = preset;
+
+            InitializeSkills();
+            InitializeTalents();
+        }
+
+        private void InitializeSkills()
+        {
+            SkillViewModels = new List<SkillViewModel>();
+            foreach (var skill in speciePreset.Skills)
+            {
+                SkillViewModels.Add(new SkillViewModel(skill,null,null));
+            }
+        }
+
+        private void InitializeTalents()
+        {
+            TalentViewModels = new List<TalentViewModel>();
+            foreach (var talent in speciePreset.Talents)
+            {
+                TalentViewModels.Add(new TalentViewModel(talent));
+            }
+        }
+
+        public override void RemovePreset()
+        {
+            SetCharacteristics(DifferenceOfUInts);
+            SetSpecieName();
+            SetSkills(DifferenceOfUInts);
+            RemoveTalents();
+            SetStartingStats(DifferenceOfUInts);
         }
 
         public override void SetPreset()
         {
             SetCharacteristics(SumOfUInts);
+            SetSpecieName(SpecieName);
             SetSkills(SumOfUInts);
             AddTalents();
-            SetThresholds(SumOfUInts);
+            SetStartingStats(SumOfUInts);
         }
 
         private uint DifferenceOfUInts(uint a, uint b)
@@ -87,15 +121,20 @@ namespace StarWRPG.ViewModels
             FFGCharacterViewModel.Willpower = operation(FFGCharacterViewModel.Willpower, Willpower);
         }
 
+        private void SetSpecieName(string specieName = "")
+        {
+            FFGCharacterViewModel.Species = specieName;
+        }
+
         private void SetSkills(Func<uint, uint, uint> operation)
         {
-            foreach (var skill in Skills)
+            foreach (var skillViewModel in SkillViewModels)
             {
-                foreach (var skillViewModel in FFGCharacterViewModel.SkillsViewModel.SkillViewModels)
+                foreach (var ffgSkillViewModel in FFGCharacterViewModel.SkillsViewModel.SkillViewModels)
                 {
-                    if (skill.SkillName.Equals(skillViewModel.Skill.SkillName))
+                    if (skillViewModel.Name.Equals(ffgSkillViewModel.Name))
                     {
-                        skillViewModel.Skill.Rank = operation(skillViewModel.Skill.Rank, skill.Rank);
+                        ffgSkillViewModel.Rank = operation(ffgSkillViewModel.Rank, skillViewModel.Rank);
                         break;
                     }
                 }
@@ -104,7 +143,7 @@ namespace StarWRPG.ViewModels
 
         private void AddTalents()
         {
-            foreach (var talent in Talents)
+            foreach (var talent in TalentViewModels)
             {
                 FFGCharacterViewModel.TalentsViewModel.AddTalent(talent);
             }
@@ -112,24 +151,17 @@ namespace StarWRPG.ViewModels
 
         private void RemoveTalents()
         {
-            foreach (var talent in Talents)
+            foreach (var talent in TalentViewModels)
             {
                 FFGCharacterViewModel.TalentsViewModel.RemoveTalent(talent);
             }
         }
 
-        private void SetThresholds(Func<uint, uint, uint> operation)
+        private void SetStartingStats(Func<uint, uint, uint> operation)
         {
             FFGCharacterViewModel.MaxWounds = operation(FFGCharacterViewModel.MaxWounds, MaxWounds);
             FFGCharacterViewModel.MaxStrain = operation(FFGCharacterViewModel.MaxStrain, MaxStrain);
-        }
-
-        public override void RemovePreset()
-        {
-            SetCharacteristics(DifferenceOfUInts);
-            SetSkills(DifferenceOfUInts);
-            RemoveTalents();
-            SetThresholds(DifferenceOfUInts);
+            FFGCharacterViewModel.TotalXP = operation(FFGCharacterViewModel.TotalXP, StartingXP);
         }
     }
 }

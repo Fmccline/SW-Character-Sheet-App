@@ -9,6 +9,7 @@ namespace StarWRPG.Models
 {
     public class ZabrakPreset : SpeciePreset
     {
+
         protected override void InitializeCharacteristics()
         {
             Characteristics = new Characteristics();
@@ -18,6 +19,11 @@ namespace StarWRPG.Models
             Characteristics.Intellect.Rank = 2;
             Characteristics.Presence.Rank = 1;
             Characteristics.Willpower.Rank = 3;
+        }
+
+        protected override void InitializeName()
+        {
+            Name = "Zabrak";
         }
 
         protected override void InitializeSkills()
@@ -36,8 +42,9 @@ namespace StarWRPG.Models
             };
         }
 
-        protected override void InitializeThresholds()
+        protected override void InitializeStartingStats()
         {
+            StartingXP = 100;
             MaxWounds = 10;
             MaxStrain = 12;
         }

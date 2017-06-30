@@ -45,5 +45,10 @@ namespace StarWRPG.Views
             else if (buttonClicked == EditMotivationsButton)
                 await Navigation.PushModalAsync(new EditorPage("Character Motivations", "Motivation", ffgCharacterViewModel));
         }
+
+        private async void ChangeSpeciePresetAsync(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new SpeciePresetPage(ffgCharacterViewModel));
+        }
     }
 }

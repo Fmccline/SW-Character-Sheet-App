@@ -24,7 +24,12 @@
         <ScrollView>
             <StackLayout x:Name="ScrollViewStackLayout">
                 <Entry Placeholder="Name" Text="{Binding Name}"/>
-                <Entry Placeholder="Species" Text="{Binding Species}"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <Entry Placeholder="Species" Text="{Binding Species}"/>
+                    <Button Text="Preset" 
+                            Clicked="ChangeSpeciePresetAsync"
+                            HorizontalOptions="End"/>
+                </StackLayout>
                 <Entry Placeholder="Career" Text="{Binding Career}"/>
                 <Entry Placeholder="Specialization Trees" Text="{Binding SpecializationTrees}"/>
 
