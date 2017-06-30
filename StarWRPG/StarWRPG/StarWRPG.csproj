@@ -48,6 +48,8 @@
     <Compile Include="Models\CharacterMembers\Items\Inventory.cs" />
     <Compile Include="Models\CharacterMembers\Items\Item.cs" />
     <Compile Include="Models\CharacterMembers\Items\Weapon.cs" />
+    <Compile Include="Models\CharacterMembers\Presets\FFGPreset.cs" />
+    <Compile Include="Models\CharacterMembers\Presets\ZabrakPreset.cs" />
     <Compile Include="Models\CharacterMembers\Skills\CustomSkill.cs" />
     <Compile Include="Models\CharacterMembers\Talent.cs" />
     <Compile Include="ViewModelFactory.cs" />
@@ -57,6 +59,9 @@
     <Compile Include="ViewModels\InventoryViewModel.cs" />
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="Models\CharacterMembers\Presets\SpeciePreset.cs" />
+    <Compile Include="ViewModels\Presets\FFGPresetViewModelBase.cs" />
+    <Compile Include="ViewModels\Presets\SpeciePresetViewModel.cs" />
     <Compile Include="ViewModels\SkillCreationViewModel.cs" />
     <Compile Include="ViewModels\SkillsViewModel.cs" />
     <Compile Include="ViewModels\SkillViewModel.cs" />
