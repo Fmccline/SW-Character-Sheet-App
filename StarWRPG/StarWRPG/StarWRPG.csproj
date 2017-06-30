@@ -48,7 +48,6 @@
     <Compile Include="Models\CharacterMembers\Items\Inventory.cs" />
     <Compile Include="Models\CharacterMembers\Items\Item.cs" />
     <Compile Include="Models\CharacterMembers\Items\Weapon.cs" />
-    <Compile Include="Models\CharacterMembers\Presets\FFGPreset.cs" />
     <Compile Include="Models\CharacterMembers\Presets\ZabrakPreset.cs" />
     <Compile Include="Models\CharacterMembers\Skills\CustomSkill.cs" />
     <Compile Include="Models\CharacterMembers\Talent.cs" />

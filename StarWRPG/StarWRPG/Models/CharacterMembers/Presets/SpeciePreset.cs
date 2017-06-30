@@ -8,37 +8,17 @@ using System.Threading.Tasks;
 
 namespace StarWRPG.Models
 {
-    public abstract class SpeciePreset : FFGPreset
+    public abstract class SpeciePreset
     {
-        public Characteristics Characteristics;
-        public List<Talent> Talents;
-        public List<Skill> Skills;
+        public abstract Characteristics Characteristics { get; }
+        public abstract List<Talent> Talents { get; }
+        public abstract List<Skill> Skills { get; }
 
-        public string Name;
-        public string SpecialAbilities;
+        public abstract string Name { get; }
+        public abstract string SpecialAbilities { get; }
 
-        public uint MaxWounds;
-        public uint MaxStrain;
-        public uint StartingXP;
-
-        protected abstract void InitializeCharacteristics();
-        protected abstract void InitializeName();
-        protected abstract void InitializeSkills();
-        protected abstract void InitializeTalents();
-        protected abstract void InitializeStartingStats();
-
-        public SpeciePreset()
-        {
-            InitializePresetAttributes();
-        }
-
-        protected override void InitializePresetAttributes()
-        {
-            InitializeCharacteristics();
-            InitializeName();
-            InitializeSkills();
-            InitializeTalents();
-            InitializeStartingStats();
-        }
+        public abstract uint MaxWounds { get; }
+        public abstract uint MaxStrain { get; }
+        public abstract uint StartingXP { get; }
     }
 }

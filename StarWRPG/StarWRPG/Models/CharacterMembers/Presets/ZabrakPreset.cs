@@ -9,44 +9,82 @@ namespace StarWRPG.Models
 {
     public class ZabrakPreset : SpeciePreset
     {
+        Characteristics characteristics;
+        List<Talent> talents;
+        List<Skill> skills;
 
-        protected override void InitializeCharacteristics()
+        public override Characteristics Characteristics
         {
-            Characteristics = new Characteristics();
-            Characteristics.Agility.Rank = 2;
-            Characteristics.Brawn.Rank = 2;
-            Characteristics.Cunning.Rank = 2;
-            Characteristics.Intellect.Rank = 2;
-            Characteristics.Presence.Rank = 1;
-            Characteristics.Willpower.Rank = 3;
-        }
-
-        protected override void InitializeName()
-        {
-            Name = "Zabrak";
-        }
-
-        protected override void InitializeSkills()
-        {
-            Skills = new List<Skill>
+            get
             {
-                new AstrogationSkill(Characteristics.Intellect) { Rank = 1 }
-            };
+                if (characteristics == null)
+                {
+                    characteristics = new Characteristics
+                    {
+                        Agility = new AgilityCharacteristic { Rank = 2 },
+                        Brawn = new BrawnCharacteristic { Rank = 2 },
+                        Cunning = new CunningCharacteristic { Rank = 2 },
+                        Intellect = new IntellectCharacteristic { Rank = 2 },
+                        Presence = new PresenceCharacteristic { Rank = 1 },
+                        Willpower = new WillpowerCharacteristic { Rank = 3 },
+                    };
+                }
+                return characteristics;
+            }
         }
-
-        protected override void InitializeTalents()
+        public override List<Talent> Talents
         {
-            Talents = new List<Talent>
+            get
             {
-                new Talent { Description = "Add one advantage to any coercion check.", Name = "Coercive Guy", PageNumber = 42 }
-            };
+                if (talents == null)
+                {
+                    talents = new List<Talent>
+                    {
+                        new Talent
+                        {
+                            Description = "Zabrak add automatic advantage to all Coercion checks they make.",
+                            Name = "Fearsome Countenance",
+                            PageNumber = 63
+                        }
+                    };
+                }
+                return talents;
+            }
+        }
+        public override List<Skill> Skills
+        {
+            get
+            {
+                if (skills == null)
+                {
+                    skills = new List<Skill>
+                    {
+                        new AstrogationSkill(Characteristics.Intellect) { Rank = 1 }
+                    };
+                }
+                return skills;
+            }
         }
 
-        protected override void InitializeStartingStats()
+        public override string Name
         {
-            StartingXP = 100;
-            MaxWounds = 10;
-            MaxStrain = 12;
+            get { return "Zabrak"; }
+        }
+        public override string SpecialAbilities
+        {
+            get { return "Zabrak begin the game with one rank in Survival (This is automatically added to your character)."; }
+        }
+        public override uint MaxWounds
+        {
+            get { return 10; }
+        }
+        public override uint MaxStrain
+        {
+            get { return 10; }
+        }
+        public override uint StartingXP
+        {
+            get { return 100; }
         }
     }
 }

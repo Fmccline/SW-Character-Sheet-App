@@ -69,7 +69,10 @@
                            Text="Pr" Style="{StaticResource CenterLabel}"/>
         </Grid>
 
-        <StackLayout x:Name="SkillsAndTalentsLayout"/>
+        <Label Text="Special Abilities" Style="{StaticResource CenterBoldLabel}"/>
+        <Label Text="{Binding SpecialAbilities}" Style="{StaticResource CenterLabel}"/>
+        
+        <StackLayout x:Name="TalentsLayout"/>
 
         <StackLayout Orientation="Horizontal">
             <Button Text="Accept" 

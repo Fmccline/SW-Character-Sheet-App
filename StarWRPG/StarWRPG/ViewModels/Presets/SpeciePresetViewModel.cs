@@ -16,6 +16,10 @@ namespace StarWRPG.ViewModels
         {
             get { return speciePreset.Name; }
         }
+        public string SpecialAbilities
+        {
+            get { return speciePreset.SpecialAbilities; }
+        }
         public uint Agility
         {
             get { return speciePreset.Characteristics.Agility.Rank; }

@@ -14,9 +14,9 @@ namespace StarWRPG.Views
         {
             ColumnDefinitions = new ColumnDefinitionCollection
             {
-                new ColumnDefinition { Width = new GridLength(3, GridUnitType.Star) },
+                new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) },
                 new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
-                new ColumnDefinition { Width = new GridLength(8, GridUnitType.Star) },
+                new ColumnDefinition { Width = new GridLength(6, GridUnitType.Star) },
             };
 
             if (talents.Count > 0)
@@ -62,7 +62,7 @@ namespace StarWRPG.Views
             };
             var pageNumber = new Label
             {
-                Text = "Page #",
+                Text = "Page",
                 Style = (Style)Application.Current.Resources["CenterBoldLabel"]
             };
             var description = new Label

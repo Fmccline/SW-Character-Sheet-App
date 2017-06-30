@@ -28,17 +28,15 @@ namespace StarWRPG.Views
             speciePresetsViewModel = new SpeciePresetsViewModel(ffgCharacterViewModel);
             speciePresetViewModel = speciePresetsViewModel.SpeciePresetViewModels.First();
 
-            BindingContextChanged += SetSkillsAndTalentsLayout;
+            BindingContextChanged += SetTalentsLayout;
             BindingContext = speciePresetViewModel;
 
         }
 
-        private void SetSkillsAndTalentsLayout(object sender, EventArgs e)
+        private void SetTalentsLayout(object sender, EventArgs e)
         {
-            SkillsAndTalentsLayout.Children.Clear();
-            SkillsAndTalentsLayout.Children.Add(new SkillsGrid(speciePresetViewModel.SkillViewModels));
-            SkillsAndTalentsLayout.Children.Add(new TalentsGrid(speciePresetViewModel.TalentViewModels));
-
+            TalentsLayout.Children.Clear();
+            TalentsLayout.Children.Add(new TalentsGrid(speciePresetViewModel.TalentViewModels));
         }
 
         private async void AcceptClickedAsync(object sender, EventArgs e)
