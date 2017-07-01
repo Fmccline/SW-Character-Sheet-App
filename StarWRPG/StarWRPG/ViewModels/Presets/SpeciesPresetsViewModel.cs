@@ -34,10 +34,6 @@ namespace StarWRPG.ViewModels
 
         public SpeciesPresetViewModel GetSpeciesPresetViewModelByName(string speciesName = null)
         {
-            if (speciesName == null)
-            {
-                return SpeciesPresetViewModels[0];
-            }
             foreach (var species in SpeciesPresetViewModels)
             {
                 if (species.SpeciesName.Equals(speciesName))

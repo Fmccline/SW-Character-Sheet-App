@@ -25,7 +25,9 @@
             <StackLayout x:Name="ScrollViewStackLayout">
                 <Entry Placeholder="Name" Text="{Binding Name}"/>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                    <Entry Placeholder="Species" Text="{Binding Species}"/>
+                    <Entry Placeholder="Species" 
+                           Text="{Binding Species}"
+                           HorizontalOptions="FillAndExpand"/>
                     <Button Text="Preset" 
                             Clicked="ChangeSpeciePresetAsync"
                             HorizontalOptions="End"/>
