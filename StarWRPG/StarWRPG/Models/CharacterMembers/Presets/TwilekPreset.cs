@@ -3,28 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StarWRPG.ViewModels;
 
 namespace StarWRPG.Models
 {
-    public class ZabrakPreset : SpeciePreset
+    public class TwilekPreset : SpeciePreset
     {
         public override string SpecieName
         {
-            get { return "Zabrak"; }
+            get { return "Twi'lek"; }
         }
+
         public override string SpecialAbilities
         {
-            get { return "Zabrak begin the game with one rank in Survival." + AUTOMATIC; }
+            get { return "Twi'leks begin the game with one rank in either Charm or Deception." + MANUAL; }
         }
+
         public override uint MaxWounds
         {
             get { return 10; }
         }
+
         public override uint MaxStrain
         {
-            get { return 10; }
+            get { return 11; }
         }
+
         public override uint StartingXP
         {
             get { return 100; }
@@ -32,15 +35,12 @@ namespace StarWRPG.Models
 
         public override Characteristics InitializeCharacteristics()
         {
-            return new Characteristics(2, 2, 2, 2, 3, 1);
+            return new Characteristics(1, 2, 2, 2, 2, 3);
         }
 
         public override List<Skill> InitializeSkills()
         {
-            return new List<Skill>
-            {
-                new AstrogationSkill(Characteristics.Intellect) { Rank = 1 },
-            };
+            return new List<Skill>();
         }
 
         public override List<Talent> InitializeTalents()
@@ -49,15 +49,9 @@ namespace StarWRPG.Models
             {
                 new Talent
                 {
-                    Description = "Zabrak add automatic advantage to all Coercion checks they make.",
-                    Name = "Fearsome Countenance",
-                    PageNumber = 63
-                },
-                new Talent
-                {
-                    Description = "This is a test talent. If you have this talent, then god help us all.",
-                    Name = "Test Talent Guy",
-                    PageNumber = 63
+                    Name = "Desert Dwellers",
+                    Description = "When making skill checks, Twi'leks may remove one setback imposed due to arid or hot environmental conditions.",
+                    PageNumber = 62,
                 }
             };
         }

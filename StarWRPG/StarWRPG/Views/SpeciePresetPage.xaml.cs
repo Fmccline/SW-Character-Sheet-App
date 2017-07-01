@@ -15,39 +15,41 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SpeciePresetPage : ContentPage
     {
-        FFGCharacterViewModel ffgCharacterViewModel;
         SpeciePresetsViewModel speciePresetsViewModel;
-
         SpeciePresetViewModel speciePresetViewModel;
 
-        public SpeciePresetPage(FFGCharacterViewModel character)
+        public SpeciePresetPage(SpeciePresetsViewModel speciesPresets, string speciesName)
         {
             InitializeComponent();
 
-            ffgCharacterViewModel = character;
-            speciePresetsViewModel = new SpeciePresetsViewModel(ffgCharacterViewModel);
-            speciePresetViewModel = speciePresetsViewModel.SpeciePresetViewModels.First();
+            speciePresetsViewModel = speciesPresets;
+            speciePresetViewModel = speciePresetsViewModel.GetSpeciesPresetViewModelByName(speciesName);
 
             BindingContextChanged += SetTalentsLayout;
             BindingContext = speciePresetViewModel;
-
         }
 
         private void SetTalentsLayout(object sender, EventArgs e)
         {
-            TalentsLayout.Children.Clear();
-            TalentsLayout.Children.Add(new TalentsGrid(speciePresetViewModel.TalentViewModels));
+            TalentsLayout.Content = new TalentsLayout(speciePresetViewModel.TalentViewModels);
         }
 
-        private async void AcceptClickedAsync(object sender, EventArgs e)
+        private async void SelectClickedAsync(object sender, EventArgs e)
         {
-            ffgCharacterViewModel.SetSpeciePreset(speciePresetViewModel);
+            speciePresetsViewModel.SetSpeciePreset(speciePresetViewModel);
             await Navigation.PopModalAsync();
         }
 
         private async void CancelClickedAsync(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+
+        private async void ChangeSpeciesClickedAsync(object sender, EventArgs e)
+        {
+            var speciesName = await DisplayActionSheet("Species", "Cancel", null, speciePresetsViewModel.SpeciesNames);
+            speciePresetViewModel = speciePresetsViewModel.GetSpeciesPresetViewModelByName(speciesName);
+            BindingContext = speciePresetViewModel;
         }
     }
 }

@@ -5,10 +5,12 @@
 
     <StackLayout>
 
-        <Label Text="{Binding SpecieName}" Style="{StaticResource StartLabel}"/>
+        <Label FontSize="Medium"
+               Style="{StaticResource CenterBoldLabel}"
+               Text="{Binding SpecieName}"/>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -16,14 +18,14 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label Grid.Column="0" Grid.Row="0" 
-                   Text="Starting Max Wounds: " Style="{StaticResource StartLabel}"/>
             <Label Grid.Column="0" Grid.Row="1" 
-                   Text="Starting Max Strain: " Style="{StaticResource StartLabel}"/>
-            <Label Grid.Column="1" Grid.Row="0" 
-                   Text="{Binding MaxWounds}" Style="{StaticResource StartLabel}"/>
+                   Text="{Binding MaxWounds}" Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="1" Grid.Row="1" 
-                   Text="{Binding MaxStrain}" Style="{StaticResource StartLabel}"/>
+                   Text="{Binding MaxStrain}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="0" Grid.Row="0" 
+                   Text="Max Wounds " Style="{StaticResource CenterBoldLabel}"/>
+            <Label Grid.Column="1" Grid.Row="0" 
+                   Text="Max Strain" Style="{StaticResource CenterBoldLabel}"/>
         </Grid>
 
         <Grid>
@@ -71,12 +73,16 @@
 
         <Label Text="Special Abilities" Style="{StaticResource CenterBoldLabel}"/>
         <Label Text="{Binding SpecialAbilities}" Style="{StaticResource CenterLabel}"/>
-        
-        <StackLayout x:Name="TalentsLayout"/>
 
-        <StackLayout Orientation="Horizontal">
-            <Button Text="Accept" 
-                    Clicked="AcceptClickedAsync"
+
+        <ContentView x:Name="TalentsLayout"/>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Select" 
+                    Clicked="SelectClickedAsync"
+                    HorizontalOptions="Center"/>
+            <Button Text="Change"
+                    Clicked="ChangeSpeciesClickedAsync"
                     HorizontalOptions="Center"/>
             <Button Text="Cancel"
                     Clicked="CancelClickedAsync"

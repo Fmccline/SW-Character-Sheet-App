@@ -17,7 +17,7 @@ namespace StarWRPG.ViewModels
         public TalentsViewModel TalentsViewModel { get; private set; }
         public SkillsViewModel SkillsViewModel { get; private set; }
 
-        private SpeciePresetViewModel speciePreset;
+        private FFGPresetViewModel speciesPreset;
 
         public string Background
         {
@@ -317,14 +317,14 @@ namespace StarWRPG.ViewModels
             }
         }
 
-        public void SetSpeciePreset(SpeciePresetViewModel preset)
+        public void SetSpeciePreset(FFGPresetViewModel species)
         {
-            if (speciePreset != null)
+            if (speciesPreset != null)
             {
-                speciePreset.RemovePreset();
+                speciesPreset.RemovePreset();
             }
-            speciePreset = preset;
-            speciePreset.SetPreset();
+            speciesPreset = species;
+            speciesPreset.SetPreset();
         }
 
     }

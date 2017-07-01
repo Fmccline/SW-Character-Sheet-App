@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace StarWRPG.ViewModels
 {
-    public class SpeciePresetViewModel : FFGPresetViewModelBase
+    public class SpeciePresetViewModel : FFGPresetViewModel
     {
         SpeciePreset speciePreset;
         public FFGCharacterViewModel FFGCharacterViewModel;
 
         public string SpecieName
         {
-            get { return speciePreset.Name; }
+            get { return speciePreset.SpecieName; }
         }
         public string SpecialAbilities
         {

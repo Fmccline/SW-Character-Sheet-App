@@ -48,6 +48,7 @@
     <Compile Include="Models\CharacterMembers\Items\Inventory.cs" />
     <Compile Include="Models\CharacterMembers\Items\Item.cs" />
     <Compile Include="Models\CharacterMembers\Items\Weapon.cs" />
+    <Compile Include="Models\CharacterMembers\Presets\TwilekPreset.cs" />
     <Compile Include="Models\CharacterMembers\Presets\ZabrakPreset.cs" />
     <Compile Include="Models\CharacterMembers\Skills\CustomSkill.cs" />
     <Compile Include="Models\CharacterMembers\Talent.cs" />
@@ -59,7 +60,7 @@
     <Compile Include="ViewModels\ItemViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Models\CharacterMembers\Presets\SpeciePreset.cs" />
-    <Compile Include="ViewModels\Presets\FFGPresetViewModelBase.cs" />
+    <Compile Include="ViewModels\Presets\FFGPresetViewModel.cs" />
     <Compile Include="ViewModels\Presets\SpeciePresetsViewModel.cs" />
     <Compile Include="ViewModels\Presets\SpeciePresetViewModel.cs" />
     <Compile Include="ViewModels\SkillCreationViewModel.cs" />
@@ -147,7 +148,7 @@
       <DependentUpon>TalentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ToPageButton.cs" />
-    <Compile Include="Views\TalentsGrid.cs" />
+    <Compile Include="Views\TalentsLayout.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\CharacterDetail\CharacterInfoDetailPage.xaml">

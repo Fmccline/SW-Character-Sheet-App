@@ -48,7 +48,10 @@ namespace StarWRPG.Views
 
         private async void ChangeSpeciePresetAsync(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new SpeciePresetPage(ffgCharacterViewModel));
+            var speciePresetsViewModel = new SpeciePresetsViewModel(ffgCharacterViewModel);
+            var speciesName = await DisplayActionSheet("Species", "Cancel", null, speciePresetsViewModel.SpeciesNames);
+
+            await Navigation.PushModalAsync(new SpeciePresetPage(speciePresetsViewModel,speciesName));
         }
     }
 }
