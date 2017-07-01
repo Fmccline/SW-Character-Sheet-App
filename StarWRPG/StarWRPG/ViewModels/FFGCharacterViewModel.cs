@@ -317,7 +317,7 @@ namespace StarWRPG.ViewModels
             }
         }
 
-        public void SetSpeciePreset(FFGPresetViewModel species)
+        public void SetSpeciesPreset(FFGPresetViewModel species)
         {
             if (speciesPreset != null)
             {

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace StarWRPG.Models
 {
-    public class TwilekPreset : SpeciePreset
+    public class TwilekPreset : SpeciesPreset
     {
-        public override string SpecieName
+        public override string SpeciesName
         {
             get { return "Twi'lek"; }
         }

@@ -7,63 +7,63 @@ using System.Threading.Tasks;
 
 namespace StarWRPG.ViewModels
 {
-    public class SpeciePresetViewModel : FFGPresetViewModel
+    public class SpeciesPresetViewModel : FFGPresetViewModel
     {
-        SpeciePreset speciePreset;
+        SpeciesPreset speciesPreset;
         public FFGCharacterViewModel FFGCharacterViewModel;
 
-        public string SpecieName
+        public string SpeciesName
         {
-            get { return speciePreset.SpecieName; }
+            get { return speciesPreset.SpeciesName; }
         }
         public string SpecialAbilities
         {
-            get { return speciePreset.SpecialAbilities; }
+            get { return speciesPreset.SpecialAbilities; }
         }
         public uint Agility
         {
-            get { return speciePreset.Characteristics.Agility.Rank; }
+            get { return speciesPreset.Characteristics.Agility.Rank; }
         }
         public uint Brawn
         {
-            get { return speciePreset.Characteristics.Brawn.Rank; }
+            get { return speciesPreset.Characteristics.Brawn.Rank; }
         }
         public uint Cunning
         {
-            get { return speciePreset.Characteristics.Cunning.Rank; }
+            get { return speciesPreset.Characteristics.Cunning.Rank; }
         }
         public uint Intellect
         {
-            get { return speciePreset.Characteristics.Intellect.Rank; }
+            get { return speciesPreset.Characteristics.Intellect.Rank; }
         }
         public uint Presence
         {
-            get { return speciePreset.Characteristics.Presence.Rank; }
+            get { return speciesPreset.Characteristics.Presence.Rank; }
         }
         public uint Willpower
         {
-            get { return speciePreset.Characteristics.Willpower.Rank; }
+            get { return speciesPreset.Characteristics.Willpower.Rank; }
         }
         public List<SkillViewModel> SkillViewModels;
         public List<TalentViewModel> TalentViewModels;
 
         public uint StartingXP
         {
-            get { return speciePreset.StartingXP; }
+            get { return speciesPreset.StartingXP; }
         }
         public uint MaxWounds
         {
-            get { return speciePreset.MaxWounds; }
+            get { return speciesPreset.MaxWounds; }
         }
         public uint MaxStrain
         {
-            get { return speciePreset.MaxStrain; }
+            get { return speciesPreset.MaxStrain; }
         }
 
-        public SpeciePresetViewModel(FFGCharacterViewModel character, SpeciePreset preset)
+        public SpeciesPresetViewModel(FFGCharacterViewModel character, SpeciesPreset preset)
         {
             FFGCharacterViewModel = character;
-            speciePreset = preset;
+            speciesPreset = preset;
 
             InitializeSkills();
             InitializeTalents();
@@ -72,7 +72,7 @@ namespace StarWRPG.ViewModels
         private void InitializeSkills()
         {
             SkillViewModels = new List<SkillViewModel>();
-            foreach (var skill in speciePreset.Skills)
+            foreach (var skill in speciesPreset.Skills)
             {
                 SkillViewModels.Add(new SkillViewModel(skill,null,null));
             }
@@ -81,7 +81,7 @@ namespace StarWRPG.ViewModels
         private void InitializeTalents()
         {
             TalentViewModels = new List<TalentViewModel>();
-            foreach (var talent in speciePreset.Talents)
+            foreach (var talent in speciesPreset.Talents)
             {
                 TalentViewModels.Add(new TalentViewModel(talent));
             }
@@ -90,7 +90,7 @@ namespace StarWRPG.ViewModels
         public override void RemovePreset()
         {
             SetCharacteristics(DifferenceOfUInts);
-            SetSpecieName();
+            SetSpeciesName();
             SetSkills(DifferenceOfUInts);
             RemoveTalents();
             SetStartingStats(DifferenceOfUInts);
@@ -99,7 +99,7 @@ namespace StarWRPG.ViewModels
         public override void SetPreset()
         {
             SetCharacteristics(SumOfUInts);
-            SetSpecieName(SpecieName);
+            SetSpeciesName(SpeciesName);
             SetSkills(SumOfUInts);
             AddTalents();
             SetStartingStats(SumOfUInts);
@@ -125,7 +125,7 @@ namespace StarWRPG.ViewModels
             FFGCharacterViewModel.Willpower = operation(FFGCharacterViewModel.Willpower, Willpower);
         }
 
-        private void SetSpecieName(string specieName = "")
+        private void SetSpeciesName(string specieName = "")
         {
             FFGCharacterViewModel.Species = specieName;
         }

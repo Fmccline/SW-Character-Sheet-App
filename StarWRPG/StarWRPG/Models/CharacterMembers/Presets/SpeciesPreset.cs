@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace StarWRPG.Models
 {
-    public abstract class SpeciePreset
+    public abstract class SpeciesPreset
     {
         protected Characteristics characteristics;
         protected List<Talent> talents;
@@ -48,7 +48,7 @@ namespace StarWRPG.Models
             }
         }
 
-        public abstract string SpecieName { get; }
+        public abstract string SpeciesName { get; }
         public abstract string SpecialAbilities { get; }
 
         public abstract uint MaxWounds { get; }

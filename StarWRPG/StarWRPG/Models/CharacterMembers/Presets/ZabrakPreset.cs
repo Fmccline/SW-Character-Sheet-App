@@ -7,9 +7,9 @@ using StarWRPG.ViewModels;
 
 namespace StarWRPG.Models
 {
-    public class ZabrakPreset : SpeciePreset
+    public class ZabrakPreset : SpeciesPreset
     {
-        public override string SpecieName
+        public override string SpeciesName
         {
             get { return "Zabrak"; }
         }
