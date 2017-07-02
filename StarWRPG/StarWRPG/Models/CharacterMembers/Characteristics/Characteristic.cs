@@ -9,7 +9,7 @@ namespace StarWRPG.Models
         {
             // Page 102 of FaD book says max characteristic is 6
             MaxRank = 6;
-            Rank = 1;
+            Rank = 0;
         }
     }
 }

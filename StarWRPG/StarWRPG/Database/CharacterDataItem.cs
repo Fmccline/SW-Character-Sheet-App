@@ -20,7 +20,7 @@ namespace StarWRPG
 
         public CharacterDataItem() : this(null) { }
 
-        public CharacterDataItem(FaDCharacter character)
+        public CharacterDataItem(FFGCharacter character)
         {
             serializerSettings = new JsonSerializerSettings
             {
@@ -32,16 +32,16 @@ namespace StarWRPG
                 CharacterToJson(character);
         }
 
-        public void CharacterToJson(FaDCharacter character)
+        public void CharacterToJson(FFGCharacter character)
         {
             CharacterAsJson = JsonConvert.SerializeObject(character, serializerSettings);
         }
 
-        public FaDCharacter GetCharacter()
+        public FFGCharacter GetCharacter()
         {
             try
             {
-                var character =  JsonConvert.DeserializeObject<FaDCharacter>(CharacterAsJson, serializerSettings);
+                var character =  JsonConvert.DeserializeObject<FFGCharacter>(CharacterAsJson, serializerSettings);
                 character.ID = ID;
                 return character;
             }

@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StarWRPG.Views.SpeciesPresetPage">
+
+    <StackLayout>
+
+        <Label FontSize="Medium"
+               Style="{StaticResource CenterBoldLabel}"
+               Text="{Binding SpeciesName}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="1" 
+                   Text="{Binding MaxWounds}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="1" Grid.Row="1" 
+                   Text="{Binding MaxStrain}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="0" Grid.Row="0" 
+                   Text="Max Wounds " Style="{StaticResource CenterBoldLabel}"/>
+            <Label Grid.Column="1" Grid.Row="0" 
+                   Text="Max Strain" Style="{StaticResource CenterBoldLabel}"/>
+        </Grid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6"
+                           Text="Characteristics" Style="{StaticResource CenterBoldLabel}"/>
+            <Label Grid.Column="0" Grid.Row="1"
+                           Text="{Binding Brawn}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="1" Grid.Row="1"
+                           Text="{Binding Agility}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="2" Grid.Row="1"
+                           Text="{Binding Intellect}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="3" Grid.Row="1"
+                           Text="{Binding Cunning}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="4" Grid.Row="1"
+                           Text="{Binding Willpower}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="5" Grid.Row="1"
+                           Text="{Binding Presence}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="0" Grid.Row="2"
+                           Text="Br" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="1" Grid.Row="2"
+                           Text="Ag" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="2" Grid.Row="2"
+                           Text="Int" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="3" Grid.Row="2"
+                           Text="Cun" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="4" Grid.Row="2"
+                           Text="Will" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="5" Grid.Row="2"
+                           Text="Pr" Style="{StaticResource CenterLabel}"/>
+        </Grid>
+
+        <Label Text="Special Abilities" Style="{StaticResource CenterBoldLabel}"/>
+        <Label Text="{Binding SpecialAbilities}" Style="{StaticResource CenterLabel}"/>
+
+
+        <ContentView x:Name="TalentsLayout"/>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="Select" 
+                    Clicked="SelectClickedAsync"
+                    HorizontalOptions="Center"/>
+            <Button Text="Change"
+                    Clicked="ChangeSpeciesClickedAsync"
+                    HorizontalOptions="Center"/>
+            <Button Text="Cancel"
+                    Clicked="CancelClickedAsync"
+                    HorizontalOptions="Center"/>
+        </StackLayout>
+
+    </StackLayout>
+
+</ContentPage>

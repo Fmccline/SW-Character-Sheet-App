@@ -10,7 +10,7 @@ namespace StarWRPG.Views
 {
     class CharacterInventoryDetailPage : CharacterInventoryPage
     {
-        public CharacterInventoryDetailPage(FaDCharacterViewModel character) : base(character)
+        public CharacterInventoryDetailPage(FFGCharacterViewModel character) : base(character)
         {
             mainStackLayout.Children.Insert(0, new CharacterDetailNavigationButtons(character, GetType()));
             ToolbarItems.Add(new EditCharacterToolbarItem(character, this));

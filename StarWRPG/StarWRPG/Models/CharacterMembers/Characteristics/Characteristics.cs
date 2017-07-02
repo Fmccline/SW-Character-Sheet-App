@@ -24,5 +24,16 @@ namespace StarWRPG.Models
             Presence = new PresenceCharacteristic();
             Willpower = new WillpowerCharacteristic();
         }
+
+        public Characteristics(uint brawn, uint agility, uint intellect, uint cunning, uint willpower, uint presence) : this()
+        {
+            Agility.Rank = agility;
+            Brawn.Rank = brawn;
+            Cunning.Rank = cunning;
+            Intellect.Rank = intellect;
+            Presence.Rank = presence;
+            Willpower.Rank = willpower;
+        }
+
     }
 }

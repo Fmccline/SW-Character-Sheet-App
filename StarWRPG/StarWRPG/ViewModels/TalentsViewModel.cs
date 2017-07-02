@@ -30,10 +30,27 @@ namespace StarWRPG.ViewModels
             talents.Add(talentViewModel.Talent);
         }
 
+        public void AddTalent(Talent talent)
+        {
+            AddTalent(new TalentViewModel(talent));
+        }
+
         public void RemoveTalent(TalentViewModel talentViewModel)
         {
             TalentViewModels.Remove(talentViewModel);
             talents.Remove(talentViewModel.Talent);
         }
+
+        public void RemoveTalent(Talent talent)
+        {
+            foreach (var talentViewModel in TalentViewModels)
+            {
+                if (talent.Name.Equals(talentViewModel.Name))
+                {
+                    RemoveTalent(talentViewModel);
+                }
+            }
+        }
+
     }
 }

@@ -10,12 +10,12 @@ namespace StarWRPG.Controls
 {
     class SaveCharacterToolbarItem : ToolbarItem
     {
-        FaDCharacterViewModel fadCharacterViewModel;
+        FFGCharacterViewModel ffgCharacterViewModel;
         Page currentPage;
 
-        public SaveCharacterToolbarItem(FaDCharacterViewModel fadCharacterViewModel, Page currentPage)
+        public SaveCharacterToolbarItem(FFGCharacterViewModel ffgCharacterViewModel, Page currentPage)
         {
-            this.fadCharacterViewModel = fadCharacterViewModel;
+            this.ffgCharacterViewModel = ffgCharacterViewModel;
             this.currentPage = currentPage;
             Text = "Save";
             Clicked += SaveButtonActivatedAsync;
@@ -23,13 +23,13 @@ namespace StarWRPG.Controls
 
         private async void SaveButtonActivatedAsync(object sender, EventArgs e)
         {
-            if (fadCharacterViewModel.Name.Equals(""))
+            if (ffgCharacterViewModel.Name.Equals(""))
             {
                 await currentPage.DisplayAlert("No Name Nelly", "You forgot to name your character, silly goose!", "Oops");
             }
             else
             {
-                App.CharacterDatabase.SaveCharacterAsync(fadCharacterViewModel);
+                App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
                 await currentPage.Navigation.PopAsync();
             }
         }

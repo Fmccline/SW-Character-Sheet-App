@@ -11,16 +11,16 @@ namespace StarWRPG.Views
 {
     class CharacterCreationNavigationButtons : NavigationButtonsBase
     {
-        public CharacterCreationNavigationButtons(FaDCharacterViewModel character, Type callerPageType) : base(character, callerPageType) { }
+        public CharacterCreationNavigationButtons(FFGCharacterViewModel character, Type callerPageType) : base(character, callerPageType) { }
 
         protected override List<ToPageButton> MakeToPageButtons()
         {
             return new List<ToPageButton>
             {
-                new ToPageButton("Info",typeof(CharacterInfoCreationPage),fadCharacterViewModel),
-                new ToPageButton("Skills",typeof(CharacterSkillsCreationPage),fadCharacterViewModel),
-                new ToPageButton("Talents",typeof(CharacterTalentsCreationPage),fadCharacterViewModel),
-                new ToPageButton("Items",typeof(CharacterInventoryCreationPage),fadCharacterViewModel),
+                new ToPageButton("Info",typeof(CharacterInfoCreationPage),ffgCharacterViewModel),
+                new ToPageButton("Skills",typeof(CharacterSkillsCreationPage),ffgCharacterViewModel),
+                new ToPageButton("Talents",typeof(CharacterTalentsCreationPage),ffgCharacterViewModel),
+                new ToPageButton("Items",typeof(CharacterInventoryCreationPage),ffgCharacterViewModel),
             };
         }
     }

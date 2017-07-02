@@ -30,50 +30,40 @@ namespace StarWRPG
             }
         }
 
-        public async Task<List<FaDCharacterViewModel>> GetCharacterViewModelsAsync()
+        public async Task<List<FFGCharacterViewModel>> GetCharacterViewModelsAsync()
         {
-            var characters = new List<FaDCharacterViewModel>();
+            var characters = new List<FFGCharacterViewModel>();
             var characterDataItems = await database.Table<CharacterDataItem>().ToListAsync();
             if (characterDataItems.Count > 0)
             {
                 foreach (CharacterDataItem character in characterDataItems)
                 {
-                    characters.Add(new FaDCharacterViewModel(character.GetCharacter()));
+                    characters.Add(new FFGCharacterViewModel(character.GetCharacter()));
                 }
             }
             return characters;
         }
 
-        public Task<List<CharacterDataItem>> GetItemsAsync()
+        public Task<int> SaveCharacterDataItemAsync(CharacterDataItem character)
         {
-            return database.Table<CharacterDataItem>().ToListAsync();
-        }
-
-        public Task<CharacterDataItem> GetItemAsync(int id)
-        {
-            return database.Table<CharacterDataItem>().Where(i => i.ID == id).FirstOrDefaultAsync();
-        }
-
-        public Task<int> SaveItemAsync(CharacterDataItem item)
-        {
-            if (item.ID != 0)
+            if (character.ID != 0)
             {
-                return database.UpdateAsync(item);
+                return database.UpdateAsync(character);
             }
             else
             {
-                return database.InsertAsync(item);
+                return database.InsertAsync(character);
             }
         }
 
-        public async void SaveCharacterAsync(FaDCharacterViewModel characterViewModel)
+        public async void SaveCharacterAsync(FFGCharacterViewModel characterViewModel)
         {
-            var character = characterViewModel.FaDCharacter;
+            var character = characterViewModel.FFGCharacter;
             var dataItem = new CharacterDataItem(character) { ID = character.ID };
-            await SaveItemAsync(dataItem);
+            await SaveCharacterDataItemAsync(dataItem);
         }
 
-        public Task<int> DeleteItemAsync(CharacterDataItem item)
+        public Task<int> DeleteCharacterAsync(CharacterDataItem item)
         {
             return database.DeleteAsync(item);
         }

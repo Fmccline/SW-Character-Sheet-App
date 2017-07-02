@@ -19,7 +19,7 @@
             <ListView.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="4*"/>
                         <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="10*"/>
                     </Grid.ColumnDefinitions>
@@ -27,8 +27,8 @@
                            Text="Name" 
                            Style="{StaticResource StartBoldLabel}"/>
                     <Label Grid.Column="1" 
-                           Text="Page #" 
-                           Style="{StaticResource StartBoldLabel}"/>
+                           Text="Page" 
+                           Style="{StaticResource CenterBoldLabel}"/>
                     <Label Grid.Column="2" 
                            Text="Description" 
                            Style="{StaticResource StartBoldLabel}"/>
@@ -39,7 +39,7 @@
                     <ViewCell>
                         <Grid Margin="0,10,0,10">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="4*"/>
                                 <ColumnDefinition Width="2*"/>
                                 <ColumnDefinition Width="10*"/>
                             </Grid.ColumnDefinitions>
@@ -48,7 +48,7 @@
                                    Style="{StaticResource StartLabel}"/>
                             <Label Grid.Column="1" 
                                    Text="{Binding PageNumber}"
-                                   Style="{StaticResource StartLabel}"/>
+                                   Style="{StaticResource CenterLabel}"/>
                             <Label Grid.Column="2" 
                                    Text="{Binding Description}"
                                    Style="{StaticResource StartLabel}"/>

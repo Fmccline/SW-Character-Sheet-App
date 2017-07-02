@@ -21,7 +21,7 @@ namespace StarWRPG.Views
             get { return MainStackLayout; }
         }
 
-        public CharacterSkillsPage(FaDCharacterViewModel character)
+        public CharacterSkillsPage(FFGCharacterViewModel character)
         {
             InitializeComponent();
             skillsViewModel = character.SkillsViewModel;

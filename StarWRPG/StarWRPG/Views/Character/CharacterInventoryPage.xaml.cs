@@ -21,7 +21,7 @@ namespace StarWRPG.Views
             get { return MainStackLayout; }
         }
 
-        public CharacterInventoryPage(FaDCharacterViewModel characterViewModel)
+        public CharacterInventoryPage(FFGCharacterViewModel characterViewModel)
         {
             InitializeComponent();
 

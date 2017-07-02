@@ -11,14 +11,14 @@ namespace StarWRPG.Views
 {
     public abstract class NavigationButtonsBase : StackLayout
     {
-        protected FaDCharacterViewModel fadCharacterViewModel;
+        protected FFGCharacterViewModel ffgCharacterViewModel;
         protected List<ToPageButton> pageButtons;
 
         protected abstract List<ToPageButton> MakeToPageButtons();
 
-        public NavigationButtonsBase(FaDCharacterViewModel character, Type callerPageType)
+        public NavigationButtonsBase(FFGCharacterViewModel character, Type callerPageType)
         {
-            fadCharacterViewModel = character;
+            ffgCharacterViewModel = character;
 
             Orientation = StackOrientation.Horizontal;
 

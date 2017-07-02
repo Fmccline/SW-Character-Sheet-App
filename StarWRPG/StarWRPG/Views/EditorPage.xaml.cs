@@ -15,7 +15,7 @@ namespace StarWRPG.Views
     {
         string binding;
 
-        public EditorPage(string title, string binding, FaDCharacterViewModel characterViewModel)
+        public EditorPage(string title, string binding, FFGCharacterViewModel characterViewModel)
         {
             InitializeComponent();
             BindingContext = characterViewModel;

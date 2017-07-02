@@ -18,11 +18,11 @@ namespace StarWRPG.Views
 
         protected override StackLayout mainStackLayout { get { return MainStackLayout; } }
 
-        public CharacterTalentsPage(FaDCharacterViewModel fadCharacterViewModel)
+        public CharacterTalentsPage(FFGCharacterViewModel ffgCharacterViewModel)
         {
             InitializeComponent();
 
-            talentsViewModel = fadCharacterViewModel.TalentsViewModel;
+            talentsViewModel = ffgCharacterViewModel.TalentsViewModel;
             BindingContext = talentsViewModel;
         }
 
