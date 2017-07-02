@@ -1,6 +1,7 @@
 ﻿using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,7 +49,8 @@ namespace StarWRPG.Views
 
         private async void FaDButtonClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new CharacterInfoCreationPage(new FFGCharacterViewModel()));
+            var characterCreationNavigation = new CharacterCreationNavigation(new FFGCharacterViewModel());
+            await Navigation.PushAsync(characterCreationNavigation.FirstPage);
         }
     }
 }

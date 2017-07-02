@@ -38,6 +38,7 @@
     </Compile>
     <Compile Include="Controls\EditCharacterToolbarItem.cs" />
     <Compile Include="Controls\SaveCharacterToolbarItem.cs" />
+    <Compile Include="Controls\CharacterDetailsToolbarItem.cs" />
     <Compile Include="Database\CharacterDatabase.cs" />
     <Compile Include="Database\CharacterDataItem.cs" />
     <Compile Include="Database\IFileHelper.cs" />
@@ -74,6 +75,7 @@
       <DependentUpon>AddCustomSkillPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BasePage.cs" />
+    <Compile Include="Views\CharacterCreation\CharacterCreationNavigation.cs" />
     <Compile Include="Views\CharacterCreation\CharacterTalentsCreationPage.cs" />
     <Compile Include="Views\CharacterDetail\CharacterDetailNavigationButtons.cs" />
     <Compile Include="Views\CharacterDetail\CharacterInventoryDetailPage.cs" />
@@ -132,7 +134,6 @@
     <Compile Include="Views\MainPage\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterCreation\CharacterCreationNavigationButtons.cs" />
     <Compile Include="Views\CriticalInjuryPages\RemoveCriticalInjuryPage.xaml.cs">
       <DependentUpon>RemoveCriticalInjuryPage.xaml</DependentUpon>
     </Compile>
