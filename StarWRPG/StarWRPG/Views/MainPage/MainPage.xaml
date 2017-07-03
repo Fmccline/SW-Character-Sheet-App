@@ -27,9 +27,6 @@
     <ContentPage.Content>
         <StackLayout>
 
-            <Image Source="green_die.png"/>
-            <Image Source="yellow_die.png"/>
-            
             <Label Text="Character Creation" Style="{StaticResource MediumStartBoldLabel}"/>
             <Grid>
                 <Grid.ColumnDefinitions>

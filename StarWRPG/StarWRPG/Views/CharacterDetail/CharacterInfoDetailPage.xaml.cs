@@ -20,8 +20,6 @@ namespace StarWRPG.Views
             ffgCharacterViewModel = character;
             BindingContext = ffgCharacterViewModel;
 
-            mainStackLayout.Children.Insert(0, new CharacterDetailNavigationButtons(character, GetType()));
-            ToolbarItems.Add(new EditCharacterToolbarItem(character, this));
             ScrollViewStackLayout.Children.Add(new CriticalInjuriesLayout(ffgCharacterViewModel.CriticalInjuriesViewModel));
         }
     }
