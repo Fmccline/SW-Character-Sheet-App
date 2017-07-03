@@ -71,31 +71,31 @@
     <Compile Include="ViewModels\TalentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeaponViewModel.cs" />
-    <Compile Include="Views\AddCustomSkillPage.xaml.cs">
+    <Compile Include="Views\Character\Skills\AddCustomSkillPage.xaml.cs">
       <DependentUpon>AddCustomSkillPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\BasePage.cs" />
+    <Compile Include="Views\Character\BasePage.cs" />
     <Compile Include="Views\CharacterCreation\CharacterCreationNavigation.cs" />
     <Compile Include="Views\CharacterDetail\CharacterDetailNavigation.cs" />
     <Compile Include="Views\Character\CharacterNavigation.cs" />
-    <Compile Include="Views\CriticalInjuryPages\AddCriticalInjuryPage.xaml.cs">
+    <Compile Include="Views\Character\CriticalInjuries\AddCriticalInjuryPage.xaml.cs">
       <DependentUpon>AddCriticalInjuryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Character\CharacterSkillsPage.xaml.cs">
+    <Compile Include="Views\Character\Skills\CharacterSkillsPage.xaml.cs">
       <DependentUpon>CharacterSkillsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Character\CharacterTalentsPage.xaml.cs">
+    <Compile Include="Views\Character\Talents\CharacterTalentsPage.xaml.cs">
       <DependentUpon>CharacterTalentsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CriticalInjuryPages\CriticalInjuriesLayout.cs" />
-    <Compile Include="Views\EditorPage.xaml.cs">
+    <Compile Include="Views\Character\CriticalInjuries\CriticalInjuriesLayout.cs" />
+    <Compile Include="Views\CharacterCreation\EditorPage.xaml.cs">
       <DependentUpon>EditorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ItemPages\ArmorPage.xaml.cs">
+    <Compile Include="Views\Character\Items\ArmorPage.xaml.cs">
       <DependentUpon>ArmorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ItemPages\ItemBasePage.cs" />
-    <Compile Include="Views\ItemPages\ItemPage.xaml.cs">
+    <Compile Include="Views\Character\Items\ItemBasePage.cs" />
+    <Compile Include="Views\Character\Items\ItemPage.xaml.cs">
       <DependentUpon>ItemPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CharacterCreation\CharacterInfoCreationPage.xaml.cs">
@@ -120,29 +120,29 @@
     <Compile Include="Models\CharacterMembers\Skills\AstrogationSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\LightsaberSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\AthleticsSkill.cs" />
-    <Compile Include="Views\Character\CharacterInventoryPage.xaml.cs">
+    <Compile Include="Views\Character\Items\CharacterInventoryPage.xaml.cs">
       <DependentUpon>CharacterInventoryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ItemPages\WeaponPage.xaml.cs">
+    <Compile Include="Views\Character\Items\WeaponPage.xaml.cs">
       <DependentUpon>WeaponPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CriticalInjuryPages\RemoveCriticalInjuryPage.xaml.cs">
+    <Compile Include="Views\Character\CriticalInjuries\RemoveCriticalInjuryPage.xaml.cs">
       <DependentUpon>RemoveCriticalInjuryPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SkillPage.xaml.cs">
+    <Compile Include="Views\Character\Skills\SkillPage.xaml.cs">
       <DependentUpon>SkillPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\SpeciesPresetPage.xaml.cs">
+    <Compile Include="Views\Presets\SpeciesPresetPage.xaml.cs">
       <DependentUpon>SpeciesPresetPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\TalentPage.xaml.cs">
+    <Compile Include="Views\Character\Talents\TalentPage.xaml.cs">
       <DependentUpon>TalentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ToPageButton.cs" />
-    <Compile Include="Views\TalentsLayout.cs" />
+    <Compile Include="Views\Character\Talents\TalentsLayout.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\CharacterDetail\CharacterInfoDetailPage.xaml">
@@ -186,67 +186,67 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Character\CharacterInventoryPage.xaml">
+    <EmbeddedResource Include="Views\Character\Items\CharacterInventoryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\ItemPages\ItemPage.xaml">
+    <EmbeddedResource Include="Views\Character\Items\ItemPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\ItemPages\WeaponPage.xaml">
+    <EmbeddedResource Include="Views\Character\Items\WeaponPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\ItemPages\ArmorPage.xaml">
+    <EmbeddedResource Include="Views\Character\Items\ArmorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Character\CharacterSkillsPage.xaml">
+    <EmbeddedResource Include="Views\Character\Skills\CharacterSkillsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\SkillPage.xaml">
+    <EmbeddedResource Include="Views\Character\Skills\SkillPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\EditorPage.xaml">
+    <EmbeddedResource Include="Views\CharacterCreation\EditorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Character\CharacterTalentsPage.xaml">
+    <EmbeddedResource Include="Views\Character\Talents\CharacterTalentsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CriticalInjuryPages\AddCriticalInjuryPage.xaml">
+    <EmbeddedResource Include="Views\Character\CriticalInjuries\AddCriticalInjuryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CriticalInjuryPages\RemoveCriticalInjuryPage.xaml">
+    <EmbeddedResource Include="Views\Character\CriticalInjuries\RemoveCriticalInjuryPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\TalentPage.xaml">
+    <EmbeddedResource Include="Views\Character\Talents\TalentPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -258,13 +258,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\AddCustomSkillPage.xaml">
+    <EmbeddedResource Include="Views\Character\Skills\AddCustomSkillPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\SpeciesPresetPage.xaml">
+    <EmbeddedResource Include="Views\Presets\SpeciesPresetPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
