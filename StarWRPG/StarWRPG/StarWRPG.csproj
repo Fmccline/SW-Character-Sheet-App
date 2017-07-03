@@ -76,12 +76,8 @@
     </Compile>
     <Compile Include="Views\BasePage.cs" />
     <Compile Include="Views\CharacterCreation\CharacterCreationNavigation.cs" />
-    <Compile Include="Views\CharacterCreation\CharacterTalentsCreationPage.cs" />
-    <Compile Include="Views\CharacterDetail\CharacterDetailNavigationButtons.cs" />
-    <Compile Include="Views\CharacterDetail\CharacterInventoryDetailPage.cs" />
-    <Compile Include="Views\CharacterDetail\CharacterSkillsDetailPage.cs" />
-    <Compile Include="Views\CharacterDetail\CharacterTalentsDetailPage.cs" />
-    <Compile Include="Views\Character\NavigationButtonsBase.cs" />
+    <Compile Include="Views\CharacterDetail\CharacterDetailNavigation.cs" />
+    <Compile Include="Views\Character\CharacterNavigation.cs" />
     <Compile Include="Views\CriticalInjuryPages\AddCriticalInjuryPage.xaml.cs">
       <DependentUpon>AddCriticalInjuryPage.xaml</DependentUpon>
     </Compile>
@@ -95,7 +91,6 @@
     <Compile Include="Views\EditorPage.xaml.cs">
       <DependentUpon>EditorPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterCreation\CharacterInventoryCreationPage.cs" />
     <Compile Include="Views\ItemPages\ArmorPage.xaml.cs">
       <DependentUpon>ArmorPage.xaml</DependentUpon>
     </Compile>
@@ -140,7 +135,6 @@
     <Compile Include="Views\SkillPage.xaml.cs">
       <DependentUpon>SkillPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterCreation\CharacterSkillsCreationPage.cs" />
     <Compile Include="Views\SpeciesPresetPage.xaml.cs">
       <DependentUpon>SpeciesPresetPage.xaml</DependentUpon>
     </Compile>

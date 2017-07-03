@@ -31,7 +31,6 @@ namespace StarWRPG.Views
             BindingContext = ffgCharacterViewModel;
 
             ScrollViewStackLayout.Children.Add(new CriticalInjuriesLayout(ffgCharacterViewModel.CriticalInjuriesViewModel));
-            ToolbarItems.Add(new SaveCharacterToolbarItem(ffgCharacterViewModel, this));
         }
 
         public async void EditValueAsync(object sender, EventArgs e)

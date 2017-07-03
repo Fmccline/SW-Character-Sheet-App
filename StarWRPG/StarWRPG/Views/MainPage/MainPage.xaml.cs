@@ -32,7 +32,8 @@ namespace StarWRPG.Views
         {
             if (e.SelectedItem is FFGCharacterViewModel character)
             {
-                await Navigation.PushAsync(new CharacterInfoDetailPage(character));
+                var characterDetailNavigation = new CharacterDetailNavigation(character);
+                await Navigation.PushAsync(characterDetailNavigation.DefaultPage);
                 charactersListView.SelectedItem = null;
             }
         }
@@ -50,7 +51,7 @@ namespace StarWRPG.Views
         private async void FaDButtonClickedAsync(object sender, EventArgs e)
         {
             var characterCreationNavigation = new CharacterCreationNavigation(new FFGCharacterViewModel());
-            await Navigation.PushAsync(characterCreationNavigation.FirstPage);
+            await Navigation.PushAsync(characterCreationNavigation.DefaultPage);
         }
     }
 }

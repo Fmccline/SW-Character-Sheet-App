@@ -1,23 +1,23 @@
-﻿using StarWRPG.Controls;
-using StarWRPG.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
+using StarWRPG.ViewModels;
 using Xamarin.Forms;
+using StarWRPG.Controls;
 
 namespace StarWRPG.Views
 {
-    public class CharacterCreationNavigation : CharacterNavigation
+    public class CharacterDetailNavigation : CharacterNavigation
     {
-        public CharacterCreationNavigation(FFGCharacterViewModel character) : base(character) { }
+        public CharacterDetailNavigation(FFGCharacterViewModel character) : base(character) { }
 
         protected override List<BasePage> InitializePages()
         {
             return new List<BasePage>
             {
-                new CharacterInfoCreationPage(ffgCharacterViewModel),
+                new CharacterInfoDetailPage(ffgCharacterViewModel),
                 new CharacterInventoryPage(ffgCharacterViewModel),
                 new CharacterSkillsPage(ffgCharacterViewModel),
                 new CharacterTalentsPage(ffgCharacterViewModel),
@@ -28,7 +28,7 @@ namespace StarWRPG.Views
         {
             return new List<ToolbarItem>
             {
-                new SaveCharacterToolbarItem(ffgCharacterViewModel, page),
+                new EditCharacterToolbarItem(ffgCharacterViewModel, page),
                 new CharacterDetailsToolbarItem(pages, page),
             };
         }
