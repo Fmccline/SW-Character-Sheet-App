@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:local="clr-namespace:StarWRPG.Views" 
+                x:Class="StarWRPG.Views.CharacterMotivationsPage"
+                Title="Motivations">
+
+    <StackLayout x:Name="MainStackLayout">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0"
+                   Text="Motivation Type:"
+                   Style="{StaticResource StartBoldLabel}"/>
+            <Entry Grid.Column="1" Grid.Row="0"
+                   HorizontalOptions="FillAndExpand"
+                   Text="{Binding Motivation1Type}"/>
+            <Editor Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                    HorizontalOptions="FillAndExpand"
+                    Text="{Binding Motivation1Description}"/>
+
+            <Label Grid.Column="0" Grid.Row="2"
+                   Text="Motivation Type:"
+                   Style="{StaticResource StartBoldLabel}"/>
+            <Entry Grid.Column="1" Grid.Row="2"
+                   Text="{Binding Motivation2Type}"
+                   HorizontalOptions="FillAndExpand"/>
+            <Editor Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"
+                    Text="{Binding Motivation2Description}"/>
+
+        </Grid>
+    </StackLayout>
+    
+</local:BasePage>

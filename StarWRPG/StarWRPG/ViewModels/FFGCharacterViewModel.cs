@@ -12,6 +12,7 @@ namespace StarWRPG.ViewModels
     {
         public FFGCharacter FFGCharacter { get; private set; }
 
+        public CharacterMotivationsViewModel CharacterMotivationsViewModel { get; private set; }
         public CriticalInjuriesViewModel CriticalInjuriesViewModel { get; private set; }
         public InventoryViewModel InventoryViewModel { get; private set; }
         public TalentsViewModel TalentsViewModel { get; private set; }
@@ -299,6 +300,7 @@ namespace StarWRPG.ViewModels
 
         private void InitializeViewModels()
         {
+            CharacterMotivationsViewModel = new CharacterMotivationsViewModel(FFGCharacter);
             CriticalInjuriesViewModel = new CriticalInjuriesViewModel(FFGCharacter.CriticalInjuries);
             InventoryViewModel = new InventoryViewModel(FFGCharacter.Inventory);
             SkillsViewModel = new SkillsViewModel(FFGCharacter.Skills, FFGCharacter.Characteristics, FFGCharacter.XP);

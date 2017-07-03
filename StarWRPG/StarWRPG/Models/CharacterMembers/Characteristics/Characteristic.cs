@@ -7,8 +7,8 @@ namespace StarWRPG.Models
 
         public Characteristic()
         {
-            // Page 102 of FaD book says max characteristic is 6
-            MaxRank = 6;
+            // Page 182 of FaD book says max characteristic is 7
+            MaxRank = 7;
             Rank = 0;
         }
     }
