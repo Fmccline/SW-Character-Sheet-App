@@ -12,7 +12,7 @@ namespace StarWRPG.ViewModels
     {
         FFGCharacter ffgCharacter;
 
-        public string EmotionalStrenths
+        public string EmotionalStrengths
         {
             get { return ffgCharacter.EmotionalStrengths; }
             set
@@ -166,6 +166,7 @@ namespace StarWRPG.ViewModels
             {
                 ffgCharacter.Obligation1.Value = value;
                 OnPropertyChanged();
+                OnPropertyChanged("TotalObligationText");
             }
         }
         public uint Obligation2Value
@@ -175,6 +176,7 @@ namespace StarWRPG.ViewModels
             {
                 ffgCharacter.Obligation2.Value = value;
                 OnPropertyChanged();
+                OnPropertyChanged("TotalObligationText");
             }
         }
         public uint Obligation3Value
@@ -184,6 +186,7 @@ namespace StarWRPG.ViewModels
             {
                 ffgCharacter.Obligation3.Value = value;
                 OnPropertyChanged();
+                OnPropertyChanged("TotalObligationText");
             }
         }
 
@@ -226,6 +229,11 @@ namespace StarWRPG.ViewModels
         public uint TotalObligation
         {
             get { return ffgCharacter.TotalObligation; }
+        }
+
+        public string TotalObligationText
+        {
+            get { return "Total Obligation: " + TotalObligation; }
         }
 
         public CharacterMotivationsViewModel(FFGCharacter character)
