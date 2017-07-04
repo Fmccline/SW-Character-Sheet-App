@@ -11,7 +11,7 @@ using Xamarin.Forms.Xaml;
 namespace StarWRPG.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class CharacterMotivationsPage : BasePage
+	public partial class MotivationsCreationPage : BasePage
 	{
         CharacterMotivationsViewModel characterMotivationsViewModel;
 
@@ -20,9 +20,9 @@ namespace StarWRPG.Views
             get { return MainStackLayout; }
         }
 
-        public CharacterMotivationsPage (FFGCharacterViewModel character)
+        public MotivationsCreationPage (FFGCharacterViewModel character)
 		{
-			InitializeComponent ();
+			InitializeComponent();
 
             characterMotivationsViewModel = character.CharacterMotivationsViewModel;
             BindingContext = characterMotivationsViewModel;

@@ -2,7 +2,7 @@
 <local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:local="clr-namespace:StarWRPG.Views" 
-                x:Class="StarWRPG.Views.CharacterMotivationsPage"
+                x:Class="StarWRPG.Views.MotivationsCreationPage"
                 Title="Motivations">
 
     <ScrollView>

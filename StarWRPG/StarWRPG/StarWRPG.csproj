@@ -73,8 +73,8 @@
     <Compile Include="ViewModels\TalentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeaponViewModel.cs" />
-    <Compile Include="Views\CharacterMotivationsPage.xaml.cs">
-      <DependentUpon>CharacterMotivationsPage.xaml</DependentUpon>
+    <Compile Include="Views\MotivationsCreationPage.xaml.cs">
+      <DependentUpon>MotivationsCreationPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\Skills\AddCustomSkillPage.xaml.cs">
       <DependentUpon>AddCustomSkillPage.xaml</DependentUpon>
@@ -275,7 +275,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterMotivationsPage.xaml">
+    <EmbeddedResource Include="Views\MotivationsCreationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
