@@ -31,24 +31,10 @@ namespace StarWRPG.Models
         public uint RangedDefense { get; set; }
         public uint SoakValue { get; set; }
         public uint TotalDuty { get; set; }
-        public uint TotalObligation
-        {
-            get
-            {
-                return Obligation1.Value + Obligation2.Value + Obligation3.Value;
-            }
-        }
 
         public Characteristics Characteristics { get; set; }
 
-        public CharacterMotivation Motivation1 { get; set; }
-        public CharacterMotivation Motivation2 { get; set; }
-        public CharacterMotivation Duty1 { get; set; }
-        public CharacterMotivation Duty2 { get; set; }
-        public CharacterMotivation Obligation1 { get; set; }
-        public CharacterMotivation Obligation2 { get; set; }
-        public CharacterMotivation Obligation3 { get; set; }
-
+        public ObservableCollection<CharacterMotivationBase> Motivations { get; set; }
         public ObservableCollection<CriticalInjury> CriticalInjuries { get; set; }
         public ObservableCollection<Skill> Skills { get; set; }
         public ObservableCollection<Talent> Talents { get; set; }
@@ -71,22 +57,21 @@ namespace StarWRPG.Models
             Characteristics = new Characteristics();
             CriticalInjuries = new ObservableCollection<CriticalInjury>();
             Inventory = new Inventory();
+            Motivations = new ObservableCollection<CharacterMotivationBase>();
+            //{
+            //    new CharacterDuty(),
+            //    new CharacterMotivation(),
+            //    new CharacterEmotionalStrengths(),
+            //    new CharacterEmotionalWeaknesses(),
+            //    new CharacterDuty(),
+            //    new CharacterDuty(),
+            //    new CharacterObligation(),
+            //    new CharacterObligation(),
+            //};
             Talents = new ObservableCollection<Talent>();
             XP = new Experience();
 
             InitializeSkills();
-            InitializeMotivations();
-        }
-
-        private void InitializeMotivations()
-        {
-            Motivation1 = new CharacterMotivation("Motivation");
-            Motivation2 = new CharacterMotivation("Motivation");
-            Duty1 = new CharacterMotivation("Duty");
-            Duty2 = new CharacterMotivation("Duty");
-            Obligation1 = new CharacterMotivation("Obligation");
-            Obligation2 = new CharacterMotivation("Obligation");
-            Obligation3 = new CharacterMotivation("Obligation");
         }
 
         void InitializeSkills()

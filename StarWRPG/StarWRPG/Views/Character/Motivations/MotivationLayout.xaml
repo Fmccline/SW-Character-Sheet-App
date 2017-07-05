@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StarWRPG.Views.MotivationLayout">
+
+    <Grid x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0"
+               Text="{Binding Name}"
+               Style="{StaticResource StartBoldLabel}"/>
+        <Entry Grid.Column="1" Grid.Row="0"
+               HorizontalOptions="FillAndExpand"
+               Text="{Binding Type}"/>
+        <Editor Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+                HorizontalOptions="FillAndExpand"
+                Text="{Binding Description}"/>
+    </Grid>
+
+</ContentView>

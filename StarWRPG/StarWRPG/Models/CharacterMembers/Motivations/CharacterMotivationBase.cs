@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 
 namespace StarWRPG.Models
 {
-    public class CharacterMotivation
+    public class CharacterMotivationBase
     {
         public string Name { get; set; }
         public string Type { get; set; }
         public string Description { get; set; }
+        public bool HasValue { get; protected set; }
         public uint Value { get; set; }
 
-        public CharacterMotivation(string name)
+        public CharacterMotivationBase(string name)
         {
             Name = name;
             Type = "";
             Description = "";
+            HasValue = false;
         }
     }
 }

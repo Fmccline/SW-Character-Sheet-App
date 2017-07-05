@@ -300,7 +300,7 @@ namespace StarWRPG.ViewModels
 
         private void InitializeViewModels()
         {
-            CharacterMotivationsViewModel = new CharacterMotivationsViewModel(FFGCharacter);
+            CharacterMotivationsViewModel = new CharacterMotivationsViewModel(FFGCharacter.Motivations);
             CriticalInjuriesViewModel = new CriticalInjuriesViewModel(FFGCharacter.CriticalInjuries);
             InventoryViewModel = new InventoryViewModel(FFGCharacter.Inventory);
             SkillsViewModel = new SkillsViewModel(FFGCharacter.Skills, FFGCharacter.Characteristics, FFGCharacter.XP);
