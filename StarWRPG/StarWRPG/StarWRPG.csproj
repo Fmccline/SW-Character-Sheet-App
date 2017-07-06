@@ -43,18 +43,31 @@
     <Compile Include="Database\CharacterDataItem.cs" />
     <Compile Include="Database\IFileHelper.cs" />
     <Compile Include="Models\CharacterMembers\Characteristics\Characteristics.cs" />
+    <Compile Include="Models\CharacterMembers\Motivations\CharacterDuty.cs" />
+    <Compile Include="Models\CharacterMembers\Motivations\CharacterEmotionalWeaknesses.cs" />
+    <Compile Include="Models\CharacterMembers\Motivations\CharacterEmotionalStrengths.cs" />
+    <Compile Include="Models\CharacterMembers\Motivations\CharacterMotivation.cs" />
+    <Compile Include="Models\CharacterMembers\Motivations\CharacterMotivationBase.cs" />
     <Compile Include="Models\CharacterMembers\CriticalInjury.cs" />
     <Compile Include="Models\CharacterMembers\Items\Armor.cs" />
     <Compile Include="Models\CharacterMembers\Items\Gear.cs" />
     <Compile Include="Models\CharacterMembers\Items\Inventory.cs" />
     <Compile Include="Models\CharacterMembers\Items\Item.cs" />
     <Compile Include="Models\CharacterMembers\Items\Weapon.cs" />
+    <Compile Include="Models\CharacterMembers\Motivations\CharacterObligation.cs" />
     <Compile Include="Models\CharacterMembers\Presets\TwilekPreset.cs" />
     <Compile Include="Models\CharacterMembers\Presets\ZabrakPreset.cs" />
     <Compile Include="Models\CharacterMembers\Skills\CustomSkill.cs" />
     <Compile Include="Models\CharacterMembers\Talent.cs" />
     <Compile Include="ViewModelFactory.cs" />
     <Compile Include="ViewModels\ArmorViewModel.cs" />
+    <Compile Include="ViewModels\Motivations\CharacterMotivationsViewModel.cs" />
+    <Compile Include="ViewModels\Motivations\EmotionalWeaknessesViewModel.cs" />
+    <Compile Include="ViewModels\Motivations\EmotionalStrengthsViewModel.cs" />
+    <Compile Include="ViewModels\Motivations\DutyViewModel.cs" />
+    <Compile Include="ViewModels\Motivations\ObligationViewModel.cs" />
+    <Compile Include="ViewModels\Motivations\MotivationViewModel.cs" />
+    <Compile Include="ViewModels\Motivations\CharacterMotivationViewModel.cs" />
     <Compile Include="ViewModels\CriticalInjuriesViewModel.cs" />
     <Compile Include="ViewModels\CriticalInjuryViewModel.cs" />
     <Compile Include="ViewModels\InventoryViewModel.cs" />
@@ -71,6 +84,16 @@
     <Compile Include="ViewModels\TalentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeaponViewModel.cs" />
+    <Compile Include="Views\Character\Motivations\MotivationDetailLayout.cs" />
+    <Compile Include="Views\Character\Motivations\MotivationCreationLayout.cs" />
+    <Compile Include="Views\Character\Motivations\MotivationLayout.cs" />
+    <Compile Include="Views\Character\Motivations\MotivationsCreationPage.xaml.cs">
+      <DependentUpon>MotivationsCreationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Character\Motivations\MotivationsDetailPage.xaml.cs">
+      <DependentUpon>MotivationsDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Character\Motivations\MotivationPageBase.cs" />
     <Compile Include="Views\Character\Skills\AddCustomSkillPage.xaml.cs">
       <DependentUpon>AddCustomSkillPage.xaml</DependentUpon>
     </Compile>
@@ -265,6 +288,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Presets\SpeciesPresetPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Character\Motivations\MotivationsCreationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Character\Motivations\MotivationsDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

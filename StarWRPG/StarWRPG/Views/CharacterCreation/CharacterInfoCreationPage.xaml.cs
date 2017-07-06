@@ -40,16 +40,15 @@ namespace StarWRPG.Views
                 await Navigation.PushModalAsync(new EditorPage("Character Background", "Background", ffgCharacterViewModel));
             else if (buttonClicked == EditDescriptionButton)
                 await Navigation.PushModalAsync(new EditorPage("Character Description", "Description", ffgCharacterViewModel));
-            else if (buttonClicked == EditMotivationsButton)
-                await Navigation.PushModalAsync(new EditorPage("Character Motivations", "Motivation", ffgCharacterViewModel));
         }
 
         private async void ChangeSpeciePresetAsync(object sender, EventArgs e)
         {
+            string cancel = "Cancel";
             var speciePresetsViewModel = new SpeciesPresetsViewModel(ffgCharacterViewModel);
-            var speciesName = await DisplayActionSheet("Species", "Cancel", null, speciePresetsViewModel.SpeciesNames);
-
-            await Navigation.PushModalAsync(new SpeciesPresetPage(speciePresetsViewModel,speciesName));
+            var speciesName = await DisplayActionSheet("Species", cancel, null, speciePresetsViewModel.SpeciesNames);
+            if (!speciesName.Equals(cancel))
+                await Navigation.PushModalAsync(new SpeciesPresetPage(speciePresetsViewModel,speciesName));
         }
     }
 }

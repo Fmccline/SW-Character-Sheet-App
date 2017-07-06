@@ -2,6 +2,7 @@
 using StarWRPG.Views;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,15 +32,28 @@ namespace StarWRPG.Controls
 
         private async void PageSelectionButtonClickedAsync(object sender, EventArgs e)
         {
-            var pageSelected = await currentPage.DisplayActionSheet("Character Details", "Cancel", null, pageTitles);
-            foreach (var page in pages)
+            try
             {
-                if (page.Title == pageSelected && !page.Title.Equals(currentPage.Title))
+                Debug.WriteLine("HERE!!!");
+                foreach (var pageTitle in pageTitles)
                 {
-                    var previousPage = currentPage.Navigation.NavigationStack.Last();
-                    currentPage.Navigation.InsertPageBefore(page, previousPage);
-                    await currentPage.Navigation.PopAsync();
+                    Debug.WriteLine(pageTitle);
                 }
+                var pageSelected = await currentPage.DisplayActionSheet("Character Details", "Cancel", null, pageTitles);
+                foreach (var page in pages)
+                {
+                    if (page.Title.Equals(pageSelected) && !page.Title.Equals(currentPage.Title))
+                    {
+                        var previousPage = currentPage.Navigation.NavigationStack.Last();
+                        currentPage.Navigation.InsertPageBefore(page, previousPage);
+                        await currentPage.Navigation.PopAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.StackTrace);
+                Debug.WriteLine(ex.Message);
             }
         }
     }

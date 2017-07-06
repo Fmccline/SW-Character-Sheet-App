@@ -25,8 +25,8 @@ namespace StarWRPG.Models
             Characteristic = characteristic;
             CanSetCharacteristic = false;
             IsCareer = false;
-            // Page 102 of FaD book says max skill rank is 5
-            MaxRank = 5;
+            // Page 182 of FaD book says max skill rank
+            MaxRank = 6;
             Rank = 0;
 
             SkillName = skillName;

@@ -20,6 +20,7 @@ namespace StarWRPG.Models
         public string Species { get; set; }
 
         public uint Conflict { get; set; }
+        public uint Contribution { get; set; }
         public uint CurrentStrain { get; set; }
         public uint CurrentWounds { get; set; }
         public uint ForceRating { get; set; }
@@ -29,9 +30,12 @@ namespace StarWRPG.Models
         public uint Morality { get; set; }
         public uint RangedDefense { get; set; }
         public uint SoakValue { get; set; }
+        public uint TotalDuty { get; set; }
+        public uint TotalObligation { get; set; }
 
         public Characteristics Characteristics { get; set; }
 
+        public ObservableCollection<CharacterMotivationBase> Motivations { get; set; }
         public ObservableCollection<CriticalInjury> CriticalInjuries { get; set; }
         public ObservableCollection<Skill> Skills { get; set; }
         public ObservableCollection<Talent> Talents { get; set; }
@@ -54,6 +58,17 @@ namespace StarWRPG.Models
             Characteristics = new Characteristics();
             CriticalInjuries = new ObservableCollection<CriticalInjury>();
             Inventory = new Inventory();
+            Motivations = new ObservableCollection<CharacterMotivationBase>();
+            //{
+            //    new CharacterDuty(),
+            //    new CharacterMotivation(),
+            //    new CharacterEmotionalStrengths(),
+            //    new CharacterEmotionalWeaknesses(),
+            //    new CharacterDuty(),
+            //    new CharacterDuty(),
+            //    new CharacterObligation(),
+            //    new CharacterObligation(),
+            //};
             Talents = new ObservableCollection<Talent>();
             XP = new Experience();
 

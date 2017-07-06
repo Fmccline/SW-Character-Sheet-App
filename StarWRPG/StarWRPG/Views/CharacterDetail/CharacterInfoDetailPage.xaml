@@ -176,40 +176,6 @@
                            Style="{StaticResource StartLabel}"
                            VerticalOptions="Start"/>
                 </Grid>
-
-                <Label Margin="0,20,0,0" Text="Motivations" Style="{StaticResource StartBoldLabel}"/>
-                <Label Text="{Binding Motivation}" HorizontalOptions="Start"/>
-                
-                <Grid Padding="0,20,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-
-                    <Label Grid.Column="0" Grid.Row="0" 
-                           Text="Emotional Strengths" Style="{StaticResource StartBoldLabel}"/>
-                    <Label Grid.Column="0" Grid.Row="1" 
-                           Text="{Binding EmotionalStrengths}" HorizontalOptions="Start"/>
-                    <Label Grid.Column="0" Grid.Row="2" 
-                           Text="Emotional Weaknesses" Style="{StaticResource StartBoldLabel}"/>
-                    <Label Grid.Column="0" Grid.Row="3" 
-                           Text="{Binding EmotionalWeaknesses}" HorizontalOptions="Start"/>
-
-                    <Label Grid.Column="1" Grid.Row="0" 
-                           Text="Morality" Style="{StaticResource StartBoldLabel}"/>
-                    <Label Grid.Column="1" Grid.Row="1" 
-                           Text="{Binding Morality}" HorizontalOptions="Start"/>
-                    <Label Grid.Column="1" Grid.Row="2" 
-                           Text="Conflict" Style="{StaticResource StartBoldLabel}"/>
-                    <Label Grid.Column="1" Grid.Row="3" 
-                           Text="{Binding Conflict}" HorizontalOptions="Start"/>
-                </Grid>
             </StackLayout>
         </ScrollView>
     </StackLayout>
