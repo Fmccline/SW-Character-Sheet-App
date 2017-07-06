@@ -29,8 +29,8 @@ namespace StarWRPG.ViewModels
                 else if (motivation.GetType() == typeof(CharacterObligation))
                 {
                     var motivationViewModel = new ObligationViewModel(motivation);
-                    motivationViewModel.PropertyChanged += MotivationViewModelPropertyChanged;
-                    CharacterMotivationViewModels.Add(new ObligationViewModel(motivation));
+                    motivationViewModel.PropertyChanged += ObligationViewModelPropertyChanged;
+                    CharacterMotivationViewModels.Add(motivationViewModel);
                 }
                 else if (motivation.GetType() == typeof(CharacterDuty))
                 {
@@ -51,7 +51,7 @@ namespace StarWRPG.ViewModels
         {
             if (motivation.GetType() == typeof(ObligationViewModel))
             {
-                motivation.PropertyChanged += MotivationViewModelPropertyChanged;
+                motivation.PropertyChanged += ObligationViewModelPropertyChanged;
             }
             CharacterMotivationViewModels.Add(motivation);
             characterMotivations.Add(motivation.CharacterMotivation);
@@ -61,13 +61,13 @@ namespace StarWRPG.ViewModels
         {
             if (motivation.GetType() == typeof(ObligationViewModel))
             {
-                motivation.PropertyChanged -= MotivationViewModelPropertyChanged;
+                motivation.PropertyChanged -= ObligationViewModelPropertyChanged;
             }
             CharacterMotivationViewModels.Remove(motivation);
             characterMotivations.Remove(motivation.CharacterMotivation);
         }
 
-        private void MotivationViewModelPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void ObligationViewModelPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(ObligationViewModel.Value))
             {
