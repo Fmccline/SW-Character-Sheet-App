@@ -31,6 +31,7 @@ namespace StarWRPG.Models
         public uint RangedDefense { get; set; }
         public uint SoakValue { get; set; }
         public uint TotalDuty { get; set; }
+        public uint TotalObligation { get; set; }
 
         public Characteristics Characteristics { get; set; }
 

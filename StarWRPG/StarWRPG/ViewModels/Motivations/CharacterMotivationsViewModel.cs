@@ -11,11 +11,13 @@ namespace StarWRPG.ViewModels
 {
     public class CharacterMotivationsViewModel : ViewModelBase
     {
+        FFGCharacterViewModel ffgCharacterViewModel;
         ObservableCollection<CharacterMotivationBase> characterMotivations;
         public ObservableCollection<CharacterMotivationViewModel> CharacterMotivationViewModels;
 
-        public CharacterMotivationsViewModel(ObservableCollection<CharacterMotivationBase> motivations)
+        public CharacterMotivationsViewModel(ObservableCollection<CharacterMotivationBase> motivations, FFGCharacterViewModel character)
         {
+            ffgCharacterViewModel = character;
             characterMotivations = motivations;
             CharacterMotivationViewModels = new ObservableCollection<CharacterMotivationViewModel>();
             foreach (var motivation in characterMotivations)
@@ -26,6 +28,8 @@ namespace StarWRPG.ViewModels
                 }
                 else if (motivation.GetType() == typeof(CharacterObligation))
                 {
+                    var motivationViewModel = new ObligationViewModel(motivation);
+                    motivationViewModel.PropertyChanged += MotivationViewModelPropertyChanged;
                     CharacterMotivationViewModels.Add(new ObligationViewModel(motivation));
                 }
                 else if (motivation.GetType() == typeof(CharacterDuty))
@@ -45,14 +49,43 @@ namespace StarWRPG.ViewModels
 
         public void AddMotivation(CharacterMotivationViewModel motivation)
         {
+            if (motivation.GetType() == typeof(ObligationViewModel))
+            {
+                motivation.PropertyChanged += MotivationViewModelPropertyChanged;
+            }
             CharacterMotivationViewModels.Add(motivation);
             characterMotivations.Add(motivation.CharacterMotivation);
         }
 
         public void RemoveMotivation(CharacterMotivationViewModel motivation)
         {
+            if (motivation.GetType() == typeof(ObligationViewModel))
+            {
+                motivation.PropertyChanged -= MotivationViewModelPropertyChanged;
+            }
             CharacterMotivationViewModels.Remove(motivation);
             characterMotivations.Remove(motivation.CharacterMotivation);
+        }
+
+        private void MotivationViewModelPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ObligationViewModel.Value))
+            {
+                ffgCharacterViewModel.TotalObligation = CalculateTotalObligation();
+            }
+        }
+
+        private uint CalculateTotalObligation()
+        {
+            uint total = 0;
+            foreach (var motivation in CharacterMotivationViewModels)
+            {
+                if (motivation.GetType() == typeof(ObligationViewModel))
+                {
+                    total += motivation.Value;
+                }
+            }
+            return total;
         }
 
     }

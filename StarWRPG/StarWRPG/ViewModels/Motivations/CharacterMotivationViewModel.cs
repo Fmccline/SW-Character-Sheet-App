@@ -17,6 +17,10 @@ namespace StarWRPG.ViewModels
         {
             get { return CharacterMotivation.Name; }
         }
+        public virtual string NameOnView
+        {
+            get { return $"{Name} Type:"; }
+        }
         public string Type
         {
             get { return CharacterMotivation.Type; }

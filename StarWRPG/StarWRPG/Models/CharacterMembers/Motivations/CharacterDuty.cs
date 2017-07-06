@@ -8,7 +8,7 @@ namespace StarWRPG.Models
 {
     public class CharacterDuty : CharacterMotivationBase
     {
-        public CharacterDuty() : base("Duty Type:") { }
+        public CharacterDuty() : base("Duty") { }
 
     }
 }

@@ -24,14 +24,13 @@ namespace StarWRPG.Views
 
             if (characterMotivation.HasValue)
             {
-                AddNewRow();
                 AddValueToGrid();
             }
 		}
 
         private void AddNewRow()
         {
-            MainGrid.RowDefinitions.Insert(0, new RowDefinition { Height = new GridLength(1, GridUnitType.Star) });
+            MainGrid.RowDefinitions.Insert(0, new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
 
             foreach (var child in MainGrid.Children)
             {
@@ -41,6 +40,7 @@ namespace StarWRPG.Views
 
         private void AddValueToGrid()
         {
+            AddNewRow();
             MainGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
 
             Label valueTitle = new Label

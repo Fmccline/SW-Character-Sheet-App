@@ -31,6 +31,8 @@ namespace StarWRPG.Views
             {
                 AddMotivationToAppropriateLayout(motivation);
             }
+
+            BindingContext = character;
         }
 
         private void AddMotivationToAppropriateLayout(CharacterMotivationViewModel motivation)
@@ -61,7 +63,7 @@ namespace StarWRPG.Views
             List<CharacterMotivationViewModel> motivations = ListOfAllMotivations();
             string[] motivationNames = ListOfMotivationNames(motivations); 
 
-            var motivationName = await DisplayActionSheet("Add Motivation", "Cancel", null, motivationNames);
+            var motivationName = await DisplayActionSheet("Add", "Cancel", null, motivationNames);
             foreach (var motivation in motivations)
             {
                 if (motivation.Name.Equals(motivationName))

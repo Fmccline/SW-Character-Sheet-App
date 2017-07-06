@@ -14,5 +14,9 @@ namespace StarWRPG.ViewModels
         public EmotionalStrengthsViewModel() : base(new CharacterEmotionalStrengths()) { }
         public EmotionalStrengthsViewModel(CharacterMotivationBase motivation) : base(motivation) { }
 
+        public override string NameOnView
+        {
+            get { return Name; }
+        }
     }
 }

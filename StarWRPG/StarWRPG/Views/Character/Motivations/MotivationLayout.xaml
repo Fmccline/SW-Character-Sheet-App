@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Column="0" Grid.Row="0"
-               Text="{Binding Name}"
+               Text="{Binding NameOnView}"
                Style="{StaticResource StartBoldLabel}"/>
         <Entry Grid.Column="1" Grid.Row="0"
                HorizontalOptions="FillAndExpand"

@@ -18,6 +18,8 @@
                 <Label Text="Character Obligations"
                        Style="{StaticResource CenterBoldLabel}"
                        FontSize="Medium"/>
+                <Label Text="{Binding TotalObligationText}"
+                       Style="{StaticResource CenterBoldLabel}"/>
             </StackLayout>
 
             <StackLayout x:Name="DutyLayout"
@@ -36,7 +38,8 @@
 
             <Button Text="Add"
                     Clicked="AddMotivationAsync"
-                    HorizontalOptions="Center"/>
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"/>
         </StackLayout>
     </ScrollView>
 

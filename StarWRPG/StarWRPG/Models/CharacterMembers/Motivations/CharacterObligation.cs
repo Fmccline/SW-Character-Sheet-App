@@ -8,7 +8,7 @@ namespace StarWRPG.Models
 {
     public class CharacterObligation : CharacterMotivationBase
     {
-        public CharacterObligation() : base("Obligation Type:")
+        public CharacterObligation() : base("Obligation")
         {
             HasValue = true;
         }

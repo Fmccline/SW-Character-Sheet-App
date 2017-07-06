@@ -8,6 +8,6 @@ namespace StarWRPG.Models
 {
     public class CharacterMotivation : CharacterMotivationBase
     {
-        public CharacterMotivation() : base("Motivation Type:") { }
+        public CharacterMotivation() : base("Motivation") { }
     }
 }
