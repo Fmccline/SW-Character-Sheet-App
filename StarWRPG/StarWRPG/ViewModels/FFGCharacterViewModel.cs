@@ -12,14 +12,17 @@ namespace StarWRPG.ViewModels
     {
         public FFGCharacter FFGCharacter { get; private set; }
 
+        // ViewModels
         public CharacterMotivationsViewModel CharacterMotivationsViewModel { get; private set; }
         public CriticalInjuriesViewModel CriticalInjuriesViewModel { get; private set; }
         public InventoryViewModel InventoryViewModel { get; private set; }
         public TalentsViewModel TalentsViewModel { get; private set; }
         public SkillsViewModel SkillsViewModel { get; private set; }
 
+        // Presets
         private FFGPresetViewModel speciesPreset;
 
+        // Character Descriptions
         public string Background
         {
             get { return FFGCharacter.Background; }
@@ -47,33 +50,6 @@ namespace StarWRPG.ViewModels
             set
             {
                 FFGCharacter.Description = value;
-                OnPropertyChanged();
-            }
-        }
-        public string EmotionalStrengths
-        {
-            get { return FFGCharacter.EmotionalStrengths; }
-            set
-            {
-                FFGCharacter.EmotionalStrengths = value;
-                OnPropertyChanged();
-            }
-        }
-        public string EmotionalWeaknesses
-        {
-            get { return FFGCharacter.EmotionalWeaknesses; }
-            set
-            {
-                FFGCharacter.EmotionalWeaknesses = value;
-                OnPropertyChanged();
-            }
-        }
-        public string Motivation
-        {
-            get { return FFGCharacter.Motivation; }
-            set
-            {
-                FFGCharacter.Motivation = value;
                 OnPropertyChanged();
             }
         }
@@ -107,59 +83,14 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
-        public string TotalObligationText
-        {
-            get { return $"Total Obligation: {TotalObligation}"; }
-        }
 
-        public uint Agility
-        {
-            get { return FFGCharacter.Characteristics.Agility.Rank; }
-
-            set
-            {
-                FFGCharacter.Characteristics.Agility.Rank = value;
-                SetCharacteristicForSkills(FFGCharacter.Characteristics.Agility);
-                OnPropertyChanged();
-            }
-        }
+        // Stats
         public uint AvailableXP
         {
             get { return FFGCharacter.XP.AvailableXP; }
             set
             {
                 FFGCharacter.XP.AvailableXP = value;
-                OnPropertyChanged();
-            }
-        }
-        public uint Brawn
-        {
-            get { return FFGCharacter.Characteristics.Brawn.Rank; }
-
-            set
-            {
-                FFGCharacter.Characteristics.Brawn.Rank = value;
-                SetCharacteristicForSkills(FFGCharacter.Characteristics.Brawn);
-                OnPropertyChanged();
-            }
-        }
-        public uint Conflict
-        {
-            get { return FFGCharacter.Conflict; }
-            set
-            {
-                FFGCharacter.Conflict = value;
-                OnPropertyChanged();
-            }
-        }
-        public uint Cunning
-        {
-            get { return FFGCharacter.Characteristics.Cunning.Rank; }
-
-            set
-            {
-                FFGCharacter.Characteristics.Cunning.Rank = value;
-                SetCharacteristicForSkills(FFGCharacter.Characteristics.Cunning);
                 OnPropertyChanged();
             }
         }
@@ -193,17 +124,6 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
-        public uint Intellect
-        {
-            get { return FFGCharacter.Characteristics.Intellect.Rank; }
-
-            set
-            {
-                FFGCharacter.Characteristics.Intellect.Rank = value;
-                SetCharacteristicForSkills(FFGCharacter.Characteristics.Intellect);
-                OnPropertyChanged();
-            }
-        }
         public uint MaxStrain
         {
             get { return FFGCharacter.MaxStrain; }
@@ -234,15 +154,6 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
-        public uint Morality
-        {
-            get { return FFGCharacter.Morality; }
-            set
-            {
-                FFGCharacter.Morality = value;
-                OnPropertyChanged();
-            }
-        }
         public uint RangedDefense
         {
             get { return FFGCharacter.RangedDefense; }
@@ -250,17 +161,6 @@ namespace StarWRPG.ViewModels
             set
             {
                 FFGCharacter.RangedDefense = value;
-                OnPropertyChanged();
-            }
-        }
-        public uint Presence
-        {
-            get { return FFGCharacter.Characteristics.Presence.Rank; }
-
-            set
-            {
-                FFGCharacter.Characteristics.Presence.Rank = value;
-                SetCharacteristicForSkills(FFGCharacter.Characteristics.Presence);
                 OnPropertyChanged();
             }
         }
@@ -282,14 +182,31 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
-        public uint Willpower
+        // Motivations
+        public uint Conflict
         {
-            get { return FFGCharacter.Characteristics.Willpower.Rank; }
-
+            get { return FFGCharacter.Conflict; }
             set
             {
-                FFGCharacter.Characteristics.Willpower.Rank = value;
-                SetCharacteristicForSkills(FFGCharacter.Characteristics.Willpower);
+                FFGCharacter.Conflict = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint Morality
+        {
+            get { return FFGCharacter.Morality; }
+            set
+            {
+                FFGCharacter.Morality = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint TotalDuty
+        {
+            get { return FFGCharacter.TotalDuty; }
+            set
+            {
+                FFGCharacter.TotalDuty = value;
                 OnPropertyChanged();
             }
         }
@@ -303,15 +220,87 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged(nameof(TotalObligationText));
             }
         }
+        public string TotalObligationText
+        {
+            get { return $"Total Obligation: {TotalObligation}"; }
+        }
+        // Characteristics
+        public uint Agility
+        {
+            get { return FFGCharacter.Characteristics.Agility.Rank; }
 
+            set
+            {
+                FFGCharacter.Characteristics.Agility.Rank = value;
+                SetCharacteristicForSkills(FFGCharacter.Characteristics.Agility);
+                OnPropertyChanged();
+            }
+        }
+        public uint Brawn
+        {
+            get { return FFGCharacter.Characteristics.Brawn.Rank; }
+
+            set
+            {
+                FFGCharacter.Characteristics.Brawn.Rank = value;
+                SetCharacteristicForSkills(FFGCharacter.Characteristics.Brawn);
+                OnPropertyChanged();
+            }
+        }
+        public uint Cunning
+        {
+            get { return FFGCharacter.Characteristics.Cunning.Rank; }
+
+            set
+            {
+                FFGCharacter.Characteristics.Cunning.Rank = value;
+                SetCharacteristicForSkills(FFGCharacter.Characteristics.Cunning);
+                OnPropertyChanged();
+            }
+        }
+        public uint Intellect
+        {
+            get { return FFGCharacter.Characteristics.Intellect.Rank; }
+
+            set
+            {
+                FFGCharacter.Characteristics.Intellect.Rank = value;
+                SetCharacteristicForSkills(FFGCharacter.Characteristics.Intellect);
+                OnPropertyChanged();
+            }
+        }
+        public uint Presence
+        {
+            get { return FFGCharacter.Characteristics.Presence.Rank; }
+
+            set
+            {
+                FFGCharacter.Characteristics.Presence.Rank = value;
+                SetCharacteristicForSkills(FFGCharacter.Characteristics.Presence);
+                OnPropertyChanged();
+            }
+        }
+        public uint Willpower
+        {
+            get { return FFGCharacter.Characteristics.Willpower.Rank; }
+
+            set
+            {
+                FFGCharacter.Characteristics.Willpower.Rank = value;
+                SetCharacteristicForSkills(FFGCharacter.Characteristics.Willpower);
+                OnPropertyChanged();
+            }
+        }
+
+        // Constructors
         public FFGCharacterViewModel() : this(new FFGCharacter()) { }
-
         public FFGCharacterViewModel(FFGCharacter character)
         {
             FFGCharacter = character;
             InitializeViewModels();
         }
 
+        // Private Methods
         private void InitializeViewModels()
         {
             CharacterMotivationsViewModel = new CharacterMotivationsViewModel(FFGCharacter.Motivations, this);
@@ -320,7 +309,6 @@ namespace StarWRPG.ViewModels
             SkillsViewModel = new SkillsViewModel(FFGCharacter.Skills, FFGCharacter.Characteristics, FFGCharacter.XP);
             TalentsViewModel = new TalentsViewModel(FFGCharacter.Talents);
         }
-
         private void SetCharacteristicForSkills(Characteristic characteristic)
         {
             foreach (var skillViewModel in SkillsViewModel.SkillViewModels)
@@ -333,6 +321,7 @@ namespace StarWRPG.ViewModels
             }
         }
 
+        // Public Methods
         public void SetSpeciesPreset(FFGPresetViewModel species)
         {
             if (speciesPreset != null)

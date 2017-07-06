@@ -208,26 +208,6 @@
                             VerticalOptions="Center"/>
                 </StackLayout>
                 <Label Text="{Binding Background}"/>
-
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Motivations" 
-                           FontAttributes="Bold"
-                           VerticalOptions="Center"/>
-                    <Button x:Name="EditMotivationsButton" 
-                            Text="Edit" 
-                            Clicked="EditValueAsync"
-                            VerticalOptions="Center"/>
-                </StackLayout>
-                <Label Text="{Binding Motivation}"/>
-
-                <Entry Placeholder="Emotional Strengths" Text="{Binding EmotionalStrengths}"/>
-                <Entry Placeholder="Emotional Weaknesses" Text="{Binding EmotionalWeaknesses}"/>
-
-                <Label Text="Conflict" FontAttributes="Bold"/>
-                <Entry Keyboard="Numeric" Text="{Binding Conflict}"/>
-
-                <Label Text="Morality" FontAttributes="Bold"/>
-                <Entry Keyboard="Numeric" Text="{Binding Morality}"/>
             </StackLayout>
         </ScrollView>
     </StackLayout>
