@@ -2,7 +2,7 @@
 <local:MotivationPageBase xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:local="clr-namespace:StarWRPG.Views" 
-                x:Class="StarWRPG.Views.MotivationsCreationPage">
+                x:Class="StarWRPG.Views.MotivationsDetailPage">
     <ScrollView>
         <StackLayout x:Name="MainStackLayout">
             <StackLayout x:Name="MotivationsLayout"
@@ -34,7 +34,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    
+
                     <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
                            Text="Character Duty"
                            Style="{StaticResource CenterBoldLabel}"
@@ -42,17 +42,15 @@
                     <Label Grid.Column="0" Grid.Row="1"
                            Text="Total Duty:"
                            Style="{StaticResource StartBoldLabel}"/>
-                    <Entry Grid.Column="1" Grid.Row="1"
+                    <Label Grid.Column="1" Grid.Row="1"
                            Text="{Binding TotalDuty}"
-                           HorizontalOptions="FillAndExpand"
-                           Keyboard="Numeric"/>
+                           Style="{StaticResource StartLabel}"/>
                     <Label Grid.Column="2" Grid.Row="1"
                            Text="Contribution:"
                            Style="{StaticResource StartBoldLabel}"/>
-                    <Entry Grid.Column="3" Grid.Row="1"
+                    <Label Grid.Column="3" Grid.Row="1"
                            Text="{Binding Contribution}"
-                           HorizontalOptions="FillAndExpand"
-                           Keyboard="Numeric"/>
+                           Style="{StaticResource StartLabel}"/>
                 </Grid>
             </StackLayout>
 
@@ -77,26 +75,18 @@
                     <Label Grid.Column="0" Grid.Row="1"
                            Text="Morality:"
                            Style="{StaticResource StartBoldLabel}"/>
-                    <Entry Grid.Column="1" Grid.Row="1"
+                    <Label Grid.Column="1" Grid.Row="1"
                            Text="{Binding Morality}"
-                           HorizontalOptions="FillAndExpand"
-                           Keyboard="Numeric"/>
+                           Style="{StaticResource StartLabel}"/>
                     <Label Grid.Column="2" Grid.Row="1"
                            Text="Conflict:"
                            Style="{StaticResource StartBoldLabel}"/>
-                    <Entry Grid.Column="3" Grid.Row="1"
+                    <Label Grid.Column="3" Grid.Row="1"
                            Text="{Binding Conflict}"
-                           HorizontalOptions="FillAndExpand"
-                           Keyboard="Numeric"/>
+                           Style="{StaticResource StartLabel}"/>
                 </Grid>
             </StackLayout>
-
-            <Button Text="Add"
-                    Clicked="AddMotivationAsync"
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"/>
         </StackLayout>
     </ScrollView>
-
 
 </local:MotivationPageBase>

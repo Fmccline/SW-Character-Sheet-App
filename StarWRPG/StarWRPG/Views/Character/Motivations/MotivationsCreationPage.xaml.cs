@@ -12,59 +12,36 @@ using Xamarin.Forms.Xaml;
 namespace StarWRPG.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MotivationsCreationPage : BasePage
+    public partial class MotivationsCreationPage : MotivationPageBase
     {
-        CharacterMotivationsViewModel characterMotivationsViewModel;
+        protected override StackLayout mainStackLayout { get { return MainStackLayout; } }
+        protected override StackLayout motivationsLayout { get { return MotivationsLayout; } }
+        protected override StackLayout obligationsLayout { get { return ObligationsLayout; } }
+        protected override StackLayout dutyLayout { get { return DutyLayout; } }
+        protected override StackLayout moralityLayout { get { return MoralityLayout; } }
 
-        protected override StackLayout mainStackLayout
-        {
-            get { return MainStackLayout; }
-        }
-
-        public MotivationsCreationPage(FFGCharacterViewModel character)
+        public MotivationsCreationPage(FFGCharacterViewModel character) : base(character)
         {
             InitializeComponent();
-
-            characterMotivationsViewModel = character.CharacterMotivationsViewModel;
 
             foreach (var motivation in characterMotivationsViewModel.CharacterMotivationViewModels)
             {
                 AddMotivationToAppropriateLayout(motivation);
             }
-
-            BindingContext = character;
         }
 
-        private void AddMotivationToAppropriateLayout(CharacterMotivationViewModel motivation)
+        protected override MotivationLayout MakeMotivationLayout(CharacterMotivationViewModel motivation)
         {
-            StackLayout layout = MainStackLayout;
-            if (motivation.GetType() == typeof(MotivationViewModel))
-            {
-                layout = MotivationsLayout;
-            }
-            else if (motivation.GetType() == typeof(ObligationViewModel))
-            {
-                layout = ObligationsLayout;
-            }
-            else if (motivation.GetType() == typeof(DutyViewModel))
-            {
-                layout = DutyLayout;
-            }
-            else // Emotional Strength or Weakness
-            {
-                layout = MoralityLayout;
-            }
-            layout.Children.Add(new MotivationLayout(motivation));
-            layout.IsVisible = true;
+            return new MotivationCreationLayout(motivation);
         }
 
         private async void AddMotivationAsync(object sender, EventArgs e)
         {
-            List<CharacterMotivationViewModel> motivations = ListOfAllMotivations();
-            string[] motivationNames = ListOfMotivationNames(motivations); 
+            List<CharacterMotivationViewModel> allMotivations = ListOfAllMotivations();
+            string[] motivationNames = ListOfMotivationNames(allMotivations); 
 
             var motivationName = await DisplayActionSheet("Add", "Cancel", null, motivationNames);
-            foreach (var motivation in motivations)
+            foreach (var motivation in allMotivations)
             {
                 if (motivation.Name.Equals(motivationName))
                 {

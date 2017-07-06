@@ -32,9 +32,17 @@ namespace StarWRPG.Views
         {
             if (e.SelectedItem is FFGCharacterViewModel character)
             {
-                var characterDetailNavigation = new CharacterDetailNavigation(character);
-                await Navigation.PushAsync(characterDetailNavigation.DefaultPage);
-                charactersListView.SelectedItem = null;
+                try
+                {
+                    var characterDetailNavigation = new CharacterDetailNavigation(character);
+                    await Navigation.PushAsync(characterDetailNavigation.DefaultPage);
+                    charactersListView.SelectedItem = null;
+                }
+                catch(Exception ex)
+                {
+                    Debug.WriteLine(ex.StackTrace);
+                    Debug.WriteLine(ex.Message);
+                }
             }
         }
 

@@ -84,12 +84,16 @@
     <Compile Include="ViewModels\TalentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeaponViewModel.cs" />
-    <Compile Include="Views\Character\Motivations\MotivationLayout.xaml.cs">
-      <DependentUpon>MotivationLayout.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Views\Character\Motivations\MotivationDetailLayout.cs" />
+    <Compile Include="Views\Character\Motivations\MotivationCreationLayout.cs" />
+    <Compile Include="Views\Character\Motivations\MotivationLayout.cs" />
     <Compile Include="Views\Character\Motivations\MotivationsCreationPage.xaml.cs">
       <DependentUpon>MotivationsCreationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Character\Motivations\MotivationsDetailPage.xaml.cs">
+      <DependentUpon>MotivationsDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Character\Motivations\MotivationPageBase.cs" />
     <Compile Include="Views\Character\Skills\AddCustomSkillPage.xaml.cs">
       <DependentUpon>AddCustomSkillPage.xaml</DependentUpon>
     </Compile>
@@ -289,13 +293,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Character\Motivations\MotivationLayout.xaml">
+    <EmbeddedResource Include="Views\Character\Motivations\MotivationsCreationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Character\Motivations\MotivationsCreationPage.xaml">
+    <EmbeddedResource Include="Views\Character\Motivations\MotivationsDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
