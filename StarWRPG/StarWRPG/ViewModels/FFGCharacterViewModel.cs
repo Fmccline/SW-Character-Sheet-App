@@ -182,6 +182,7 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
+
         // Motivations
         public uint Conflict
         {
@@ -189,6 +190,15 @@ namespace StarWRPG.ViewModels
             set
             {
                 FFGCharacter.Conflict = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint Contribution
+        {
+            get { return FFGCharacter.Contribution; }
+            set
+            {
+                FFGCharacter.Contribution = value;
                 OnPropertyChanged();
             }
         }
@@ -224,6 +234,7 @@ namespace StarWRPG.ViewModels
         {
             get { return $"Total Obligation: {TotalObligation}"; }
         }
+
         // Characteristics
         public uint Agility
         {

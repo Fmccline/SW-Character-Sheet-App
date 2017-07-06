@@ -24,16 +24,72 @@
 
             <StackLayout x:Name="DutyLayout"
                          IsVisible="False">
-                <Label Text="Character Duty"
-                       Style="{StaticResource CenterBoldLabel}"
-                       FontSize="Medium"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
+                           Text="Character Duty"
+                           Style="{StaticResource CenterBoldLabel}"
+                           FontSize="Medium"/>
+                    <Label Grid.Column="0" Grid.Row="1"
+                           Text="Total Duty:"
+                           Style="{StaticResource StartBoldLabel}"/>
+                    <Entry Grid.Column="1" Grid.Row="1"
+                           Text="{Binding TotalDuty}"
+                           HorizontalOptions="FillAndExpand"
+                           Keyboard="Numeric"/>
+                    <Label Grid.Column="2" Grid.Row="1"
+                           Text="Contribution:"
+                           Style="{StaticResource StartBoldLabel}"/>
+                    <Entry Grid.Column="3" Grid.Row="1"
+                           Text="{Binding Contribution}"
+                           HorizontalOptions="FillAndExpand"
+                           Keyboard="Numeric"/>
+                </Grid>
             </StackLayout>
 
             <StackLayout x:Name="MoralityLayout"
                          IsVisible="False">
-                <Label Text="Character Morality"
-                       Style="{StaticResource CenterBoldLabel}"
-                       FontSize="Medium"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
+                           Text="Character Morality"
+                           Style="{StaticResource CenterBoldLabel}"
+                           FontSize="Medium"/>
+                    <Label Grid.Column="0" Grid.Row="1"
+                           Text="Morality:"
+                           Style="{StaticResource StartBoldLabel}"/>
+                    <Entry Grid.Column="1" Grid.Row="1"
+                           Text="{Binding Morality}"
+                           HorizontalOptions="FillAndExpand"
+                           Keyboard="Numeric"/>
+                    <Label Grid.Column="2" Grid.Row="1"
+                           Text="Conflict:"
+                           Style="{StaticResource StartBoldLabel}"/>
+                    <Entry Grid.Column="3" Grid.Row="1"
+                           Text="{Binding Conflict}"
+                           HorizontalOptions="FillAndExpand"
+                           Keyboard="Numeric"/>
+                </Grid>
             </StackLayout>
 
             <Button Text="Add"
