@@ -84,6 +84,9 @@
     <Compile Include="ViewModels\TalentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeaponViewModel.cs" />
+    <Compile Include="Views\CharacterCreation\CharacterStatsPage.xaml.cs">
+      <DependentUpon>CharacterStatsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Character\Motivations\MotivationDetailLayout.cs" />
     <Compile Include="Views\Character\Motivations\MotivationCreationLayout.cs" />
     <Compile Include="Views\Character\Motivations\MotivationLayout.cs" />
@@ -300,6 +303,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Character\Motivations\MotivationsDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CharacterCreation\CharacterStatsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
