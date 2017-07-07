@@ -18,6 +18,7 @@ namespace StarWRPG.Views
             return new List<BasePage>
             {
                 new CharacterInfoDetailPage(ffgCharacterViewModel),
+                new StatsDetailPage(ffgCharacterViewModel),
                 new MotivationsDetailPage(ffgCharacterViewModel),
                 new CharacterInventoryPage(ffgCharacterViewModel),
                 new CharacterSkillsPage(ffgCharacterViewModel),
