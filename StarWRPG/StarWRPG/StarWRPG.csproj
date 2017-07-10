@@ -39,6 +39,7 @@
     <Compile Include="Controls\EditCharacterToolbarItem.cs" />
     <Compile Include="Controls\SaveCharacterToolbarItem.cs" />
     <Compile Include="Controls\CharacterDetailsToolbarItem.cs" />
+    <Compile Include="Views\StepperWithEntry.cs" />
     <Compile Include="Database\CharacterDatabase.cs" />
     <Compile Include="Database\CharacterDataItem.cs" />
     <Compile Include="Database\IFileHelper.cs" />
@@ -84,6 +85,12 @@
     <Compile Include="ViewModels\TalentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\WeaponViewModel.cs" />
+    <Compile Include="Views\CharacterCreation\StatsCreationPage.xaml.cs">
+      <DependentUpon>StatsCreationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CharacterDetail\StatsDetailPage.xaml.cs">
+      <DependentUpon>StatsDetailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Character\Motivations\MotivationDetailLayout.cs" />
     <Compile Include="Views\Character\Motivations\MotivationCreationLayout.cs" />
     <Compile Include="Views\Character\Motivations\MotivationLayout.cs" />
@@ -300,6 +307,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Character\Motivations\MotivationsDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CharacterCreation\StatsCreationPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CharacterDetail\StatsDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

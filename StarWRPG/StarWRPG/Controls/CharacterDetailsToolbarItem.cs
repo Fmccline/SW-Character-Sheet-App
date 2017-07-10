@@ -32,28 +32,15 @@ namespace StarWRPG.Controls
 
         private async void PageSelectionButtonClickedAsync(object sender, EventArgs e)
         {
-            try
+            var pageSelected = await currentPage.DisplayActionSheet("Character Details", "Cancel", null, pageTitles);
+            foreach (var page in pages)
             {
-                Debug.WriteLine("HERE!!!");
-                foreach (var pageTitle in pageTitles)
+                if (page.Title.Equals(pageSelected) && !page.Title.Equals(currentPage.Title))
                 {
-                    Debug.WriteLine(pageTitle);
+                    var previousPage = currentPage.Navigation.NavigationStack.Last();
+                    currentPage.Navigation.InsertPageBefore(page, previousPage);
+                    await currentPage.Navigation.PopAsync();
                 }
-                var pageSelected = await currentPage.DisplayActionSheet("Character Details", "Cancel", null, pageTitles);
-                foreach (var page in pages)
-                {
-                    if (page.Title.Equals(pageSelected) && !page.Title.Equals(currentPage.Title))
-                    {
-                        var previousPage = currentPage.Navigation.NavigationStack.Last();
-                        currentPage.Navigation.InsertPageBefore(page, previousPage);
-                        await currentPage.Navigation.PopAsync();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.StackTrace);
-                Debug.WriteLine(ex.Message);
             }
         }
     }
