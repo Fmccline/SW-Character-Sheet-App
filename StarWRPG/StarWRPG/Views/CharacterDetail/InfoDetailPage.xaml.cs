@@ -7,20 +7,20 @@ using Xamarin.Forms.Xaml;
 namespace StarWRPG.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CharacterInfoDetailPage : BasePage
+    public partial class InfoDetailPage : BasePage
     {
         FFGCharacterViewModel ffgCharacterViewModel;
 
         protected override StackLayout mainStackLayout { get { return MainStackLayout; } }
 
-        public CharacterInfoDetailPage(FFGCharacterViewModel character)
+        public InfoDetailPage(FFGCharacterViewModel character)
         {
             InitializeComponent();
 
             ffgCharacterViewModel = character;
             BindingContext = ffgCharacterViewModel;
 
-            ScrollViewStackLayout.Children.Add(new CriticalInjuriesLayout(ffgCharacterViewModel.CriticalInjuriesViewModel));
+            DescriptionAndCritsLayout.Children.Add(new CriticalInjuriesLayout(ffgCharacterViewModel.CriticalInjuriesViewModel));
         }
     }
 }

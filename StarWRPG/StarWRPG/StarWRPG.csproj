@@ -39,6 +39,7 @@
     <Compile Include="Controls\EditCharacterToolbarItem.cs" />
     <Compile Include="Controls\SaveCharacterToolbarItem.cs" />
     <Compile Include="Controls\CharacterDetailsToolbarItem.cs" />
+    <Compile Include="Models\CharacterDescription.cs" />
     <Compile Include="Views\StepperWithEntry.cs" />
     <Compile Include="Database\CharacterDatabase.cs" />
     <Compile Include="Database\CharacterDataItem.cs" />
@@ -128,11 +129,11 @@
     <Compile Include="Views\Character\Items\ItemPage.xaml.cs">
       <DependentUpon>ItemPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterCreation\CharacterInfoCreationPage.xaml.cs">
-      <DependentUpon>CharacterInfoCreationPage.xaml</DependentUpon>
+    <Compile Include="Views\CharacterCreation\InfoCreationPage.xaml.cs">
+      <DependentUpon>InfoCreationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterDetail\CharacterInfoDetailPage.xaml.cs">
-      <DependentUpon>CharacterInfoDetailPage.xaml</DependentUpon>
+    <Compile Include="Views\CharacterDetail\InfoDetailPage.xaml.cs">
+      <DependentUpon>InfoDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\CharacterMembers\Experience.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,7 +176,7 @@
     <Compile Include="Views\Character\Talents\TalentsLayout.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterDetail\CharacterInfoDetailPage.xaml">
+    <EmbeddedResource Include="Views\CharacterDetail\InfoDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -210,7 +211,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterCreation\CharacterInfoCreationPage.xaml">
+    <EmbeddedResource Include="Views\CharacterCreation\InfoCreationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
