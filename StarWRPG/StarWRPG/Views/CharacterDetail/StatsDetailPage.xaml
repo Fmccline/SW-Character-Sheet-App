@@ -81,6 +81,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="1.5*"/>
             </Grid.RowDefinitions>
 
             <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
@@ -113,6 +114,12 @@
             <Label Grid.Column="3" Grid.Row="2" 
                    Text="Max"                          
                    Style="{StaticResource CenterLabel}"/>
+            <local:StepperWithEntry Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"
+                                    Value="{Binding CurrentWounds}"
+                                    Maximum="{Binding MaxWounds}"/>
+            <local:StepperWithEntry Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2"
+                                    Value="{Binding CurrentStrain}"
+                                    Maximum="{Binding MaxStrain}"/>
         </Grid>
         <!-- Total Obligation, Total Duty, and Contribution-->
         <Grid>

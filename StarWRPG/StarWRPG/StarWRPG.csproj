@@ -39,6 +39,7 @@
     <Compile Include="Controls\EditCharacterToolbarItem.cs" />
     <Compile Include="Controls\SaveCharacterToolbarItem.cs" />
     <Compile Include="Controls\CharacterDetailsToolbarItem.cs" />
+    <Compile Include="Views\StepperWithEntry.cs" />
     <Compile Include="Database\CharacterDatabase.cs" />
     <Compile Include="Database\CharacterDataItem.cs" />
     <Compile Include="Database\IFileHelper.cs" />
