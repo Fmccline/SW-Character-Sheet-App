@@ -125,6 +125,34 @@
                        Text="Max"                          
                        Style="{StaticResource CenterLabel}"/>
             </Grid>
+            <!-- Total Obligation, Total Duty, and Contribution-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Total Obligation:" 
+                       Style="{StaticResource CenterBoldLabel}" />
+                <Label Text="{Binding TotalObligation}"
+                       HorizontalOptions="StartAndExpand"
+                       VerticalOptions="Center"
+                       FontAttributes="Bold"/>
+                <Label Text="Total Duty:" 
+                       Style="{StaticResource CenterBoldLabel}" />
+                <Entry Text="{Binding TotalDuty}" 
+                       Style="{StaticResource FillAndExpandNumericEntry}"/>
+                <Label Text="Contribution:" 
+                       Style="{StaticResource CenterBoldLabel}" />
+                <Entry Text="{Binding Contribution}" 
+                       Style="{StaticResource FillAndExpandNumericEntry}"/>
+            </StackLayout>
+            <!-- Morality and Conflict -->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Morality" 
+                       Style="{StaticResource CenterBoldLabel}" />
+                <Entry Text="{Binding Morality}" 
+                       Style="{StaticResource FillAndExpandNumericEntry}"/>
+                <Label Text="Conflict" 
+                       Style="{StaticResource CenterBoldLabel}" />
+                <Entry Text="{Binding Conflict}" 
+                       Style="{StaticResource FillAndExpandNumericEntry}"/>
+            </StackLayout>
             <!-- Characteristics -->
             <Grid>
                 <Grid.ColumnDefinitions>
