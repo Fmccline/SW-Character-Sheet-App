@@ -182,59 +182,6 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        // Motivations
-        public uint Conflict
-        {
-            get { return FFGCharacter.Conflict; }
-            set
-            {
-                FFGCharacter.Conflict = value;
-                OnPropertyChanged();
-            }
-        }
-        public uint Contribution
-        {
-            get { return FFGCharacter.Contribution; }
-            set
-            {
-                FFGCharacter.Contribution = value;
-                OnPropertyChanged();
-            }
-        }
-        public uint Morality
-        {
-            get { return FFGCharacter.Morality; }
-            set
-            {
-                FFGCharacter.Morality = value;
-                OnPropertyChanged();
-            }
-        }
-        public uint TotalDuty
-        {
-            get { return FFGCharacter.TotalDuty; }
-            set
-            {
-                FFGCharacter.TotalDuty = value;
-                OnPropertyChanged();
-            }
-        }
-        public uint TotalObligation
-        {
-            get { return FFGCharacter.TotalObligation; }
-            set
-            {
-                FFGCharacter.TotalObligation = value;
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(TotalObligationText));
-            }
-        }
-        public string TotalObligationText
-        {
-            get { return $"Total Obligation: {TotalObligation}"; }
-        }
-
         // Characteristics
         public uint Agility
         {
@@ -301,6 +248,62 @@ namespace StarWRPG.ViewModels
                 SetCharacteristicForSkills(FFGCharacter.Characteristics.Willpower);
                 OnPropertyChanged();
             }
+        }
+        public uint MaxCharacteristicRank
+        {
+            get { return FFGCharacter.Characteristics.Agility.MaxRank; }
+        }
+
+        // Motivations
+        public uint Conflict
+        {
+            get { return FFGCharacter.Conflict; }
+            set
+            {
+                FFGCharacter.Conflict = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint Contribution
+        {
+            get { return FFGCharacter.Contribution; }
+            set
+            {
+                FFGCharacter.Contribution = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint Morality
+        {
+            get { return FFGCharacter.Morality; }
+            set
+            {
+                FFGCharacter.Morality = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint TotalDuty
+        {
+            get { return FFGCharacter.TotalDuty; }
+            set
+            {
+                FFGCharacter.TotalDuty = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint TotalObligation
+        {
+            get { return FFGCharacter.TotalObligation; }
+            set
+            {
+                FFGCharacter.TotalObligation = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(TotalObligationText));
+            }
+        }
+        public string TotalObligationText
+        {
+            get { return $"Total Obligation: {TotalObligation}"; }
         }
 
         // Constructors
