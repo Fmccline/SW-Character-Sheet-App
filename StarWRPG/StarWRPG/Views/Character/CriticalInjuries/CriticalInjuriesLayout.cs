@@ -33,11 +33,12 @@ namespace StarWRPG.Views
 
         private void GenerateLayout()
         {
+            RowDefinitions.Clear();
+            Children.Clear();
+            AddHeader();
+
             if (criticalInjuries.Count > 0)
             {
-                RowDefinitions.Clear();
-                Children.Clear();
-                AddHeader();
                 AddChildren();
             }
             else
@@ -70,14 +71,13 @@ namespace StarWRPG.Views
         {
             RowDefinitions.Add(new RowDefinition { Height = new GridLength(1, GridUnitType.Auto) });
 
-            Label noCritsLabel = new Label
+            Label noCrit = new Label
             {
                 Text = "None",
                 HorizontalOptions = LayoutOptions.Center,
             };
 
-            Children.Add(noCritsLabel, 0, 0);
-            SetColumnSpan(noCritsLabel, 2);
+            Children.Add(noCrit, 0, 1);
         }
 
         private void AddHeader()
@@ -87,17 +87,17 @@ namespace StarWRPG.Views
             Label severity = new Label
             {
                 Text = "Severity",
-                Style = (Style)Application.Current.Resources["CenterBoldLabel"]
+                Style = (Style)Application.Current.Resources["CenterLabel"]
             };
 
             Label result = new Label
             {
                 Text = "Result",
-                Style = (Style)Application.Current.Resources["CenterBoldLabel"]
+                Style = (Style)Application.Current.Resources["StartLabel"]
             };
 
-            Children.Add(severity, 0, 1);
-            Children.Add(result, 1, 1);
+            Children.Add(severity, 0, 0);
+            Children.Add(result, 1, 0);
         }
     }
 }

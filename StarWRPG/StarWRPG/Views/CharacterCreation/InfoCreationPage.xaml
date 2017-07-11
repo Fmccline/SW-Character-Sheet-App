@@ -108,22 +108,6 @@
                             VerticalOptions="Center"/>
                 </StackLayout>
                 <Label Text="{Binding Background}"/>
-                <!--Experience-->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <Entry Grid.Column="0" Grid.Row="0" 
-                           Text="{Binding TotalXP}" Style="{StaticResource FillAndExpandNumericEntry}"/>
-                    <Label Grid.Column="0" Grid.Row="1" 
-                           Text="Total XP" Style="{StaticResource StartBoldLabel}"/>
-                    <Entry Grid.Column="2" Grid.Row="0" 
-                           Text="{Binding AvailableXP}" Style="{StaticResource FillAndExpandNumericEntry}"/>
-                    <Label Grid.Column="2" Grid.Row="1" 
-                           Text="Available XP" Style="{StaticResource StartBoldLabel}"/>
-                </Grid>
             </StackLayout>
         </ScrollView>
     </StackLayout>

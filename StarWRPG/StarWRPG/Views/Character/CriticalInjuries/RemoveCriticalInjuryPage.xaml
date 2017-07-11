@@ -4,28 +4,34 @@
              x:Class="StarWRPG.Views.RemoveCriticalInjuryPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Select Crit to Remove" 
+            <Label Text="Remove Critical Injury" 
                    FontAttributes="Bold"
-                   FontSize="Medium"
-                   HorizontalOptions="CenterAndExpand"/>
-            <ListView ItemsSource="{Binding CriticalInjuryViewModels}"
+                   FontSize="Medium"  
+                   HorizontalOptions="Center"/>
+            <Button Text="Cancel"
+                    Clicked="CancelClickedAsync"
+                    HorizontalOptions="Center"
+                    Margin="0,0,0,20"/>
+            
+            <ListView x:Name="InjuryListView"
+                      ItemsSource="{Binding CriticalInjuryViewModels}"
                       ItemSelected="InjurySelectedAsync">
                 <ListView.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="3*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Label Grid.Column="0" 
-                           Text="Severity" 
-                           FontAttributes="Bold"/>
+                               Text="Severity"
+                               Style="{StaticResource CenterBoldLabel}"/>
                         <Label Grid.Column="1" 
-                           Text="Result" 
-                           FontAttributes="Bold"/>
+                               Text="Result"
+                               Style="{StaticResource StartBoldLabel}"/>
                     </Grid>
                 </ListView.Header>
                 <ListView.ItemTemplate>
@@ -34,18 +40,19 @@
                             <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="4*"/>
+                                    <ColumnDefinition Width="3*"/>
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Text="{Binding Severity}"/>
-                                <Label Grid.Column="1" Text="{Binding Result}"/>
+                                <Label Grid.Column="0" 
+                                       Text="{Binding Severity}"
+                                       Style="{StaticResource CenterLabel}"/>
+                                <Label Grid.Column="1" 
+                                       Text="{Binding Result}"
+                                       Style="{StaticResource StartLabel}"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Cancel"
-                    Clicked="CancelClickedAsync"
-                    HorizontalOptions="CenterAndExpand"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
