@@ -37,6 +37,15 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
+        public uint Quantity
+        {
+            get { return Item.Quantity; }
+            set
+            {
+                Item.Quantity = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ItemViewModel() : this(new Item()) { }
 

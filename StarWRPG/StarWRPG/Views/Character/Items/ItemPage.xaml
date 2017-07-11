@@ -15,6 +15,9 @@
                         <EntryCell Label="Encumbrance"
                                    Text="{Binding Encumbrance}"
                                    Keyboard="Numeric"/>
+                        <EntryCell Label="Quantity"
+                                   Text="{Binding Quantity}"
+                                   Keyboard="Numeric"/>
                     </TableSection>
                 </TableRoot>
             </TableView>

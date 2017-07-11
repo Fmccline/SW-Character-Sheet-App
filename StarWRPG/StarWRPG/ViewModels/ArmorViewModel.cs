@@ -11,6 +11,15 @@ namespace StarWRPG.ViewModels
     {
         public Armor Armor;
 
+        public uint HardPoints
+        {
+            get { return Armor.HardPoints; }
+            set
+            {
+                Armor.HardPoints = value;
+                OnPropertyChanged();
+            }
+        }
         public uint RangedDefense
         {
             get { return Armor.RangedDefense; }

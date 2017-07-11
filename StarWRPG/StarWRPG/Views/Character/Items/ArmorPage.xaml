@@ -12,9 +12,6 @@
                                    Text="{Binding Name}"/>
                         <EntryCell Label="Description"
                                    Text="{Binding Description}"/>
-                        <EntryCell Label="Encumbrance"
-                                   Text="{Binding Encumbrance}"
-                                   Keyboard="Numeric"/>
                         <EntryCell Label="Ranged Defense"
                                    Text="{Binding RangedDefense}"
                                    Keyboard="Numeric"/>
@@ -23,6 +20,15 @@
                                    Keyboard="Numeric"/>
                         <EntryCell Label="Soak"
                                    Text="{Binding Soak}"
+                                   Keyboard="Numeric"/>
+                        <EntryCell Label="Encumbrance"
+                                   Text="{Binding Encumbrance}"
+                                   Keyboard="Numeric"/>
+                        <EntryCell Label="Hard Points"
+                                   Text="{Binding HardPoints}"
+                                   Keyboard="Numeric"/>
+                        <EntryCell Label="Quantity"
+                                   Text="{Binding Quantity}"
                                    Keyboard="Numeric"/>
                     </TableSection>
                 </TableRoot>
