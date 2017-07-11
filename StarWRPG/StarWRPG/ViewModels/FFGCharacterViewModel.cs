@@ -22,7 +22,7 @@ namespace StarWRPG.ViewModels
         // Presets
         private FFGPresetViewModel speciesPreset;
 
-        // Character Descriptions
+        // Character Info
         public string Background
         {
             get { return FFGCharacter.Background; }
@@ -40,16 +40,6 @@ namespace StarWRPG.ViewModels
             set
             {
                 FFGCharacter.Career = value;
-                OnPropertyChanged();
-            }
-        }
-        public string Description
-        {
-            get { return FFGCharacter.Description; }
-
-            set
-            {
-                FFGCharacter.Description = value;
                 OnPropertyChanged();
             }
         }
@@ -80,6 +70,70 @@ namespace StarWRPG.ViewModels
             set
             {
                 FFGCharacter.Species = value;
+                OnPropertyChanged();
+            }
+        }
+        // Description
+        public string Age
+        {
+            get { return FFGCharacter.Description.Age; }
+            set
+            {
+                FFGCharacter.Description.Age = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Build
+        {
+            get { return FFGCharacter.Description.Build; }
+            set
+            {
+                FFGCharacter.Description.Build = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Eyes
+        {
+            get { return FFGCharacter.Description.Eyes; }
+            set
+            {
+                FFGCharacter.Description.Eyes = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Gender
+        {
+            get { return FFGCharacter.Description.Gender; }
+            set
+            {
+                FFGCharacter.Description.Gender = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Hair
+        {
+            get { return FFGCharacter.Description.Hair; }
+            set
+            {
+                FFGCharacter.Description.Hair = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Height
+        {
+            get { return FFGCharacter.Description.Height; }
+            set
+            {
+                FFGCharacter.Description.Height = value;
+                OnPropertyChanged();
+            }
+        }
+        public string NotableFeatures
+        {
+            get { return FFGCharacter.Description.NotableFeatures; }
+            set
+            {
+                FFGCharacter.Description.NotableFeatures = value;
                 OnPropertyChanged();
             }
         }

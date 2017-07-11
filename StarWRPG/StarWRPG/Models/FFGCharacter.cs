@@ -11,14 +11,10 @@ namespace StarWRPG.Models
 
         public string Background { get; set; }
         public string Career { get; set; }
-        public string Description { get; set; }
-        public string EmotionalStrengths { get; set; }
-        public string EmotionalWeaknesses { get; set; }
-        public string Motivation { get; set; }
         public string Name { get; set; }
         public string SpecializationTrees { get; set; }
         public string Species { get; set; }
-
+      
         public uint Conflict { get; set; }
         public uint Contribution { get; set; }
         public uint CurrentStrain { get; set; }
@@ -34,6 +30,7 @@ namespace StarWRPG.Models
         public uint TotalObligation { get; set; }
 
         public Characteristics Characteristics { get; set; }
+        public CharacterDescription Description { get; set; }
 
         public ObservableCollection<CharacterMotivationBase> Motivations { get; set; }
         public ObservableCollection<CriticalInjury> CriticalInjuries { get; set; }
@@ -47,28 +44,15 @@ namespace StarWRPG.Models
         {
             Background = "";
             Career = "";
-            Description = "";
-            EmotionalStrengths = "";
-            EmotionalWeaknesses = "";
-            Motivation = "";
             Name = "";
             SpecializationTrees = "";
             Species = "";
 
             Characteristics = new Characteristics();
+            Description = new CharacterDescription();
             CriticalInjuries = new ObservableCollection<CriticalInjury>();
             Inventory = new Inventory();
             Motivations = new ObservableCollection<CharacterMotivationBase>();
-            //{
-            //    new CharacterDuty(),
-            //    new CharacterMotivation(),
-            //    new CharacterEmotionalStrengths(),
-            //    new CharacterEmotionalWeaknesses(),
-            //    new CharacterDuty(),
-            //    new CharacterDuty(),
-            //    new CharacterObligation(),
-            //    new CharacterObligation(),
-            //};
             Talents = new ObservableCollection<Talent>();
             XP = new Experience();
 

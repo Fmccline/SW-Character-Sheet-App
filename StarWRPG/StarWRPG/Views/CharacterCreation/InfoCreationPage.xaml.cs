@@ -14,7 +14,7 @@ using Xamarin.Forms.Xaml;
 namespace StarWRPG.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CharacterInfoCreationPage : BasePage
+    public partial class InfoCreationPage : BasePage
     {
         FFGCharacterViewModel ffgCharacterViewModel;
 
@@ -23,23 +23,17 @@ namespace StarWRPG.Views
             get { return MainStackLayout; }
         }
 
-        public CharacterInfoCreationPage(FFGCharacterViewModel characterViewModel)
+        public InfoCreationPage(FFGCharacterViewModel characterViewModel)
         {
             InitializeComponent();
 
             ffgCharacterViewModel = characterViewModel;
             BindingContext = ffgCharacterViewModel;
-
-            ScrollViewStackLayout.Children.Add(new CriticalInjuriesLayout(ffgCharacterViewModel.CriticalInjuriesViewModel));
         }
 
-        public async void EditValueAsync(object sender, EventArgs e)
+        public async void EditBackgroundAsync(object sender, EventArgs e)
         {
-            var buttonClicked = sender as Button;
-            if (buttonClicked == EditBackgroundButton)
-                await Navigation.PushModalAsync(new EditorPage("Character Background", "Background", ffgCharacterViewModel));
-            else if (buttonClicked == EditDescriptionButton)
-                await Navigation.PushModalAsync(new EditorPage("Character Description", "Description", ffgCharacterViewModel));
+            await Navigation.PushModalAsync(new EditorPage("Character Background", "Background", ffgCharacterViewModel));
         }
 
         private async void ChangeSpeciePresetAsync(object sender, EventArgs e)

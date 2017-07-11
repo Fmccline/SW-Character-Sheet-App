@@ -25,13 +25,16 @@ namespace StarWRPG.Views
 
         private async void InjurySelectedAsync(object sender, SelectedItemChangedEventArgs e)
         {
-            var injury = e.SelectedItem as CriticalInjuryViewModel;
-            string message = String.Format("\nSeverity: {1}\nResult: {0}", injury.Result,injury.Severity);
-            var answer = await DisplayAlert("Remove Injury", message, "Yes", "No");
-            if (answer)
+            if (e.SelectedItem is CriticalInjuryViewModel injury)
             {
-                criticalInjuriesViewModel.RemoveCriticalInjury(injury);
-                await Navigation.PopModalAsync();
+                string message = String.Format("\nSeverity: {1}\nResult: {0}", injury.Result, injury.Severity);
+                var answer = await DisplayAlert("Remove Injury", message, "Yes", "No");
+                if (answer)
+                {
+                    criticalInjuriesViewModel.RemoveCriticalInjury(injury);
+                    await Navigation.PopModalAsync();
+                }
+                InjuryListView.SelectedItem = null;
             }
         }
 
