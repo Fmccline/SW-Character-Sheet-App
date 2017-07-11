@@ -17,6 +17,7 @@ namespace StarWRPG.Models
       
         public uint Conflict { get; set; }
         public uint Contribution { get; set; }
+        public uint Credits { get; set; }
         public uint CurrentEncumbrance { get; set; }
         public uint CurrentStrain { get; set; }
         public uint CurrentWounds { get; set; }

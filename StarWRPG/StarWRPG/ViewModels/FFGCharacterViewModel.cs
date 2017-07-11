@@ -307,6 +307,15 @@ namespace StarWRPG.ViewModels
             get { return FFGCharacter.Characteristics.Agility.MaxRank; }
         }
         // Inventory
+        public uint Credits
+        {
+            get { return FFGCharacter.Credits; }
+            set
+            {
+                FFGCharacter.Credits = value;
+                OnPropertyChanged();
+            }
+        }
         public uint CurrentEncumbrance
         {
             get { return FFGCharacter.CurrentEncumbrance; }

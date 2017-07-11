@@ -34,8 +34,24 @@
                     <Label Text="Specializations:" Style="{StaticResource StartLabel}"/>
                     <Label Text="{Binding SpecializationTrees}" Style="{StaticResource CenterBoldLabel}"/>
                 </StackLayout>
+                <!--Critical Injuries-->
+                <StackLayout x:Name="CriticalInjuriesLayout" Padding="0,20,0,0">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Critical Injuries" 
+                               Style="{StaticResource StartBoldLabel}"
+                               FontSize="Medium"/>
+                        <Button Text="-" 
+                                Clicked="RemoveCriticalInjuryAsync"
+                                HeightRequest="40"
+                                WidthRequest="50"/>
+                        <Button Text="+" 
+                                Clicked="AddCriticalInjuryAsync"
+                                HeightRequest="40"
+                                WidthRequest="50"/>
+                    </StackLayout>
+                </StackLayout>
                 <!--Description-->
-                <Grid HorizontalOptions="FillAndExpand" Padding="0,20,0,0"> 
+                <Grid HorizontalOptions="FillAndExpand" Padding="0,20,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
@@ -88,22 +104,6 @@
                            Style="{StaticResource StartBoldLabel}"
                            VerticalOptions="Start"/>
                 </Grid>
-                <!--Critical Injuries-->
-                <StackLayout x:Name="CriticalInjuriesLayout" Padding="0,20,0,0">
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Critical Injuries" 
-                               Style="{StaticResource StartBoldLabel}"
-                               FontSize="Medium"/>
-                        <Button Text="-" 
-                                Clicked="RemoveCriticalInjuryAsync"
-                                HeightRequest="40"
-                                WidthRequest="50"/>
-                        <Button Text="+" 
-                                Clicked="AddCriticalInjuryAsync"
-                                HeightRequest="40"
-                                WidthRequest="50"/>
-                    </StackLayout>
-                </StackLayout>
                 <!--Background-->
                 <Label Text="Character Background" 
                        Margin="0,20,0,0"

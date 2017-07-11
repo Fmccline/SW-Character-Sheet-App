@@ -6,12 +6,6 @@
              x:Class="StarWRPG.Views.CharacterInventoryPage">
 
     <StackLayout x:Name="MainStackLayout">
-        <!--Encumbrance-->
-        <Grid>
-            <Label Text="Encumbrance: "/>
-            <Label Grid.Column="1" Text="{Binding CurrentEncumbrance}"/>
-        </Grid>
-        
         <!--Select items ListView buttons-->
         <StackLayout Orientation="Horizontal">
             <Button x:Name="WeaponsButton" 
@@ -26,12 +20,41 @@
                     Text="Items" 
                     Clicked="ItemsClicked"
                     HorizontalOptions="FillAndExpand"/>
+            <Button Text="+" 
+                    Clicked="AddItemAsync"/>
         </StackLayout>
         <!--Layout where the items ListView is added-->
         <StackLayout x:Name="ItemsLayout" VerticalOptions="FillAndExpand"/>
-        <!--Add new item button-->
-        <Button Text="Add" 
-                Clicked="AddItemAsync"
-                HorizontalOptions="Center"/>
+        <!--Encumbrance and Credits-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+            <!--Encumbrance-->
+            <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                   Text="Encumbrance" Style="{StaticResource CenterBoldLabel}"/>
+            <Label Grid.Column="0" Grid.Row="1"
+                   Text="{Binding CurrentEncumbrance}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="1" Grid.Row="1"
+                   Text="{Binding EncumbranceThreshold}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="0" Grid.Row="2"
+                   Text="Current" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="1" Grid.Row="2"
+                   Text="Threshold" Style="{StaticResource CenterLabel}"/>
+            <!--Credits-->
+            <Label Grid.Column="2" Grid.Row="0"
+                   Text="Credits Owned" Style="{StaticResource CenterBoldLabel}"/>
+            <Label Grid.Column="2" Grid.Row="1"
+                   Text="{Binding Credits}" Style="{StaticResource CenterLabel}"/>
+            <local:StepperWithEntry Grid.Column="2" Grid.Row="2"
+                                    Value="{Binding Credits}"/>
+        </Grid>
     </StackLayout>
 </local:BasePage>
