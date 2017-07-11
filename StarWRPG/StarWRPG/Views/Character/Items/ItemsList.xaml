@@ -5,7 +5,6 @@
 
     <ListView x:Name="ItemsListView" 
                 ItemsSource="{Binding Items}"
-                IsVisible="{Binding ItemsIsVisible}"
                 ItemSelected="ItemSelectedAsync"
                 VerticalOptions="Start">
         <ListView.Header>

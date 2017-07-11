@@ -6,6 +6,7 @@
              x:Class="StarWRPG.Views.CharacterInventoryPage">
 
     <StackLayout x:Name="MainStackLayout">
+        <!--Select items ListView buttons-->
         <StackLayout Orientation="Horizontal">
             <Button x:Name="WeaponsButton" 
                     Text="Weapons" 
@@ -20,9 +21,9 @@
                     Clicked="ItemsClicked"
                     HorizontalOptions="FillAndExpand"/>
         </StackLayout>
-
+        <!--Layout where the items ListView is added-->
         <StackLayout x:Name="ItemsLayout" VerticalOptions="FillAndExpand"/>
-
+        <!--Add new item button-->
         <Button Text="Add" 
                 Clicked="AddItemAsync"
                 HorizontalOptions="Center"/>

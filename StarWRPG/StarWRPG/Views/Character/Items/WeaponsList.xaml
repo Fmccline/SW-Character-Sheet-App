@@ -6,7 +6,6 @@
     <ListView x:Name="WeaponsListView" 
                 ItemsSource="{Binding Weapons}"
                 ItemSelected="WeaponSelectedAsync"
-                IsVisible="{Binding WeaponsIsVisible}"
                 VerticalOptions="Start">
         <ListView.Header>
             <Grid>

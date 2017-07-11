@@ -13,45 +13,10 @@ namespace StarWRPG.ViewModels
         public ObservableCollection<WeaponViewModel> Weapons { get; private set; }
         public ObservableCollection<ArmorViewModel> Armors { get; private set; }
 
-        bool weaponsIsVisible { get; set; }
-        bool armorsIsVisible { get; set; }
-        bool itemsIsVisible { get; set; }
-
-        public bool WeaponsIsVisible
-        {
-            get { return weaponsIsVisible; }
-            set
-            {
-                weaponsIsVisible = value;
-                OnPropertyChanged();
-            }
-        }
-        public bool ArmorsIsVisible
-        {
-            get { return armorsIsVisible; }
-            set
-            {
-                armorsIsVisible = value;
-                OnPropertyChanged();
-            }
-        }
-        public bool ItemsIsVisible
-        {
-            get { return itemsIsVisible; }
-            set
-            {
-                itemsIsVisible = value;
-                OnPropertyChanged();
-            }
-        }
-
         public InventoryViewModel(Inventory inventory)
         {
             Inventory = inventory;
             InitializeInventory();
-            weaponsIsVisible = true;
-            armorsIsVisible = true;
-            itemsIsVisible = true;
         }
 
         private void Add(ItemViewModel item)
