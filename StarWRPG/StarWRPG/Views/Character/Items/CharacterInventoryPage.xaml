@@ -6,6 +6,12 @@
              x:Class="StarWRPG.Views.CharacterInventoryPage">
 
     <StackLayout x:Name="MainStackLayout">
+        <!--Encumbrance-->
+        <Grid>
+            <Label Text="Encumbrance: "/>
+            <Label Grid.Column="1" Text="{Binding CurrentEncumbrance}"/>
+        </Grid>
+        
         <!--Select items ListView buttons-->
         <StackLayout Orientation="Horizontal">
             <Button x:Name="WeaponsButton" 

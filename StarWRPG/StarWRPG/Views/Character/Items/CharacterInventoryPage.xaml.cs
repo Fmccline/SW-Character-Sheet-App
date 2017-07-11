@@ -30,7 +30,7 @@ namespace StarWRPG.Views
             InitializeComponent();
 
             inventoryViewModel = characterViewModel.InventoryViewModel;
-            BindingContext = inventoryViewModel;
+            BindingContext = characterViewModel;
 
             armorsList = new ArmorsList(inventoryViewModel);
             itemsList = new ItemsList(inventoryViewModel);

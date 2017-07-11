@@ -70,7 +70,6 @@
     <Compile Include="Models\CharacterMembers\Presets\ZabrakPreset.cs" />
     <Compile Include="Models\CharacterMembers\Skills\CustomSkill.cs" />
     <Compile Include="Models\CharacterMembers\Talent.cs" />
-    <Compile Include="ViewModelFactory.cs" />
     <Compile Include="ViewModels\ArmorViewModel.cs" />
     <Compile Include="ViewModels\Motivations\CharacterMotivationsViewModel.cs" />
     <Compile Include="ViewModels\Motivations\EmotionalWeaknessesViewModel.cs" />
