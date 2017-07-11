@@ -33,55 +33,62 @@
                     <Label Text="{Binding SpecializationTrees}" Style="{StaticResource CenterBoldLabel}"/>
                 </StackLayout>
                 <!--Description-->
-                <StackLayout x:Name="DescriptionAndCritsLayout" Orientation="Horizontal">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="2*"/>
-                        </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="2*"/>
+                    </Grid.RowDefinitions>
 
-                        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
                            Text="Character Description" Style="{StaticResource CenterBoldLabel}"/>
-                        <Label Grid.Column="0" Grid.Row="1"
+                    <Label Grid.Column="0" Grid.Row="1"
                            Text="Gender" Style="{StaticResource CenterLabel}"/>
-                        <Label Grid.Column="0" Grid.Row="2"
+                    <Label Grid.Column="0" Grid.Row="2"
                            Text="Age" Style="{StaticResource CenterLabel}"/>
-                        <Label Grid.Column="0" Grid.Row="3"
+                    <Label Grid.Column="0" Grid.Row="3"
                            Text="Height" Style="{StaticResource CenterLabel}"/>
-                        <Label Grid.Column="0" Grid.Row="4"
+                    <Label Grid.Column="0" Grid.Row="4"
                            Text="Build" Style="{StaticResource CenterLabel}"/>
-                        <Label Grid.Column="0" Grid.Row="5"
+                    <Label Grid.Column="0" Grid.Row="5"
                            Text="Hair" Style="{StaticResource CenterLabel}"/>
-                        <Label Grid.Column="0" Grid.Row="6"
+                    <Label Grid.Column="0" Grid.Row="6"
                            Text="Eyes" Style="{StaticResource CenterLabel}"/>
-                        <Label Grid.Column="0" Grid.Row="7"
+                    <Label Grid.Column="0" Grid.Row="7"
                            Text="Features" Style="{StaticResource CenterLabel}"/>
 
-                        <Label Grid.Column="1" Grid.Row="1"
+                    <Label Grid.Column="1" Grid.Row="1"
                            Text="{Binding Gender}" Style="{StaticResource CenterLabel}"/>
-                        <Label Grid.Column="1" Grid.Row="2"
+                    <Label Grid.Column="1" Grid.Row="2"
                            Text="{Binding Age}" Style="{StaticResource CenterLabel}"/>
-                        <Label Grid.Column="1" Grid.Row="3"
+                    <Label Grid.Column="1" Grid.Row="3"
                            Text="{Binding Height}" Style="{StaticResource CenterLabel}"/>
-                        <Label Grid.Column="1" Grid.Row="4"
+                    <Label Grid.Column="1" Grid.Row="4"
                            Text="{Binding Build}" Style="{StaticResource CenterLabel}"/>
-                        <Label Grid.Column="1" Grid.Row="5"
+                    <Label Grid.Column="1" Grid.Row="5"
                            Text="{Binding Hair}" Style="{StaticResource CenterLabel}"/>
-                        <Label Grid.Column="1" Grid.Row="6"
+                    <Label Grid.Column="1" Grid.Row="6"
                            Text="{Binding Eyes}" Style="{StaticResource CenterLabel}"/>
-                        <Label Grid.Column="1" Grid.Row="7"
+                    <Label Grid.Column="1" Grid.Row="7"
                            Text="{Binding NotableFeatures}" Style="{StaticResource CenterLabel}"/>
-                    </Grid>
+                </Grid>
+                <StackLayout x:Name="CriticalInjuriesLayout">
+                    <Label Text="Critical Injuries" Style="{StaticResource CenterBoldLabel}"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button Text="+" 
+                                Clicked="AddCriticalInjuryAsync"/>
+                        <Button Text="-" 
+                                Clicked="RemoveCriticalInjuryAsync"/>
+                    </StackLayout>
                 </StackLayout>
                 <!--Background-->
                 <Label Text="Character Background" Style="{StaticResource StartBoldLabel}"/>

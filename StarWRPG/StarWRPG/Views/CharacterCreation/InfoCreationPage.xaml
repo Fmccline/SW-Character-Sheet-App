@@ -80,7 +80,7 @@
                     <Label Grid.Column="0" Grid.Row="7"
                            Text="Features" 
                            HorizontalOptions="Center"
-                           VerticalOptions="Start"
+                           VerticalOptions="Center"
                            FontAttributes="Bold"/>
 
                     <Entry Grid.Column="1" Grid.Row="1"

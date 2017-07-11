@@ -20,7 +20,17 @@ namespace StarWRPG.Views
             ffgCharacterViewModel = character;
             BindingContext = ffgCharacterViewModel;
 
-            DescriptionAndCritsLayout.Children.Add(new CriticalInjuriesLayout(ffgCharacterViewModel.CriticalInjuriesViewModel));
+            CriticalInjuriesLayout.Children.Insert(1,new CriticalInjuriesLayout(ffgCharacterViewModel.CriticalInjuriesViewModel));
+        }
+
+        private async void AddCriticalInjuryAsync(object sender, System.EventArgs e)
+        {
+            await Navigation.PushModalAsync(new AddCriticalInjuryPage(ffgCharacterViewModel.CriticalInjuriesViewModel));
+        }
+
+        private async void RemoveCriticalInjuryAsync(object sender, System.EventArgs e)
+        {
+            await Navigation.PushModalAsync(new RemoveCriticalInjuryPage(ffgCharacterViewModel.CriticalInjuriesViewModel));
         }
     }
 }

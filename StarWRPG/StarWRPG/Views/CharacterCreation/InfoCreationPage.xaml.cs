@@ -29,8 +29,6 @@ namespace StarWRPG.Views
 
             ffgCharacterViewModel = characterViewModel;
             BindingContext = ffgCharacterViewModel;
-
-            ScrollViewStackLayout.Children.Add(new CriticalInjuriesLayout(ffgCharacterViewModel.CriticalInjuriesViewModel));
         }
 
         public async void EditBackgroundAsync(object sender, EventArgs e)
