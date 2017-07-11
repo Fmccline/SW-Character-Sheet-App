@@ -153,6 +153,10 @@ namespace StarWRPG.ViewModels
             {
                 Items.Remove(item);
             }
+            if (item.Encumbrance > 0)
+            {
+                SetEncumbrance();
+            }
             Inventory.Remove(item.Item);
         }
     }
