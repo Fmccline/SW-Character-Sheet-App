@@ -2,111 +2,29 @@
 <local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:StarWRPG.Views" 
-             Title="Items"
+             Title="Inventory"
              x:Class="StarWRPG.Views.CharacterInventoryPage">
 
     <StackLayout x:Name="MainStackLayout">
         <StackLayout Orientation="Horizontal">
-            <Label Text="Weapons"
-                   FontAttributes="Bold"
-                   HorizontalOptions="FillAndExpand"/>
-            <Switch IsToggled="{Binding WeaponsIsVisible}"/>
+            <Button x:Name="WeaponsButton" 
+                    Text="Weapons" 
+                    Clicked="WeaponsClicked"
+                    HorizontalOptions="FillAndExpand"/>
+            <Button x:Name="ArmorButton" 
+                    Text="Armor"
+                    Clicked="ArmorClicked"
+                    HorizontalOptions="FillAndExpand"/>
+            <Button x:Name="ItemsButton" 
+                    Text="Items" 
+                    Clicked="ItemsClicked"
+                    HorizontalOptions="FillAndExpand"/>
         </StackLayout>
-        
-        <ListView x:Name="WeaponsListView" 
-                  ItemsSource="{Binding Weapons}"
-                  ItemSelected="WeaponSelectedAsync"
-                  IsVisible="{Binding WeaponsIsVisible}"
-                  VerticalOptions="Start">
-            <ListView.Header>
-                <Grid>
-                    <Label Grid.Column="0" Text="Name" FontAttributes="Bold"/>
-                    <Label Grid.Column="1" Text="Skill" FontAttributes="Bold"/>
-                    <Label Grid.Column="2" Text="Damage" FontAttributes="Bold"/>
-                    <Label Grid.Column="3" Text="Crit" FontAttributes="Bold"/>
-                    <Label Grid.Column="4" Text="Range" FontAttributes="Bold"/>
-                </Grid>
-            </ListView.Header>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid>
-                            <Label Grid.Column="0" Text="{Binding Name}"/>
-                            <Label Grid.Column="1" Text="{Binding Skill}"/>
-                            <Label Grid.Column="2" Text="{Binding Damage}"/>
-                            <Label Grid.Column="3" Text="{Binding Crit}"/>
-                            <Label Grid.Column="4" Text="{Binding Range}"/>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
 
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Armor"
-                   FontAttributes="Bold"
-                   HorizontalOptions="FillAndExpand"/>
-            <Switch IsToggled="{Binding ArmorsIsVisible}"/>
-        </StackLayout>
-        
-        <ListView x:Name="ArmorsListView" 
-                  ItemsSource="{Binding Armors}"
-                  ItemSelected="ArmorSelectedAsync"
-                  IsVisible="{Binding ArmorsIsVisible}"
-                  VerticalOptions="Start">
-            <ListView.Header>
-                <Grid>
-                    <Label Grid.Column="0" Text="Name" FontAttributes="Bold"/>
-                    <Label Grid.Column="1" Text="Soak" FontAttributes="Bold"/>
-                    <Label Grid.Column="2" Text="Ranged Defense" FontAttributes="Bold"/>
-                    <Label Grid.Column="3" Text="Melee Defense" FontAttributes="Bold"/>
-                </Grid>
-            </ListView.Header>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid>
-                            <Label Grid.Column="0" Text="{Binding Name}"/>
-                            <Label Grid.Column="1" Text="{Binding Soak}"/>
-                            <Label Grid.Column="2" Text="{Binding RangedDefense}"/>
-                            <Label Grid.Column="3" Text="{Binding MeleeDefense}"/>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <StackLayout x:Name="ItemsLayout" VerticalOptions="FillAndExpand"/>
 
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Items"
-                   FontAttributes="Bold"
-                   HorizontalOptions="FillAndExpand"/>
-            <Switch IsToggled="{Binding ItemsIsVisible}"/>
-        </StackLayout>
-        
-        <ListView x:Name="ItemsListView" 
-                  ItemsSource="{Binding Items}"
-                  IsVisible="{Binding ItemsIsVisible}"
-                  ItemSelected="ItemSelectedAsync"
-                  VerticalOptions="Start">
-            <ListView.Header>
-                <Grid>
-                    <Label Grid.Column="0" Text="Name" FontAttributes="Bold"/>
-                    <Label Grid.Column="1" Text="Description" FontAttributes="Bold"/>
-                </Grid>
-            </ListView.Header>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid>
-                            <Label Grid.Column="0" Text="{Binding Name}"/>
-                            <Label Grid.Column="1" Text="{Binding Description}"/>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
-        <Button Text="Add" Clicked="AddItemAsync"/>
-
+        <Button Text="Add" 
+                Clicked="AddItemAsync"
+                HorizontalOptions="Center"/>
     </StackLayout>
 </local:BasePage>

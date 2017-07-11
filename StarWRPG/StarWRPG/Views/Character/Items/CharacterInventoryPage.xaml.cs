@@ -16,6 +16,10 @@ namespace StarWRPG.Views
     {
         InventoryViewModel inventoryViewModel;
 
+        ArmorsList armorsList;
+        ItemsList itemsList;
+        WeaponsList weaponsList;
+
         protected override StackLayout mainStackLayout
         {
             get { return MainStackLayout; }
@@ -27,6 +31,12 @@ namespace StarWRPG.Views
 
             inventoryViewModel = characterViewModel.InventoryViewModel;
             BindingContext = inventoryViewModel;
+
+            armorsList = new ArmorsList(inventoryViewModel);
+            itemsList = new ItemsList(inventoryViewModel);
+            weaponsList = new WeaponsList(inventoryViewModel);
+
+            WeaponsClicked(null,null);
         }
 
         public async void AddItemAsync(object sender, EventArgs e)
@@ -51,31 +61,35 @@ namespace StarWRPG.Views
             }
         }
 
-        private async void ArmorSelectedAsync(object sender, SelectedItemChangedEventArgs e)
+        private void WeaponsClicked(object sender, EventArgs e)
         {
-            if (e.SelectedItem is ArmorViewModel armor)
-            {
-                await Navigation.PushModalAsync(new ArmorPage(inventoryViewModel, armor));
-                ArmorsListView.SelectedItem = null;
-            }
+            ItemsLayout.Children.Clear();
+            ItemsLayout.Children.Add(weaponsList);
+            EnableAllButtons();
+            WeaponsButton.IsEnabled = false;
         }
 
-        private async void ItemSelectedAsync(object sender, SelectedItemChangedEventArgs e)
+        private void ArmorClicked(object sender, EventArgs e)
         {
-            if (e.SelectedItem is ItemViewModel item)
-            {
-                await Navigation.PushModalAsync(new ItemPage(inventoryViewModel, item));
-                ItemsListView.SelectedItem = null;
-            }
+            ItemsLayout.Children.Clear();
+            ItemsLayout.Children.Add(armorsList);
+            EnableAllButtons();
+            ArmorButton.IsEnabled = false;
         }
 
-        private async void WeaponSelectedAsync(object sender, SelectedItemChangedEventArgs e)
+        private void ItemsClicked(object sender, EventArgs e)
         {
-            if (e.SelectedItem is WeaponViewModel weapon)
-            {
-                await Navigation.PushModalAsync(new WeaponPage(inventoryViewModel,weapon));
-                WeaponsListView.SelectedItem = null;
-            }
+            ItemsLayout.Children.Clear();
+            ItemsLayout.Children.Add(itemsList);
+            EnableAllButtons();
+            ItemsButton.IsEnabled = false;
+        }
+
+        private void EnableAllButtons()
+        {
+            ArmorButton.IsEnabled = true;
+            ItemsButton.IsEnabled = true;
+            WeaponsButton.IsEnabled = true;
         }
     }
 }

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StarWRPG.Views.ArmorsList">
+
+    <ListView x:Name="ArmorsListView" 
+                ItemsSource="{Binding Armors}"
+                ItemSelected="ArmorSelectedAsync"
+                IsVisible="{Binding ArmorsIsVisible}"
+                VerticalOptions="Start">
+        <ListView.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.5*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0" Text="Name" Style="{StaticResource StartBoldLabel}"/>
+                <Label Grid.Column="1" Text="Soak" Style="{StaticResource CenterBoldLabel}"/>
+                <Label Grid.Column="2" Text="Ranged D." Style="{StaticResource CenterBoldLabel}"/>
+                <Label Grid.Column="3" Text="Melee D." Style="{StaticResource CenterBoldLabel}"/>
+            </Grid>
+        </ListView.Header>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Label Grid.Column="0" Text="{Binding Name}" Style="{StaticResource StartLabel}"/>
+                        <Label Grid.Column="1" Text="{Binding Soak}" Style="{StaticResource CenterLabel}"/>
+                        <Label Grid.Column="2" Text="{Binding RangedDefense}" Style="{StaticResource CenterLabel}"/>
+                        <Label Grid.Column="3" Text="{Binding MeleeDefense}" Style="{StaticResource CenterLabel}"/>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentView>
