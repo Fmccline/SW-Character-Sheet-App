@@ -11,12 +11,12 @@
     
     
     <StackLayout x:Name="MainStackLayout">
-        <SearchBar x:Name="Search" 
-                   HorizontalOptions="FillAndExpand"
-                   Placeholder="Search by name, rank, or career."
-                   SearchCommand="{Binding SearchCommand}" 
-                   SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
-                   TextChanged="SearchTextChanged"/>
+        <local:CustomSearchBar x:Name="Search"
+                               HorizontalOptions="FillAndExpand"
+                               Placeholder="Search by name, rank, or career."
+                               SearchCommand="{Binding SearchCommand}" 
+                               SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
+                               TextChangedCommand="{Binding DefaultSortCommand}"/>
         <ListView x:Name="SkillsListView" 
                   CachingStrategy="RecycleElement"
                   ItemsSource="{Binding SkillViewModels}"

@@ -41,17 +41,5 @@ namespace StarWRPG.Views
         {
             await Navigation.PushModalAsync(new AddCustomSkillPage(skillsViewModel));
         }
-
-        private void SearchTextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (Search.Text.Equals(""))
-            {
-                skillsViewModel.SortSkillsAlphabetically();
-                if (Search.IsFocused)
-                {
-                    Search.Unfocus();
-                }
-            }
-        }
     }
 }

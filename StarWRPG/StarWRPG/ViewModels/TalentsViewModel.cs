@@ -1,16 +1,33 @@
-﻿using StarWRPG.Models;
+﻿using StarWRPG.Controls;
+using StarWRPG.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace StarWRPG.ViewModels
 {
-    public class TalentsViewModel
+    public class TalentsViewModel : ViewModelBase, ISearchable
     {
-        public ObservableCollection<TalentViewModel> TalentViewModels { get; private set; }
+        ObservableCollection<TalentViewModel> talentViewModels;
+        public ObservableCollection<TalentViewModel> TalentViewModels
+        {
+            get { return talentViewModels; }
+            private set
+            {
+                talentViewModels = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICommand SearchCommand { get { return new Command<String>(Search); } }
+        public ICommand DefaultSortCommand { get { return new Command(DefaultSort); } }
+
         ObservableCollection<Talent> talents;
 
         public TalentsViewModel(ObservableCollection<Talent> talents)
@@ -52,5 +69,35 @@ namespace StarWRPG.ViewModels
             }
         }
 
+        public void DefaultSort()
+        {
+            List<TalentViewModel> result = TalentViewModels.OrderBy(x => x.Name).ToList();
+            TalentViewModels = new ObservableCollection<TalentViewModel>(result);
+        }
+
+        public void Search(string searchText)
+        {
+            searchText = searchText.ToLower();
+            List<TalentViewModel> result;
+            if (searchText == null)
+            {
+                DefaultSort();
+                return;
+            }
+            else if (UInt32.TryParse(searchText, out uint pageNumber))
+            {
+                result = TalentViewModels.OrderByDescending(x => x.PageNumber == pageNumber).ToList();
+            }
+            else
+            {
+                result = TalentViewModels.OrderByDescending(x => x.Description.ToLower().Contains(searchText)).ToList();
+                result = result.OrderByDescending(x => x.Name.ToLower().Contains(searchText)).ToList();
+            }
+            foreach(var talent in result)
+            {
+                Debug.WriteLine(talent.Name);
+            }
+            TalentViewModels = new ObservableCollection<TalentViewModel>(result);
+        }
     }
 }

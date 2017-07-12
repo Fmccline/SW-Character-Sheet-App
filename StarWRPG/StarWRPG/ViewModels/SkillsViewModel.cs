@@ -1,4 +1,5 @@
-﻿using StarWRPG.Models;
+﻿using StarWRPG.Controls;
+using StarWRPG.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,10 +12,12 @@ using Xamarin.Forms;
 
 namespace StarWRPG.ViewModels
 {
-    public class SkillsViewModel : ViewModelBase
+    public class SkillsViewModel : ViewModelBase, ISearchable
     {
+        public ICommand SearchCommand { get { return new Command<String>(Search); } }
+        public ICommand DefaultSortCommand { get { return new Command(DefaultSort); } }
+
         public Characteristics Characteristics;
-        public ICommand SearchCommand { get; private set; }
         public Experience XP;
         ObservableCollection<SkillViewModel> skillViewModels;
         public ObservableCollection<SkillViewModel> SkillViewModels
@@ -27,7 +30,7 @@ namespace StarWRPG.ViewModels
             }
         }
 
-        private ObservableCollection<Skill> skills;
+        ObservableCollection<Skill> skills;
         public uint AvailableXP
         {
             get { return XP.AvailableXP; }
@@ -58,8 +61,6 @@ namespace StarWRPG.ViewModels
             {
                 SkillViewModels.Add(new SkillViewModel(skill, characteristics, xp));
             }
-
-            SearchCommand = new Command<string>(SearchSkills);
         }
 
         public void AddSkill(SkillViewModel skill)
@@ -74,13 +75,20 @@ namespace StarWRPG.ViewModels
             skills.Remove(skill.Skill);
         }
 
-        private void SearchSkills(string searchText)
+        public void DefaultSort()
+        {
+            List<SkillViewModel> result = SkillViewModels.OrderBy(x => x.Name).ToList();
+            SkillViewModels = new ObservableCollection<SkillViewModel>(result);
+        }
+
+        public void Search(string searchText)
         {
             searchText = searchText.ToLower();
             List<SkillViewModel> result;
-            if (searchText == null) 
+            if (searchText == null)
             {
-                result = SkillViewModels.OrderBy(x => x.Name).ToList();
+                DefaultSort();
+                return;
             }
             else if (Int32.TryParse(searchText, out int rank))
             {
@@ -98,12 +106,6 @@ namespace StarWRPG.ViewModels
             {
                 result = SkillViewModels.OrderByDescending(x => x.Name.ToLower().Contains(searchText)).ToList();
             }
-            SkillViewModels = new ObservableCollection<SkillViewModel>(result);
-        }
-
-        public void SortSkillsAlphabetically()
-        {
-            List<SkillViewModel> result = SkillViewModels.OrderBy(x => x.Name).ToList();
             SkillViewModels = new ObservableCollection<SkillViewModel>(result);
         }
     }

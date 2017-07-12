@@ -36,7 +36,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CustomSearchBar.cs" />
     <Compile Include="Controls\EditCharacterToolbarItem.cs" />
+    <Compile Include="Controls\ISearchable.cs" />
     <Compile Include="Controls\SaveCharacterToolbarItem.cs" />
     <Compile Include="Controls\CharacterDetailsToolbarItem.cs" />
     <Compile Include="Models\CharacterDescription.cs" />
@@ -81,7 +83,7 @@
     <Compile Include="Views\Character\Items\WeaponsList.xaml.cs">
       <DependentUpon>WeaponsList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\StepperWithEntry.cs" />
+    <Compile Include="Controls\StepperWithEntry.cs" />
     <Compile Include="Database\CharacterDatabase.cs" />
     <Compile Include="Database\CharacterDataItem.cs" />
     <Compile Include="Database\IFileHelper.cs" />
