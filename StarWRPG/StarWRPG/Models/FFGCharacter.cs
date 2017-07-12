@@ -64,13 +64,51 @@ namespace StarWRPG.Models
 
         void InitializeSkills()
         {
-            var Intellect = Characteristics.Intellect;
-            var Brawn = Characteristics.Brawn;
+            var agility = Characteristics.Agility;
+            var brawn = Characteristics.Brawn;
+            var cunning = Characteristics.Cunning;
+            var intellect = Characteristics.Intellect;
+            var presence = Characteristics.Presence;
+            var willpower = Characteristics.Willpower;
             Skills = new ObservableCollection<Skill>
             {
-                new AstrogationSkill(Intellect),
-                new AthleticsSkill(Brawn),
-                new LightsaberSkill(Brawn),
+                new AstrogationSkill(intellect),
+                new AthleticsSkill(brawn),
+                new CharmSkill(presence),
+                new CoercionSkill(willpower),
+                new ComputersSkill(intellect),
+                new CoolSkill(presence),
+                new CoordinationSkill(agility),
+                new DeceptionSkill(cunning),
+                new DisciplineSkill(willpower),
+                new LeadershipSkill(presence),
+                new MechanicsSkill(intellect),
+                new MedicineSkill(intellect),
+                new NegotiationSkill(presence),
+                new PerceptionSkill(cunning),
+                new PilotingPlanetarySkill(agility),
+                new PilotingSpaceSkill(agility),
+                new ResilienceSkill(brawn),
+                new SkullduggerySkill(cunning),
+                new StealthSkill(agility),
+                new StreetwiseSkill(cunning),
+                new SurvivalSkill(cunning),
+                new VigilanceSkill(willpower),
+
+                new BrawlSkill(brawn),
+                new GunnerySkill(agility),
+                new LightsaberSkill(brawn),
+                new MeleeSkill(brawn),
+                new RangedLightSkill(agility),
+                new RangedHeavySkill(agility),
+
+                new CoreWorldsSkill(intellect),
+                new EducationSkill(intellect),
+                new LoreSkill(intellect),
+                new OuterRimSkill(intellect),
+                new UnderworldSkill(intellect),
+                new WarefareSkill(intellect),
+                new XenologySkill(intellect),
             };
         }
     }
