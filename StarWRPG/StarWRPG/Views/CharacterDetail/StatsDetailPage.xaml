@@ -121,9 +121,10 @@
                                     Value="{Binding CurrentStrain}"
                                     Maximum="{Binding MaxStrain}"/>
         </Grid>
-        <!-- Total Obligation, Total Duty, and Contribution-->
+        <!-- Encumbrance and Motivation Values-->
         <Grid>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -131,50 +132,44 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <Label Grid.Column="0" Grid.Row="0"
-                   Text="Total Obligation" 
-                   Style="{StaticResource CenterBoldLabel}" />
-            <Label Grid.Column="1" Grid.Row="0" 
-                   Text="Total Duty" 
-                   Style="{StaticResource CenterBoldLabel}" />
-            <Label Grid.Column="2" Grid.Row="0"
-                   Text="Contribution" 
-                   Style="{StaticResource CenterBoldLabel}" />
-            <Label Grid.Column="0" Grid.Row="1" 
-                   Text="{Binding TotalObligation}"
-                   Style="{StaticResource CenterLabel}"/>
-            <Label Grid.Column="1" Grid.Row="1"
-                   Text="{Binding TotalDuty}"
-                   Style="{StaticResource CenterLabel}"/>
-            <Label Grid.Column="2" Grid.Row="1"
-                   Text="{Binding Contribution}"
-                   Style="{StaticResource CenterLabel}"/>
-        </Grid>
-        <!-- Morality and Conflict -->
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-
+            <!--Duty and Contribution-->
             <Label Grid.Column="0" Grid.Row="0"
-                   Text="Morality" 
-                   Style="{StaticResource CenterBoldLabel}" />
-            <Label Grid.Column="1" Grid.Row="0" 
-                   Text="Conflict" 
-                   Style="{StaticResource CenterBoldLabel}" />
-            <Label Grid.Column="0" Grid.Row="1" 
-                   Text="{Binding Morality}"
-                   Style="{StaticResource CenterLabel}"/>
-            <Label Grid.Column="1" Grid.Row="1"
-                   Text="{Binding Conflict}"
-                   Style="{StaticResource CenterLabel}"/>
+                   Text="Total Duty" Style="{StaticResource CenterBoldLabel}" />
+            <Label Grid.Column="0" Grid.Row="1"
+                   Text="{Binding TotalDuty}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="0" Grid.Row="2"
+                   Text="Contribution" Style="{StaticResource CenterBoldLabel}" />
+            <Label Grid.Column="0" Grid.Row="3"
+                   Text="{Binding Contribution}" Style="{StaticResource CenterLabel}"/>
+            <!--Obligation-->
+            <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
+                   Text="Total Obligation" Style="{StaticResource CenterBoldLabel}" />
+            <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
+                   Text="{Binding TotalObligation}" Style="{StaticResource CenterLabel}"/>
+            <!--Morality and Conflict-->
+            <Label Grid.Column="3" Grid.Row="0"
+                   Text="Morality" Style="{StaticResource CenterBoldLabel}" />
+            <Label Grid.Column="3" Grid.Row="1"
+                   Text="{Binding Morality}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="3" Grid.Row="2"
+                   Text="Conflict" Style="{StaticResource CenterBoldLabel}" />
+            <Label Grid.Column="3" Grid.Row="3"
+                   Text="{Binding Conflict}" Style="{StaticResource CenterLabel}"/>
+            <!--Encumbrance-->
+            <Label Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
+                   Text="Encumbrance" Style="{StaticResource CenterBoldLabel}"/>
+            <Label Grid.Column="1" Grid.Row="3"
+                   Text="{Binding CurrentEncumbrance}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="2" Grid.Row="3"
+                   Text="{Binding EncumbranceThreshold}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="1" Grid.Row="4"
+                   Text="Current" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="2" Grid.Row="4"
+                   Text="Threshold" Style="{StaticResource CenterLabel}"/>
         </Grid>
         <!-- Characteristics -->
         <Grid HorizontalOptions="FillAndExpand">

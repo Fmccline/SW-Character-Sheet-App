@@ -1,61 +1,57 @@
 ﻿using StarWRPG.Models;
 using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using Xamarin.Forms;
 
 namespace StarWRPG.ViewModels
 {
     public class InventoryViewModel : ViewModelBase
     {
+        FFGCharacterViewModel ffgCharacterViewModel;
         Inventory Inventory;
 
         public ObservableCollection<ItemViewModel> Items { get; private set; }
         public ObservableCollection<WeaponViewModel> Weapons { get; private set; }
         public ObservableCollection<ArmorViewModel> Armors { get; private set; }
 
-        bool weaponsIsVisible { get; set; }
-        bool armorsIsVisible { get; set; }
-        bool itemsIsVisible { get; set; }
-
-        public bool WeaponsIsVisible
+        public InventoryViewModel(FFGCharacterViewModel character, Inventory inventory)
         {
-            get { return weaponsIsVisible; }
-            set
-            {
-                weaponsIsVisible = value;
-                OnPropertyChanged();
-            }
-        }
-        public bool ArmorsIsVisible
-        {
-            get { return armorsIsVisible; }
-            set
-            {
-                armorsIsVisible = value;
-                OnPropertyChanged();
-            }
-        }
-        public bool ItemsIsVisible
-        {
-            get { return itemsIsVisible; }
-            set
-            {
-                itemsIsVisible = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public InventoryViewModel(Inventory inventory)
-        {
+            ffgCharacterViewModel = character;
             Inventory = inventory;
             InitializeInventory();
-            weaponsIsVisible = true;
-            armorsIsVisible = true;
-            itemsIsVisible = true;
+            SetEncumbrance();
+        }
+
+        private void ItemViewModelChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName.Equals(nameof(ItemViewModel.Encumbrance)) || e.PropertyName.Equals(nameof(ItemViewModel.Quantity)))
+            {
+                SetEncumbrance();
+            }
+        }
+
+        private void SetEncumbrance()
+        {
+            uint totalEncumbrance = 0;
+            foreach (var item in Items)
+            {
+                totalEncumbrance += item.Encumbrance * item.Quantity;
+            }
+            foreach (var weapon in Weapons)
+            {
+                totalEncumbrance += weapon.Encumbrance * weapon.Quantity;
+            }
+            foreach (var armor in Armors)
+            {
+                totalEncumbrance += armor.Encumbrance * armor.Quantity;
+            }
+            ffgCharacterViewModel.CurrentEncumbrance = totalEncumbrance;
         }
 
         private void Add(ItemViewModel item)
         {
+            item.PropertyChanged += ItemViewModelChanged;
             if (item.GetType() == typeof(WeaponViewModel))
             {
                 Weapons.Add((WeaponViewModel)item);
@@ -67,6 +63,10 @@ namespace StarWRPG.ViewModels
             else
             {
                 Items.Add(item);
+            }
+            if (item.Encumbrance > 0)
+            {
+                SetEncumbrance();
             }
             Inventory.Add(item.Item);
         }
@@ -99,7 +99,9 @@ namespace StarWRPG.ViewModels
             Armors = new ObservableCollection<ArmorViewModel>();
             foreach (var armor in Inventory.Armors)
             {
-                Armors.Add(new ArmorViewModel(armor));
+                var armorViewModel = new ArmorViewModel(armor);
+                armorViewModel.PropertyChanged += ItemViewModelChanged;
+                Armors.Add(armorViewModel);
             }
         }
 
@@ -108,7 +110,9 @@ namespace StarWRPG.ViewModels
             Items = new ObservableCollection<ItemViewModel>();
             foreach (var item in Inventory.Items)
             {
-                Items.Add(new ItemViewModel(item));
+                var itemViewModel = new ItemViewModel(item);
+                itemViewModel.PropertyChanged += ItemViewModelChanged;
+                Items.Add(itemViewModel);
             }
         }
 
@@ -117,7 +121,9 @@ namespace StarWRPG.ViewModels
             Weapons = new ObservableCollection<WeaponViewModel>();
             foreach (var weapon in Inventory.Weapons)
             {
-                Weapons.Add(new WeaponViewModel(weapon));
+                var weaponViewModel = new WeaponViewModel(weapon);
+                weaponViewModel.PropertyChanged += ItemViewModelChanged;
+                Weapons.Add(weaponViewModel);
             }
         }
 
@@ -146,6 +152,10 @@ namespace StarWRPG.ViewModels
             else
             {
                 Items.Remove(item);
+            }
+            if (item.Encumbrance > 0)
+            {
+                SetEncumbrance();
             }
             Inventory.Remove(item.Item);
         }

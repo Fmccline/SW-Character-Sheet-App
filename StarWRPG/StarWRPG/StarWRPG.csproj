@@ -40,6 +40,15 @@
     <Compile Include="Controls\SaveCharacterToolbarItem.cs" />
     <Compile Include="Controls\CharacterDetailsToolbarItem.cs" />
     <Compile Include="Models\CharacterDescription.cs" />
+    <Compile Include="Views\Character\Items\ArmorsList.xaml.cs">
+      <DependentUpon>ArmorsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Character\Items\ItemsList.xaml.cs">
+      <DependentUpon>ItemsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Character\Items\WeaponsList.xaml.cs">
+      <DependentUpon>WeaponsList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\StepperWithEntry.cs" />
     <Compile Include="Database\CharacterDatabase.cs" />
     <Compile Include="Database\CharacterDataItem.cs" />
@@ -61,7 +70,6 @@
     <Compile Include="Models\CharacterMembers\Presets\ZabrakPreset.cs" />
     <Compile Include="Models\CharacterMembers\Skills\CustomSkill.cs" />
     <Compile Include="Models\CharacterMembers\Talent.cs" />
-    <Compile Include="ViewModelFactory.cs" />
     <Compile Include="ViewModels\ArmorViewModel.cs" />
     <Compile Include="ViewModels\Motivations\CharacterMotivationsViewModel.cs" />
     <Compile Include="ViewModels\Motivations\EmotionalWeaknessesViewModel.cs" />
@@ -320,6 +328,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\CharacterDetail\StatsDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Character\Items\ArmorsList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Character\Items\WeaponsList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Character\Items\ItemsList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -29,15 +29,6 @@ namespace StarWRPG.Views
 
         protected void AddMotivationToAppropriateLayout(CharacterMotivationViewModel motivation)
         {
-            if (motivation == null)
-            {
-                Debug.WriteLine("Motivation is null!");
-            }
-            else
-            {
-                Debug.WriteLine(motivation.Name);
-                Debug.WriteLine(motivation.Description);
-            }
             StackLayout layout;
             if (motivation.GetType() == typeof(MotivationViewModel))
             {

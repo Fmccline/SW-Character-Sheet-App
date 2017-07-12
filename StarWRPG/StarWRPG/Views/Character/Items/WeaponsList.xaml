@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StarWRPG.Views.WeaponsList">
+
+    <ListView x:Name="WeaponsListView" 
+                ItemsSource="{Binding Weapons}"
+                ItemSelected="WeaponSelectedAsync"
+                VerticalOptions="Start">
+        <ListView.Header>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Label Grid.Column="0" Text="Name" Style="{StaticResource StartBoldLabel}"/>
+                <Label Grid.Column="1" Text="Skill" Style="{StaticResource StartBoldLabel}"/>
+                <Label Grid.Column="2" Text="Dmg." Style="{StaticResource CenterBoldLabel}"/>
+                <Label Grid.Column="3" Text="Crit" Style="{StaticResource CenterBoldLabel}"/>
+                <Label Grid.Column="4" Text="Range" Style="{StaticResource StartBoldLabel}"/>
+            </Grid>
+        </ListView.Header>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0" Text="{Binding Name}" Style="{StaticResource StartLabel}"/>
+                        <Label Grid.Column="1" Text="{Binding Skill}" Style="{StaticResource StartLabel}"/>
+                        <Label Grid.Column="2" Text="{Binding Damage}" Style="{StaticResource CenterLabel}"/>
+                        <Label Grid.Column="3" Text="{Binding Crit}" Style="{StaticResource CenterLabel}"/>
+                        <Label Grid.Column="4" Text="{Binding Range}" Style="{StaticResource StartLabel}"/>
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentView>

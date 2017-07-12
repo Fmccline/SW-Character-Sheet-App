@@ -12,9 +12,6 @@
                                    Text="{Binding Name}"/>
                         <EntryCell Label="Description"
                                    Text="{Binding Description}"/>
-                        <EntryCell Label="Encumbrance"
-                                   Text="{Binding Encumbrance}"
-                                   Keyboard="Numeric"/>
                         <EntryCell Label="Damage"
                                    Keyboard="Numeric"
                                    Text="{Binding Damage}"/>
@@ -27,6 +24,15 @@
                                    Text="{Binding Crit}"/>
                         <EntryCell Label="Special"
                                    Text="{Binding Special}"/>
+                        <EntryCell Label="Encumbrance"
+                                   Text="{Binding Encumbrance}"
+                                   Keyboard="Numeric"/>
+                        <EntryCell Label="Hard Points"
+                                   Text="{Binding HardPoints}"
+                                   Keyboard="Numeric"/>
+                        <EntryCell Label="Quantity"
+                                   Text="{Binding Quantity}"
+                                   Keyboard="Numeric"/>
                     </TableSection>
                 </TableRoot>
             </TableView>

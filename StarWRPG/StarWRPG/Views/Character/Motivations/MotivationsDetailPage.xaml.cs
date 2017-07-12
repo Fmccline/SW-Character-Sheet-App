@@ -28,6 +28,24 @@ namespace StarWRPG.Views
                 AddMotivationToAppropriateLayout(motivation);
             }
         }
+
+        protected override void OnAppearing()
+        {
+            ClearLayouts();
+            foreach (var motivation in characterMotivationsViewModel.CharacterMotivationViewModels)
+            {
+                AddMotivationToAppropriateLayout(motivation);
+            }
+        }
+
+        private void ClearLayouts()
+        {
+            motivationsLayout.Children.Clear();
+            obligationsLayout.Children.Clear();
+            dutyLayout.Children.Clear();
+            moralityLayout.Children.Clear();
+        }
+
         protected override MotivationLayout MakeMotivationLayout(CharacterMotivationViewModel motivation)
         {
             return new MotivationDetailLayout(motivation);

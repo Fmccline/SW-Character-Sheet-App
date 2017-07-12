@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -9,7 +10,7 @@ namespace StarWRPG.Views
 {
     public class StepperWithEntry : StackLayout
     {
-        public static readonly BindableProperty MaximumProperty = BindableProperty.Create(nameof(Maximum), typeof(uint), typeof(StepperWithEntry), 1u);
+        public static readonly BindableProperty MaximumProperty = BindableProperty.Create(nameof(Maximum), typeof(uint), typeof(StepperWithEntry), 0u);
         public static readonly BindableProperty MinimumProperty = BindableProperty.Create(nameof(Minimum), typeof(uint), typeof(StepperWithEntry), 0u);
         public static readonly BindableProperty ValueProperty = BindableProperty.Create(nameof(Value), typeof(uint), typeof(StepperWithEntry), 1u, BindingMode.TwoWay);
 
@@ -68,35 +69,37 @@ namespace StarWRPG.Views
 
         private void DecrementClicked(object sender, EventArgs e)
         {
-            int increment = Convert.ToInt32(incrementValueEntry.Text);
-            int value = Convert.ToInt32(Value);
-
-            if (value - increment <= 0)
+            if (UInt32.TryParse(incrementValueEntry.Text, out uint decrement))
             {
-                Value = 0;
-                decrementButton.IsEnabled = false;
+                int value = Convert.ToInt32(Value);
+                if (value - decrement <= 0)
+                {
+                    Value = 0;
+                    decrementButton.IsEnabled = false;
+                }
+                else
+                {
+                    Value -= decrement;
+                }
+                incrementButton.IsEnabled = true;
             }
-            else
-            {
-                Value = Convert.ToUInt32(value - increment);
-            }
-            incrementButton.IsEnabled = true;
         }
 
         private void IncrementClicked(object sender, EventArgs e)
         {
-            uint increment = Convert.ToUInt32(incrementValueEntry.Text);
-
-            if (Value + increment >= Maximum)
+            if (UInt32.TryParse(incrementValueEntry.Text, out uint increment))
             {
-                Value = Maximum;
-                incrementButton.IsEnabled = false;
+                if (Maximum == 0 || Value + increment < Maximum)
+                {
+                    Value += increment;
+                }
+                else
+                {
+                    Value = Maximum;
+                    incrementButton.IsEnabled = false;
+                }
+                decrementButton.IsEnabled = true;
             }
-            else
-            {
-                Value += increment;
-            }
-            decrementButton.IsEnabled = true;
         }
     }
 }

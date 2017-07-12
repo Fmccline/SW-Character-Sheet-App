@@ -251,7 +251,6 @@ namespace StarWRPG.ViewModels
         public uint Brawn
         {
             get { return FFGCharacter.Characteristics.Brawn.Rank; }
-
             set
             {
                 FFGCharacter.Characteristics.Brawn.Rank = value;
@@ -307,7 +306,34 @@ namespace StarWRPG.ViewModels
         {
             get { return FFGCharacter.Characteristics.Agility.MaxRank; }
         }
-
+        // Inventory
+        public uint Credits
+        {
+            get { return FFGCharacter.Credits; }
+            set
+            {
+                FFGCharacter.Credits = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint CurrentEncumbrance
+        {
+            get { return FFGCharacter.CurrentEncumbrance; }
+            set
+            {
+                FFGCharacter.CurrentEncumbrance = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint EncumbranceThreshold
+        {
+            get { return FFGCharacter.EncumbranceThreshold; }
+            set
+            {
+                FFGCharacter.EncumbranceThreshold = value;
+                OnPropertyChanged();
+            }
+        }
         // Motivations
         public uint Conflict
         {
@@ -373,7 +399,7 @@ namespace StarWRPG.ViewModels
         {
             CharacterMotivationsViewModel = new CharacterMotivationsViewModel(FFGCharacter.Motivations, this);
             CriticalInjuriesViewModel = new CriticalInjuriesViewModel(FFGCharacter.CriticalInjuries);
-            InventoryViewModel = new InventoryViewModel(FFGCharacter.Inventory);
+            InventoryViewModel = new InventoryViewModel(this,FFGCharacter.Inventory);
             SkillsViewModel = new SkillsViewModel(FFGCharacter.Skills, FFGCharacter.Characteristics, FFGCharacter.XP);
             TalentsViewModel = new TalentsViewModel(FFGCharacter.Talents);
         }

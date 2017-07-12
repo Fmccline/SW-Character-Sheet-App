@@ -22,8 +22,6 @@ namespace StarWRPG
                 return characterDatabase;
             }
         }
-        public static ViewModelFactory ViewModelFactory { get; private set; }
-
 
         public App()
         {

@@ -14,12 +14,13 @@ namespace StarWRPG.Models
         public string Description { get; set; }
         public bool IsEquipped { get; set; }
         public uint Encumbrance { get; set; }
+        public uint Quantity { get; set; }
 
         public Item()
         {
             Name = "";
             Description = "";
-            IsEquipped = false;
+            Quantity = 1;
         }
     }
 }
