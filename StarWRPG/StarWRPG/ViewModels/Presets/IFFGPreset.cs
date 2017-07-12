@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace StarWRPG.ViewModels
 {
-    public abstract class FFGPresetViewModel : ViewModelBase
+    public interface IFFGPreset
     {
-        public abstract void SetPreset();
-        public abstract void RemovePreset();
+        void SetPreset();
+        void RemovePreset();
     }
 }

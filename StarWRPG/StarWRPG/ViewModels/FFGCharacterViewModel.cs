@@ -20,7 +20,24 @@ namespace StarWRPG.ViewModels
         public SkillsViewModel SkillsViewModel { get; private set; }
 
         // Presets
-        private FFGPresetViewModel speciesPreset;
+        SpeciesPresetViewModel speciesPreset
+        {
+            get
+            {
+                if (FFGCharacter.SpeciesPreset != null)
+                {
+                    return new SpeciesPresetViewModel(this, FFGCharacter.SpeciesPreset);
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            set
+            {
+                FFGCharacter.SpeciesPreset = value.SpeciesPreset;
+            }
+        }
 
         // Character Info
         public string Background
@@ -403,6 +420,7 @@ namespace StarWRPG.ViewModels
             SkillsViewModel = new SkillsViewModel(FFGCharacter.Skills, FFGCharacter.Characteristics, FFGCharacter.XP);
             TalentsViewModel = new TalentsViewModel(FFGCharacter.Talents);
         }
+
         private void SetCharacteristicForSkills(Characteristic characteristic)
         {
             foreach (var skillViewModel in SkillsViewModel.SkillViewModels)
@@ -416,7 +434,7 @@ namespace StarWRPG.ViewModels
         }
 
         // Public Methods
-        public void SetSpeciesPreset(FFGPresetViewModel species)
+        public void SetSpeciesPreset(SpeciesPresetViewModel species)
         {
             if (speciesPreset != null)
             {
