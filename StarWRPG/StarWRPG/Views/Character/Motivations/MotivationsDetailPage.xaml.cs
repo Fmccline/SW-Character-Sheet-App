@@ -31,14 +31,19 @@ namespace StarWRPG.Views
 
         protected override void OnAppearing()
         {
-            motivationsLayout.Children.Clear();
-            obligationsLayout.Children.Clear();
-            dutyLayout.Children.Clear();
-            moralityLayout.Children.Clear();
+            ClearLayouts();
             foreach (var motivation in characterMotivationsViewModel.CharacterMotivationViewModels)
             {
                 AddMotivationToAppropriateLayout(motivation);
             }
+        }
+
+        private void ClearLayouts()
+        {
+            motivationsLayout.Children.Clear();
+            obligationsLayout.Children.Clear();
+            dutyLayout.Children.Clear();
+            moralityLayout.Children.Clear();
         }
 
         protected override MotivationLayout MakeMotivationLayout(CharacterMotivationViewModel motivation)
