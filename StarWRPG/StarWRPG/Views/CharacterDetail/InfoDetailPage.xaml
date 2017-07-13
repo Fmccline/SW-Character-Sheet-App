@@ -3,7 +3,7 @@
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 x:Class="StarWRPG.Views.InfoDetailPage"
                 xmlns:local="clr-namespace:StarWRPG.Views" 
-                Title="Basic Info">
+                Title="Info">
 
     <local:BasePage.Padding>
         10,0,10,20
