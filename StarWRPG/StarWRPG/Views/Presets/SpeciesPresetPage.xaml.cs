@@ -48,8 +48,11 @@ namespace StarWRPG.Views
         private async void ChangeSpeciesClickedAsync(object sender, EventArgs e)
         {
             var speciesName = await DisplayActionSheet("Species", "Cancel", null, speciesPresetsViewModel.SpeciesNames);
-            speciesPresetViewModel = speciesPresetsViewModel.GetSpeciesPresetViewModelByName(speciesName);
-            BindingContext = speciesPresetViewModel;
+            if (speciesName != null && !speciesName.Equals("Cancel"))
+            {
+                speciesPresetViewModel = speciesPresetsViewModel.GetSpeciesPresetViewModelByName(speciesName);
+                BindingContext = speciesPresetViewModel;
+            }
         }
     }
 }
