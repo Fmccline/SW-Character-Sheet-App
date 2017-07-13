@@ -59,8 +59,8 @@ namespace StarWRPG.Models
         public abstract List<Talent> InitializeTalents();
         public abstract List<Skill> InitializeSkills();
 
-        protected const string AUTOMATIC = "\n(Automatically added to your character upon selection)";
-        protected const string MANUAL = "\n(NOT automatically added to your character.)";
+        protected const string AUTOMATIC = " (Automatically added to your character upon selection)";
+        protected const string MANUAL = " (NOT automatically added to your character)";
 
     }
 }

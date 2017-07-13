@@ -14,6 +14,7 @@ namespace StarWRPG.ViewModels
 {
     public class TalentsViewModel : ViewModelBase, ISearchable
     {
+        ObservableCollection<Talent> talents;
         ObservableCollection<TalentViewModel> talentViewModels;
         public ObservableCollection<TalentViewModel> TalentViewModels
         {
@@ -27,8 +28,6 @@ namespace StarWRPG.ViewModels
 
         public ICommand SearchCommand { get { return new Command<String>(Search); } }
         public ICommand DefaultSortCommand { get { return new Command(DefaultSort); } }
-
-        ObservableCollection<Talent> talents;
 
         public TalentsViewModel(ObservableCollection<Talent> talents)
         {
@@ -56,6 +55,19 @@ namespace StarWRPG.ViewModels
         {
             TalentViewModels.Remove(talentViewModel);
             talents.Remove(talentViewModel.Talent);
+        }
+
+        public void RemoveTalentByName(string name)
+        {
+            foreach (var talent in TalentViewModels)
+            {
+                if (talent.Name.Equals(name))
+                {
+                    TalentViewModels.Remove(talent);
+                    talents.Remove(talent.Talent);
+                    return;
+                }
+            }
         }
 
         public void RemoveTalent(Talent talent)

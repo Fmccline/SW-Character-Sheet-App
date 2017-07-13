@@ -3,28 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using StarWRPG.ViewModels;
 
 namespace StarWRPG.Models
 {
-    public class ZabrakPreset : SpeciesPreset
+    public class TogrutaPreset : SpeciesPreset
     {
         public override string SpeciesName
         {
-            get { return "Zabrak"; }
+            get { return "Togruta"; }
         }
+
         public override string SpecialAbilities
         {
-            get { return "Zabrak begin the game with one rank in Survival." + AUTOMATIC; }
+            get { return "Togrutas begin the game with one rank in Perception." + AUTOMATIC; }
         }
+
         public override uint MaxWounds
         {
             get { return 10; }
         }
+
         public override uint MaxStrain
         {
             get { return 10; }
         }
+
         public override uint StartingXP
         {
             get { return 100; }
@@ -32,14 +35,14 @@ namespace StarWRPG.Models
 
         public override Characteristics InitializeCharacteristics()
         {
-            return new Characteristics(2, 2, 2, 2, 3, 1);
+            return new Characteristics(1, 2, 2, 3, 2, 2);
         }
 
         public override List<Skill> InitializeSkills()
         {
-            return new List<Skill>
+            return new List<Skill>()
             {
-                new SurvivalSkill(Characteristics.Cunning) { Rank = 1 },
+                new PerceptionSkill(Characteristics.Cunning) { Rank = 1 },
             };
         }
 
@@ -49,10 +52,10 @@ namespace StarWRPG.Models
             {
                 new Talent
                 {
-                    Description = "Zabrak add automatic advantage to all Coercion checks they make.",
-                    Name = "Fearsome Countenance",
-                    PageNumber = 63
-                },
+                    Name = "Pack Instincts",
+                    Description = "When performing the assist maneuver, Togrutas grant 2 boost instead of 1.",
+                    PageNumber = 60,
+                }
             };
         }
     }

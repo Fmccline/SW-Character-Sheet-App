@@ -34,6 +34,7 @@ namespace StarWRPG.Models
 
         public Characteristics Characteristics { get; set; }
         public CharacterDescription Description { get; set; }
+        public SpeciesPreset SpeciesPreset { get; set; }
 
         public ObservableCollection<CharacterMotivationBase> Motivations { get; set; }
         public ObservableCollection<CriticalInjury> CriticalInjuries { get; set; }

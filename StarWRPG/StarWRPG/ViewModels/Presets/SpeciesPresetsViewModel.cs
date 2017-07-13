@@ -9,27 +9,33 @@ namespace StarWRPG.ViewModels
         public List<SpeciesPresetViewModel> SpeciesPresetViewModels;
         FFGCharacterViewModel ffgCharacterViewModel;
 
-        public string[] SpeciesNames;
+        public string[] SpeciesNames { get { return GetSpeciesNames(); } }
 
         public SpeciesPresetsViewModel(FFGCharacterViewModel character)
         {
             ffgCharacterViewModel = character;
             SpeciesPresetViewModels = new List<SpeciesPresetViewModel>
             {
-                new SpeciesPresetViewModel(character, new ZabrakPreset()),
+                new SpeciesPresetViewModel(character, new CereanPreset()),
+                new SpeciesPresetViewModel(character, new HumanPreset()),
+                new SpeciesPresetViewModel(character, new KelDorPreset()),
+                new SpeciesPresetViewModel(character, new MirialanPreset()),
+                new SpeciesPresetViewModel(character, new NautolanPreset()),
+                new SpeciesPresetViewModel(character, new TogrutaPreset()),
                 new SpeciesPresetViewModel(character, new TwilekPreset()),
+                new SpeciesPresetViewModel(character, new ZabrakPreset()),
             };
-            SetSpeciesNames();
         }
 
-        private void SetSpeciesNames()
+        private string[] GetSpeciesNames()
         {
-            SpeciesNames = new string[SpeciesPresetViewModels.Count];
+            string[] speciesNames = new string[SpeciesPresetViewModels.Count];
             foreach (var species in SpeciesPresetViewModels)
             {
                 int index = SpeciesPresetViewModels.IndexOf(species);
-                SpeciesNames[index] = species.SpeciesName;
+                speciesNames[index] = species.SpeciesName;
             }
+            return speciesNames;
         }
 
         public SpeciesPresetViewModel GetSpeciesPresetViewModelByName(string speciesName = null)
