@@ -4,10 +4,11 @@
              x:Class="StarWRPG.Views.SpeciesPresetPage">
 
     <StackLayout>
-
+        <!--Name-->
         <Label FontSize="Medium"
                Style="{StaticResource CenterBoldLabel}"
                Text="{Binding SpeciesName}"/>
+        <!--Wounds and Strain-->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -27,7 +28,10 @@
             <Label Grid.Column="1" Grid.Row="0" 
                    Text="Max Strain" Style="{StaticResource CenterBoldLabel}"/>
         </Grid>
-
+        <!--Experience-->
+        <Label Text="Starting Experience" Style="{StaticResource CenterBoldLabel}"/>
+        <Label Text="{Binding StartingXP}" Style="{StaticResource CenterLabel}"/>
+        <!--Characteristics-->
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -70,14 +74,15 @@
             <Label Grid.Column="5" Grid.Row="2"
                            Text="Pr" Style="{StaticResource CenterLabel}"/>
         </Grid>
-
+        <!--Special Abilities-->
         <Label Text="Special Abilities" Style="{StaticResource CenterBoldLabel}"/>
         <Label Text="{Binding SpecialAbilities}" Style="{StaticResource CenterLabel}"/>
-
-
+        <!--Talents-->
         <ContentView x:Name="TalentsLayout"/>
-
-        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+        <!--Select, Change, Cancel buttons-->
+        <StackLayout Orientation="Horizontal"
+                     HorizontalOptions="Center"
+                     VerticalOptions="EndAndExpand">
             <Button Text="Select" 
                     Clicked="SelectClickedAsync"
                     HorizontalOptions="Center"/>

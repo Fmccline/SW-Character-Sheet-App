@@ -15,9 +15,16 @@ namespace StarWRPG.Views
             HorizontalOptions = LayoutOptions.Center;
 
             Children.Add(MakeTitle());
-            foreach (var talent in talents)
+            if (talents.Count > 0)
             {
-                Children.Add(MakeTalentLabel(talent));
+                foreach (var talent in talents)
+                {
+                    Children.Add(MakeTalentLabel(talent));
+                }
+            }
+            else
+            {
+                Children.Add(MakeEmptyLabel());
             }
         }
 
@@ -37,6 +44,15 @@ namespace StarWRPG.Views
                 Text = talent.Name + ": " + talent.Description,
                 Style = (Style)Application.Current.Resources["StartLabel"],
             };
+        }
+
+        private Label MakeEmptyLabel()
+        {
+            return new Label
+            {
+                Text = "None",
+                Style = (Style)Application.Current.Resources["CenterLabel"],
+            }; 
         }
 
     }

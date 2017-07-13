@@ -42,6 +42,12 @@
     <Compile Include="Controls\SaveCharacterToolbarItem.cs" />
     <Compile Include="Controls\CharacterDetailsToolbarItem.cs" />
     <Compile Include="Models\CharacterDescription.cs" />
+    <Compile Include="Models\CharacterMembers\Presets\TogrutaPreset.cs" />
+    <Compile Include="Models\CharacterMembers\Presets\NautolanPreset.cs" />
+    <Compile Include="Models\CharacterMembers\Presets\MirialanPreset.cs" />
+    <Compile Include="Models\CharacterMembers\Presets\KelDorPreset.cs" />
+    <Compile Include="Models\CharacterMembers\Presets\HumanPreset.cs" />
+    <Compile Include="Models\CharacterMembers\Presets\CereanPreset.cs" />
     <Compile Include="Models\CharacterMembers\Skills\OuterRimSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\LoreSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\EducationSkill.cs" />

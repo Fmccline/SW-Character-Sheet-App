@@ -16,8 +16,14 @@ namespace StarWRPG.ViewModels
             ffgCharacterViewModel = character;
             SpeciesPresetViewModels = new List<SpeciesPresetViewModel>
             {
-                new SpeciesPresetViewModel(character, new ZabrakPreset()),
+                new SpeciesPresetViewModel(character, new CereanPreset()),
+                new SpeciesPresetViewModel(character, new HumanPreset()),
+                new SpeciesPresetViewModel(character, new KelDorPreset()),
+                new SpeciesPresetViewModel(character, new MirialanPreset()),
+                new SpeciesPresetViewModel(character, new NautolanPreset()),
+                new SpeciesPresetViewModel(character, new TogrutaPreset()),
                 new SpeciesPresetViewModel(character, new TwilekPreset()),
+                new SpeciesPresetViewModel(character, new ZabrakPreset()),
             };
         }
 
