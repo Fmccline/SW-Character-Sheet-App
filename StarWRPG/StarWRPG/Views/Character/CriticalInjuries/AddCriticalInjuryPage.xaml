@@ -5,9 +5,36 @@
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Severity" Style="{StaticResource CenterBoldLabel}" />
-            <Entry Placeholder="Severity" Text="{Binding Severity}"/>
+            <Entry x:Name="SeverityEntry"
+                   Placeholder="Severity" 
+                   Text="{Binding Severity}"/>
             <Label Text="Result" Style="{StaticResource CenterBoldLabel}" />
-            <Entry Placeholder="Result" Text="{Binding Result}"/>
+            <Entry x:Name="ResultEntry"
+                   Placeholder="Result" 
+                   Text="{Binding Result}"/>
+
+            <ListView x:Name="AllCriticalInjuriesListView"
+                      ItemsSource="{Binding AllCriticalInjuries}"
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                </Grid.ColumnDefinitions>
+                                
+                                <Label Grid.Column="0" Text="{Binding D100Roll}"/>
+                                <Label Grid.Column="1" Text="{Binding Severity}"/>
+                                <Label Grid.Column="2" Text="{Binding Result}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
             <StackLayout Orientation="Horizontal">
                 <Button Text="Accept"
                         Clicked="AcceptClickedAsync"

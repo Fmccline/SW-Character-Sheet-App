@@ -14,26 +14,28 @@ namespace StarWRPG.Views
     public partial class AddCriticalInjuryPage : ContentPage
     {
         CriticalInjuriesViewModel criticalInjuriesViewModel;
-        CriticalInjuryViewModel criticalInjury;
 
         public AddCriticalInjuryPage(CriticalInjuriesViewModel injuries)
         {
             InitializeComponent();
 
             criticalInjuriesViewModel = injuries;
-
-            criticalInjury = new CriticalInjuryViewModel();
-            BindingContext = criticalInjury;
+            BindingContext = criticalInjuriesViewModel;
         }
 
         private async void AcceptClickedAsync(object sender, EventArgs e)
         {
-            if (criticalInjury.Result.Equals("") || criticalInjury.Severity.Equals(""))
+            if (ResultEntry.Text.Equals("") || SeverityEntry.Text.Equals(""))
             {
                 await DisplayAlert("Invalid", "Please enter the Result and Severity of the critical injury.", "Of course, silly me!");
             }
             else
             {
+                CriticalInjuryViewModel criticalInjury = new CriticalInjuryViewModel
+                {
+                    Result = ResultEntry.Text,
+                    Severity = SeverityEntry.Text,
+                };
                 criticalInjuriesViewModel.AddCriticalInjury(criticalInjury);
                 await Navigation.PopModalAsync();
             }
