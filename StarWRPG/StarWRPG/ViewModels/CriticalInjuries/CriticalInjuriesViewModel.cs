@@ -36,6 +36,5 @@ namespace StarWRPG.ViewModels
             CriticalInjuryViewModels.Remove(injury);
             criticalInjuries.Remove(injury.CriticalInjury);
         }
-
     }
 }

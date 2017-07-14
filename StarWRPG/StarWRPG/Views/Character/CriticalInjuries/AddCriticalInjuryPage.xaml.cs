@@ -45,5 +45,14 @@ namespace StarWRPG.Views
         {
             await Navigation.PopModalAsync();
         }
+
+        private void CriticalInjurySelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem is CriticalInjuryViewModel injury)
+            {
+                ResultEntry.Text = injury.Result;
+                SeverityEntry.Text = injury.Severity;
+            }
+        }
     }
 }
