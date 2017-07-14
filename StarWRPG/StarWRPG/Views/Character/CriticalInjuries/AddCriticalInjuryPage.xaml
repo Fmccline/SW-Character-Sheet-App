@@ -20,12 +20,10 @@
         <StackLayout>
             <Label Text="Severity" Style="{StaticResource CenterBoldLabel}" />
             <Entry x:Name="SeverityEntry"
-                   Placeholder="Severity" 
-                   Text="{Binding Severity}"/>
+                   Placeholder="Severity"/>
             <Label Text="Result" Style="{StaticResource CenterBoldLabel}" />
             <Entry x:Name="ResultEntry"
-                   Placeholder="Result" 
-                   Text="{Binding Result}"/>
+                   Placeholder="Result"/>
 
             <ListView x:Name="AllCriticalInjuriesListView"
                       ItemsSource="{Binding AllCriticalInjuries}"

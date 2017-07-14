@@ -56,7 +56,7 @@ namespace StarWRPG
             }
         }
 
-        public async void SaveCharacterAsync(FFGCharacterViewModel characterViewModel)
+        public async Task SaveCharacterAsync(FFGCharacterViewModel characterViewModel)
         {
             var character = characterViewModel.FFGCharacter;
             var dataItem = new CharacterDataItem(character) { ID = character.ID };

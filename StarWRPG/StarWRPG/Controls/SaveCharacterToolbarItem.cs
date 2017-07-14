@@ -29,7 +29,7 @@ namespace StarWRPG.Controls
             }
             else
             {
-                App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
+                await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
                 await currentPage.Navigation.PopAsync();
             }
         }

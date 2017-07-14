@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace StarWRPG.Views
@@ -25,7 +25,15 @@ namespace StarWRPG.Views
 
         protected override bool OnBackButtonPressed()
         {
+            if (ffgCharacterViewModel.Name.Equals(""))
+            {
+                ffgCharacterViewModel.Name = "No Name Nelly";
+            }
 
+            var task = Task.Run(async () =>
+            {
+                await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
+            });
             return base.OnBackButtonPressed();
         }
     }
