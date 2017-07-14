@@ -31,6 +31,7 @@ namespace StarWRPG.Views
             return new List<ToolbarItem>
             {
                 new EditCharacterToolbarItem(ffgCharacterViewModel, page),
+                new MainMenuToolbarItem(ffgCharacterViewModel, page),
                 new PageSelectionToolbarItem(pages, page),
             };
         }

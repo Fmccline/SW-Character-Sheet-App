@@ -37,6 +37,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\CustomSearchBar.cs" />
+    <Compile Include="Controls\MainMenuToolbarItem.cs" />
     <Compile Include="Controls\EditCharacterToolbarItem.cs" />
     <Compile Include="Controls\ISearchable.cs" />
     <Compile Include="Controls\SaveCharacterToolbarItem.cs" />
