@@ -23,7 +23,7 @@
                             Text="Result"
                             Style="{StaticResource StartBoldLabel}"/>
                 </Grid>
-            </ListView.Header>
+            </ListView.Header> 
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>

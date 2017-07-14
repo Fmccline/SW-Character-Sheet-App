@@ -27,7 +27,7 @@ namespace StarWRPG.Views
         {
             if (e.SelectedItem is ArmorViewModel armor)
             {
-                await Navigation.PushModalAsync(new ArmorPage(inventoryViewModel, armor));
+                await Navigation.PushAsync(new ArmorPage(inventoryViewModel, armor));
                 ArmorsListView.SelectedItem = null;
             }
         }

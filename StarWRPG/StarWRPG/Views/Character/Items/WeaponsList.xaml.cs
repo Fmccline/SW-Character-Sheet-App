@@ -27,7 +27,7 @@ namespace StarWRPG.Views
         {
             if (e.SelectedItem is WeaponViewModel weapon)
             {
-                await Navigation.PushModalAsync(new WeaponPage(inventoryViewModel, weapon));
+                await Navigation.PushAsync(new WeaponPage(inventoryViewModel, weapon));
                 WeaponsListView.SelectedItem = null;
             }
         }

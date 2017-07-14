@@ -2,9 +2,10 @@
 <local:ItemBasePage xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:local="clr-namespace:StarWRPG.Views" 
-                    x:Class="StarWRPG.Views.ArmorPage">
+                    x:Class="StarWRPG.Views.ArmorPage"
+                    Title="Armor">
     <ContentPage.Content>
-        <StackLayout x:Name="MainStackLayout">
+        <StackLayout>
             <TableView Intent="Form">
                 <TableRoot>
                     <TableSection>
