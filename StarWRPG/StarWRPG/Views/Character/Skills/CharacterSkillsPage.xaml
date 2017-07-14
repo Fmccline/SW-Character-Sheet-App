@@ -10,7 +10,7 @@
     </local:BasePage.Padding>
     
     
-    <StackLayout x:Name="MainStackLayout">
+    <StackLayout>
         <local:CustomSearchBar x:Name="Search"
                                HorizontalOptions="FillAndExpand"
                                Placeholder="Search by name, rank, or career."

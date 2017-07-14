@@ -5,22 +5,7 @@
                 Title="Info"
                 x:Class="StarWRPG.Views.InfoCreationPage">
 
-    <local:BasePage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="CenterNumericEntry" TargetType="Entry">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="Keyboard" Value="Numeric" />
-            </Style>
-            <Style x:Key="FillAndExpandNumericEntry" TargetType="Entry">
-                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                <Setter Property="VerticalOptions" Value="FillAndExpand" />
-                <Setter Property="Keyboard" Value="Numeric" />
-            </Style>
-        </ResourceDictionary>
-    </local:BasePage.Resources>
-
-    <StackLayout x:Name="MainStackLayout">
+    <StackLayout>
         <ScrollView>
             <StackLayout x:Name="ScrollViewStackLayout">
                 <!--Name-->

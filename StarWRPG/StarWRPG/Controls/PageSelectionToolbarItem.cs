@@ -10,13 +10,13 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Controls
 {
-    public class CharacterDetailsToolbarItem : ToolbarItem
+    public class PageSelectionToolbarItem : ToolbarItem
     {
         List<BasePage> pages;
         BasePage currentPage;
         string[] pageTitles;
 
-        public CharacterDetailsToolbarItem(List<BasePage> pages, BasePage currentPage)
+        public PageSelectionToolbarItem(List<BasePage> pages, BasePage currentPage)
         {
             this.pages = pages;
             this.currentPage = currentPage;

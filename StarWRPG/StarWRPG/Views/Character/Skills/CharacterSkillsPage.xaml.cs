@@ -16,12 +16,7 @@ namespace StarWRPG.Views
     {
         SkillsViewModel skillsViewModel;
 
-        protected override StackLayout mainStackLayout
-        {
-            get { return MainStackLayout; }
-        }
-
-        public CharacterSkillsPage(FFGCharacterViewModel character)
+        public CharacterSkillsPage(FFGCharacterViewModel character) : base(character)
         {
             InitializeComponent();
             skillsViewModel = character.SkillsViewModel;

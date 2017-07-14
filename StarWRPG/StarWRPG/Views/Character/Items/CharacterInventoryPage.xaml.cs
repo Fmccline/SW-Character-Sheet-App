@@ -20,12 +20,7 @@ namespace StarWRPG.Views
         ItemsList itemsList;
         WeaponsList weaponsList;
 
-        protected override StackLayout mainStackLayout
-        {
-            get { return MainStackLayout; }
-        }
-
-        public CharacterInventoryPage(FFGCharacterViewModel characterViewModel)
+        public CharacterInventoryPage(FFGCharacterViewModel characterViewModel) : base(characterViewModel)
         {
             InitializeComponent();
 

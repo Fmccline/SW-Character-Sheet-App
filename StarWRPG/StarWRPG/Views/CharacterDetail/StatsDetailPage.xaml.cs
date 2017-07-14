@@ -14,18 +14,10 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StatsDetailPage : BasePage
     {
-        protected override StackLayout mainStackLayout
-        {
-            get { return MainStackLayout; }
-        }
-
-        FFGCharacterViewModel ffgCharacterViewModel;
-
-        public StatsDetailPage(FFGCharacterViewModel character)
+        public StatsDetailPage(FFGCharacterViewModel character) : base(character)
         {
             InitializeComponent();
 
-            ffgCharacterViewModel = character;
             BindingContext = ffgCharacterViewModel;
         }
     }

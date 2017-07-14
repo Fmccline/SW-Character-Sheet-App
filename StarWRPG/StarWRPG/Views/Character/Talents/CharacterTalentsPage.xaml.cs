@@ -17,9 +17,7 @@ namespace StarWRPG.Views
     {
         TalentsViewModel talentsViewModel;
 
-        protected override StackLayout mainStackLayout { get { return MainStackLayout; } }
-
-        public CharacterTalentsPage(FFGCharacterViewModel ffgCharacterViewModel)
+        public CharacterTalentsPage(FFGCharacterViewModel character) : base(character)
         {
             InitializeComponent();
 
