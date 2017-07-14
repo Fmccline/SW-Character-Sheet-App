@@ -27,7 +27,7 @@ namespace StarWRPG.Views
         {
             if (e.SelectedItem is CriticalInjuryViewModel injury)
             {
-                string message = String.Format("\nSeverity: {1}\nResult: {0}", injury.Result, injury.Severity);
+                string message = $"{injury.Severity}\n\n{injury.Result}";
                 var answer = await DisplayAlert("Remove Injury", message, "Yes", "No");
                 if (answer)
                 {

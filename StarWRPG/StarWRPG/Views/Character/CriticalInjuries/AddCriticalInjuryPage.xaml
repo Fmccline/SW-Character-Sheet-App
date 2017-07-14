@@ -2,12 +2,68 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarWRPG.Views.AddCriticalInjuryPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CenterTopLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+            <Style x:Key="StartTopLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Severity" Style="{StaticResource CenterBoldLabel}" />
-            <Entry Placeholder="Severity" Text="{Binding Severity}"/>
+            <Entry x:Name="SeverityEntry"
+                   Placeholder="Severity" 
+                   Text="{Binding Severity}"/>
             <Label Text="Result" Style="{StaticResource CenterBoldLabel}" />
-            <Entry Placeholder="Result" Text="{Binding Result}"/>
+            <Entry x:Name="ResultEntry"
+                   Placeholder="Result" 
+                   Text="{Binding Result}"/>
+
+            <ListView x:Name="AllCriticalInjuriesListView"
+                      ItemsSource="{Binding AllCriticalInjuries}"
+                      ItemSelected="CriticalInjurySelected"
+                      SeparatorVisibility="None"
+                      HasUnevenRows="True">
+                <ListView.Header>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="4*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label Grid.Column="0" Text="d100" Style="{StaticResource CenterBoldLabel}"/>
+                        <Label Grid.Column="1" Text="Severity" Style="{StaticResource CenterBoldLabel}"/>
+                        <Label Grid.Column="2" Text="Result" Style="{StaticResource CenterBoldLabel}"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="0,10,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="4*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Column="0" Text="{Binding D100Roll}" Style="{StaticResource CenterTopLabel}"/>
+                                <Label Grid.Column="1" Text="{Binding Severity}" Style="{StaticResource CenterTopLabel}"/>
+                                <Label Grid.Column="2" Text="{Binding Result}" Style="{StaticResource StartTopLabel}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            
             <StackLayout Orientation="Horizontal">
                 <Button Text="Accept"
                         Clicked="AcceptClickedAsync"

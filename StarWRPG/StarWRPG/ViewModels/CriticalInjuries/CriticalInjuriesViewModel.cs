@@ -12,10 +12,12 @@ namespace StarWRPG.ViewModels
     {
         ObservableCollection<CriticalInjury> criticalInjuries;
         public ObservableCollection<CriticalInjuryViewModel> CriticalInjuryViewModels { get; private set; }
+        public AllCriticalInjuries AllCriticalInjuries { get; set; }
 
         public CriticalInjuriesViewModel(ObservableCollection<CriticalInjury> injuries)
         {
             criticalInjuries = injuries;
+            AllCriticalInjuries = new AllCriticalInjuries();
             CriticalInjuryViewModels = new ObservableCollection<CriticalInjuryViewModel>();
             foreach (CriticalInjury injury in criticalInjuries)
             {
@@ -34,6 +36,5 @@ namespace StarWRPG.ViewModels
             CriticalInjuryViewModels.Remove(injury);
             criticalInjuries.Remove(injury.CriticalInjury);
         }
-
     }
 }

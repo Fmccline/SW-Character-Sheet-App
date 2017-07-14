@@ -11,6 +11,15 @@ namespace StarWRPG.ViewModels
     {
         public CriticalInjury CriticalInjury;
 
+        public string D100Roll
+        {
+            get { return CriticalInjury.D100Roll; }
+            set
+            {
+                CriticalInjury.D100Roll = value;
+                OnPropertyChanged();
+            }
+        }
         public string Severity
         {
             get { return CriticalInjury.Severity; }
