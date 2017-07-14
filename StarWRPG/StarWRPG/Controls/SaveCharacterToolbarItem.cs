@@ -1,4 +1,5 @@
 ﻿using StarWRPG.ViewModels;
+using StarWRPG.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,16 @@ namespace StarWRPG.Controls
             else
             {
                 await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
-                await currentPage.Navigation.PopAsync();
+                var characterDetailNavigation = new CharacterDetailNavigation(ffgCharacterViewModel);
+                try
+                {
+                    currentPage.Navigation.InsertPageBefore(characterDetailNavigation.GetPageByTitle(currentPage.Title), currentPage);
+                    await currentPage.Navigation.PopAsync();
+                }
+                catch (Exception ex)
+                {
+                    await currentPage.DisplayAlert("Oops, an Error", ex.Message, "Ok");
+                }
             }
         }
     }

@@ -25,6 +25,18 @@ namespace StarWRPG.Views
             }
         }
 
+        public Page GetPageByTitle(string title)
+        {
+            foreach (var page in pages)
+            {
+                if (page.Title.Equals(title))
+                {
+                    return page;
+                }
+            }
+            throw new Exception("An error occured: Page not found.");
+        }
+
         protected void AddToolbarItems(BasePage page)
         {
             List<ToolbarItem> toolbarItems = InitializeToolbarItems(page);
