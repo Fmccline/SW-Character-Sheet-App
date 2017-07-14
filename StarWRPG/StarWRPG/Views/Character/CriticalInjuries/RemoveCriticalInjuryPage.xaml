@@ -1,58 +1,48 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StarWRPG.Views.RemoveCriticalInjuryPage">
+             x:Class="StarWRPG.Views.RemoveCriticalInjuryPage"
+             Title="Remove Critical Injury">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Remove Critical Injury" 
-                   FontAttributes="Bold"
-                   FontSize="Medium"  
-                   HorizontalOptions="Center"/>
-            <Button Text="Cancel"
-                    Clicked="CancelClickedAsync"
-                    HorizontalOptions="Center"
-                    Margin="0,0,0,20"/>
-            
-            <ListView x:Name="InjuryListView"
-                      ItemsSource="{Binding CriticalInjuryViewModels}"
-                      ItemSelected="InjurySelectedAsync"
-                      SeparatorVisibility="None"
-                      HasUnevenRows="True">
-                <ListView.Header>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="3*"/>
-                        </Grid.ColumnDefinitions>
-                        
-                        <Label Grid.Column="0" 
-                               Text="Severity"
-                               Style="{StaticResource CenterBoldLabel}"/>
-                        <Label Grid.Column="1" 
-                               Text="Result"
-                               Style="{StaticResource StartBoldLabel}"/>
-                    </Grid>
-                </ListView.Header>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid Margin="0,10,0,0">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="3*"/>
-                                </Grid.ColumnDefinitions>
-                                
-                                <Label Grid.Column="0" 
-                                       Text="{Binding Severity}"
-                                       Style="{StaticResource CenterLabel}"/>
-                                <Label Grid.Column="1" 
-                                       Text="{Binding Result}"
-                                       Style="{StaticResource StartLabel}"/>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
+        <ListView x:Name="InjuryListView"
+                    ItemsSource="{Binding CriticalInjuryViewModels}"
+                    ItemSelected="InjurySelectedAsync"
+                    SeparatorVisibility="None"
+                    HasUnevenRows="True">
+            <ListView.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Column="0" 
+                            Text="Severity"
+                            Style="{StaticResource CenterBoldLabel}"/>
+                    <Label Grid.Column="1" 
+                            Text="Result"
+                            Style="{StaticResource StartBoldLabel}"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Margin="0,10,0,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Column="0" 
+                                    Text="{Binding Severity}"
+                                    Style="{StaticResource CenterLabel}"/>
+                            <Label Grid.Column="1" 
+                                    Text="{Binding Result}"
+                                    Style="{StaticResource StartLabel}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>

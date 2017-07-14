@@ -20,12 +20,12 @@ namespace StarWRPG.Views
 
         private async void AddCriticalInjuryAsync(object sender, System.EventArgs e)
         {
-            await Navigation.PushModalAsync(new AddCriticalInjuryPage(ffgCharacterViewModel.CriticalInjuriesViewModel));
+            await Navigation.PushAsync(new AddCriticalInjuryPage(ffgCharacterViewModel.CriticalInjuriesViewModel));
         }
 
         private async void RemoveCriticalInjuryAsync(object sender, System.EventArgs e)
         {
-            await Navigation.PushModalAsync(new RemoveCriticalInjuryPage(ffgCharacterViewModel.CriticalInjuriesViewModel));
+            await Navigation.PushAsync(new RemoveCriticalInjuryPage(ffgCharacterViewModel.CriticalInjuriesViewModel));
         }
     }
 }

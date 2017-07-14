@@ -18,7 +18,6 @@ namespace StarWRPG.Views
         public AddCriticalInjuryPage(CriticalInjuriesViewModel injuries)
         {
             InitializeComponent();
-
             criticalInjuriesViewModel = injuries;
             BindingContext = criticalInjuriesViewModel;
         }
@@ -37,13 +36,8 @@ namespace StarWRPG.Views
                     Severity = SeverityEntry.Text,
                 };
                 criticalInjuriesViewModel.AddCriticalInjury(criticalInjury);
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
             }
-        }
-
-        private async void CancelClickedAsync(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
         }
 
         private void CriticalInjurySelected(object sender, SelectedItemChangedEventArgs e)
