@@ -158,9 +158,9 @@
     <Compile Include="Models\CharacterMembers\Presets\SpeciesPreset.cs" />
     <Compile Include="ViewModels\Presets\SpeciesPresetsViewModel.cs" />
     <Compile Include="ViewModels\Presets\SpeciesPresetViewModel.cs" />
-    <Compile Include="ViewModels\SkillCreationViewModel.cs" />
-    <Compile Include="ViewModels\SkillsViewModel.cs" />
-    <Compile Include="ViewModels\SkillViewModel.cs" />
+    <Compile Include="ViewModels\Skills\SkillCreationViewModel.cs" />
+    <Compile Include="ViewModels\Skills\SkillsViewModel.cs" />
+    <Compile Include="ViewModels\Skills\SkillViewModel.cs" />
     <Compile Include="ViewModels\TalentsViewModel.cs" />
     <Compile Include="ViewModels\TalentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
