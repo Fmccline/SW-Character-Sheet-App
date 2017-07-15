@@ -1,13 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StarWRPG.Views.SpeciesPresetPage">
+             x:Class="StarWRPG.Views.SpeciesPresetPage"
+             Title="{Binding SpeciesName}">
 
     <StackLayout>
-        <!--Name-->
-        <Label FontSize="Medium"
-               Style="{StaticResource CenterBoldLabel}"
-               Text="{Binding SpeciesName}"/>
         <!--Wounds and Strain-->
         <Grid>
             <Grid.ColumnDefinitions>
@@ -79,20 +76,6 @@
         <Label Text="{Binding SpecialAbilities}" Style="{StaticResource CenterLabel}"/>
         <!--Talents-->
         <ContentView x:Name="TalentsLayout"/>
-        <!--Select, Change, Cancel buttons-->
-        <StackLayout Orientation="Horizontal"
-                     HorizontalOptions="Center"
-                     VerticalOptions="EndAndExpand">
-            <Button Text="Select" 
-                    Clicked="SelectClickedAsync"
-                    HorizontalOptions="Center"/>
-            <Button Text="Change"
-                    Clicked="ChangeSpeciesClickedAsync"
-                    HorizontalOptions="Center"/>
-            <Button Text="Cancel"
-                    Clicked="CancelClickedAsync"
-                    HorizontalOptions="Center"/>
-        </StackLayout>
 
     </StackLayout>
 

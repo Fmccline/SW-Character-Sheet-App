@@ -198,9 +198,6 @@
       <DependentUpon>CharacterTalentsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\CriticalInjuries\CriticalInjuriesLayout.cs" />
-    <Compile Include="Views\CharacterCreation\EditorPage.xaml.cs">
-      <DependentUpon>EditorPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Character\Items\ArmorPage.xaml.cs">
       <DependentUpon>ArmorPage.xaml</DependentUpon>
     </Compile>
@@ -327,12 +324,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Character\Skills\SkillPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterCreation\EditorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

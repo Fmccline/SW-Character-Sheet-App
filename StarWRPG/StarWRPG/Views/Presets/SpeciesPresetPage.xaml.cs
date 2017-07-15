@@ -27,6 +27,20 @@ namespace StarWRPG.Views
 
             BindingContextChanged += SetTalentsLayout;
             BindingContext = speciesPresetViewModel;
+
+            AddSaveAndChangeToolbarItems();
+        }
+
+        private void AddSaveAndChangeToolbarItems()
+        {
+            var save = new ToolbarItem { Text = "Save" };
+            save.Clicked += SaveClickedAsync;
+
+            var change = new ToolbarItem { Text = "Change" };
+            change.Clicked += ChangeSpeciesClickedAsync;
+
+            ToolbarItems.Add(change);
+            ToolbarItems.Add(save);
         }
 
         private void SetTalentsLayout(object sender, EventArgs e)
@@ -34,15 +48,10 @@ namespace StarWRPG.Views
             TalentsLayout.Content = new TalentsLayout(speciesPresetViewModel.TalentViewModels);
         }
 
-        private async void SelectClickedAsync(object sender, EventArgs e)
+        private async void SaveClickedAsync(object sender, EventArgs e)
         {
             speciesPresetsViewModel.SetSpeciesPreset(speciesPresetViewModel);
-            await Navigation.PopModalAsync();
-        }
-
-        private async void CancelClickedAsync(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
 
         private async void ChangeSpeciesClickedAsync(object sender, EventArgs e)
