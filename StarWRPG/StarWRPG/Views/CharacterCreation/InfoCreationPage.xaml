@@ -81,18 +81,15 @@
                     <Entry Grid.Column="1" Grid.Row="6"
                            Text="{Binding Eyes}" HorizontalOptions="FillAndExpand"/>
                     <Editor Grid.Column="1" Grid.Row="7"
-                            Text="{Binding NotableFeatures}"/>
+                            Text="{Binding NotableFeatures}"
+                            VerticalOptions="Center"/>
                 </Grid>
                 <!--Background-->
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Character Background"                    
-                           FontAttributes="Bold"
-                           VerticalOptions="Center"/>
-                    <Button Text="Edit" 
-                            Clicked="EditBackgroundAsync"
-                            VerticalOptions="Center"/>
-                </StackLayout>
-                <Label Text="{Binding Background}"/>
+                <Label Text="Character Background"                    
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+                <Editor Text="{Binding Background}"
+                        HeightRequest="150"/>
             </StackLayout>
         </ScrollView>
     </StackLayout>

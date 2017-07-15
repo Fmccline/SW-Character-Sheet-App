@@ -35,9 +35,42 @@ namespace StarWRPG.Views
             }
             
             BindingContext = talentViewModel;
+
+            AddSaveAndDeleteTalentToolbarItems();
         }
 
-        private async void AcceptClickedAsync(object sender, EventArgs e)
+        private void AddSaveAndDeleteTalentToolbarItems()
+        {
+            ToolbarItem saveTalent = new ToolbarItem
+            {
+                Text = "Save"
+            };
+            saveTalent.Clicked += SaveClickedAsync;
+
+            ToolbarItem deleteTalent = new ToolbarItem
+            {
+                Text = "Delete"
+            };
+            deleteTalent.Clicked += DeleteClickedAsync;
+
+            ToolbarItems.Add(deleteTalent);
+            ToolbarItems.Add(saveTalent);
+        }
+
+        private async void DeleteClickedAsync(object sender, EventArgs e)
+        {
+            var answer = await DisplayAlert("Delete Talent", "Are you sure you want to delete this talent?", "Yes", "No");
+            if (answer)
+            {
+                if (talentExists)
+                {
+                    talentsViewModel.RemoveTalent(talentViewModel);
+                }
+                await Navigation.PopAsync();
+            }
+        }
+
+        private async void SaveClickedAsync(object sender, EventArgs e)
         {
             if (talentViewModel.Name.Equals("") || talentViewModel.Description.Equals(""))
             {
@@ -49,20 +82,7 @@ namespace StarWRPG.Views
                 {
                     talentsViewModel.AddTalent(talentViewModel);
                 }
-                await Navigation.PopModalAsync();
-            }
-        }
-
-        private async void DeleteButtonClickedAsync(object sender, EventArgs e)
-        {
-            var answer = await DisplayAlert("Delete Talent", "Are you sure you want to delete this talent?", "Yes", "No");
-            if (answer)
-            {
-                if (talentExists)
-                {
-                    talentsViewModel.RemoveTalent(talentViewModel);
-                }
-                await Navigation.PopModalAsync();
+                await Navigation.PopAsync();
             }
         }
     }

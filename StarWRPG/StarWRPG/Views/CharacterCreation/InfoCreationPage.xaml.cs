@@ -23,11 +23,6 @@ namespace StarWRPG.Views
             BindingContext = ffgCharacterViewModel;
         }
 
-        public async void EditBackgroundAsync(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new EditorPage("Character Background", "Background", ffgCharacterViewModel));
-        }
-
         private async void ChangeSpeciePresetAsync(object sender, EventArgs e)
         {
             string cancel = "Cancel";

@@ -142,7 +142,7 @@
     <Compile Include="Models\CharacterMembers\Presets\ZabrakPreset.cs" />
     <Compile Include="Models\CharacterMembers\Skills\CustomSkill.cs" />
     <Compile Include="Models\CharacterMembers\Talent.cs" />
-    <Compile Include="ViewModels\ArmorViewModel.cs" />
+    <Compile Include="ViewModels\Inventory\ArmorViewModel.cs" />
     <Compile Include="ViewModels\Motivations\CharacterMotivationsViewModel.cs" />
     <Compile Include="ViewModels\Motivations\EmotionalWeaknessesViewModel.cs" />
     <Compile Include="ViewModels\Motivations\EmotionalStrengthsViewModel.cs" />
@@ -152,8 +152,8 @@
     <Compile Include="ViewModels\Motivations\CharacterMotivationViewModel.cs" />
     <Compile Include="ViewModels\CriticalInjuries\CriticalInjuriesViewModel.cs" />
     <Compile Include="ViewModels\CriticalInjuries\CriticalInjuryViewModel.cs" />
-    <Compile Include="ViewModels\InventoryViewModel.cs" />
-    <Compile Include="ViewModels\ItemViewModel.cs" />
+    <Compile Include="ViewModels\Inventory\InventoryViewModel.cs" />
+    <Compile Include="ViewModels\Inventory\ItemViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Models\CharacterMembers\Presets\SpeciesPreset.cs" />
     <Compile Include="ViewModels\Presets\SpeciesPresetsViewModel.cs" />
@@ -161,10 +161,10 @@
     <Compile Include="ViewModels\Skills\SkillCreationViewModel.cs" />
     <Compile Include="ViewModels\Skills\SkillsViewModel.cs" />
     <Compile Include="ViewModels\Skills\SkillViewModel.cs" />
-    <Compile Include="ViewModels\TalentsViewModel.cs" />
-    <Compile Include="ViewModels\TalentViewModel.cs" />
+    <Compile Include="ViewModels\Talents\TalentsViewModel.cs" />
+    <Compile Include="ViewModels\Talents\TalentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
-    <Compile Include="ViewModels\WeaponViewModel.cs" />
+    <Compile Include="ViewModels\Inventory\WeaponViewModel.cs" />
     <Compile Include="Views\CharacterCreation\StatsCreationPage.xaml.cs">
       <DependentUpon>StatsCreationPage.xaml</DependentUpon>
     </Compile>

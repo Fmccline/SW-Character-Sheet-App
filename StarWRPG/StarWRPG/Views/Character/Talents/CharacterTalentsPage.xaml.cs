@@ -29,14 +29,14 @@ namespace StarWRPG.Views
         {
             if (e.SelectedItem is TalentViewModel talent)
             {
-                await Navigation.PushModalAsync(new TalentPage(talentsViewModel, talent));
+                await Navigation.PushAsync(new TalentPage(talentsViewModel, talent));
                 TalentsListView.SelectedItem = null;
             }
         }
 
         private async void AddTalentClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new TalentPage(talentsViewModel));
+            await Navigation.PushAsync(new TalentPage(talentsViewModel));
         }
     }
 }
