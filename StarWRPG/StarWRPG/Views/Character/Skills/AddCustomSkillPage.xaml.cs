@@ -24,6 +24,18 @@ namespace StarWRPG.Views
 
             skillCreationViewModel = new SkillCreationViewModel(skillsViewModel.Characteristics, skillsViewModel.XP);
             BindingContext = skillCreationViewModel;
+
+            AddSaveSkillToolbarItem();
+        }
+
+        private void AddSaveSkillToolbarItem()
+        {
+            ToolbarItem saveSkill = new ToolbarItem
+            {
+                Text = "Save"
+            };
+            saveSkill.Clicked += SaveClickedAsync;
+            ToolbarItems.Add(saveSkill);
         }
 
         private async void ChangeCharacteristicClickedAsync(object sender, EventArgs e)
@@ -38,16 +50,11 @@ namespace StarWRPG.Views
             skillCreationViewModel.ChangeCharacteristic(characteristicType);
         }
 
-        private async void AcceptClickedAsync(object sender, EventArgs e)
+        private async void SaveClickedAsync(object sender, EventArgs e)
         {
             var skill = skillCreationViewModel.MakeCustomSkill();
             skillsViewModel.AddSkill(skill);
-            await Navigation.PopModalAsync();
-        }
-
-        private async void CancelClickedAsync(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
+            await Navigation.PopAsync();
         }
     }
 }

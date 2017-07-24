@@ -4,7 +4,7 @@
                 xmlns:local="clr-namespace:StarWRPG.Views" 
                 x:Class="StarWRPG.Views.MotivationsDetailPage">
     <ScrollView>
-        <StackLayout x:Name="MainStackLayout">
+        <StackLayout>
             <StackLayout x:Name="MotivationsLayout"
                          IsVisible="False">
                 <Label Text="Character Motivations"

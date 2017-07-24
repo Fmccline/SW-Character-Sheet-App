@@ -27,7 +27,7 @@ namespace StarWRPG.Views
         {
             if (e.SelectedItem is ItemViewModel item)
             {
-                await Navigation.PushModalAsync(new ItemPage(inventoryViewModel, item));
+                await Navigation.PushAsync(new ItemPage(inventoryViewModel, item));
                 ItemsListView.SelectedItem = null;
             }
         }

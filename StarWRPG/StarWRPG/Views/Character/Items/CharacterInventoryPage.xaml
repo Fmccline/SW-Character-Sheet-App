@@ -5,7 +5,7 @@
              Title="Inventory"
              x:Class="StarWRPG.Views.CharacterInventoryPage">
 
-    <StackLayout x:Name="MainStackLayout">
+    <StackLayout>
         <!--Select items ListView buttons-->
         <StackLayout Orientation="Horizontal">
             <Button x:Name="WeaponsButton" 

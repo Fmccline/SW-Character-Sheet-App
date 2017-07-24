@@ -20,12 +20,7 @@ namespace StarWRPG.Views
         ItemsList itemsList;
         WeaponsList weaponsList;
 
-        protected override StackLayout mainStackLayout
-        {
-            get { return MainStackLayout; }
-        }
-
-        public CharacterInventoryPage(FFGCharacterViewModel characterViewModel)
+        public CharacterInventoryPage(FFGCharacterViewModel characterViewModel) : base(characterViewModel)
         {
             InitializeComponent();
 
@@ -50,13 +45,13 @@ namespace StarWRPG.Views
             switch (itemType)
             {
                 case WEAPON:
-                    await Navigation.PushModalAsync(new WeaponPage(inventoryViewModel));
+                    await Navigation.PushAsync(new WeaponPage(inventoryViewModel));
                     break;
                 case ARMOR:
-                    await Navigation.PushModalAsync(new ArmorPage(inventoryViewModel));
+                    await Navigation.PushAsync(new ArmorPage(inventoryViewModel));
                     break;
                 case ITEM:
-                    await Navigation.PushModalAsync(new ItemPage(inventoryViewModel));
+                    await Navigation.PushAsync(new ItemPage(inventoryViewModel));
                     break;
             }
         }

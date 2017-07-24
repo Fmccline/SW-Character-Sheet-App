@@ -22,11 +22,23 @@ namespace StarWRPG.Views
 
             skillViewModel = skill;
             BindingContext = skillViewModel;
+
+            AddSaveSkillToolbarItem();
         }
 
-        private async void AcceptClickedAsync(object sender, EventArgs e)
+        private void AddSaveSkillToolbarItem()
         {
-            await Navigation.PopModalAsync();
+            ToolbarItem saveSkill = new ToolbarItem
+            {
+                Text = "Save"
+            };
+            saveSkill.Clicked += SaveClickedAsync;
+            ToolbarItems.Add(saveSkill);
+        }
+
+        private async void SaveClickedAsync(object sender, EventArgs e)
+        {
+            await Navigation.PopAsync();
         }
 
         private async void RankChangedAsync(object sender, ValueChangedEventArgs e)
@@ -52,7 +64,8 @@ namespace StarWRPG.Views
             const string PRESENCE = "Presence";
             const string WILLPOWER = "Willpower";
             string characteristicType = await DisplayActionSheet("Characteristic", "Cancel", null, AGILITY, BRAWN, CUNNING, INTELLECT, PRESENCE, WILLPOWER);
-            skillViewModel.ChangeCharacteristic(characteristicType);
+            if (characteristicType != null && !characteristicType.Equals("Cancel"))
+                skillViewModel.ChangeCharacteristic(characteristicType);
         }
     }
 }

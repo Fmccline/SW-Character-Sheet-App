@@ -23,8 +23,6 @@ namespace StarWRPG.Views
             }
             itemViewModel = weaponViewModel;
             BindingContext = itemViewModel;
-
-            MainStackLayout.Children.Add(SaveAndCancelLayout);
         }
     }
 }

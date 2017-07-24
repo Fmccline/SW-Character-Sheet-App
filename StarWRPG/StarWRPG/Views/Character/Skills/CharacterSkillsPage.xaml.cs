@@ -16,12 +16,7 @@ namespace StarWRPG.Views
     {
         SkillsViewModel skillsViewModel;
 
-        protected override StackLayout mainStackLayout
-        {
-            get { return MainStackLayout; }
-        }
-
-        public CharacterSkillsPage(FFGCharacterViewModel character)
+        public CharacterSkillsPage(FFGCharacterViewModel character) : base(character)
         {
             InitializeComponent();
             skillsViewModel = character.SkillsViewModel;
@@ -32,14 +27,14 @@ namespace StarWRPG.Views
         {
             if (e.SelectedItem is SkillViewModel skill)
             {
-                await Navigation.PushModalAsync(new SkillPage(skill));
+                await Navigation.PushAsync(new SkillPage(skill));
                 SkillsListView.SelectedItem = null;
             }
         }
 
         private async void AddCustomSkillClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new AddCustomSkillPage(skillsViewModel));
+            await Navigation.PushAsync(new AddCustomSkillPage(skillsViewModel));
         }
     }
 }

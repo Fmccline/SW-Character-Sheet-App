@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="StarWRPG.Views.AddCriticalInjuryPage">
+             x:Class="StarWRPG.Views.AddCriticalInjuryPage"
+             Title="Add Critical Injury">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -20,12 +21,10 @@
         <StackLayout>
             <Label Text="Severity" Style="{StaticResource CenterBoldLabel}" />
             <Entry x:Name="SeverityEntry"
-                   Placeholder="Severity" 
-                   Text="{Binding Severity}"/>
+                   Placeholder="Severity"/>
             <Label Text="Result" Style="{StaticResource CenterBoldLabel}" />
             <Entry x:Name="ResultEntry"
-                   Placeholder="Result" 
-                   Text="{Binding Result}"/>
+                   Placeholder="Result"/>
 
             <ListView x:Name="AllCriticalInjuriesListView"
                       ItemsSource="{Binding AllCriticalInjuries}"
@@ -63,15 +62,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            
-            <StackLayout Orientation="Horizontal">
-                <Button Text="Accept"
-                        Clicked="AcceptClickedAsync"
-                        HorizontalOptions="CenterAndExpand"/>
-                <Button Text="Cancel"
-                        Clicked="CancelClickedAsync"
-                        HorizontalOptions="CenterAndExpand"/>
-            </StackLayout>
+
+            <Button Text="Accept"
+                    Clicked="AcceptClickedAsync"
+                    HorizontalOptions="Center"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

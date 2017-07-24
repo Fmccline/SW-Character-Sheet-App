@@ -14,7 +14,6 @@ namespace StarWRPG.ViewModels
         bool[] hasDice;
         Characteristics characteristics;
         Experience xp;
-        string characteristicName;
         string[] imageSourceForDice;
 
         public Skill Skill;
@@ -26,8 +25,11 @@ namespace StarWRPG.ViewModels
                 Skill.Characteristic = value;
                 CalculateDicePool();
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(CharacteristicName));
+                OnPropertyChanged(nameof(Name));
             }
         }
+
         public bool CanSetCharacteristic
         {
             get { return Skill.CanSetCharacteristic; }
@@ -60,15 +62,10 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
+
         public string CharacteristicName
         {
-            get { return characteristicName; }
-            set
-            {
-                characteristicName = value;
-                Name = Skill.Name;
-                OnPropertyChanged();
-            }
+            get { return Characteristic.Name; }
         }
         public string Name
         {
@@ -79,6 +76,10 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
+        public string SkillName
+        {
+            get { return Skill.SkillName; }
+        }
         public string[] ImageSourceForDice
         {
             get { return imageSourceForDice; }
@@ -88,6 +89,7 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
+
         public uint AvailableXP
         {
             get { return xp.AvailableXP; }
@@ -140,8 +142,6 @@ namespace StarWRPG.ViewModels
             Skill = skill;
             this.characteristics = characteristics;
             this.xp = xp;
-            CharacteristicName = Characteristic.Name;
-
             CalculateDicePool();
         }
 
@@ -196,25 +196,24 @@ namespace StarWRPG.ViewModels
             switch (characteristicType)
             {
                 case AGILITY:
-                    Skill.Characteristic = characteristics.Agility;
+                    Characteristic = characteristics.Agility;
                     break;
                 case BRAWN:
-                    Skill.Characteristic = characteristics.Brawn;
+                    Characteristic = characteristics.Brawn;
                     break;
                 case CUNNING:
-                    Skill.Characteristic = characteristics.Cunning;
+                    Characteristic = characteristics.Cunning;
                     break;
                 case INTELLECT:
-                    Skill.Characteristic = characteristics.Intellect;
+                    Characteristic = characteristics.Intellect;
                     break;
                 case PRESENCE:
-                    Skill.Characteristic = characteristics.Presence;
+                    Characteristic = characteristics.Presence;
                     break;
                 case WILLPOWER:
-                    Skill.Characteristic = characteristics.Willpower;
+                    Characteristic = characteristics.Willpower;
                     break;
             }
-            CharacteristicName = characteristicType;
         }
 
         public void GainXPToRankDown(uint newRank)

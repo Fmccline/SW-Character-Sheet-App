@@ -17,9 +17,7 @@ namespace StarWRPG.Views
     {
         TalentsViewModel talentsViewModel;
 
-        protected override StackLayout mainStackLayout { get { return MainStackLayout; } }
-
-        public CharacterTalentsPage(FFGCharacterViewModel ffgCharacterViewModel)
+        public CharacterTalentsPage(FFGCharacterViewModel character) : base(character)
         {
             InitializeComponent();
 
@@ -31,14 +29,14 @@ namespace StarWRPG.Views
         {
             if (e.SelectedItem is TalentViewModel talent)
             {
-                await Navigation.PushModalAsync(new TalentPage(talentsViewModel, talent));
+                await Navigation.PushAsync(new TalentPage(talentsViewModel, talent));
                 TalentsListView.SelectedItem = null;
             }
         }
 
         private async void AddTalentClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new TalentPage(talentsViewModel));
+            await Navigation.PushAsync(new TalentPage(talentsViewModel));
         }
     }
 }

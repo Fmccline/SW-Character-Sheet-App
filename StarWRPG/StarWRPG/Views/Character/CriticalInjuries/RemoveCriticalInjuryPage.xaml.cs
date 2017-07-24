@@ -32,15 +32,10 @@ namespace StarWRPG.Views
                 if (answer)
                 {
                     criticalInjuriesViewModel.RemoveCriticalInjury(injury);
-                    await Navigation.PopModalAsync();
+                    await Navigation.PopAsync();
                 }
                 InjuryListView.SelectedItem = null;
             }
-        }
-
-        private async void CancelClickedAsync(object sender, EventArgs e)
-        {
-            await Navigation.PopModalAsync();
         }
     }
 }

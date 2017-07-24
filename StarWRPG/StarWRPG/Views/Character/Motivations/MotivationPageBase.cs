@@ -19,7 +19,7 @@ namespace StarWRPG.Views
         protected abstract StackLayout moralityLayout { get; }
         protected abstract MotivationLayout MakeMotivationLayout(CharacterMotivationViewModel motivation);
 
-        public MotivationPageBase(FFGCharacterViewModel character)
+        public MotivationPageBase(FFGCharacterViewModel character) : base(character)
         {
             Title = "Motivations";
             characterMotivationsViewModel = character.CharacterMotivationsViewModel;

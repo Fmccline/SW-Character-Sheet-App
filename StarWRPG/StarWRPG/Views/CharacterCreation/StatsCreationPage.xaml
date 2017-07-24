@@ -5,32 +5,8 @@
                 x:Class="StarWRPG.Views.StatsCreationPage"
                 Title="Stats">
 
-    <local:BasePage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="CenterTopLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Start" />
-            </Style>
-            <Style x:Key="CenterBottomBoldLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="End" />
-                <Setter Property="FontAttributes" Value="Bold"/>
-            </Style>
-            <Style x:Key="CenterNumericEntry" TargetType="Entry">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="Keyboard" Value="Numeric" />
-            </Style>
-            <Style x:Key="FillAndExpandNumericEntry" TargetType="Entry">
-                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                <Setter Property="VerticalOptions" Value="FillAndExpand" />
-                <Setter Property="Keyboard" Value="Numeric" />
-            </Style>
-        </ResourceDictionary>
-    </local:BasePage.Resources>
-
     <ScrollView>
-        <StackLayout x:Name="MainStackLayout">
+        <StackLayout>
             <!-- Soak, Defense, and Force Rating -->
             <Grid>
                 <Grid.ColumnDefinitions>

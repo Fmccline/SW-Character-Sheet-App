@@ -16,24 +16,11 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InfoCreationPage : BasePage
     {
-        FFGCharacterViewModel ffgCharacterViewModel;
-
-        protected override StackLayout mainStackLayout
-        {
-            get { return MainStackLayout; }
-        }
-
-        public InfoCreationPage(FFGCharacterViewModel characterViewModel)
+        public InfoCreationPage(FFGCharacterViewModel character) : base(character)
         {
             InitializeComponent();
 
-            ffgCharacterViewModel = characterViewModel;
             BindingContext = ffgCharacterViewModel;
-        }
-
-        public async void EditBackgroundAsync(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new EditorPage("Character Background", "Background", ffgCharacterViewModel));
         }
 
         private async void ChangeSpeciePresetAsync(object sender, EventArgs e)
@@ -42,7 +29,7 @@ namespace StarWRPG.Views
             var speciePresetsViewModel = new SpeciesPresetsViewModel(ffgCharacterViewModel);
             var speciesName = await DisplayActionSheet("Species", cancel, null, speciePresetsViewModel.SpeciesNames);
             if (speciesName != null && !speciesName.Equals(cancel))
-                await Navigation.PushModalAsync(new SpeciesPresetPage(speciePresetsViewModel,speciesName));
+                await Navigation.PushAsync(new SpeciesPresetPage(speciePresetsViewModel,speciesName));
         }
     }
 }

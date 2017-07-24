@@ -14,7 +14,6 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MotivationsCreationPage : MotivationPageBase
     {
-        protected override StackLayout mainStackLayout { get { return MainStackLayout; } }
         protected override StackLayout motivationsLayout { get { return MotivationsLayout; } }
         protected override StackLayout obligationsLayout { get { return ObligationsLayout; } }
         protected override StackLayout dutyLayout { get { return DutyLayout; } }
