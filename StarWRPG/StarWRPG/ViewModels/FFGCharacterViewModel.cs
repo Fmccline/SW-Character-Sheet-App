@@ -8,9 +8,20 @@ using Xamarin.Forms;
 
 namespace StarWRPG.ViewModels
 {
+    // ViewModel for views to access an FFGCharacter model
     public class FFGCharacterViewModel : ViewModelBase
     {
         public FFGCharacter FFGCharacter { get; private set; }
+
+        public int ID
+        {
+            get { return FFGCharacter.ID; }
+            set
+            {
+                FFGCharacter.ID = value;
+                OnPropertyChanged();
+            }
+        }
 
         // ViewModels
         public CharacterMotivationsViewModel CharacterMotivationsViewModel { get; private set; }

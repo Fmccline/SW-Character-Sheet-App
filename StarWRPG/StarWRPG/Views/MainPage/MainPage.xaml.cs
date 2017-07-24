@@ -58,7 +58,8 @@ namespace StarWRPG.Views
 
         private async void FaDButtonClickedAsync(object sender, EventArgs e)
         {
-            var characterCreationNavigation = new CharacterCreationNavigation(new FFGCharacterViewModel());
+            var newCharacter = await App.CharacterDatabase.SaveAndReturnCharacterAsync(new FFGCharacterViewModel());
+            var characterCreationNavigation = new CharacterCreationNavigation(newCharacter);
             await Navigation.PushAsync(characterCreationNavigation.DefaultPage);
         }
     }

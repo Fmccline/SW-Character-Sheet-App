@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace StarWRPG
 {
+    // Local SQLite database stored on devices for FFG Characters
     public class CharacterDatabase
     {
         SQLiteAsyncConnection database;
@@ -61,6 +62,20 @@ namespace StarWRPG
             var character = characterViewModel.FFGCharacter;
             var dataItem = new CharacterDataItem(character) { ID = character.ID };
             await SaveCharacterDataItemAsync(dataItem);
+        }
+
+        public async Task<FFGCharacterViewModel> SaveAndReturnCharacterAsync(FFGCharacterViewModel character)
+        {
+            await SaveCharacterAsync(character);
+            foreach (var characterDataItem in await GetCharacterViewModelsAsync())
+            {
+                if (characterDataItem.Name.Equals(character.Name))
+                {
+                    character.ID = characterDataItem.ID;
+                    break;
+                }
+            }
+            return character;
         }
 
         public Task<int> DeleteCharacterAsync(CharacterDataItem item)
