@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarWRPG.Views.MainPage"
+             xmlns:local="clr-namespace:StarWRPG.Views" 
              Title="FFG Character Sheet">
 
     <ContentPage.Padding>
@@ -16,56 +17,35 @@
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium"/>
             </Style>
-            <Style x:Key="CreateCharacterButton" TargetType="Button">
-                <Setter Property="HorizontalOptions" Value="Start" />
+            <Style x:Key="MediumCenterBoldLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="Text" Value="Create"/>
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <ContentPage.Content>
         <StackLayout>
-
-            <Label Text="Character Creation" Style="{StaticResource MediumStartBoldLabel}"/>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="3*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-                
-                <Label Grid.Column="0" Grid.Row="0"
-                       Text="Edge of the Empire Character" 
-                       Style="{StaticResource StartLabel}"/>
-                <Label Grid.Column="0" Grid.Row="1"
-                       Text="Age of Rebellion Character" 
-                       Style="{StaticResource StartLabel}"/>
-                <Label Grid.Column="0" Grid.Row="2"
-                       Text="Force and Destiny Character" 
-                       Style="{StaticResource StartLabel}"/>
-                <Button Grid.Column="1" Grid.Row="0" 
-                        Clicked="EotEButtonClickedAsync"
-                        Style="{StaticResource CreateCharacterButton}"/>
-                <Button Grid.Column="1" Grid.Row="1" 
-                        Clicked="AoRButtonClickedAsync"
-                        Style="{StaticResource CreateCharacterButton}"/>
-                <Button Grid.Column="1" Grid.Row="2"
-                        Clicked="FaDButtonClickedAsync"
-                        Style="{StaticResource CreateCharacterButton}"/>
-            </Grid>
-
-            <Label Text="Characters" Style="{StaticResource MediumStartBoldLabel}"/>
-
-            <Label Text="You have no characters; we should fix that!"
+            <Label Text="Characters" Style="{StaticResource MediumCenterBoldLabel}"/>
+            <!--Character Search Bar and Character Creation-->
+            <StackLayout Orientation="Horizontal">
+                <local:CustomSearchBar x:Name="Search"
+                                       HorizontalOptions="FillAndExpand"
+                                       Placeholder="Search by name"
+                                       SearchCommand="{Binding SearchCommand}" 
+                                       SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
+                                       TextChangedCommand="{Binding DefaultSortCommand}"/>
+                <Button Text="Create"
+                        Clicked="CreateCharacterClickedAsync"/>
+            </StackLayout>
+            <!--Character List-->
+            <Label Text="You have no characters. We should fix that!"
                    IsVisible="{Binding CharactersIsEmpty}"/>
 
             <ListView x:Name="charactersListView"
-                      ItemsSource="characters"
+                      ItemsSource="{Binding Characters}"
                       ItemSelected="CharacterSelectedAsync"
                       IsVisible="{Binding CharactersIsNotEmpty}">
                 <ListView.Header>

@@ -154,7 +154,7 @@
     <Compile Include="ViewModels\CriticalInjuries\CriticalInjuryViewModel.cs" />
     <Compile Include="ViewModels\Inventory\InventoryViewModel.cs" />
     <Compile Include="ViewModels\Inventory\ItemViewModel.cs" />
-    <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\CharacterListViewModel.cs" />
     <Compile Include="Models\CharacterMembers\Presets\SpeciesPreset.cs" />
     <Compile Include="ViewModels\Presets\SpeciesPresetsViewModel.cs" />
     <Compile Include="ViewModels\Presets\SpeciesPresetViewModel.cs" />

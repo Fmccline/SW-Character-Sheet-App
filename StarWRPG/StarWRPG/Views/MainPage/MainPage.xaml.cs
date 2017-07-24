@@ -11,21 +11,28 @@ using Xamarin.Forms.Xaml;
 
 namespace StarWRPG.Views
 {
+    /* Intent
+     *      Displays the main page for the FFG App
+     *      The user can:
+     *          Create a character
+     *          Select a character
+     *          Search for a character
+     */
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
-        MainPageViewModel mainPageViewModel;
+        CharacterListViewModel mainPageViewModel;
 
         public MainPage()
         {
             InitializeComponent();
-            mainPageViewModel = new MainPageViewModel();
+            mainPageViewModel = new CharacterListViewModel();
             BindingContext = mainPageViewModel;
         }
 
         protected override async void OnAppearing()
         {
-            charactersListView.ItemsSource = await mainPageViewModel.GetCharacters();
+            mainPageViewModel.Characters = await mainPageViewModel.GetCharactersAsync();
         }
 
         private async void CharacterSelectedAsync(object sender, SelectedItemChangedEventArgs e)
@@ -46,17 +53,7 @@ namespace StarWRPG.Views
             }
         }
 
-        private void EotEButtonClickedAsync(object sender, EventArgs e)
-        {
-            // create EotE Character
-        }
-
-        private void AoRButtonClickedAsync(object sender, EventArgs e)
-        {
-            // create AoR Character
-        }
-
-        private async void FaDButtonClickedAsync(object sender, EventArgs e)
+        private async void CreateCharacterClickedAsync(object sender, EventArgs e)
         {
             var newCharacter = await App.CharacterDatabase.SaveAndReturnCharacterAsync(new FFGCharacterViewModel());
             var characterCreationNavigation = new CharacterCreationNavigation(newCharacter);

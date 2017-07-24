@@ -7,6 +7,9 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Views
 {
+    /* Intent
+     *      For using a similar search bar that has a default Unfocus call if search text is ""
+     */
     public class CustomSearchBar : SearchBar
     {
         public static readonly BindableProperty TextChangedCommandProperty = BindableProperty.Create(
@@ -26,6 +29,7 @@ namespace StarWRPG.Views
             TextChanged += SearchTextChanged;
         }
 
+        // Unfocuses the search bar if the cancel button is clicked
         private void SearchTextChanged(object sender, TextChangedEventArgs e)
         {
             if (Text.Equals(""))
