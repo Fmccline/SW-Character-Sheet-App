@@ -78,10 +78,16 @@ namespace StarWRPG
             return character;
         }
 
-        public Task<int> DeleteCharacterAsync(CharacterDataItem item)
+        public Task<int> DeleteCharacterAsync(CharacterDataItem character)
         {
-            return database.DeleteAsync(item);
+            return database.DeleteAsync(character);
         }
 
+        public Task<int> DeleteCharacterAsync(FFGCharacterViewModel character)
+        {
+            var characterDataItem = new CharacterDataItem(character.FFGCharacter);
+            characterDataItem.ID = character.ID;
+            return database.DeleteAsync(characterDataItem);
+        }
     }
 }

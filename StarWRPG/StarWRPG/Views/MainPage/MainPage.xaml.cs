@@ -21,39 +21,29 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
-        CharacterListViewModel mainPageViewModel;
+        CharacterSelectionPage selectionPage;
+        CharacterDeletionPage deletionPage;
 
         public MainPage()
         {
             InitializeComponent();
-            mainPageViewModel = new CharacterListViewModel();
-            BindingContext = mainPageViewModel;
+            NavigationPage.SetHasNavigationBar(this, false);
+
+            selectionPage = new CharacterSelectionPage();
+            deletionPage = new CharacterDeletionPage();
         }
 
-        protected override async void OnAppearing()
+        private async void SelectCharacterAsync(object sender, EventArgs e)
         {
-            mainPageViewModel.Characters = await mainPageViewModel.GetCharactersAsync();
+            await Navigation.PushAsync(selectionPage);
         }
 
-        private async void CharacterSelectedAsync(object sender, SelectedItemChangedEventArgs e)
+        private async void DeleteCharacterAsync(object sender, EventArgs e)
         {
-            if (e.SelectedItem is FFGCharacterViewModel character)
-            {
-                try
-                {
-                    var characterDetailNavigation = new CharacterDetailNavigation(character);
-                    await Navigation.PushAsync(characterDetailNavigation.DefaultPage);
-                    charactersListView.SelectedItem = null;
-                }
-                catch(Exception ex)
-                {
-                    Debug.WriteLine(ex.StackTrace);
-                    Debug.WriteLine(ex.Message);
-                }
-            }
+            await Navigation.PushAsync(deletionPage);
         }
 
-        private async void CreateCharacterClickedAsync(object sender, EventArgs e)
+        private async void CreateCharacterAsync(object sender, EventArgs e)
         {
             var newCharacter = await App.CharacterDatabase.SaveAndReturnCharacterAsync(new FFGCharacterViewModel());
             var characterCreationNavigation = new CharacterCreationNavigation(newCharacter);

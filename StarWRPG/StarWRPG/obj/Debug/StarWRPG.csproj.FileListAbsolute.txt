@@ -56,3 +56,4 @@ C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWR
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.Items.ArmorsList.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.Items.WeaponsList.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.Items.ItemsList.xaml.g.cs
+C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.CharacterSelection.CharacterSelectionLayout.xaml.g.cs

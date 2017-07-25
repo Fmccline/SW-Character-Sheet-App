@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:StarWRPG.Views" 
+             x:Class="StarWRPG.Views.CharacterSelectionLayout">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MediumStartBoldLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+            <Style x:Key="MediumCenterBoldLabel" TargetType="Label">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <ContentView.Content>
+        <StackLayout>
+            <!--Character Search Bar-->
+            <local:CustomSearchBar x:Name="Search"
+                                HorizontalOptions="FillAndExpand"
+                                Placeholder="Search by name"
+                                SearchCommand="{Binding SearchCommand}" 
+                                SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
+                                TextChangedCommand="{Binding DefaultSortCommand}"/>
+            <!--Character List-->
+            <Label Text="You have no characters. We should fix that!"
+                   IsVisible="{Binding CharactersIsEmpty}"/>
+
+            <ListView x:Name="charactersListView"
+                      ItemsSource="{Binding Characters}"
+                      IsVisible="{Binding CharactersIsNotEmpty}">
+                <ListView.Header>
+                    <Grid>
+                        <Label Grid.Column="0" 
+                           Text="Name" 
+                           Style="{StaticResource StartBoldLabel}"/>
+                        <Label Grid.Column="1" 
+                           Text="Species" 
+                           Style="{StaticResource StartBoldLabel}"/>
+                        <Label Grid.Column="2" 
+                           Text="Career" 
+                           Style="{StaticResource StartBoldLabel}"/>
+                        <Label Grid.Column="3" 
+                           Text="Total XP" 
+                           Style="{StaticResource StartBoldLabel}"/>
+                    </Grid>
+                </ListView.Header>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Label Grid.Column="0" 
+                                    Text="{Binding Name}" 
+                                    Style="{StaticResource StartLabel}"/>
+                                <Label Grid.Column="1" 
+                                    Text="{Binding Species}" 
+                                    Style="{StaticResource StartLabel}"/>
+                                <Label Grid.Column="2" 
+                                    Text="{Binding Career}" 
+                                    Style="{StaticResource StartLabel}"/>
+                                <Label Grid.Column="3" 
+                                    Text="{Binding TotalXP}" 
+                                    Style="{StaticResource StartLabel}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

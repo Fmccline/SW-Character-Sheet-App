@@ -112,6 +112,12 @@
     <Compile Include="Models\CriticalInjuries\SlowedDown.cs" />
     <Compile Include="Models\CriticalInjuries\MinorNick.cs" />
     <Compile Include="ViewModels\Presets\IFFGPreset.cs" />
+    <Compile Include="Views\CharacterSelection\CharacterSelectionPage.cs" />
+    <Compile Include="Views\CharacterSelection\CharacterSelectionPageBase.cs" />
+    <Compile Include="Views\CharacterSelection\CharacterDeletionPage.cs" />
+    <Compile Include="Views\CharacterSelection\CharacterSelectionLayout.xaml.cs">
+      <DependentUpon>CharacterSelectionLayout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Character\Items\ArmorsList.xaml.cs">
       <DependentUpon>ArmorsList.xaml</DependentUpon>
     </Compile>
@@ -408,6 +414,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Character\Items\ItemsList.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CharacterSelection\CharacterSelectionLayout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

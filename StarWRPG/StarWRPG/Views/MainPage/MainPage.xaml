@@ -3,11 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarWRPG.Views.MainPage"
              xmlns:local="clr-namespace:StarWRPG.Views" 
-             Title="FFG Character Sheet">
-
-    <ContentPage.Padding>
-        5,0,5,20
-    </ContentPage.Padding>
+             Title="FFG Character Sheet"
+             BackgroundColor="Black">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -22,69 +19,49 @@
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="White"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Characters" Style="{StaticResource MediumCenterBoldLabel}"/>
-            <!--Character Search Bar and Character Creation-->
-            <StackLayout Orientation="Horizontal">
-                <local:CustomSearchBar x:Name="Search"
-                                       HorizontalOptions="FillAndExpand"
-                                       Placeholder="Search by name"
-                                       SearchCommand="{Binding SearchCommand}" 
-                                       SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
-                                       TextChangedCommand="{Binding DefaultSortCommand}"/>
-                <Button Text="Create"
-                        Clicked="CreateCharacterClickedAsync"/>
-            </StackLayout>
-            <!--Character List-->
-            <Label Text="You have no characters. We should fix that!"
-                   IsVisible="{Binding CharactersIsEmpty}"/>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
 
-            <ListView x:Name="charactersListView"
-                      ItemsSource="{Binding Characters}"
-                      ItemSelected="CharacterSelectedAsync"
-                      IsVisible="{Binding CharactersIsNotEmpty}">
-                <ListView.Header>
-                    <Grid>
-                        <Label Grid.Column="0" 
-                           Text="Name" 
-                           Style="{StaticResource StartBoldLabel}"/>
-                        <Label Grid.Column="1" 
-                           Text="Species" 
-                           Style="{StaticResource StartBoldLabel}"/>
-                        <Label Grid.Column="2" 
-                           Text="Career" 
-                           Style="{StaticResource StartBoldLabel}"/>
-                        <Label Grid.Column="3" 
-                           Text="Total XP" 
-                           Style="{StaticResource StartBoldLabel}"/>
-                    </Grid>
-                </ListView.Header>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Label Grid.Column="0" 
-                                       Text="{Binding Name}" 
-                                       Style="{StaticResource StartLabel}"/>
-                                <Label Grid.Column="1" 
-                                       Text="{Binding Species}" 
-                                       Style="{StaticResource StartLabel}"/>
-                                <Label Grid.Column="2" 
-                                       Text="{Binding Career}" 
-                                       Style="{StaticResource StartLabel}"/>
-                                <Label Grid.Column="3" 
-                                       Text="{Binding TotalXP}" 
-                                       Style="{StaticResource StartLabel}"/>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
-    </ContentPage.Content>
+        <Label Grid.Row="0"
+               Text="FFG Character Sheet"
+               TextColor="Yellow"
+               FontAttributes="Bold"
+               FontSize="Large"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+
+        <Label Grid.Row="2"
+               Text="Select Character" 
+               Style="{StaticResource MediumCenterBoldLabel}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="SelectCharacterAsync"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Grid.Row="3"
+               Text="Create Character" 
+               Style="{StaticResource MediumCenterBoldLabel}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="CreateCharacterAsync"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Grid.Row="4"
+               Text="Delete Character" 
+               Style="{StaticResource MediumCenterBoldLabel}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="DeleteCharacterAsync"/>
+            </Label.GestureRecognizers>
+        </Label>
+    </Grid>
 </ContentPage>
