@@ -26,11 +26,13 @@ namespace StarWRPG.Controls
         {
             if (ffgCharacterViewModel.Name.Equals(""))
             {
-                ffgCharacterViewModel.Name = "No Name Nelly";
+                await App.CharacterDatabase.DeleteCharacterAsync(ffgCharacterViewModel);
             }
-
-            await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
-            await currentPage.Navigation.PopAsync();
+            else
+            {
+                await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
+            }
+            await currentPage.Navigation.PopToRootAsync();
         }
     }
 }

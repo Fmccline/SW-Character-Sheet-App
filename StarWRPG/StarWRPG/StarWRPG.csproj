@@ -41,7 +41,6 @@
     <Compile Include="Controls\EditCharacterToolbarItem.cs" />
     <Compile Include="Controls\ISearchable.cs" />
     <Compile Include="Controls\SaveCharacterToolbarItem.cs" />
-    <Compile Include="Controls\PageSelectionToolbarItem.cs" />
     <Compile Include="Models\CharacterDescription.cs" />
     <Compile Include="Models\CharacterMembers\Presets\TogrutaPreset.cs" />
     <Compile Include="Models\CharacterMembers\Presets\NautolanPreset.cs" />

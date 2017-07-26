@@ -24,22 +24,30 @@ namespace StarWRPG.Views
             mainStackLayout.Children.Insert(0, new PageSelectionLayout(this, pages));
         }
 
-        public void AddToolBarItem(ToolbarItem item)
+        public void AddToolBarItems(List<ToolbarItem> items)
         {
-            ToolbarItems.Add(item);
+            foreach (var item in items)
+            {
+                ToolbarItems.Add(item);
+            }
         }
 
         protected override bool OnBackButtonPressed()
         {
             if (ffgCharacterViewModel.Name.Equals(""))
             {
-                ffgCharacterViewModel.Name = "No Name Nelly";
+                var task = Task.Run(async () =>
+                {
+                    await App.CharacterDatabase.DeleteCharacterAsync(ffgCharacterViewModel);
+                });
             }
-
-            var task = Task.Run(async () =>
+            else
             {
-                await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
-            });
+                var task = Task.Run(async () =>
+                {
+                    await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
+                });
+            }
             return base.OnBackButtonPressed();
         }
     }

@@ -1,4 +1,5 @@
-﻿using StarWRPG.ViewModels;
+﻿using StarWRPG.Controls;
+using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,12 @@ namespace StarWRPG.Views
         public CharacterNavigation(FFGCharacterViewModel character)
         {
             ffgCharacterViewModel = character;
+
             pages = InitializePages();
 
             foreach (var page in pages)
             {
-                AddToolbarItems(page);
+                page.AddToolBarItems(GetToolbarItems(page));
                 page.AddPageSelection(pages);
             }
         }
@@ -38,16 +40,7 @@ namespace StarWRPG.Views
             throw new Exception("An error occured: Page not found.");
         }
 
-        protected void AddToolbarItems(BasePage page)
-        {
-            List<ToolbarItem> toolbarItems = InitializeToolbarItems(page);
-            foreach (var toolbarItem in toolbarItems)
-            {
-                page.AddToolBarItem(toolbarItem);
-            }
-        }
-
-        protected abstract List<ToolbarItem> InitializeToolbarItems(BasePage page);
+        protected abstract List<ToolbarItem> GetToolbarItems(BasePage page);
         protected abstract List<BasePage> InitializePages();
     }
 }

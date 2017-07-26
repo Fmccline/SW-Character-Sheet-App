@@ -26,13 +26,12 @@ namespace StarWRPG.Views
             };
         }
 
-        protected override List<ToolbarItem> InitializeToolbarItems(BasePage page)
+        protected override List<ToolbarItem> GetToolbarItems(BasePage page)
         {
             return new List<ToolbarItem>
             {
-                new SaveCharacterToolbarItem(ffgCharacterViewModel, page),
                 new MainMenuToolbarItem(ffgCharacterViewModel, page),
-                new PageSelectionToolbarItem(pages, page),
+                new SaveCharacterToolbarItem(ffgCharacterViewModel, page),
             };
         }
     }
