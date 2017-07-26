@@ -36,18 +36,13 @@ namespace StarWRPG.Views
         {
             if (ffgCharacterViewModel.Name.Equals(""))
             {
-                var task = Task.Run(async () =>
-                {
-                    await App.CharacterDatabase.DeleteCharacterAsync(ffgCharacterViewModel);
-                });
+                ffgCharacterViewModel.Name = "Insert Name Here";
             }
-            else
+
+            var task = Task.Run(async () =>
             {
-                var task = Task.Run(async () =>
-                {
-                    await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
-                });
-            }
+                await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
+            });
             return base.OnBackButtonPressed();
         }
     }

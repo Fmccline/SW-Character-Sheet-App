@@ -26,12 +26,10 @@ namespace StarWRPG.Controls
         {
             if (ffgCharacterViewModel.Name.Equals(""))
             {
-                await App.CharacterDatabase.DeleteCharacterAsync(ffgCharacterViewModel);
+                ffgCharacterViewModel.Name = "Insert Name Here";
             }
-            else
-            {
-                await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
-            }
+
+            await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
             await currentPage.Navigation.PopToRootAsync();
         }
     }
