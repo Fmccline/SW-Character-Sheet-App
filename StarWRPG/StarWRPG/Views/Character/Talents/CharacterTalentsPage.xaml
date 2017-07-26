@@ -4,23 +4,27 @@
                 xmlns:local="clr-namespace:StarWRPG.Views" 
                 x:Class="StarWRPG.Views.CharacterTalentsPage"
                 Title="Talents">
-
-    <ContentPage.Padding>
-        5,5,5,20
-    </ContentPage.Padding>
     
     <StackLayout x:Name="MainStackLayout">
-        <local:CustomSearchBar x:Name="Search"
-                               HorizontalOptions="FillAndExpand"
-                               Placeholder="Search by name, description, or page #"
-                               SearchCommand="{Binding SearchCommand}" 
-                               SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
-                               TextChangedCommand="{Binding DefaultSortCommand}"/>
+
+        <StackLayout Orientation="Horizontal">
+            <local:CustomSearchBar x:Name="Search"
+                                   HorizontalOptions="FillAndExpand"
+                                   Placeholder="Search by name, description, or page #"
+                                   SearchCommand="{Binding SearchCommand}" 
+                                   SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
+                                   TextChangedCommand="{Binding DefaultSortCommand}"/>
+            <Button Text="Add Talent"
+                    Clicked="AddTalentClickedAsync"
+                    HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
+
         <ListView x:Name="TalentsListView"
                   ItemsSource="{Binding TalentViewModels}"
                   ItemSelected="TalentSelectedAsync"
                   HasUnevenRows="True"
-                  SeparatorVisibility="None">
+                  SeparatorVisibility="None"
+                  Margin="5,0,5,0">
             <ListView.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -62,10 +66,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <Button Text="Add Talent"
-                Clicked="AddTalentClickedAsync"
-                HorizontalOptions="CenterAndExpand"/>
     </StackLayout>
     
 </local:BasePage>

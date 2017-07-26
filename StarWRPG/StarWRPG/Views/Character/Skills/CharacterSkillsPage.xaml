@@ -5,10 +5,6 @@
                 x:Class="StarWRPG.Views.CharacterSkillsPage"
                 Title="Skills">
     
-    <local:BasePage.Padding>
-        10,0,10,20
-    </local:BasePage.Padding>
-    
     
     <StackLayout x:Name="MainStackLayout">
         <local:CustomSearchBar x:Name="Search"
@@ -20,7 +16,8 @@
         <ListView x:Name="SkillsListView" 
                   CachingStrategy="RecycleElement"
                   ItemsSource="{Binding SkillViewModels}"
-                  ItemSelected="SkillSelected">
+                  ItemSelected="SkillSelected"
+                  Margin="10,0,10,0">
             <ListView.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>

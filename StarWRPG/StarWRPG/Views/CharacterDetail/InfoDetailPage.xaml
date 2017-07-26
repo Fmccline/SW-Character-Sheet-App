@@ -5,12 +5,8 @@
                 xmlns:local="clr-namespace:StarWRPG.Views" 
                 Title="Info">
 
-    <local:BasePage.Padding>
-        10,0,10,20
-    </local:BasePage.Padding>
-
     <StackLayout x:Name="MainStackLayout">
-        <ScrollView>
+        <ScrollView Padding="10,0,10,0">
             <StackLayout x:Name="ScrollViewStackLayout">
                 <!--Name-->
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
