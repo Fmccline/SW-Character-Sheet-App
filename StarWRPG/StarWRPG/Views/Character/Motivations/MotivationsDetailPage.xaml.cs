@@ -17,6 +17,7 @@ namespace StarWRPG.Views
         protected override StackLayout obligationsLayout { get { return ObligationsLayout; } }
         protected override StackLayout dutyLayout { get { return DutyLayout; } }
         protected override StackLayout moralityLayout { get { return MoralityLayout; } }
+        protected override StackLayout mainStackLayout { get { return MainStackLayout; } }
 
         public MotivationsDetailPage(FFGCharacterViewModel character) : base(character)
         {

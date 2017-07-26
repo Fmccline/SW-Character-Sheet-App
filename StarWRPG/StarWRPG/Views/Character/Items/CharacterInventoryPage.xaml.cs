@@ -14,6 +14,8 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterInventoryPage : BasePage
     {
+        protected override StackLayout mainStackLayout { get { return MainStackLayout; } }
+
         InventoryViewModel inventoryViewModel;
 
         ArmorsList armorsList;

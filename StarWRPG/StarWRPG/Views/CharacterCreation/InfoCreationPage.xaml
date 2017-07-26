@@ -5,7 +5,7 @@
                 Title="Info"
                 x:Class="StarWRPG.Views.InfoCreationPage">
 
-    <StackLayout>
+    <StackLayout x:Name="MainStackLayout">
         <ScrollView>
             <StackLayout x:Name="ScrollViewStackLayout">
                 <!--Name-->

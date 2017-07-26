@@ -5,7 +5,7 @@
                 x:Class="StarWRPG.Views.StatsDetailPage"
                 Title="Stats">
 
-    <StackLayout>
+    <StackLayout x:Name="MainStackLayout">
         <!-- Soak, Defense, and Force Rating -->
         <Grid>
             <Grid.ColumnDefinitions>

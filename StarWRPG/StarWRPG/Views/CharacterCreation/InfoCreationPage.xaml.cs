@@ -16,6 +16,8 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InfoCreationPage : BasePage
     {
+        protected override StackLayout mainStackLayout { get { return MainStackLayout; } }
+
         public InfoCreationPage(FFGCharacterViewModel character) : base(character)
         {
             InitializeComponent();

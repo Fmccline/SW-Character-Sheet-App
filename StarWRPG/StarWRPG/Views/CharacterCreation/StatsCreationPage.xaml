@@ -6,7 +6,7 @@
                 Title="Stats">
 
     <ScrollView>
-        <StackLayout>
+        <StackLayout x:Name="MainStackLayout">
             <!-- Soak, Defense, and Force Rating -->
             <Grid>
                 <Grid.ColumnDefinitions>

@@ -9,7 +9,7 @@
         10,0,10,20
     </local:BasePage.Padding>
 
-    <StackLayout>
+    <StackLayout x:Name="MainStackLayout">
         <ScrollView>
             <StackLayout x:Name="ScrollViewStackLayout">
                 <!--Name-->

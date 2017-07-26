@@ -22,6 +22,7 @@ namespace StarWRPG.Views
             foreach (var page in pages)
             {
                 AddToolbarItems(page);
+                page.AddPageSelection(pages);
             }
         }
 

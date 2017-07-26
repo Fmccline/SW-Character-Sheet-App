@@ -9,10 +9,12 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace StarWRPG.Views
-{
+{ 
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StatsCreationPage : BasePage
     {
+        protected override StackLayout mainStackLayout { get { return MainStackLayout; } }
+
         public StatsCreationPage(FFGCharacterViewModel character) : base(character)
         {
             InitializeComponent();

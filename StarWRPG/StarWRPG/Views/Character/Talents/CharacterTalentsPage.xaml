@@ -9,7 +9,7 @@
         5,5,5,20
     </ContentPage.Padding>
     
-    <StackLayout>
+    <StackLayout x:Name="MainStackLayout">
         <local:CustomSearchBar x:Name="Search"
                                HorizontalOptions="FillAndExpand"
                                Placeholder="Search by name, description, or page #"

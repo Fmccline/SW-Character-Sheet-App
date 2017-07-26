@@ -15,6 +15,7 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterTalentsPage : BasePage
     {
+        protected override StackLayout mainStackLayout { get { return MainStackLayout; } }
         TalentsViewModel talentsViewModel;
 
         public CharacterTalentsPage(FFGCharacterViewModel character) : base(character)
