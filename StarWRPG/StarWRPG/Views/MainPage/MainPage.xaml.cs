@@ -27,7 +27,6 @@ namespace StarWRPG.Views
         public MainPage()
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this, false);
 
             selectionPage = new CharacterSelectionPage();
             deletionPage = new CharacterDeletionPage();

@@ -6,9 +6,10 @@
     <Application.Resources>
         <!-- Application resource dictionary -->
         <ResourceDictionary>
-            <Color x:Key="BackgroundColor">Beige</Color>
-            <Color x:Key="TextColor">Black</Color>
+            <Color x:Key="BackgroundColor">Black</Color>
+            <Color x:Key="TextColor">White</Color>
             <Color x:Key="ButtonColor">Gray</Color>
+            <Color x:Key="ButtonTextColor">White</Color>
             <Color x:Key="TitleTextColor">Yellow</Color>
             <Color x:Key="TitleBackgroundColor">Black</Color>
             <!--Page-->
@@ -18,7 +19,7 @@
             <!--Button-->
             <Style x:Key="ButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{DynamicResource ButtonColor}"/>
-                <Setter Property="TextColor" Value="{DynamicResource TextColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource ButtonTextColor}"/>
             </Style>
             <!--Labels-->
             <Style x:Key="CenterBoldLabel" TargetType="Label">

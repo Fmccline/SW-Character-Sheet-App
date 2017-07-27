@@ -4,7 +4,7 @@
              x:Class="StarWRPG.Views.MainPage"
              xmlns:local="clr-namespace:StarWRPG.Views" 
              Title="FFG Character Sheet"
-             Style="{DynamicResource PageStyle}">
+             BackgroundColor="{DynamicResource TitleBackgroundColor}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -39,9 +39,10 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0"
-               Text="FFG Character Sheet"
+               Text="Welcome to FFG Sheet!"
                FontSize="Large"
-               Style="{StaticResource CenterBoldLabel}"/>
+               Style="{StaticResource CenterBoldLabel}"
+               TextColor="{DynamicResource TitleTextColor}"/>
 
         <Label Grid.Row="2"
                Text="Select Character" 
