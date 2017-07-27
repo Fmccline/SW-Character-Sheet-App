@@ -16,6 +16,7 @@ namespace StarWRPG.Views
         public CharacterSelectionPage()
         {
             Title = "Character Selection";
+
         }
 
         protected override async void CharacterSelected(object sender, SelectedItemChangedEventArgs e)

@@ -4,7 +4,7 @@
              x:Class="StarWRPG.Views.MainPage"
              xmlns:local="clr-namespace:StarWRPG.Views" 
              Title="FFG Character Sheet"
-             BackgroundColor="Black">
+             Style="{DynamicResource PageStyle}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -13,13 +13,16 @@
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
             </Style>
             <Style x:Key="MediumCenterBoldLabel" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium"/>
-                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -31,16 +34,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0"
                Text="FFG Character Sheet"
-               TextColor="Yellow"
-               FontAttributes="Bold"
                FontSize="Large"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
+               Style="{StaticResource CenterBoldLabel}"/>
 
         <Label Grid.Row="2"
                Text="Select Character" 
@@ -61,6 +62,13 @@
                Style="{StaticResource MediumCenterBoldLabel}">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Tapped="DeleteCharacterAsync"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Grid.Row="5"
+               Text="Settings" 
+               Style="{StaticResource MediumCenterBoldLabel}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="SettingsTappedAsync"/>
             </Label.GestureRecognizers>
         </Label>
     </Grid>

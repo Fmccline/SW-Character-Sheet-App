@@ -3,46 +3,78 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:StarWRPG" 
              x:Class="StarWRPG.App">
-	<Application.Resources>
-		<!-- Application resource dictionary -->
+    <Application.Resources>
+        <!-- Application resource dictionary -->
         <ResourceDictionary>
+            <Color x:Key="BackgroundColor">Beige</Color>
+            <Color x:Key="TextColor">Black</Color>
+            <Color x:Key="ButtonColor">Gray</Color>
+            <Color x:Key="TitleTextColor">Yellow</Color>
+            <Color x:Key="TitleBackgroundColor">Black</Color>
+            <!--Page-->
+            <Style x:Key="PageStyle" TargetType="Page">
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}"/>
+            </Style>
+            <!--Button-->
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource ButtonColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}"/>
+            </Style>
+            <!--Labels-->
             <Style x:Key="CenterBoldLabel" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
             </Style>
             <Style x:Key="CenterLabel" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
             </Style>
             <Style x:Key="CenterTopLabel" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
             </Style>
             <Style x:Key="CenterBottomBoldLabel" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="End" />
                 <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
             </Style>
             <Style x:Key="StartLabel" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
             </Style>
             <Style x:Key="StartBoldLabel" TargetType="Label">
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
             </Style>
+            <!--Entries-->
             <Style x:Key="CenterNumericEntry" TargetType="Entry">
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
                 <Setter Property="Keyboard" Value="Numeric" />
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
             </Style>
             <Style x:Key="FillAndExpandNumericEntry" TargetType="Entry">
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="VerticalOptions" Value="FillAndExpand" />
                 <Setter Property="Keyboard" Value="Numeric" />
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
             </Style>
         </ResourceDictionary>
-	</Application.Resources>
+    </Application.Resources>
 </Application>

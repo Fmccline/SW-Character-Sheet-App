@@ -111,6 +111,7 @@
     <Compile Include="Models\CriticalInjuries\SlowedDown.cs" />
     <Compile Include="Models\CriticalInjuries\MinorNick.cs" />
     <Compile Include="ViewModels\Presets\IFFGPreset.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Views\CharacterSelection\CharacterSelectionPage.cs" />
     <Compile Include="Views\CharacterSelection\CharacterSelectionPageBase.cs" />
     <Compile Include="Views\CharacterSelection\CharacterDeletionPage.cs" />
@@ -249,6 +250,9 @@
     </Compile>
     <Compile Include="Views\Character\Skills\SkillPage.xaml.cs">
       <DependentUpon>SkillPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPage\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Presets\SpeciesPresetPage.xaml.cs">
       <DependentUpon>SpeciesPresetPage.xaml</DependentUpon>
@@ -428,6 +432,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Character\PageSelectionLayout.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MainPage\SettingsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

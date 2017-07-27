@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StarWRPG.Views.SettingsPage"
+             Style="{DynamicResource PageStyle}"
+             Title="Settings">
+
+    <StackLayout>
+        <!--RGB Sliders-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0"
+                   Text="Red" Style="{DynamicResource StartBoldLabel}"/>
+            <Label Grid.Column="0" Grid.Row="1"
+                   Text="Green" Style="{DynamicResource StartBoldLabel}"/>
+            <Label Grid.Column="0" Grid.Row="2"
+                   Text="Blue" Style="{DynamicResource StartBoldLabel}"/>
+
+            <Slider Grid.Column="1" Grid.Row="0"
+                    Minimum="0" 
+                    Maximum="255"
+                    Value="{Binding Red}"/>
+            <Slider Grid.Column="1" Grid.Row="1"
+                    Minimum="0" 
+                    Maximum="255"
+                    Value="{Binding Green}"/>
+            <Slider Grid.Column="1" Grid.Row="2"
+                    Minimum="0" 
+                    Maximum="255"
+                    Value="{Binding Blue}"/>
+
+            <Label Grid.Column="2" Grid.Row="0"
+                   Text="{Binding Red}" Style="{DynamicResource StartLabel}"/>
+            <Label Grid.Column="2" Grid.Row="1"
+                   Text="{Binding Green}" Style="{DynamicResource StartLabel}"/>
+            <Label Grid.Column="2" Grid.Row="2"
+                   Text="{Binding Blue}" Style="{DynamicResource StartLabel}"/>
+        </Grid>
+        <!--Custom Color-->
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Custom Color: " 
+                   Style="{DynamicResource CenterBoldLabel}"
+                   HorizontalOptions="CenterAndExpand"/>
+            <BoxView Color="{Binding CustomColor}"
+                     HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+        <!--Different settings-->
+        <ScrollView>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0"
+                       Text="Background" Style="{DynamicResource CenterBoldLabel}"/>
+                <Label Grid.Column="0" Grid.Row="1"
+                       Text="Text" Style="{DynamicResource CenterBoldLabel}"/>
+                <Label Grid.Column="0" Grid.Row="2"
+                       Text="Title Background" Style="{DynamicResource CenterBoldLabel}"/>
+                <Label Grid.Column="0" Grid.Row="3"
+                       Text="Title Text" Style="{DynamicResource CenterBoldLabel}"/>
+                <Label Grid.Column="0" Grid.Row="4"
+                       Text="Button" Style="{DynamicResource CenterBoldLabel}"/>
+
+                <Button Grid.Column="1" Grid.Row="0"
+                        Text="Change" 
+                        Style="{DynamicResource ButtonStyle}"
+                        Command="{Binding SetBackgroundColorCommand}"/>
+                <Button Grid.Column="1" Grid.Row="1"
+                        Text="Change" 
+                        Style="{DynamicResource ButtonStyle}"
+                        Command="{Binding SetTextColorCommand}"/>
+                <Button Grid.Column="1" Grid.Row="2"
+                        Text="Change" 
+                        Style="{DynamicResource ButtonStyle}"
+                        Command="{Binding SetTitleBackgroundColorCommand}"/>
+                <Button Grid.Column="1" Grid.Row="3"
+                        Text="Change" 
+                        Style="{DynamicResource ButtonStyle}"
+                        Command="{Binding SetTitleTextColorCommand}"/>
+                <Button Grid.Column="1" Grid.Row="4"
+                        Text="Change" 
+                        Style="{DynamicResource ButtonStyle}"
+                        Command="{Binding SetButtonColorCommand}"/>
+
+                <BoxView Grid.Column="2" Grid.Row="0"
+                         Color="{DynamicResource BackgroundColor}"
+                         HorizontalOptions="Center"/>
+                <BoxView Grid.Column="2" Grid.Row="1"
+                         Color="{DynamicResource TextColor}"
+                         HorizontalOptions="Center"/>
+                <BoxView Grid.Column="2" Grid.Row="2"
+                         Color="{DynamicResource TitleBackgroundColor}"
+                         HorizontalOptions="Center"/>
+                <BoxView Grid.Column="2" Grid.Row="3"
+                         Color="{DynamicResource TitleTextColor}"
+                         HorizontalOptions="Center"/>
+                <BoxView Grid.Column="2" Grid.Row="4"
+                         Color="{DynamicResource ButtonColor}"
+                         HorizontalOptions="Center"/>
+
+                <Button Grid.Column="1" Grid.Row="5"
+                        Text="Default Theme"
+                        Style="{DynamicResource ButtonStyle}"
+                        Command="{Binding RestoreDefaultColorsCommand}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+            </Grid>
+        </ScrollView>
+    </StackLayout>
+
+</ContentPage>

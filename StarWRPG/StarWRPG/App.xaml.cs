@@ -28,12 +28,11 @@ namespace StarWRPG
             InitializeComponent();
 
             //CharacterDatabase.DeleteAllItems();
+            var navPage = new NavigationPage(new MainPage());
+            navPage.SetDynamicResource(NavigationPage.BarBackgroundColorProperty, "TitleBackgroundColor");
+            navPage.SetDynamicResource(NavigationPage.BarTextColorProperty, "TitleTextColor");
 
-            MainPage = new NavigationPage(new MainPage())
-            {
-                BarBackgroundColor = Color.Black,
-                BarTextColor = Color.Yellow,
-            };
+            MainPage = navPage;
         }
 
         protected override void OnStart()

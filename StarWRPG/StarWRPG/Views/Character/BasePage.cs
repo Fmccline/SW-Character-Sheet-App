@@ -17,6 +17,7 @@ namespace StarWRPG.Views
         {
             ffgCharacterViewModel = character;
             NavigationPage.SetHasBackButton(this, false);
+            SetDynamicResource(StyleProperty, "PageStyle");
         }
 
         public void AddPageSelection(List<BasePage> pages)

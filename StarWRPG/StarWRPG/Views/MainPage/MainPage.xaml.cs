@@ -49,5 +49,10 @@ namespace StarWRPG.Views
             var characterCreationNavigation = new CharacterCreationNavigation(newCharacter);
             await Navigation.PushAsync(characterCreationNavigation.DefaultPage);
         }
+
+        private async void SettingsTappedAsync(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SettingsPage());
+        }
     }
 }
