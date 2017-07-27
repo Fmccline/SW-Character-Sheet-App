@@ -84,7 +84,7 @@ namespace StarWRPG.ViewModels
             Application.Current.Resources["TitleBackgroundColor"] = Color.Black;
             Application.Current.Resources["TitleTextColor"] = Color.Yellow;
             Application.Current.Resources["ButtonColor"] = Color.Gray;
-            Application.Current.Resources["ButtonTextColor"] = Color.White;
+            Application.Current.Resources["ButtonTextColor"] = Color.Black;
         }
 
         private void SetResourceColor(string resourceKey)

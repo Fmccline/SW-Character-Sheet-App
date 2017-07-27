@@ -13,11 +13,44 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage
     {
+        Dictionary<string, Tuple<double, double, double>> colors;
+        SettingsViewModel settingsViewModel;
+
         public SettingsPage()
         {
             InitializeComponent();
 
-            BindingContext = new SettingsViewModel();
+            settingsViewModel = new SettingsViewModel();
+            BindingContext = settingsViewModel;
+
+            colors = new Dictionary<string, Tuple<double, double, double>>
+            {
+                ["Black"] = new Tuple<double, double, double>(0, 0, 0),
+                ["Blue"] = new Tuple<double, double, double>(0, 0, 128),
+                ["Gray"] = new Tuple<double, double, double>(128, 128, 128),
+                ["Green"] = new Tuple<double, double, double>(0, 128, 0),
+                ["Red"] = new Tuple<double, double, double>(128, 0, 0),
+                ["Yellow"] = new Tuple<double, double, double>(255, 255, 0),
+                ["White"] = new Tuple<double, double, double>(255, 255, 255),
+            };
+        }
+
+        private async void PresetColorClickedAsync(object sender, EventArgs e)
+        {
+            string[] colorNames = new string[colors.Count];
+            int index = 0;
+            foreach (var color in colors)
+            {
+                colorNames[index++] = color.Key;
+            }
+
+            var colorName = await DisplayActionSheet("Colors", "Cancel", null, colorNames);
+            if (colorName != null && !colorName.Equals("Cancel"))
+            {
+                settingsViewModel.Red = colors[colorName].Item1;
+                settingsViewModel.Green = colors[colorName].Item2;
+                settingsViewModel.Blue = colors[colorName].Item3;
+            }
         }
     }
 }
