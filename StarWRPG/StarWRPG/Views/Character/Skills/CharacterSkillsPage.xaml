@@ -29,7 +29,8 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="4*"/>
                     </Grid.ColumnDefinitions>
                     
                     <Label Grid.Column="0" 
@@ -41,7 +42,7 @@
                     <Label Grid.Column="2" Grid.ColumnSpan="6"
                            Text="Dice Pool"
                            Style="{StaticResource StartBoldLabel}"/>
-                    <Label Grid.Column="8" 
+                    <Label Grid.Column="9" 
                            Text="Career"
                            Style="{StaticResource CenterBoldLabel}"/>
                 </Grid>
@@ -59,7 +60,8 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="5*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="4*"/>
                             </Grid.ColumnDefinitions>
 
                             <Label Grid.Column="0" 
@@ -92,7 +94,11 @@
                                    Source="{Binding ImageSourceForDice[5]}"
                                    IsVisible="{Binding HasDice[5]}"
                                    HorizontalOptions="Start"/>
-                            <Label Grid.Column="8"
+                            <Image Grid.Column="8"
+                                   Source="{Binding ImageSourceForDice[6]}"
+                                   IsVisible="{Binding HasDice[6]}"
+                                   HorizontalOptions="Start"/>
+                            <Label Grid.Column="9"
                                    Text="X"
                                    IsVisible="{Binding IsCareer}"
                                    Style="{StaticResource CenterBoldLabel}"/>
@@ -117,7 +123,8 @@
                     Text="Add Skill" 
                     Clicked="AddCustomSkillClickedAsync" 
                     HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
+                    VerticalOptions="Center"
+                    Style="{StaticResource DefaultButton}"/>
             <Label Grid.Column="2" Grid.Row="0" 
                    Text="{Binding AvailableXP}" Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="2" Grid.Row="1" 

@@ -11,6 +11,8 @@ using Xamarin.Forms.Xaml;
 
 namespace StarWRPG.Views
 {
+    // Intent
+    //      Page for displaying a character's skill
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterSkillsPage : BasePage
     {
@@ -19,9 +21,18 @@ namespace StarWRPG.Views
 
         public CharacterSkillsPage(FFGCharacterViewModel character) : base(character)
         {
-            InitializeComponent();
-            skillsViewModel = character.SkillsViewModel;
-            BindingContext = skillsViewModel;
+            try
+            {
+                InitializeComponent();
+                skillsViewModel = character.SkillsViewModel;
+                BindingContext = skillsViewModel;
+            }
+            catch(Exception e)
+            {
+                Debug.WriteLine(e.StackTrace);
+                Debug.WriteLine(e.Source);
+                Debug.WriteLine(e.Message);
+            }
         }
 
         private async void SkillSelected(object sender, SelectedItemChangedEventArgs e)

@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarWRPG.Views.AddCustomSkillPage"
+             Style="{StaticResource PageStyle}"
              Title="Custom Skill">
     <StackLayout>
 
@@ -20,15 +21,16 @@
                    Text="Name" Style="{StaticResource StartBoldLabel}"/>
             <Entry Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
                    Text="{Binding Name}" 
-                   Style="{StaticResource StartLabel}"
-                   HorizontalOptions="Fill"/>
+                   Style="{StaticResource DefaultEntry}"/>
 
             <Label Grid.Column="0" Grid.Row="1"
                    Text="Characteristic" Style="{StaticResource StartBoldLabel}"/>
             <Label Grid.Column="1" Grid.Row="1"
                    Text="{Binding CharacteristicName}" Style="{StaticResource StartLabel}"/>
             <Button Grid.Column="2" Grid.Row="1"
-                    Text="Change" Clicked="ChangeCharacteristicClickedAsync"/>
+                    Text="Change"
+                    Clicked="ChangeCharacteristicClickedAsync"
+                    Style="{StaticResource DefaultButton}"/>
         </Grid>
 
     </StackLayout>

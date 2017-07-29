@@ -147,8 +147,8 @@ namespace StarWRPG.ViewModels
 
         public void CalculateDicePool()
         {
-            ImageSourceForDice = new string[6];
-            HasDice = new bool[6];
+            ImageSourceForDice = new string[7];
+            HasDice = new bool[7];
 
             uint greenDice, yellowDice;
             uint larger = Math.Max(Rank, Characteristic.Rank);

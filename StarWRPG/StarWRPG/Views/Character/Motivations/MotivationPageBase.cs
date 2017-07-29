@@ -27,7 +27,7 @@ namespace StarWRPG.Views
             characterMotivationsViewModel = character.CharacterMotivationsViewModel;
             BindingContext = character;
 
-            SetDynamicResource(StyleProperty, "PageStyle");
+            Style = (Style)Application.Current.Resources["PageStyle"];
         }
 
         protected void AddMotivationToAppropriateLayout(CharacterMotivationViewModel motivation)
