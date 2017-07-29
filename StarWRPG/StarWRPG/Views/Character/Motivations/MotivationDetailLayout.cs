@@ -8,6 +8,8 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Views
 {
+    // Intent
+    //      Layout for viewing Motivations, Obligations, Duty, and Emotional Strengths/Weaknesses
     public class MotivationDetailLayout : MotivationLayout
     {
         public MotivationDetailLayout(CharacterMotivationViewModel motivation) : base(motivation) { }
@@ -17,6 +19,7 @@ namespace StarWRPG.Views
             Label motivationDescription = new Label
             {
                 HorizontalOptions = LayoutOptions.Start,
+                Style = (Style)Application.Current.Resources["DefaultLabel"],
             };
             motivationDescription.SetBinding(Label.TextProperty, "Description");
             return motivationDescription;

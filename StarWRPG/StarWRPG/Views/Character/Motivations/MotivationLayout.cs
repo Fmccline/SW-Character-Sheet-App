@@ -8,13 +8,11 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Views
 {
+    // Intent
+    //      Base layout for viewing/editing/creating motivations
     public abstract class MotivationLayout : Grid
     {
         CharacterMotivationViewModel characterMotivation;
-
-        protected abstract View MakeMotivationDescription();
-        protected abstract View MakeMotivationType();
-        protected abstract View MakeValueView();
 
         public MotivationLayout(CharacterMotivationViewModel motivation)
         {
@@ -28,6 +26,10 @@ namespace StarWRPG.Views
                 AddValueToGrid();
             }
         }
+
+        protected abstract View MakeMotivationDescription();
+        protected abstract View MakeMotivationType();
+        protected abstract View MakeValueView();
 
         private Label MakeMotivationName()
         {
@@ -84,13 +86,6 @@ namespace StarWRPG.Views
             AddNewColumn();
             Label valueTitle = MakeValueTitle();
             View valueView = MakeValueView();
-            //Entry valueEntry = new Entry
-            //{
-            //    HorizontalOptions = LayoutOptions.FillAndExpand,
-            //    Keyboard = Keyboard.Numeric,
-            //};
-            //valueEntry.SetBinding(Entry.TextProperty, "Value");
-
             Children.Add(valueTitle, 2, 0);
             Children.Add(valueView, 2, 1);
         }

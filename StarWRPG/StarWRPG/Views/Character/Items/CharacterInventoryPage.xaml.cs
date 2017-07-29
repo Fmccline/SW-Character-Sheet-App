@@ -11,6 +11,8 @@ using Xamarin.Forms.Xaml;
 
 namespace StarWRPG.Views
 {
+    // Intent
+    //      Page to display the character's Armor, Weapons, Items, Encumbrance, and Credits
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterInventoryPage : BasePage
     {
