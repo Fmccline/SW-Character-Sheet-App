@@ -3,26 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarWRPG.Views.MainPage"
              xmlns:local="clr-namespace:StarWRPG.Views" 
-             Title="FFG Character Sheet"
-             BackgroundColor="{DynamicResource TitleBackgroundColor}">
+             Title="Menu Screen"
+             BackgroundColor="{DynamicResource BackgroundColor}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="MediumStartBoldLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Start" />
-                <Setter Property="VerticalOptions" Value="Center" />
+            <Style x:Key="MediumStartBoldLabel" TargetType="Label" BasedOn="{StaticResource StartViewBase}">
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
-                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
             </Style>
-            <Style x:Key="MediumCenterBoldLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
+            <Style x:Key="MediumCenterBoldLabel" TargetType="Label" BasedOn="{StaticResource CenterViewBase}">
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="FontSize" Value="Medium"/>
                 <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
-                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -42,7 +36,7 @@
                Text="Welcome to FFG Sheet!"
                FontSize="Large"
                Style="{StaticResource CenterBoldLabel}"
-               TextColor="{DynamicResource TitleTextColor}"/>
+               TextColor="{DynamicResource TextColor}"/>
 
         <Label Grid.Row="2"
                Text="Select Character" 

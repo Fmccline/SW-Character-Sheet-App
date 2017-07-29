@@ -27,6 +27,8 @@ namespace StarWRPG.Views
         public CustomSearchBar()
         {
             TextChanged += SearchTextChanged;
+
+            SetDynamicResource(StyleProperty, "DefaultSearchBar");
         }
 
         // Unfocuses the search bar if the cancel button is clicked

@@ -38,12 +38,12 @@
                                FontSize="Medium"/>
                         <Button Text="-" 
                                 Clicked="RemoveCriticalInjuryAsync"
-                                Style="{DynamicResource ButtonStyle}"
+                                Style="{DynamicResource DefaultButton}"
                                 HeightRequest="40"
                                 WidthRequest="50"/>
                         <Button Text="+" 
                                 Clicked="AddCriticalInjuryAsync"
-                                Style="{DynamicResource ButtonStyle}"
+                                Style="{DynamicResource DefaultButton}"
                                 HeightRequest="40"
                                 WidthRequest="50"/>
                     </StackLayout>

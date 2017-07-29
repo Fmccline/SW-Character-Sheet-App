@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using StarWRPG.ViewModels;
 using System.Diagnostics;
 using Newtonsoft.Json;
+using System;
 
 namespace StarWRPG
 {
@@ -25,14 +26,34 @@ namespace StarWRPG
 
         public App()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+                SetDefaultTheme();
+                var navPage = new NavigationPage(new MainPage());
+                navPage.SetDynamicResource(NavigationPage.BarBackgroundColorProperty, "TitleBackgroundColor");
+                navPage.SetDynamicResource(NavigationPage.BarTextColorProperty, "TitleTextColor");
+
+                MainPage = navPage;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.StackTrace);
+                Debug.WriteLine(e.Source);
+                Debug.WriteLine(e.Message);
+            }
 
             //CharacterDatabase.DeleteAllItems();
-            var navPage = new NavigationPage(new MainPage());
-            navPage.SetDynamicResource(NavigationPage.BarBackgroundColorProperty, "TitleBackgroundColor");
-            navPage.SetDynamicResource(NavigationPage.BarTextColorProperty, "TitleTextColor");
+        }
 
-            MainPage = navPage;
+        public static void SetDefaultTheme()
+        {
+            Current.Resources["BackgroundColor"] = Color.FromHex("#F1F1D4");
+            Current.Resources["TextColor"] = Color.Black;
+            Current.Resources["ButtonColor"] = Color.LightGray;
+            Current.Resources["ButtonTextColor"] = Color.Black;
+            Current.Resources["TitleTextColor"] = Color.Yellow;
+            Current.Resources["TitleBackgroundColor"] = Color.Black;
         }
 
         protected override void OnStart()

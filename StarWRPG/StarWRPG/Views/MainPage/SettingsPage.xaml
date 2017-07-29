@@ -133,27 +133,27 @@
 
                 <Button Grid.Column="2" Grid.Row="0"
                         Text="Set" 
-                        Style="{DynamicResource ButtonStyle}"
+                        Style="{DynamicResource DefaultButton}"
                         Command="{Binding SetBackgroundColorCommand}"/>
                 <Button Grid.Column="2" Grid.Row="1"
                         Text="Set" 
-                        Style="{DynamicResource ButtonStyle}"
+                        Style="{DynamicResource DefaultButton}"
                         Command="{Binding SetTextColorCommand}"/>
                 <Button Grid.Column="2" Grid.Row="2"
                         Text="Set" 
-                        Style="{DynamicResource ButtonStyle}"
+                        Style="{DynamicResource DefaultButton}"
                         Command="{Binding SetTitleBackgroundColorCommand}"/>
                 <Button Grid.Column="2" Grid.Row="3"
                         Text="Set" 
-                        Style="{DynamicResource ButtonStyle}"
+                        Style="{DynamicResource DefaultButton}"
                         Command="{Binding SetTitleTextColorCommand}"/>
                 <Button Grid.Column="2" Grid.Row="4"
                         Text="Set" 
-                        Style="{DynamicResource ButtonStyle}"
+                        Style="{DynamicResource DefaultButton}"
                         Command="{Binding SetButtonColorCommand}"/>
                 <Button Grid.Column="2" Grid.Row="5"
                         Text="Set" 
-                        Style="{DynamicResource ButtonStyle}"
+                        Style="{DynamicResource DefaultButton}"
                         Command="{Binding SetButtonTextColorCommand}"/>
             </Grid>
         </ScrollView>
