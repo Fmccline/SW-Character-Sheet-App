@@ -3,25 +3,39 @@
                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                      xmlns:local="clr-namespace:StarWRPG.Views" 
                      x:Class="StarWRPG.Views.ItemPage"
+                    Style="{StaticResource PageStyle}"
                     Title="Item">
-    <ContentPage.Content>
-        <StackLayout>
-            <TableView Intent="Form">
-                <TableRoot>
-                    <TableSection>
-                        <EntryCell Label="Name"
-                                   Text="{Binding Name}"/>
-                        <EntryCell Label="Description"
-                                   Text="{Binding Description}"/>
-                        <EntryCell Label="Encumbrance"
-                                   Text="{Binding Encumbrance}"
-                                   Keyboard="Numeric"/>
-                        <EntryCell Label="Quantity"
-                                   Text="{Binding Quantity}"
-                                   Keyboard="Numeric"/>
-                    </TableSection>
-                </TableRoot>
-            </TableView>
-        </StackLayout>
-    </ContentPage.Content>
+
+    <ScrollView Padding="10,0,10,0">
+        <Grid ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0"
+                   Text="Name" Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="0" Grid.Row="1"
+                   Text="Description" Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="0" Grid.Row="2"
+                   Text="Encumbrance" Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="0" Grid.Row="3"
+                   Text="Quantity" Style="{StaticResource StartLabel}"/>
+
+            <Entry Grid.Column="1" Grid.Row="0"
+                   Text="{Binding Name}" Style="{StaticResource CenterFillEntry}"/>
+            <Entry Grid.Column="1" Grid.Row="1"
+                   Text="{Binding Description}" Style="{StaticResource CenterFillEntry}"/>
+            <Entry Grid.Column="1" Grid.Row="2"
+                   Text="{Binding Encumbrance}" Style="{StaticResource CenterFillNumericEntry}"/>
+            <Entry Grid.Column="1" Grid.Row="3"
+                   Text="{Binding Quantity}" Style="{StaticResource CenterFillNumericEntry}"/>
+        </Grid>
+    </ScrollView>
 </local:ItemBasePage>

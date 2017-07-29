@@ -69,6 +69,13 @@
                 <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
                 <Setter Property="PlaceholderColor" Value="{DynamicResource TextColor}" />
             </Style>
+            <Style x:Key="CenterFillEntry" TargetType="Entry" BasedOn="{StaticResource DefaultEntry}">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="CenterFillNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultEntry}">
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Keyboard" Value="Numeric" />
+            </Style>
             <Style x:Key="CenterNumericEntry" TargetType="Entry" BasedOn="{StaticResource CenterViewBase}">
                 <Setter Property="Keyboard" Value="Numeric" />
                 <Setter Property="TextColor" Value="{DynamicResource TextColor}" />

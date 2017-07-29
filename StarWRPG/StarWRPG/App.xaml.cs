@@ -48,10 +48,16 @@ namespace StarWRPG
 
         public static void SetDefaultTheme()
         {
-            Current.Resources["BackgroundColor"] = Color.FromHex("#F1F1D4");
-            Current.Resources["TextColor"] = Color.Black;
-            Current.Resources["ButtonColor"] = Color.LightGray;
-            Current.Resources["ButtonTextColor"] = Color.Black;
+            //Current.Resources["BackgroundColor"] = Color.FromHex("#F1F1D4");
+            //Current.Resources["TextColor"] = Color.Black;
+            //Current.Resources["ButtonColor"] = Color.LightGray;
+            //Current.Resources["ButtonTextColor"] = Color.Black;
+            //Current.Resources["TitleTextColor"] = Color.Yellow;
+            //Current.Resources["TitleBackgroundColor"] = Color.Black;
+            Current.Resources["BackgroundColor"] = Color.LightBlue;
+            Current.Resources["TextColor"] = Color.DarkRed;
+            Current.Resources["ButtonColor"] = Color.Black;
+            Current.Resources["ButtonTextColor"] = Color.White;
             Current.Resources["TitleTextColor"] = Color.Yellow;
             Current.Resources["TitleBackgroundColor"] = Color.Black;
         }

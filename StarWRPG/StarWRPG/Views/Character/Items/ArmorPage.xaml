@@ -6,14 +6,6 @@
                     Style="{StaticResource PageStyle}"
                     Title="Armor">
 
-    <local:ItemBasePage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="EntryStyle" TargetType="Entry" BasedOn="{StaticResource DefaultEntry}">
-                <Setter Property="VerticalOptions" Value="Center"/>
-            </Style>
-        </ResourceDictionary>
-    </local:ItemBasePage.Resources>
-    
     <ScrollView Padding="10,0,10,0">
         <Grid ColumnSpacing="10">
             <Grid.ColumnDefinitions>
@@ -49,21 +41,21 @@
                    Text="Quantity" Style="{StaticResource StartLabel}"/>
 
             <Entry Grid.Column="1" Grid.Row="0"
-                   Text="{Binding Name}" Style="{StaticResource EntryStyle}"/>
+                   Text="{Binding Name}" Style="{StaticResource CenterFillEntry}"/>
             <Entry Grid.Column="1" Grid.Row="1"
-                   Text="{Binding Description}" Style="{StaticResource EntryStyle}"/>
+                   Text="{Binding Description}" Style="{StaticResource CenterFillEntry}"/>
             <Entry Grid.Column="1" Grid.Row="2"
-                   Text="{Binding RangedDefense}" Style="{StaticResource EntryStyle}"/>
+                   Text="{Binding RangedDefense}" Style="{StaticResource CenterFillNumericEntry}"/>
             <Entry Grid.Column="1" Grid.Row="3"
-                   Text="{Binding MeleeDefense}" Style="{StaticResource EntryStyle}"/>
+                   Text="{Binding MeleeDefense}" Style="{StaticResource CenterFillNumericEntry}"/>
             <Entry Grid.Column="1" Grid.Row="4"
-                   Text="{Binding Soak}" Style="{StaticResource EntryStyle}"/>
+                   Text="{Binding Soak}" Style="{StaticResource CenterFillNumericEntry}"/>
             <Entry Grid.Column="1" Grid.Row="5"
-                   Text="{Binding Encumbrance}" Style="{StaticResource EntryStyle}"/>
+                   Text="{Binding Encumbrance}" Style="{StaticResource CenterFillNumericEntry}"/>
             <Entry Grid.Column="1" Grid.Row="6"
-                   Text="{Binding HardPoints}" Style="{StaticResource EntryStyle}"/>
+                   Text="{Binding HardPoints}" Style="{StaticResource CenterFillNumericEntry}"/>
             <Entry Grid.Column="1" Grid.Row="7"
-                   Text="{Binding Quantity}" Style="{StaticResource EntryStyle}"/>
+                   Text="{Binding Quantity}" Style="{StaticResource CenterFillNumericEntry}"/>
         </Grid>
     </ScrollView>
 </local:ItemBasePage>
