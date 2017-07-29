@@ -8,7 +8,7 @@ using Xamarin.Forms;
 namespace StarWRPG.Views
 {
     /* Intent
-     *      For using a similar search bar that has a default Unfocus call if search text is ""
+     *      For using a similar search bar that has a default Unfocus call if search text is empty
      */
     public class CustomSearchBar : SearchBar
     {

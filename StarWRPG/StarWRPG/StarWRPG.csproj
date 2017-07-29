@@ -260,7 +260,6 @@
     <Compile Include="Views\Character\Talents\TalentPage.xaml.cs">
       <DependentUpon>TalentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ToPageButton.cs" />
     <Compile Include="Views\Character\Talents\TalentsLayout.cs" />
   </ItemGroup>
   <ItemGroup>

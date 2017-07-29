@@ -9,6 +9,8 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Controls
 {
+    // Intent
+    //      Button for the user to save their character to the database
     class SaveCharacterToolbarItem : ToolbarItem
     {
         FFGCharacterViewModel ffgCharacterViewModel;

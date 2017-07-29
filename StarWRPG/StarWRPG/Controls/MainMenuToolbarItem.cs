@@ -9,6 +9,9 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Controls
 {
+    // Intent
+    //      Button that allows the user to go back to the main menu
+    //      Saves the user's current character when going back to the menu
     class MainMenuToolbarItem : ToolbarItem
     {
         FFGCharacterViewModel ffgCharacterViewModel;

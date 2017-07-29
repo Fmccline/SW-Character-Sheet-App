@@ -15,18 +15,15 @@
             <Color x:Key="TitleBackgroundColor">Black</Color>
             <!--Base Styles-->
             <Style x:Key="CenterViewBase" TargetType="View">
-                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}"/>
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="VerticalOptions" Value="Center" />
             </Style>
             <Style x:Key="StartViewBase" TargetType="View">
-                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}"/>
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="VerticalOptions" Value="Center" />
             </Style>
             <!--Search Bar-->
             <Style x:Key="DefaultSearchBar" TargetType="SearchBar">
-                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}"/>
                 <Setter Property="TextColor" Value="{DynamicResource TextColor}"/>
                 <Setter Property="PlaceholderColor" Value="{DynamicResource TextColor}"/>
             </Style>
@@ -40,6 +37,9 @@
                 <Setter Property="TextColor" Value="{DynamicResource ButtonTextColor}"/>
             </Style>
             <!--Labels-->
+            <Style x:Key="DefaultLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            </Style>
             <Style x:Key="CenterBoldLabel" TargetType="Label" BasedOn="{StaticResource CenterViewBase}">
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
@@ -65,16 +65,19 @@
                 <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
             </Style>
             <!--Entries-->
+            <Style x:Key="DefaultEntry" TargetType="Entry">
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="PlaceholderColor" Value="{DynamicResource TextColor}" />
+            </Style>
             <Style x:Key="CenterNumericEntry" TargetType="Entry" BasedOn="{StaticResource CenterViewBase}">
                 <Setter Property="Keyboard" Value="Numeric" />
                 <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="PlaceholderColor" Value="{DynamicResource TextColor}" />
             </Style>
-            <Style x:Key="FillAndExpandNumericEntry" TargetType="Entry">
+            <Style x:Key="FillAndExpandNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultEntry}">
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="VerticalOptions" Value="FillAndExpand" />
                 <Setter Property="Keyboard" Value="Numeric" />
-                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
-                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>

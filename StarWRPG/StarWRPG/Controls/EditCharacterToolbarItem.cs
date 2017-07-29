@@ -9,6 +9,8 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Controls
 {
+    // Intent
+    //      A button the user clicks to edit their character sheet
     class EditCharacterToolbarItem : ToolbarItem
     {
         FFGCharacterViewModel ffgCharacterViewModel;

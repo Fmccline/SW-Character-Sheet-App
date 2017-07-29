@@ -7,6 +7,8 @@ using System.Windows.Input;
 
 namespace StarWRPG.Controls
 {
+    // Intent
+    //      Interface for ViewModels to implement so they a search bar can be used with it
     public interface ISearchable
     {
         ICommand SearchCommand { get; }
