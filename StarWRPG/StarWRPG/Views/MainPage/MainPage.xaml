@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarWRPG.Views.MainPage"
              xmlns:local="clr-namespace:StarWRPG.Views" 
-             Title="Menu Screen"
-             BackgroundColor="{DynamicResource BackgroundColor}">
+             Style="{StaticResource PageStyle}"
+             Title="Main Menu">
 
     <ContentPage.Resources>
         <ResourceDictionary>

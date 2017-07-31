@@ -9,7 +9,7 @@ using StarWRPG.Controls;
 
 namespace StarWRPG.Views
 {
-    public class CharacterDetailNavigation : CharacterNavigation
+    public class CharacterDetailNavigation : CharacterNavigationBase
     {
         public CharacterDetailNavigation(FFGCharacterViewModel character) : base(character) { }
 
@@ -30,6 +30,7 @@ namespace StarWRPG.Views
         {
             return new List<ToolbarItem>
             {
+                new SettingsToolbarItem(page),
                 new MainMenuToolbarItem(ffgCharacterViewModel, page),
                 new EditCharacterToolbarItem(ffgCharacterViewModel, page),
             };

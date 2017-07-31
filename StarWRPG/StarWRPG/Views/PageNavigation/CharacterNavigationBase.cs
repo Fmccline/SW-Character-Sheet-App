@@ -9,13 +9,13 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Views
 {
-    public abstract class CharacterNavigation
+    public abstract class CharacterNavigationBase
     {
         public BasePage DefaultPage { get { return pages.First(); } }
         protected List<BasePage> pages;
         protected FFGCharacterViewModel ffgCharacterViewModel;
 
-        public CharacterNavigation(FFGCharacterViewModel character)
+        public CharacterNavigationBase(FFGCharacterViewModel character)
         {
             ffgCharacterViewModel = character;
 

@@ -9,7 +9,7 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Views
 {
-    public class CharacterCreationNavigation : CharacterNavigation
+    public class CharacterCreationNavigation : CharacterNavigationBase
     {
         public CharacterCreationNavigation(FFGCharacterViewModel character) : base(character) { }
 
@@ -30,6 +30,7 @@ namespace StarWRPG.Views
         {
             return new List<ToolbarItem>
             {
+                new SettingsToolbarItem(page),
                 new MainMenuToolbarItem(ffgCharacterViewModel, page),
                 new SaveCharacterToolbarItem(ffgCharacterViewModel, page),
             };
