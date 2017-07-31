@@ -171,10 +171,10 @@
     <Compile Include="ViewModels\Talents\TalentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\Inventory\WeaponViewModel.cs" />
-    <Compile Include="Views\CharacterCreation\StatsCreationPage.xaml.cs">
+    <Compile Include="Views\Character\CharacterStats\StatsCreationPage.xaml.cs">
       <DependentUpon>StatsCreationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterDetail\StatsDetailPage.xaml.cs">
+    <Compile Include="Views\Character\CharacterStats\StatsDetailPage.xaml.cs">
       <DependentUpon>StatsDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\Motivations\MotivationDetailLayout.cs" />
@@ -214,10 +214,10 @@
     <Compile Include="Views\Character\Items\ItemPage.xaml.cs">
       <DependentUpon>ItemPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterCreation\InfoCreationPage.xaml.cs">
+    <Compile Include="Views\Character\CharacterInfo\InfoCreationPage.xaml.cs">
       <DependentUpon>InfoCreationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterDetail\InfoDetailPage.xaml.cs">
+    <Compile Include="Views\Character\CharacterInfo\InfoDetailPage.xaml.cs">
       <DependentUpon>InfoDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\CharacterMembers\Experience.cs" />
@@ -263,7 +263,7 @@
     <Compile Include="Views\Character\Talents\TalentsLayout.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterDetail\InfoDetailPage.xaml">
+    <EmbeddedResource Include="Views\Character\CharacterInfo\InfoDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -298,7 +298,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterCreation\InfoCreationPage.xaml">
+    <EmbeddedResource Include="Views\Character\CharacterInfo\InfoCreationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -394,13 +394,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterCreation\StatsCreationPage.xaml">
+    <EmbeddedResource Include="Views\Character\CharacterStats\StatsCreationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterDetail\StatsDetailPage.xaml">
+    <EmbeddedResource Include="Views\Character\CharacterStats\StatsDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -34,10 +34,10 @@
                    Text="Defense" 
                    Style="{StaticResource CenterBottomBoldLabel}" />
             <Label Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2"
-                   Text="Force Rating" 
+                   Text="Force Rating"
                    Style="{StaticResource CenterBottomBoldLabel}" />
             <Label Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
-                   Text="{Binding SoakValue}" 
+                   Text="{Binding SoakValue}"
                    Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="2" Grid.Row="2"
                    Text="{Binding MeleeDefense}" 
@@ -77,28 +77,28 @@
                    Text="Strain" 
                    Style="{StaticResource CenterBoldLabel}"/>
             <Label Grid.Column="0" Grid.Row="1" 
-                   Text="{Binding CurrentWounds}"
+                   Text="{Binding CurrentWounds}" 
                    Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="1" Grid.Row="1" 
-                   Text="{Binding MaxWounds}"
+                   Text="{Binding MaxWounds}" 
                    Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="2" Grid.Row="1" 
                    Text="{Binding CurrentStrain}"
                    Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="3" Grid.Row="1" 
-                   Text="{Binding MaxStrain}"                          
+                   Text="{Binding MaxStrain}"
                    Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="0" Grid.Row="2" 
-                   Text="Current"                          
+                   Text="Current"
                    Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="1" Grid.Row="2" 
-                   Text="Max"                          
+                   Text="Threshold" 
                    Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="2" Grid.Row="2" 
-                   Text="Current"                          
+                   Text="Current" 
                    Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="3" Grid.Row="2" 
-                   Text="Max"                          
+                   Text="Threshold"
                    Style="{StaticResource CenterLabel}"/>
             <local:StepperWithEntry Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2"
                                     Value="{Binding CurrentWounds}"
@@ -124,38 +124,53 @@
             </Grid.RowDefinitions>
             <!--Duty and Contribution-->
             <Label Grid.Column="0" Grid.Row="0"
-                   Text="Total Duty" Style="{StaticResource CenterBoldLabel}" />
+                   Text="Total Duty"
+                   Style="{StaticResource CenterBoldLabel}" />
             <Label Grid.Column="0" Grid.Row="1"
-                   Text="{Binding TotalDuty}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding TotalDuty}" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="0" Grid.Row="2"
-                   Text="Contribution" Style="{StaticResource CenterBoldLabel}" />
+                   Text="Contribution" 
+                   Style="{StaticResource CenterBoldLabel}" />
             <Label Grid.Column="0" Grid.Row="3"
-                   Text="{Binding Contribution}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding Contribution}" 
+                   Style="{StaticResource CenterLabel}"/>
             <!--Obligation-->
             <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
-                   Text="Total Obligation" Style="{StaticResource CenterBoldLabel}" />
+                   Text="Total Obligation" 
+                   Style="{StaticResource CenterBoldLabel}" />
             <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2"
-                   Text="{Binding TotalObligation}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding TotalObligation}" 
+                   Style="{StaticResource CenterLabel}"/>
             <!--Morality and Conflict-->
             <Label Grid.Column="3" Grid.Row="0"
-                   Text="Morality" Style="{StaticResource CenterBoldLabel}" />
+                   Text="Morality" 
+                   Style="{StaticResource CenterBoldLabel}" />
             <Label Grid.Column="3" Grid.Row="1"
-                   Text="{Binding Morality}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding Morality}" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="3" Grid.Row="2"
-                   Text="Conflict" Style="{StaticResource CenterBoldLabel}" />
+                   Text="Conflict" 
+                   Style="{StaticResource CenterBoldLabel}" />
             <Label Grid.Column="3" Grid.Row="3"
-                   Text="{Binding Conflict}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding Conflict}"
+                   Style="{StaticResource CenterLabel}"/>
             <!--Encumbrance-->
             <Label Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
-                   Text="Encumbrance" Style="{StaticResource CenterBoldLabel}"/>
+                   Text="Encumbrance" 
+                   Style="{StaticResource CenterBoldLabel}"/>
             <Label Grid.Column="1" Grid.Row="3"
-                   Text="{Binding CurrentEncumbrance}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding CurrentEncumbrance}" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="2" Grid.Row="3"
-                   Text="{Binding EncumbranceThreshold}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding EncumbranceThreshold}" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="1" Grid.Row="4"
-                   Text="Current" Style="{StaticResource CenterLabel}"/>
+                   Text="Current" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="2" Grid.Row="4"
-                   Text="Threshold" Style="{StaticResource CenterLabel}"/>
+                   Text="Threshold" 
+                   Style="{StaticResource CenterLabel}"/>
         </Grid>
         <!-- Characteristics -->
         <Grid HorizontalOptions="FillAndExpand">
@@ -174,31 +189,44 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6"                       
-                   Text="Characteristics" Style="{StaticResource CenterBoldLabel}" />
+                   Text="Characteristics" 
+                   Style="{StaticResource CenterBoldLabel}" />
             <Label Grid.Column="0" Grid.Row="1"                      
-                   Text="{Binding Brawn}" Style="{StaticResource CenterLabel}" />
+                   Text="{Binding Brawn}" 
+                   Style="{StaticResource CenterLabel}" />
             <Label Grid.Column="1" Grid.Row="1"                    
-                   Text="{Binding Agility}" Style="{StaticResource CenterLabel}" />
+                   Text="{Binding Agility}" 
+                   Style="{StaticResource CenterLabel}" />
             <Label Grid.Column="2" Grid.Row="1"                     
-                   Text="{Binding Intellect}" Style="{StaticResource CenterLabel}" />
+                   Text="{Binding Intellect}" 
+                   Style="{StaticResource CenterLabel}" />
             <Label Grid.Column="3" Grid.Row="1"                   
-                   Text="{Binding Cunning}" Style="{StaticResource CenterLabel}" />
+                   Text="{Binding Cunning}"
+                   Style="{StaticResource CenterLabel}" />
             <Label Grid.Column="4" Grid.Row="1"                    
-                   Text="{Binding Willpower}" Style="{StaticResource CenterLabel}" />
+                   Text="{Binding Willpower}"
+                   Style="{StaticResource CenterLabel}" />
             <Label Grid.Column="5" Grid.Row="1"                    
-                   Text="{Binding Presence}" Style="{StaticResource CenterLabel}" />
+                   Text="{Binding Presence}" 
+                   Style="{StaticResource CenterLabel}" />
             <Label Grid.Column="0" Grid.Row="2"                    
-                   Text="Br" Style="{StaticResource CenterBoldLabel}" />
+                   Text="Br" 
+                   Style="{StaticResource CenterBoldLabel}" />
             <Label Grid.Column="1" Grid.Row="2"                     
-                   Text="Ag" Style="{StaticResource CenterBoldLabel}" />
+                   Text="Ag"
+                   Style="{StaticResource CenterBoldLabel}" />
             <Label Grid.Column="2" Grid.Row="2"                     
-                   Text="Int" Style="{StaticResource CenterBoldLabel}" />
+                   Text="Int"
+                   Style="{StaticResource CenterBoldLabel}" />
             <Label Grid.Column="3" Grid.Row="2"                     
-                   Text="Cun" Style="{StaticResource CenterBoldLabel}" />
+                   Text="Cun" 
+                   Style="{StaticResource CenterBoldLabel}" />
             <Label Grid.Column="4" Grid.Row="2"                     
-                   Text="Will" Style="{StaticResource CenterBoldLabel}" />
+                   Text="Will" 
+                   Style="{StaticResource CenterBoldLabel}" />
             <Label Grid.Column="5" Grid.Row="2"                      
-                   Text="Pr" Style="{StaticResource CenterBoldLabel}" />
+                   Text="Pr"
+                   Style="{StaticResource CenterBoldLabel}" />
         </Grid>
         <!-- Available and Total XP -->
         <Grid>

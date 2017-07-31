@@ -2,34 +2,43 @@
 <local:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:local="clr-namespace:StarWRPG.Views" 
-                Title="Info"
-                x:Class="StarWRPG.Views.InfoCreationPage">
+                x:Class="StarWRPG.Views.InfoCreationPage"
+                Title="Info">
 
+    <local:BasePage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="FillAndExpandEntry" TargetType="Entry"  BasedOn="{StaticResource DefaultEntry}">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </local:BasePage.Resources>
+    
     <StackLayout x:Name="MainStackLayout">
         <ScrollView>
             <StackLayout x:Name="ScrollViewStackLayout">
                 <!--Name-->
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Name:" Style="{StaticResource StartBoldLabel}"/>
-                    <Entry Text="{Binding Name}" HorizontalOptions="FillAndExpand"/>
+                    <Entry Text="{Binding Name}" Style="{StaticResource FillAndExpandEntry}"/>
                 </StackLayout>
                 <!--Species-->
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Species:" Style="{StaticResource StartBoldLabel}"/>
-                    <Entry Text="{Binding Species}" HorizontalOptions="FillAndExpand"/>
+                    <Entry Text="{Binding Species}" Style="{StaticResource FillAndExpandEntry}"/>
                     <Button Text="Preset" 
                             Clicked="ChangeSpeciePresetAsync"
-                            HorizontalOptions="End"/>
+                            HorizontalOptions="End"
+                            Style="{StaticResource DefaultButton}"/>
                 </StackLayout>
                 <!--Career-->
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Career:" Style="{StaticResource StartBoldLabel}"/>
-                    <Entry Text="{Binding Career}" HorizontalOptions="FillAndExpand"/>
+                    <Entry Text="{Binding Career}" Style="{StaticResource FillAndExpandEntry}"/>
                 </StackLayout>
                 <!--Specializations-->
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Specializations:" Style="{StaticResource StartBoldLabel}"/>
-                    <Entry Text="{Binding SpecializationTrees}" HorizontalOptions="FillAndExpand"/>
+                    <Entry Text="{Binding SpecializationTrees}" Style="{StaticResource FillAndExpandEntry}"/>
                 </StackLayout>
                 <!--Description-->
                 <Grid>
@@ -63,33 +72,33 @@
                     <Label Grid.Column="0" Grid.Row="6"
                            Text="Eyes" Style="{StaticResource CenterBoldLabel}"/>
                     <Label Grid.Column="0" Grid.Row="7"
-                           Text="Features" 
-                           HorizontalOptions="Center"
-                           VerticalOptions="Center"
-                           FontAttributes="Bold"/>
+                           Text="Features" Style="{StaticResource CenterBoldLabel}"/>
 
                     <Entry Grid.Column="1" Grid.Row="1"
-                           Text="{Binding Gender}" HorizontalOptions="FillAndExpand"/>
+                           Text="{Binding Gender}" Style="{StaticResource FillAndExpandEntry}"/>
                     <Entry Grid.Column="1" Grid.Row="2"
-                           Text="{Binding Age}" HorizontalOptions="FillAndExpand"/>
+                           Text="{Binding Age}" Style="{StaticResource FillAndExpandEntry}"/>
                     <Entry Grid.Column="1" Grid.Row="3"
-                           Text="{Binding Height}" HorizontalOptions="FillAndExpand"/>
+                           Text="{Binding Height}" Style="{StaticResource FillAndExpandEntry}"/>
                     <Entry Grid.Column="1" Grid.Row="4"
-                           Text="{Binding Build}" HorizontalOptions="FillAndExpand"/>
+                           Text="{Binding Build}" Style="{StaticResource FillAndExpandEntry}"/>
                     <Entry Grid.Column="1" Grid.Row="5"
-                           Text="{Binding Hair}" HorizontalOptions="FillAndExpand"/>
+                           Text="{Binding Hair}" Style="{StaticResource FillAndExpandEntry}"/>
                     <Entry Grid.Column="1" Grid.Row="6"
-                           Text="{Binding Eyes}" HorizontalOptions="FillAndExpand"/>
+                           Text="{Binding Eyes}" Style="{StaticResource FillAndExpandEntry}"/>
                     <Editor Grid.Column="1" Grid.Row="7"
-                            Text="{Binding NotableFeatures}"
+                            Text="{Binding NotableFeatures}" 
+                            Style="{StaticResource DefaultEditor}"
                             VerticalOptions="Center"/>
                 </Grid>
-                <!--Background-->
+                <!--Character Background-->
                 <Label Text="Character Background"                    
                        FontAttributes="Bold"
-                       VerticalOptions="Center"/>
+                       Style="{StaticResource CenterBoldLabel}"
+                       HorizontalOptions="Fill"/>
                 <Editor Text="{Binding Background}"
-                        HeightRequest="150"/>
+                        HeightRequest="150"
+                        Style="{StaticResource DefaultEditor}"/>
             </StackLayout>
         </ScrollView>
     </StackLayout>

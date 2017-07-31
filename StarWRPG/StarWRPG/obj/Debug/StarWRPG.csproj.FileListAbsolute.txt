@@ -32,8 +32,6 @@ C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWR
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\bin\Debug\Xamarin.Forms.Xaml.xml
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.csprojResolveAssemblyReference.cache
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.App.xaml.g.cs
-C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.CharacterDetail.InfoDetailPage.xaml.g.cs
-C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.CharacterCreation.InfoCreationPage.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.Items.CharacterInventoryPage.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.Items.ItemPage.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.Items.WeaponPage.xaml.g.cs
@@ -49,8 +47,6 @@ C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWR
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Presets.SpeciesPresetPage.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.Motivations.MotivationsCreationPage.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.Motivations.MotivationsDetailPage.xaml.g.cs
-C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.CharacterCreation.StatsCreationPage.xaml.g.cs
-C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.CharacterDetail.StatsDetailPage.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.Items.ArmorsList.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.Items.WeaponsList.xaml.g.cs
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.Items.ItemsList.xaml.g.cs
@@ -59,3 +55,7 @@ C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWR
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.dll
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.pdb
 C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.PageNavigation.PageSelectionLayout.xaml.g.cs
+C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.CharacterInfo.InfoDetailPage.xaml.g.cs
+C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.CharacterInfo.InfoCreationPage.xaml.g.cs
+C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.CharacterStats.StatsCreationPage.xaml.g.cs
+C:\Users\Frank's Laptop\Desktop\Star-Wars\SW-Character-Sheet-App\StarWRPG\StarWRPG\obj\Debug\StarWRPG.Views.Character.CharacterStats.StatsDetailPage.xaml.g.cs
