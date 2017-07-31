@@ -54,6 +54,9 @@ namespace StarWRPG
             //Current.Resources["ButtonTextColor"] = Color.Black;
             //Current.Resources["TitleTextColor"] = Color.Yellow;
             //Current.Resources["TitleBackgroundColor"] = Color.Black;
+            Current.Resources["RegularFontName"] = Current.Resources["CamingoCodeRegular"];
+            Current.Resources["BoldFontName"] = Current.Resources["CamingoCodeBold"];
+
             Current.Resources["BackgroundColor"] = Color.LightBlue;
             Current.Resources["TextColor"] = Color.DarkRed;
             Current.Resources["ButtonColor"] = Color.Black;
