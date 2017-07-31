@@ -72,7 +72,7 @@
             <Label Grid.Column="0" Grid.Row="0"
                    Text="Custom Color " 
                    Style="{DynamicResource CenterBoldLabel}"
-                   FontSize="Medium"/>
+                   FontSize="{DynamicResource MediumFontSize}"/>
             <BoxView Grid.Column="1" Grid.Row="0"
                      Color="{Binding CustomColor}"
                      Style="{StaticResource BoxViewStyle}"/>

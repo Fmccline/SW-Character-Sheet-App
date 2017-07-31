@@ -13,7 +13,7 @@
         <StackLayout>
             <Label Text="Talent" 
                    Style="{StaticResource CenterBoldLabel}"
-                   FontSize="Medium"/>
+                   FontSize="{DynamicResource MediumFontSize}"/>
 
             <Label Text="Name" Style="{StaticResource StartLabel}"/>
             <Entry Text="{Binding Name}" Style="{StaticResource DefaultEntry}"/>

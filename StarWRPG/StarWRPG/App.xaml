@@ -13,8 +13,10 @@
             <Color x:Key="ButtonTextColor">Black</Color>
             <Color x:Key="TitleTextColor">Black</Color>
             <Color x:Key="TitleBackgroundColor">Black</Color>
-            <!--Font Size-->
+            <!--Font Sizes-->
             <x:Double x:Key="DefaultFontSize">18</x:Double>
+            <x:Double x:Key="MediumFontSize">24</x:Double>
+            <x:Double x:Key="LargeFontSize">30</x:Double>
             <!--FontNames are set in App constructor-->
             <OnPlatform x:Key="RegularFontName" x:TypeArguments="x:String"/>
             <OnPlatform x:Key="BoldFontName" x:TypeArguments="x:String"/>
@@ -51,15 +53,6 @@
                 <OnPlatform.iOS>Neuton</OnPlatform.iOS>
                 <OnPlatform.Android>Neuton-Bold.ttf#Neuton</OnPlatform.Android>
             </OnPlatform>
-            <!--Base Styles-->
-            <Style x:Key="CenterViewBase" TargetType="View">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
-            </Style>
-            <Style x:Key="StartViewBase" TargetType="View">
-                <Setter Property="HorizontalOptions" Value="Start" />
-                <Setter Property="VerticalOptions" Value="Center" />
-            </Style>
             <!--Button-->
             <Style x:Key="DefaultButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{DynamicResource ButtonColor}"/>

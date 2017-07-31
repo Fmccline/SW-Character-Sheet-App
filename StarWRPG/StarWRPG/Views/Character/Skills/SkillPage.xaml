@@ -8,9 +8,8 @@
     <StackLayout>
         
         <Label Text="{Binding Name}"
-               FontAttributes="Bold"
-               FontSize="Medium"
-               Style="{StaticResource DefaultLabel}"/>
+               FontSize="{DynamicResource MediumFontSize}"
+               Style="{StaticResource DefaultBoldLabel}"/>
 
         <StackLayout Orientation="Horizontal">
             <Label Text="Rank: " Style="{StaticResource StartBoldLabel}"/>

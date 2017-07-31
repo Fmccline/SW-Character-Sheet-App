@@ -8,15 +8,11 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="MediumStartBoldLabel" TargetType="Label" BasedOn="{StaticResource StartViewBase}">
-                <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="FontSize" Value="Medium"/>
-                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Style x:Key="MediumStartBoldLabel" TargetType="Label" BasedOn="{StaticResource StartBoldLabel}">
+                <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}"/>
             </Style>
-            <Style x:Key="MediumCenterBoldLabel" TargetType="Label" BasedOn="{StaticResource CenterViewBase}">
-                <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="FontSize" Value="Medium"/>
-                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Style x:Key="MediumCenterBoldLabel" TargetType="Label" BasedOn="{StaticResource CenterBoldLabel}">
+                <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -34,7 +30,7 @@
 
         <Label Grid.Row="0"
                Text="Welcome to FFG Sheet!"
-               FontSize="Large"
+               FontSize="{DynamicResource LargeFontSize}"
                Style="{StaticResource CenterBoldLabel}"
                TextColor="{DynamicResource TextColor}"/>
 

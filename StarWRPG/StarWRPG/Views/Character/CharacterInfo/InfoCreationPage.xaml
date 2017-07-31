@@ -93,7 +93,6 @@
                 </Grid>
                 <!--Character Background-->
                 <Label Text="Character Background"                    
-                       FontAttributes="Bold"
                        Style="{StaticResource CenterBoldLabel}"
                        HorizontalOptions="Fill"/>
                 <Editor Text="{Binding Background}"

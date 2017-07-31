@@ -13,7 +13,7 @@
                     <Label Text="Name:" Style="{StaticResource StartLabel}"/>
                     <Label Text="{Binding Name}" 
                            Style="{StaticResource CenterBoldLabel}"
-                           FontSize="Large"/>
+                           FontSize="{DynamicResource LargeFontSize}"/>
                 </StackLayout>
                 <!--Species-->
                 <StackLayout Orientation="Horizontal">
@@ -35,7 +35,7 @@
                     <StackLayout Orientation="Horizontal">
                         <Label Text="Critical Injuries" 
                                Style="{StaticResource StartBoldLabel}"
-                               FontSize="Medium"/>
+                               FontSize="{DynamicResource MediumFontSize}"/>
                         <Button Text="-" 
                                 Clicked="RemoveCriticalInjuryAsync"
                                 Style="{DynamicResource DefaultButton}"
@@ -68,7 +68,7 @@
                     <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"
                            Text="Character Description" 
                            Style="{StaticResource StartBoldLabel}"
-                           FontSize="Medium"/>
+                           FontSize="{DynamicResource MediumFontSize}"/>
 
                     <Label Grid.Column="0" Grid.Row="1"
                            Text="Gender" Style="{StaticResource StartLabel}"/>
@@ -106,7 +106,7 @@
                 <Label Text="Character Background" 
                        Margin="0,20,0,0"
                        Style="{StaticResource StartBoldLabel}"
-                       FontSize="Medium"/>
+                       FontSize="{DynamicResource MediumFontSize}"/>
                 <Label Text="{Binding Background}" Style="{StaticResource StartLabel}"/>
             </StackLayout>
         </ScrollView>

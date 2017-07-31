@@ -10,17 +10,11 @@
     
     <ContentView.Resources>
         <ResourceDictionary>
-            <Style x:Key="MediumStartBoldLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Start" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="FontSize" Value="Medium"/>
+            <Style x:Key="MediumStartBoldLabel" TargetType="Label" BasedOn="{StaticResource StartBoldLabel}">
+                <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}"/>
             </Style>
-            <Style x:Key="MediumCenterBoldLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="FontSize" Value="Medium"/>
+            <Style x:Key="MediumCenterBoldLabel" TargetType="Label" BasedOn="{StaticResource CenterBoldLabel}">
+                <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}"/>
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
