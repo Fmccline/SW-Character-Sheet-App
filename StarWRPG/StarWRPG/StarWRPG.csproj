@@ -187,16 +187,16 @@
       <DependentUpon>MotivationsDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\Motivations\MotivationPageBase.cs" />
-    <Compile Include="Views\Character\PageSelectionLayout.xaml.cs">
+    <Compile Include="Views\PageNavigation\PageSelectionLayout.xaml.cs">
       <DependentUpon>PageSelectionLayout.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\Skills\AddCustomSkillPage.xaml.cs">
       <DependentUpon>AddCustomSkillPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\BasePage.cs" />
-    <Compile Include="Views\CharacterCreation\CharacterCreationNavigation.cs" />
-    <Compile Include="Views\CharacterDetail\CharacterDetailNavigation.cs" />
-    <Compile Include="Views\Character\CharacterNavigation.cs" />
+    <Compile Include="Views\PageNavigation\CharacterCreationNavigation.cs" />
+    <Compile Include="Views\PageNavigation\CharacterDetailNavigation.cs" />
+    <Compile Include="Views\PageNavigation\CharacterNavigation.cs" />
     <Compile Include="Views\Character\CriticalInjuries\AddCriticalInjuryPage.xaml.cs">
       <DependentUpon>AddCriticalInjuryPage.xaml</DependentUpon>
     </Compile>
@@ -430,7 +430,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Character\PageSelectionLayout.xaml">
+    <EmbeddedResource Include="Views\PageNavigation\PageSelectionLayout.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -64,6 +64,10 @@
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
             </Style>
+            <!--Editor-->
+            <Style x:Key="DefaultEditor" TargetType="Editor">
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            </Style>
             <!--Entries-->
             <Style x:Key="DefaultEntry" TargetType="Entry">
                 <Setter Property="TextColor" Value="{DynamicResource TextColor}" />

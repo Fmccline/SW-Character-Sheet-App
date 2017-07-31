@@ -34,7 +34,7 @@ namespace StarWRPG.Controls
             }
             catch (Exception ex)
             {
-                await currentPage.DisplayAlert("Oops, an Error", ex.Message, "Ok");
+                await currentPage.DisplayAlert("Error: Droids Not Found", ex.Message, "Ok");
             }
         }
     }

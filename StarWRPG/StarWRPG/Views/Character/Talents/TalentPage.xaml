@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarWRPG.Views.TalentPage"
+             Style="{StaticResource PageStyle}"
              Title="Talent">
 
     <ContentPage.Padding>
@@ -15,15 +16,19 @@
                    FontSize="Medium"/>
 
             <Label Text="Name" Style="{StaticResource StartLabel}"/>
-            <Entry Text="{Binding Name}"/>
+            <Entry Text="{Binding Name}" Style="{StaticResource DefaultEntry}"/>
 
             <Label Text="Page #" Style="{StaticResource StartLabel}"/>
-            <Entry Text="{Binding PageNumber}" Keyboard="Numeric"/>
+            <Entry Text="{Binding PageNumber}" 
+                   Keyboard="Numeric"
+                   Style="{StaticResource DefaultEntry}"/>
 
             <Label Text="Description"
-                   HorizontalOptions="Start"
-                   VerticalOptions="Start"/>
-            <Editor Text="{Binding Description}" VerticalOptions="FillAndExpand"/>
+                   VerticalOptions="Start"
+                   Style="{StaticResource StartLabel}"/>
+            <Editor Text="{Binding Description}" 
+                    VerticalOptions="FillAndExpand"
+                    Style="{StaticResource DefaultEditor}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -20,6 +20,7 @@ namespace StarWRPG.Views
         public TalentPage(TalentsViewModel talents, TalentViewModel talent = null)
         {
             InitializeComponent();
+            NavigationPage.SetHasBackButton(this, false);
 
             talentsViewModel = talents;
 

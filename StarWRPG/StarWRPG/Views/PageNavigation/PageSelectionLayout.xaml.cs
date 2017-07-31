@@ -38,7 +38,7 @@ namespace StarWRPG.Views
         {
             var pageToBeRemoved = currentPage.Navigation.NavigationStack.Last();
             currentPage.Navigation.InsertPageBefore(page, pageToBeRemoved);
-            await currentPage.Navigation.PopAsync();
+            await currentPage.Navigation.PopAsync(false);
         }
 
         private async void PreviousPageAsync(object sender, EventArgs e)

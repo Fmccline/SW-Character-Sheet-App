@@ -37,7 +37,7 @@ namespace StarWRPG.Views
                     return page;
                 }
             }
-            throw new Exception("An error occured: Page not found.");
+            throw new Exception($"The page {title} was not found.");
         }
 
         protected abstract List<ToolbarItem> GetToolbarItems(BasePage page);
