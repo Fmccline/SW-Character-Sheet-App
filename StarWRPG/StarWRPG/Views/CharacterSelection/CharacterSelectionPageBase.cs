@@ -21,7 +21,7 @@ namespace StarWRPG.Views
             characterSelectionLayout.CharactersListView.ItemSelected += CharacterSelected;
             Content = characterSelectionLayout;
 
-            SetDynamicResource(StyleProperty, "PageStyle");
+            Style = (Style)Application.Current.Resources["PageStyle"];
         }
 
         protected abstract void CharacterSelected(object sender, SelectedItemChangedEventArgs e);

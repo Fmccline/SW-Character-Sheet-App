@@ -9,15 +9,13 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Views
 {
-    /* Intent
-     *      For selecting a character from a list of characters to view/edit
-     */
+    // Intent
+    //      For selecting a character from a list of characters to view/edit
     public class CharacterSelectionPage : CharacterSelectionPageBase
     {
         public CharacterSelectionPage()
         {
             Title = "Character Selection";
-
         }
 
         protected override async void CharacterSelected(object sender, SelectedItemChangedEventArgs e)

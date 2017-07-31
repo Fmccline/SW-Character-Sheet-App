@@ -8,9 +8,8 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Views
 {
-    /* Intent
-     *      For deleting a character from a list of characters (from the character database)
-     */
+    // Intent
+    //      For deleting a character from a list of characters (from the character database)
     public class CharacterDeletionPage : CharacterSelectionPageBase
     {
         public CharacterDeletionPage()
@@ -20,7 +19,6 @@ namespace StarWRPG.Views
 
         protected override async void CharacterSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            // Delete Character
             if (e.SelectedItem is FFGCharacterViewModel character)
             {
                 await App.CharacterDatabase.DeleteCharacterAsync(character);

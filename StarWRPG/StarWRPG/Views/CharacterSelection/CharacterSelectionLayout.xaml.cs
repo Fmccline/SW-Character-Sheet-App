@@ -10,9 +10,8 @@ using Xamarin.Forms.Xaml;
 
 namespace StarWRPG.Views
 {
-    /* Intent
-     *      For displaying a selection of characters from the character database
-     */
+    // Intent
+    //       For displaying a selection of characters from the character database
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CharacterSelectionLayout : ContentView
     {

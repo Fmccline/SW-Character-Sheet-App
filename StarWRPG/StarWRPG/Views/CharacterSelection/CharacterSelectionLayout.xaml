@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:StarWRPG.Views" 
              x:Class="StarWRPG.Views.CharacterSelectionLayout">
 
+    <ContentView.Padding>
+        10,10,10,10
+    </ContentView.Padding>
+    
     <ContentView.Resources>
         <ResourceDictionary>
             <Style x:Key="MediumStartBoldLabel" TargetType="Label">
@@ -26,49 +30,64 @@
             <!--Character Search Bar-->
             <local:CustomSearchBar x:Name="Search"
                                 HorizontalOptions="FillAndExpand"
-                                Placeholder="Search by name"
+                                Placeholder="Search by character name"
                                 SearchCommand="{Binding SearchCommand}" 
                                 SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
                                 TextChangedCommand="{Binding DefaultSortCommand}"/>
             <!--Character List-->
             <Label Text="You have no characters. We should fix that!"
-                   IsVisible="{Binding CharactersIsEmpty}"/>
+                   IsVisible="{Binding CharactersIsEmpty}"
+                   Style="{StaticResource DefaultLabel}"/>
 
             <ListView x:Name="charactersListView"
                       ItemsSource="{Binding Characters}"
                       IsVisible="{Binding CharactersIsNotEmpty}">
                 <ListView.Header>
                     <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
                         <Label Grid.Column="0" 
                            Text="Name" 
                            Style="{StaticResource StartBoldLabel}"/>
                         <Label Grid.Column="1" 
                            Text="Species" 
-                           Style="{StaticResource StartBoldLabel}"/>
+                           Style="{StaticResource CenterBoldLabel}"/>
                         <Label Grid.Column="2" 
                            Text="Career" 
-                           Style="{StaticResource StartBoldLabel}"/>
+                           Style="{StaticResource CenterBoldLabel}"/>
                         <Label Grid.Column="3" 
                            Text="Total XP" 
-                           Style="{StaticResource StartBoldLabel}"/>
+                           Style="{StaticResource CenterBoldLabel}"/>
                     </Grid>
                 </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="2*"/>
+                                    <ColumnDefinition Width="1.5*"/>
+                                    <ColumnDefinition Width="1.5*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
                                 <Label Grid.Column="0" 
                                     Text="{Binding Name}" 
                                     Style="{StaticResource StartLabel}"/>
                                 <Label Grid.Column="1" 
                                     Text="{Binding Species}" 
-                                    Style="{StaticResource StartLabel}"/>
+                                    Style="{StaticResource CenterLabel}"/>
                                 <Label Grid.Column="2" 
                                     Text="{Binding Career}" 
-                                    Style="{StaticResource StartLabel}"/>
+                                    Style="{StaticResource CenterLabel}"/>
                                 <Label Grid.Column="3" 
                                     Text="{Binding TotalXP}" 
-                                    Style="{StaticResource StartLabel}"/>
+                                    Style="{StaticResource CenterLabel}"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
