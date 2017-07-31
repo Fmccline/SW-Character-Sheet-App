@@ -13,17 +13,43 @@
             <Color x:Key="ButtonTextColor">Black</Color>
             <Color x:Key="TitleTextColor">Black</Color>
             <Color x:Key="TitleBackgroundColor">Black</Color>
+            <!--Font Size-->
+            <x:Double x:Key="DefaultFontSize">18</x:Double>
             <!--FontNames are set in App constructor-->
             <OnPlatform x:Key="RegularFontName" x:TypeArguments="x:String"/>
             <OnPlatform x:Key="BoldFontName" x:TypeArguments="x:String"/>
             <!--Fonts-->
             <OnPlatform x:Key="CamingoCodeRegular" x:TypeArguments="x:String">
-                <OnPlatform.iOS>CamingoCode-Regular</OnPlatform.iOS>
-                <OnPlatform.Android>CamingoCode-Regular.ttf#CamingoCode-Regular</OnPlatform.Android>
+                <OnPlatform.iOS>CamingoCode</OnPlatform.iOS>
+                <OnPlatform.Android>CamingoCode-Regular.ttf#CamingoCode</OnPlatform.Android>
             </OnPlatform>
             <OnPlatform x:Key="CamingoCodeBold" x:TypeArguments="x:String">
                 <OnPlatform.iOS>CamingoCode-Bold</OnPlatform.iOS>
-                <OnPlatform.Android>CamingoCode-Bold.ttf#CamingoCode-Bold</OnPlatform.Android>
+                <OnPlatform.Android>CamingoCode-Bold.ttf#CamingoCode</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="EnigmaticRegular" x:TypeArguments="x:String">
+                <OnPlatform.iOS>Enigmatic</OnPlatform.iOS>
+                <OnPlatform.Android>Enigma__2.ttf#Enigmatic</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="EnigmaticBold" x:TypeArguments="x:String">
+                <OnPlatform.iOS>Enigmatic</OnPlatform.iOS>
+                <OnPlatform.Android>EnigmaB_2.ttf#Enigmatic</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="GreyscaleBasicRegular" x:TypeArguments="x:String">
+                <OnPlatform.iOS>GreyscaleBasic</OnPlatform.iOS>
+                <OnPlatform.Android>Greyscale_Basic_Regular.ttf#GreyscaleBasic</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="GreyscaleBasicBold" x:TypeArguments="x:String">
+                <OnPlatform.iOS>GreyscaleBasic</OnPlatform.iOS>
+                <OnPlatform.Android>Greyscale_Basic_Bold.ttf#GreyscaleBasic</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="NeutonRegular" x:TypeArguments="x:String">
+                <OnPlatform.iOS>Neuton</OnPlatform.iOS>
+                <OnPlatform.Android>Neuton-Regular.ttf#Neuton</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="NeutonBold" x:TypeArguments="x:String">
+                <OnPlatform.iOS>Neuton</OnPlatform.iOS>
+                <OnPlatform.Android>Neuton-Bold.ttf#Neuton</OnPlatform.Android>
             </OnPlatform>
             <!--Base Styles-->
             <Style x:Key="CenterViewBase" TargetType="View">
@@ -34,29 +60,50 @@
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="VerticalOptions" Value="Center" />
             </Style>
-            <!--Search Bar-->
-            <Style x:Key="DefaultSearchBar" TargetType="SearchBar">
-                <Setter Property="TextColor" Value="{DynamicResource TextColor}"/>
-                <Setter Property="PlaceholderColor" Value="{DynamicResource TextColor}"/>
-                <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
-            </Style>
-            <!--Page-->
-            <Style x:Key="PageStyle" TargetType="Page">
-                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}"/>
-            </Style>
             <!--Button-->
             <Style x:Key="DefaultButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{DynamicResource ButtonColor}"/>
                 <Setter Property="TextColor" Value="{DynamicResource ButtonTextColor}"/>
                 <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
+                <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
+            </Style>
+            <!--Editor-->
+            <Style x:Key="DefaultEditor" TargetType="Editor">
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
+                <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
+            </Style>
+            <!--Entries-->
+            <Style x:Key="DefaultEntry" TargetType="Entry">
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="PlaceholderColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
+                <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
+            </Style>
+            <Style x:Key="DefaultNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultEntry}">
+                <Setter Property="Keyboard" Value="Numeric" />
+            </Style>
+            <Style x:Key="CenterFillEntry" TargetType="Entry" BasedOn="{StaticResource DefaultEntry}">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="CenterFillNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultNumericEntry}">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="CenterNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultNumericEntry}">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="FillAndExpandNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultNumericEntry}">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" Value="FillAndExpand" />
             </Style>
             <!--Labels-->
             <Style x:Key="DefaultLabel" TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
                 <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
+                <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
             </Style>
-            <Style x:Key="DefaultBoldLabel" TargetType="Label">
-                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <Style x:Key="DefaultBoldLabel" TargetType="Label" BasedOn="{StaticResource DefaultLabel}">
                 <Setter Property="FontFamily" Value="{DynamicResource BoldFontName}" />
             </Style>
             <Style x:Key="CenterLabel" TargetType="Label" BasedOn="{StaticResource DefaultLabel}">
@@ -81,33 +128,16 @@
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="VerticalOptions" Value="Center" />
             </Style>
-            <!--Editor-->
-            <Style x:Key="DefaultEditor" TargetType="Editor">
-                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+            <!--Page-->
+            <Style x:Key="PageStyle" TargetType="Page">
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}"/>
+            </Style>
+            <!--Search Bar-->
+            <Style x:Key="DefaultSearchBar" TargetType="SearchBar">
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}"/>
+                <Setter Property="PlaceholderColor" Value="{DynamicResource TextColor}"/>
                 <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
-            </Style>
-            <!--Entries-->
-            <Style x:Key="DefaultEntry" TargetType="Entry">
-                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
-                <Setter Property="PlaceholderColor" Value="{DynamicResource TextColor}" />
-                <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
-            </Style>
-            <Style x:Key="DefaultNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultEntry}">
-                <Setter Property="Keyboard" Value="Numeric" />
-            </Style>
-            <Style x:Key="CenterFillEntry" TargetType="Entry" BasedOn="{StaticResource DefaultEntry}">
-                <Setter Property="VerticalOptions" Value="Center"/>
-            </Style>
-            <Style x:Key="CenterFillNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultNumericEntry}">
-                <Setter Property="VerticalOptions" Value="Center"/>
-            </Style>
-            <Style x:Key="CenterNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultNumericEntry}">
-                <Setter Property="HorizontalOptions" Value="Center"/>
-                <Setter Property="VerticalOptions" Value="Center"/>
-            </Style>
-            <Style x:Key="FillAndExpandNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultNumericEntry}">
-                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-                <Setter Property="VerticalOptions" Value="FillAndExpand" />
+                <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
             </Style>
         </ResourceDictionary>
     </Application.Resources>
