@@ -13,7 +13,7 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage
     {
-        Dictionary<string, Tuple<double, double, double>> colors;
+        Dictionary<string, Tuple<double, double, double>> presetColors;
         SettingsViewModel settingsViewModel;
 
         public SettingsPage()
@@ -23,7 +23,7 @@ namespace StarWRPG.Views
             settingsViewModel = new SettingsViewModel();
             BindingContext = settingsViewModel;
 
-            colors = new Dictionary<string, Tuple<double, double, double>>
+            presetColors = new Dictionary<string, Tuple<double, double, double>>
             {
                 ["Black"] = new Tuple<double, double, double>(0, 0, 0),
                 ["Blue"] = new Tuple<double, double, double>(0, 0, 128),
@@ -37,9 +37,9 @@ namespace StarWRPG.Views
 
         private async void PresetColorClickedAsync(object sender, EventArgs e)
         {
-            string[] colorNames = new string[colors.Count];
+            string[] colorNames = new string[presetColors.Count];
             int index = 0;
-            foreach (var color in colors)
+            foreach (var color in presetColors)
             {
                 colorNames[index++] = color.Key;
             }
@@ -47,9 +47,9 @@ namespace StarWRPG.Views
             var colorName = await DisplayActionSheet("Colors", "Cancel", null, colorNames);
             if (colorName != null && !colorName.Equals("Cancel"))
             {
-                settingsViewModel.Red = colors[colorName].Item1;
-                settingsViewModel.Green = colors[colorName].Item2;
-                settingsViewModel.Blue = colors[colorName].Item3;
+                settingsViewModel.Red = presetColors[colorName].Item1;
+                settingsViewModel.Green = presetColors[colorName].Item2;
+                settingsViewModel.Blue = presetColors[colorName].Item3;
             }
         }
     }
