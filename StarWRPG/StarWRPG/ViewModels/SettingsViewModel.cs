@@ -79,7 +79,7 @@ namespace StarWRPG.ViewModels
         public void SetButtonTextColor() { SetResourceColor("ButtonTextColor"); }
         public void RestoreDefaultColors() { App.SetDefaultTheme(); }
 
-        private void SetResourceColor(string resourceKey)
+        public void SetResourceColor(string resourceKey)
         {
             Application.Current.Resources[resourceKey] = CustomColor;
         }

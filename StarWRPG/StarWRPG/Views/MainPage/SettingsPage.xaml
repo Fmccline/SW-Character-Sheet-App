@@ -18,75 +18,23 @@
                 <Setter Property="WidthRequest" Value="30"/>
                 <Setter Property="BackgroundColor" Value="White"/>
             </Style>
+            <Style x:Key="ChangeColorButton" TargetType="Button" BasedOn="{StaticResource DefaultButton}">
+                <Setter Property="Text" Value="Change"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <StackLayout Spacing="10">
-        <!--RGB Sliders-->
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="3*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
 
-            <Label Grid.Column="0" Grid.Row="0"
-                   Text="Red" Style="{DynamicResource StartBoldLabel}"/>
-            <Label Grid.Column="0" Grid.Row="1"
-                   Text="Green" Style="{DynamicResource StartBoldLabel}"/>
-            <Label Grid.Column="0" Grid.Row="2"
-                   Text="Blue" Style="{DynamicResource StartBoldLabel}"/>
-
-            <Slider Grid.Column="1" Grid.Row="0"
-                    Minimum="0" 
-                    Maximum="255"
-                    Value="{Binding Red}"/>
-            <Slider Grid.Column="1" Grid.Row="1"
-                    Minimum="0" 
-                    Maximum="255"
-                    Value="{Binding Green}"/>
-            <Slider Grid.Column="1" Grid.Row="2"
-                    Minimum="0" 
-                    Maximum="255"
-                    Value="{Binding Blue}"/>
-
-            <Label Grid.Column="2" Grid.Row="0"
-                   Text="{Binding Red}" Style="{DynamicResource StartLabel}"/>
-            <Label Grid.Column="2" Grid.Row="1"
-                   Text="{Binding Green}" Style="{DynamicResource StartLabel}"/>
-            <Label Grid.Column="2" Grid.Row="2"
-                   Text="{Binding Blue}" Style="{DynamicResource StartLabel}"/>
-        </Grid>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <Label Grid.Column="0" Grid.Row="0"
-                   Text="Custom Color " 
-                   Style="{DynamicResource CenterBoldLabel}"
+    <ScrollView>
+        <StackLayout Spacing="10">
+            <!--Different settings-->
+            <Label Text="Colors" 
+                   Style="{StaticResource CenterBoldLabel}"
                    FontSize="{DynamicResource MediumFontSize}"/>
-            <BoxView Grid.Column="1" Grid.Row="0"
-                     Color="{Binding CustomColor}"
-                     Style="{StaticResource BoxViewStyle}"/>
-            <Button Grid.Column="2" Grid.Row="0"
-                    Text="Preset Color"
-                    Clicked="PresetColorClickedAsync"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Center"/>
-        </Grid>
-        <!--Different settings-->
-        <ScrollView VerticalOptions="FillAndExpand">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
@@ -132,36 +80,90 @@
                          Style="{StaticResource BoxViewStyle}"/>
 
                 <Button Grid.Column="2" Grid.Row="0"
-                        Text="Set" 
-                        Style="{DynamicResource DefaultButton}"
-                        Command="{Binding SetBackgroundColorCommand}"/>
+                        x:Name="BackgroundColorButton"
+                        Clicked="ChangeColorClickedAsync"
+                        Style="{DynamicResource ChangeColorButton}"/>
                 <Button Grid.Column="2" Grid.Row="1"
-                        Text="Set" 
-                        Style="{DynamicResource DefaultButton}"
-                        Command="{Binding SetTextColorCommand}"/>
+                        x:Name="TextColorButton"
+                        Clicked="ChangeColorClickedAsync"
+                        Style="{DynamicResource ChangeColorButton}"/>
                 <Button Grid.Column="2" Grid.Row="2"
-                        Text="Set" 
-                        Style="{DynamicResource DefaultButton}"
-                        Command="{Binding SetTitleBackgroundColorCommand}"/>
+                        x:Name="TitleBackgroundColorButton"
+                        Clicked="ChangeColorClickedAsync"
+                        Style="{DynamicResource ChangeColorButton}"/>
                 <Button Grid.Column="2" Grid.Row="3"
-                        Text="Set" 
-                        Style="{DynamicResource DefaultButton}"
-                        Command="{Binding SetTitleTextColorCommand}"/>
+                        x:Name="TitleTextColorButton"
+                        Clicked="ChangeColorClickedAsync"
+                        Style="{DynamicResource ChangeColorButton}"/>
                 <Button Grid.Column="2" Grid.Row="4"
-                        Text="Set" 
-                        Style="{DynamicResource DefaultButton}"
-                        Command="{Binding SetButtonColorCommand}"/>
+                        x:Name="ButtonColorButton"
+                        Clicked="ChangeColorClickedAsync"
+                        Style="{DynamicResource ChangeColorButton}"/>
                 <Button Grid.Column="2" Grid.Row="5"
-                        Text="Set" 
-                        Style="{DynamicResource DefaultButton}"
-                        Command="{Binding SetButtonTextColorCommand}"/>
+                        x:Name="ButtonTextColorButton"
+                        Clicked="ChangeColorClickedAsync"
+                        Style="{DynamicResource ChangeColorButton}"/>
             </Grid>
-        </ScrollView>
-        <!--Default Theme-->
-        <Button Text="Default Theme"
-                Command="{Binding RestoreDefaultColorsCommand}"
-                HorizontalOptions="Center"
-                VerticalOptions="CenterAndExpand"/>
-    </StackLayout>
+            <!--Default Theme-->
+            <Button Text="Default Colors"
+                    Command="{Binding RestoreDefaultColorsCommand}"
+                    HorizontalOptions="Center"
+                    VerticalOptions="CenterAndExpand"/>
+            <!--Fonts-->
+            <Label Text="Fonts" 
+                   Style="{StaticResource CenterBoldLabel}"
+                   FontSize="{DynamicResource MediumFontSize}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
+                <Label Grid.Column="0" Grid.Row="0" 
+                        Text="Camingo Code"
+                        Style="{StaticResource CenterLabel}"
+                        FontFamily="{StaticResource CamingoCodeRegular}"/>
+                <Label Grid.Column="0" Grid.Row="1" 
+                        Text="Enigmatic"
+                        Style="{StaticResource CenterLabel}"
+                        FontFamily="{StaticResource EnigmaticRegular}"/>
+                <Label Grid.Column="0" Grid.Row="2" 
+                        Text="Greyscale Basic"
+                        Style="{StaticResource CenterLabel}"
+                        FontFamily="{StaticResource GreyscaleBasicRegular}"/>
+                <Label Grid.Column="0" Grid.Row="3" 
+                        Text="Neuton"
+                        Style="{StaticResource CenterLabel}"
+                        FontFamily="{StaticResource NeutonRegular}"/>
+
+                <Button Grid.Column="1" Grid.Row="0"
+                        Text="Set"
+                        Style="{StaticResource DefaultButton}"
+                        FontFamily="{StaticResource CamingoCodeRegular}"
+                        Clicked="CamingoCodeClicked"/>
+                <Button Grid.Column="1" Grid.Row="1"
+                        Text="Set"
+                        Style="{StaticResource DefaultButton}"
+                        FontFamily="{StaticResource EnigmaticRegular}"
+                        Clicked="EnigmaticClicked"/>
+                <Button Grid.Column="1" Grid.Row="2"
+                        Text="Set"
+                        Style="{StaticResource DefaultButton}"
+                        FontFamily="{StaticResource GreyscaleBasicRegular}"
+                        Clicked="GreyscaleBasicClicked"/>
+                <Button Grid.Column="1" Grid.Row="3"
+                        Text="Set"
+                        Style="{StaticResource DefaultButton}"
+                        FontFamily="{StaticResource NeutonRegular}"
+                        Clicked="NeutonClicked"/>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

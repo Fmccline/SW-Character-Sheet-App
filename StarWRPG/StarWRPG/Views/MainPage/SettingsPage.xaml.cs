@@ -1,6 +1,7 @@
 ﻿using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,44 +14,82 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage
     {
-        Dictionary<string, Tuple<double, double, double>> presetColors;
         SettingsViewModel settingsViewModel;
 
         public SettingsPage()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.StackTrace);
+                Debug.WriteLine(ex.Message);
+            }
 
             settingsViewModel = new SettingsViewModel();
             BindingContext = settingsViewModel;
-
-            presetColors = new Dictionary<string, Tuple<double, double, double>>
-            {
-                ["Black"] = new Tuple<double, double, double>(0, 0, 0),
-                ["Blue"] = new Tuple<double, double, double>(0, 0, 128),
-                ["Gray"] = new Tuple<double, double, double>(128, 128, 128),
-                ["Green"] = new Tuple<double, double, double>(0, 128, 0),
-                ["Red"] = new Tuple<double, double, double>(128, 0, 0),
-                ["Yellow"] = new Tuple<double, double, double>(255, 255, 0),
-                ["White"] = new Tuple<double, double, double>(255, 255, 255),
-            };
         }
 
-        private async void PresetColorClickedAsync(object sender, EventArgs e)
+        private async void ChangeColorClickedAsync(object sender, EventArgs e)
         {
-            string[] colorNames = new string[presetColors.Count];
-            int index = 0;
-            foreach (var color in presetColors)
+            var buttonClicked = (Button)sender;
+            string resourceKey;
+
+            if (buttonClicked == BackgroundColorButton)
             {
-                colorNames[index++] = color.Key;
+                resourceKey = "BackgroundColor";
+            }
+            else if (buttonClicked == TextColorButton)
+            {
+                resourceKey = "TextColor";
+            }
+            else if (buttonClicked == TitleBackgroundColorButton)
+            {
+                resourceKey = "TitleBackgroundColor";
+            }
+            else if (buttonClicked == TitleTextColorButton)
+            {
+                resourceKey = "TitleTextColor";
+            }
+            else if (buttonClicked == ButtonColorButton)
+            {
+                resourceKey = "ButtonColor";
+            }
+            else
+            {
+                resourceKey = "ButtonTextColor";
             }
 
-            var colorName = await DisplayActionSheet("Colors", "Cancel", null, colorNames);
-            if (colorName != null && !colorName.Equals("Cancel"))
-            {
-                settingsViewModel.Red = presetColors[colorName].Item1;
-                settingsViewModel.Green = presetColors[colorName].Item2;
-                settingsViewModel.Blue = presetColors[colorName].Item3;
-            }
+            var previousColor = (Color)Application.Current.Resources[resourceKey];
+            await Navigation.PushAsync(new ColorPage(settingsViewModel, previousColor, resourceKey));
+        }
+
+        private void SetFont(string fontName, string boldFontName)
+        {
+            Application.Current.Resources["FontName"] = Application.Current.Resources[fontName];
+            Application.Current.Resources["BoldFontName"] = Application.Current.Resources[boldFontName];
+        }
+
+        private void CamingoCodeClicked(object sender, EventArgs e)
+        {
+            SetFont("CamingoCodeRegular", "CamingoCodeBold");
+        }
+
+        private void EnigmaticClicked(object sender, EventArgs e)
+        {
+            SetFont("EnigmaticRegular", "EnigmaticBold");
+        }
+
+        private void GreyscaleBasicClicked(object sender, EventArgs e)
+        {
+            SetFont("GreyscaleBasicRegular", "GreyscaleBasicBold");
+        }
+
+        private void NeutonClicked(object sender, EventArgs e)
+        {
+            SetFont("NeutonRegular", "NeutonBold");
         }
     }
 }
