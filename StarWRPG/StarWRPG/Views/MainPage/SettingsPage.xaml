@@ -23,6 +23,10 @@
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
+            <Style x:Key="FontSizeEntry" TargetType="Entry" BasedOn="{StaticResource DefaultNumericEntry}">
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -124,6 +128,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
                 <Label Grid.Column="0" Grid.Row="0" 
@@ -142,7 +147,17 @@
                         Text="Neuton"
                         Style="{StaticResource CenterLabel}"
                         FontFamily="{StaticResource NeutonRegular}"/>
-
+                <Label Grid.Column="0" Grid.Row="4"
+                       Text="HK Grotesk"
+                       TextColor="{DynamicResource TextColor}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                <Label Grid.Column="0" Grid.Row="5"
+                       Text="Andada"
+                       TextColor="{DynamicResource TextColor}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                
                 <Button Grid.Column="1" Grid.Row="0"
                         Text="Set"
                         Style="{StaticResource DefaultButton}"
@@ -163,6 +178,69 @@
                         Style="{StaticResource DefaultButton}"
                         FontFamily="{StaticResource NeutonRegular}"
                         Clicked="NeutonClicked"/>
+                <Button Grid.Column="1" Grid.Row="4"
+                        Text="Set"
+                        Style="{StaticResource DefaultButton}"
+                        Clicked="HKGroteskClicked"/>
+                <Button Grid.Column="1" Grid.Row="5"
+                        Text="Set"
+                        Style="{StaticResource DefaultButton}"
+                        Clicked="AndadaClicked"/>
+            </Grid>
+            <!--Font Size-->
+            <Label Text="Font Sizes" 
+                   Style="{StaticResource CenterBoldLabel}"
+                   FontSize="{DynamicResource MediumFontSize}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="0" Grid.Row="0" 
+                       Text="Regular: " 
+                       Style="{StaticResource StartBoldLabel}"/>
+                <Label Grid.Column="0" Grid.Row="1" 
+                       Text="Medium: "
+                       Style="{StaticResource StartBoldLabel}"/>
+                <Label Grid.Column="0" Grid.Row="2" 
+                       Text="Large: " 
+                       Style="{StaticResource StartBoldLabel}"/>
+
+                <Entry Grid.Column="1" Grid.Row="0" 
+                       Text="{Binding DefaultFontSize}" 
+                       Style="{StaticResource FontSizeEntry}"/>
+                <Entry Grid.Column="1" Grid.Row="1" 
+                       Text="{Binding MediumFontSize}" 
+                       Style="{StaticResource FontSizeEntry}"/>
+                <Entry Grid.Column="1" Grid.Row="2" 
+                       Text="{Binding LargeFontSize}" 
+                       Style="{StaticResource FontSizeEntry}"/>
+
+                <Button Grid.Column="2" Grid.Row="0" Grid.RowSpan="3"
+                        Text="Set"
+                        Command="{Binding SetFontSizesCommand}"
+                        Style="{StaticResource DefaultButton}"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+                <!--<Button Grid.Column="2" Grid.Row="0" 
+                        Text="Set"
+                        Style="{StaticResource DefaultButton}"
+                        Command="{Binding SetDefaultFontSize}"/>
+                <Button Grid.Column="2" Grid.Row="1" 
+                        Text="Set"
+                        Style="{StaticResource DefaultButton}"
+                        Command="{Binding SetMediumFontSize}"/>
+                <Button Grid.Column="2" Grid.Row="2" 
+                        Text="Set"
+                        Style="{StaticResource DefaultButton}"
+                        Command="{Binding SetLargeFontSize}"/>-->
             </Grid>
         </StackLayout>
     </ScrollView>

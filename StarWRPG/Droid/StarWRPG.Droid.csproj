@@ -123,6 +123,10 @@
     <AndroidAsset Include="Assets\Greyscale_Basic_Regular.ttf" />
     <AndroidAsset Include="Assets\Neuton-Bold.ttf" />
     <AndroidAsset Include="Assets\Neuton-Regular.ttf" />
+    <AndroidAsset Include="Assets\HKGrotesk-Bold.otf" />
+    <AndroidAsset Include="Assets\HKGrotesk-Regular.otf" />
+    <AndroidAsset Include="Assets\Andada-Bold.otf" />
+    <AndroidAsset Include="Assets\Andada-Regular.otf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />

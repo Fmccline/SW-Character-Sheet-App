@@ -15,7 +15,37 @@ namespace StarWRPG.ViewModels
         double red;
         double green;
         double blue;
+        double defaultFontSize;
+        double mediumFontSize;
+        double largeFontSize;
 
+        public double DefaultFontSize
+        {
+            get { return defaultFontSize; }
+            set
+            {
+                defaultFontSize = value;
+                OnPropertyChanged();
+            }
+        }
+        public double MediumFontSize
+        {
+            get { return mediumFontSize; }
+            set
+            {
+                mediumFontSize = value;
+                OnPropertyChanged();
+            }
+        }
+        public double LargeFontSize
+        {
+            get { return largeFontSize; }
+            set
+            {
+                largeFontSize = value;
+                OnPropertyChanged();
+            }
+        }
         public Color CustomColor
         {
             get { return customColor; }
@@ -56,28 +86,31 @@ namespace StarWRPG.ViewModels
             }
         }
 
+        public ICommand SetFontSizesCommand { get => new Command(SetFontSizes); }
+
         public SettingsViewModel()
         {
             Red = 255 / 2;
             Green = 255 / 2;
             Blue = 255 / 2;
+
+            GetFontSizes();
         }
 
-        public ICommand SetBackgroundColorCommand { get { return new Command(SetBackgroundColor); } }
-        public ICommand SetTextColorCommand { get { return new Command(SetTextColor); } }
-        public ICommand SetTitleBackgroundColorCommand { get { return new Command(SetTitleBackgroundColor); } }
-        public ICommand SetTitleTextColorCommand { get { return new Command(SetTitleTextColor); } }
-        public ICommand SetButtonColorCommand { get { return new Command(SetButtonColor); } }
-        public ICommand SetButtonTextColorCommand { get { return new Command(SetButtonTextColor); } }
-        public ICommand RestoreDefaultColorsCommand { get { return new Command(RestoreDefaultColors); } }
+        public void RestoreDefaultSettings()
+        {
+            App.SetDefaultSettings();
+            GetFontSizes();
+        }
 
-        public void SetBackgroundColor() { SetResourceColor("BackgroundColor"); }
-        public void SetTextColor() { SetResourceColor("TextColor"); }
-        public void SetTitleBackgroundColor() { SetResourceColor("TitleBackgroundColor"); }
-        public void SetTitleTextColor() { SetResourceColor("TitleTextColor"); }
-        public void SetButtonColor() { SetResourceColor("ButtonColor"); }
-        public void SetButtonTextColor() { SetResourceColor("ButtonTextColor"); }
-        public void RestoreDefaultColors() { App.SetDefaultTheme(); }
+        public void GetFontSizes()
+        {
+            DefaultFontSize = (double)Application.Current.Resources["DefaultFontSize"];
+            MediumFontSize = (double)Application.Current.Resources["MediumFontSize"];
+            LargeFontSize = (double)Application.Current.Resources["LargeFontSize"];
+        }
+
+        public void RestoreDefaultColors() { App.SetDefaultColors(); }
 
         public void SetResourceColor(string resourceKey)
         {
@@ -87,6 +120,29 @@ namespace StarWRPG.ViewModels
         private void SetCustomColor()
         {
             CustomColor = Color.FromRgb(red / 255, green / 255, blue / 255);
+        }
+
+        private void SetFontSizes()
+        {
+            DefaultFontSize = PutFontSizeInRange(DefaultFontSize);
+            MediumFontSize = PutFontSizeInRange(MediumFontSize);
+            LargeFontSize = PutFontSizeInRange(LargeFontSize);
+            Application.Current.Resources["DefaultFontSize"] = DefaultFontSize;
+            Application.Current.Resources["MediumFontSize"] = MediumFontSize;
+            Application.Current.Resources["LargeFontSize"] = LargeFontSize;
+        }
+
+        private double PutFontSizeInRange(double fontSize)
+        {
+            if (fontSize < 10)
+            {
+                fontSize = 10;
+            }
+            else if (fontSize > 48)
+            {
+                fontSize = 48;
+            }
+            return fontSize;
         }
     }
 }

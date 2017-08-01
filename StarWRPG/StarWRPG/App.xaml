@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:local="clr-namespace:StarWRPG" 
+             xmlns:local="clr-namespace:StarWRPG"
              x:Class="StarWRPG.App">
     <Application.Resources>
         <!-- Application resource dictionary -->
@@ -52,6 +52,22 @@
             <OnPlatform x:Key="NeutonBold" x:TypeArguments="x:String">
                 <OnPlatform.iOS>Neuton</OnPlatform.iOS>
                 <OnPlatform.Android>Neuton-Bold.ttf#Neuton</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="HKGroteskRegular" x:TypeArguments="x:String">
+                <OnPlatform.iOS>HK Grotesk</OnPlatform.iOS>
+                <OnPlatform.Android>HKGrotesk-Regular.otf#HKGrotesk</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="HKGroteskBold" x:TypeArguments="x:String">
+                <OnPlatform.iOS>HK Grotesk</OnPlatform.iOS>
+                <OnPlatform.Android>HKGrotesk-Bold.otf#HKGrotesk</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="AndadaRegular" x:TypeArguments="x:String">
+                <OnPlatform.iOS>Andada</OnPlatform.iOS>
+                <OnPlatform.Android>Andada-Regular.otf#Andada</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="AndadaBold" x:TypeArguments="x:String">
+                <OnPlatform.iOS>Andada</OnPlatform.iOS>
+                <OnPlatform.Android>Andada-Bold.otf#Andada</OnPlatform.Android>
             </OnPlatform>
             <!--Button-->
             <Style x:Key="DefaultButton" TargetType="Button">

@@ -18,18 +18,27 @@ namespace StarWRPG.Views
 
         public SettingsPage()
         {
-            try
-            {
-                InitializeComponent();
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.StackTrace);
-                Debug.WriteLine(ex.Message);
-            }
-
+            InitializeComponent();
             settingsViewModel = new SettingsViewModel();
             BindingContext = settingsViewModel;
+
+            AddResetToDefaultToolbarItem();
+        }
+
+        private void AddResetToDefaultToolbarItem()
+        {
+            var defaultToolbarItem = new ToolbarItem { Text = "Default" };
+            defaultToolbarItem.Clicked += DefaultClickedAsync;
+            ToolbarItems.Add(defaultToolbarItem);
+        }
+
+        private async void DefaultClickedAsync(object sender, EventArgs e)
+        {
+            var answer = await DisplayAlert("Revert to Default", "Are you sure you want to revert back to the default settings?", "Yes", "No");
+            if (answer)
+            {
+                settingsViewModel.RestoreDefaultSettings();
+            }
         }
 
         private async void ChangeColorClickedAsync(object sender, EventArgs e)
@@ -90,6 +99,16 @@ namespace StarWRPG.Views
         private void NeutonClicked(object sender, EventArgs e)
         {
             SetFont("NeutonRegular", "NeutonBold");
+        }
+
+        private void HKGroteskClicked(object sender, EventArgs e)
+        {
+            SetFont("HKGroteskRegular", "HKGroteskBold");
+        }
+
+        private void AndadaClicked(object sender, EventArgs e)
+        {
+            SetFont("AndadaRegular", "AndadaBold");
         }
     }
 }

@@ -29,7 +29,7 @@ namespace StarWRPG
             try
             {
                 InitializeComponent();
-                SetDefaultTheme();
+                SetDefaultSettings();
                 var navPage = new NavigationPage(new MainPage());
                 navPage.SetDynamicResource(NavigationPage.BarBackgroundColorProperty, "TitleBackgroundColor");
                 navPage.SetDynamicResource(NavigationPage.BarTextColorProperty, "TitleTextColor");
@@ -46,12 +46,14 @@ namespace StarWRPG
             //CharacterDatabase.DeleteAllItems();
         }
 
-        public static void SetDefaultTheme()
+        public static void SetDefaultSettings()
         {
-            // Font
-            Current.Resources["RegularFontName"] = Current.Resources["NeutonRegular"];
-            Current.Resources["BoldFontName"] = Current.Resources["NeutonBold"];
-            // Colors
+            SetDefaultFont();
+            SetDefaultColors();
+        }
+
+        public static void SetDefaultColors()
+        {
             //Current.Resources["BackgroundColor"] = Color.FromHex("#F1F1D4");
             //Current.Resources["TextColor"] = Color.Black;
             //Current.Resources["ButtonColor"] = Color.LightGray;
@@ -65,6 +67,16 @@ namespace StarWRPG
             Current.Resources["ButtonTextColor"] = Color.White;
             Current.Resources["TitleTextColor"] = Color.Yellow;
             Current.Resources["TitleBackgroundColor"] = Color.Black;
+        }
+
+        public static void SetDefaultFont()
+        {
+            Current.Resources["RegularFontName"] = Current.Resources["NeutonRegular"];
+            Current.Resources["BoldFontName"] = Current.Resources["NeutonBold"];
+
+            Current.Resources["DefaultFontSize"] = 18d;
+            Current.Resources["MediumFontSize"] = 24d;
+            Current.Resources["LargeFontSize"] = 30d;
         }
 
         protected override void OnStart()
