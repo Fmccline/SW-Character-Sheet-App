@@ -5,7 +5,7 @@
              BackgroundColor="{DynamicResource TitleBackgroundColor}">
 
     <StackLayout Orientation="Horizontal">
-        <Button Text="&lt;-- Previous"
+        <Button Text="&lt;--"
                 Clicked="PreviousPageAsync"
                 HorizontalOptions="StartAndExpand"
                 Style="{StaticResource DefaultButton}"/>
@@ -13,7 +13,7 @@
                 Clicked="SelectPageAsync"
                 HorizontalOptions="CenterAndExpand"
                 Style="{StaticResource DefaultButton}"/>
-        <Button Text="Next -->"
+        <Button Text="-->"
                 Clicked="NextPageAsync"
                 HorizontalOptions="EndAndExpand"
                 Style="{StaticResource DefaultButton}"/>

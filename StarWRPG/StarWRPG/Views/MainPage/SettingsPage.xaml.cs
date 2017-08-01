@@ -77,7 +77,7 @@ namespace StarWRPG.Views
 
         private void SetFont(string fontName, string boldFontName)
         {
-            Application.Current.Resources["FontName"] = Application.Current.Resources[fontName];
+            Application.Current.Resources["RegularFontName"] = Application.Current.Resources[fontName];
             Application.Current.Resources["BoldFontName"] = Application.Current.Resources[boldFontName];
         }
 

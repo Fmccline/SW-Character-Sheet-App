@@ -54,29 +54,22 @@ namespace StarWRPG
 
         public static void SetDefaultColors()
         {
-            //Current.Resources["BackgroundColor"] = Color.FromHex("#F1F1D4");
-            //Current.Resources["TextColor"] = Color.Black;
-            //Current.Resources["ButtonColor"] = Color.LightGray;
-            //Current.Resources["ButtonTextColor"] = Color.Black;
-            //Current.Resources["TitleTextColor"] = Color.Yellow;
-            //Current.Resources["TitleBackgroundColor"] = Color.Black;
-
-            Current.Resources["BackgroundColor"] = Color.LightBlue;
-            Current.Resources["TextColor"] = Color.DarkRed;
-            Current.Resources["ButtonColor"] = Color.Black;
-            Current.Resources["ButtonTextColor"] = Color.White;
+            Current.Resources["BackgroundColor"] = Color.FromHex("#F1F1D4");
+            Current.Resources["TextColor"] = Color.Black;
+            Current.Resources["ButtonColor"] = Color.LightGray;
+            Current.Resources["ButtonTextColor"] = Color.Black;
             Current.Resources["TitleTextColor"] = Color.Yellow;
             Current.Resources["TitleBackgroundColor"] = Color.Black;
         }
 
         public static void SetDefaultFont()
         {
-            Current.Resources["RegularFontName"] = Current.Resources["NeutonRegular"];
-            Current.Resources["BoldFontName"] = Current.Resources["NeutonBold"];
+            Current.Resources["RegularFontName"] = Current.Resources["CamingoCodeRegular"];
+            Current.Resources["BoldFontName"] = Current.Resources["CamingoCodeBold"];
 
-            Current.Resources["DefaultFontSize"] = 18d;
-            Current.Resources["MediumFontSize"] = 24d;
-            Current.Resources["LargeFontSize"] = 30d;
+            Current.Resources["DefaultFontSize"] = 15d;
+            Current.Resources["MediumFontSize"] = 20d;
+            Current.Resources["LargeFontSize"] = 25d;
         }
 
         protected override void OnStart()

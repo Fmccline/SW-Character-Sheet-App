@@ -25,6 +25,7 @@
 
             <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6"
                    Text="{Binding Name}"
+                   HorizontalTextAlignment="Center"
                    Style="{StaticResource CenterBoldLabel}"
                    FontSize="{DynamicResource LargeFontSize}"/>
             <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
