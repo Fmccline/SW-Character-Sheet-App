@@ -188,6 +188,7 @@
       <DependentUpon>MotivationsDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\Motivations\MotivationPageBase.cs" />
+    <Compile Include="Views\FontNames.cs" />
     <Compile Include="Views\MainPage\ColorPage.xaml.cs">
       <DependentUpon>ColorPage.xaml</DependentUpon>
     </Compile>

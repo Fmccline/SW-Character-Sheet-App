@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarWRPG.Views.SettingsPage"
+             xmlns:local="clr-namespace:StarWRPG.Views" 
              Style="{DynamicResource PageStyle}"
              Title="Settings">
 
@@ -20,6 +21,11 @@
             </Style>
             <Style x:Key="ChangeColorButton" TargetType="Button" BasedOn="{StaticResource DefaultButton}">
                 <Setter Property="Text" Value="Change"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="ChangeFontButton" TargetType="Button" BasedOn="{StaticResource DefaultButton}">
+                <Setter Property="Text" Value="Set"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
                 <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
@@ -136,58 +142,62 @@
                 <Label Grid.Column="0" Grid.Row="0" 
                         Text="Camingo Code"
                         Style="{StaticResource CenterLabel}"
-                        FontFamily="{StaticResource CamingoCodeRegular}"/>
+                        FontFamily="{StaticResource CamingoCode}"/>
                 <Label Grid.Column="0" Grid.Row="1" 
                         Text="Enigmatic"
                         Style="{StaticResource CenterLabel}"
-                        FontFamily="{StaticResource EnigmaticRegular}"/>
+                        FontFamily="{StaticResource Enigmatic}"/>
                 <Label Grid.Column="0" Grid.Row="2" 
                         Text="Greyscale Basic"
                         Style="{StaticResource CenterLabel}"
-                        FontFamily="{StaticResource GreyscaleBasicRegular}"/>
+                        FontFamily="{StaticResource GreyscaleBasic}"/>
                 <Label Grid.Column="0" Grid.Row="3" 
                         Text="Neuton"
                         Style="{StaticResource CenterLabel}"
-                        FontFamily="{StaticResource NeutonRegular}"/>
+                        FontFamily="{StaticResource Neuton}"/>
                 <Label Grid.Column="0" Grid.Row="4"
                        Text="HK Grotesk"
                        TextColor="{DynamicResource TextColor}"
+                       FontFamily="{StaticResource HKGrotesk}"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"/>
                 <Label Grid.Column="0" Grid.Row="5"
                        Text="Andada"
                        TextColor="{DynamicResource TextColor}"
+                       FontFamily="{StaticResource Andada}"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"/>
-                
+
                 <Button Grid.Column="1" Grid.Row="0"
-                        Text="Set"
-                        Style="{StaticResource DefaultButton}"
-                        FontFamily="{StaticResource CamingoCodeRegular}"
-                        Clicked="CamingoCodeClicked"/>
+                        x:Name="CamingoCodeButton"
+                        Style="{StaticResource ChangeFontButton}"
+                        FontFamily="{StaticResource CamingoCode}"
+                        Clicked="SetFontClicked"/>
                 <Button Grid.Column="1" Grid.Row="1"
-                        Text="Set"
-                        Style="{StaticResource DefaultButton}"
-                        FontFamily="{StaticResource EnigmaticRegular}"
-                        Clicked="EnigmaticClicked"/>
+                        x:Name="EnigmaticButton"
+                        Style="{StaticResource ChangeFontButton}"
+                        FontFamily="{StaticResource Enigmatic}"
+                        Clicked="SetFontClicked"/>
                 <Button Grid.Column="1" Grid.Row="2"
-                        Text="Set"
-                        Style="{StaticResource DefaultButton}"
-                        FontFamily="{StaticResource GreyscaleBasicRegular}"
-                        Clicked="GreyscaleBasicClicked"/>
+                        x:Name="GreyscaleBasicButton"
+                        Style="{StaticResource ChangeFontButton}"
+                        FontFamily="{StaticResource GreyscaleBasic}"
+                        Clicked="SetFontClicked"/>
                 <Button Grid.Column="1" Grid.Row="3"
-                        Text="Set"
-                        Style="{StaticResource DefaultButton}"
-                        FontFamily="{StaticResource NeutonRegular}"
-                        Clicked="NeutonClicked"/>
+                        x:Name="NeutonButton"
+                        Style="{StaticResource ChangeFontButton}"
+                        FontFamily="{DynamicResource Neuton}"
+                        Clicked="SetFontClicked"/>
                 <Button Grid.Column="1" Grid.Row="4"
-                        Text="Set"
-                        Style="{StaticResource DefaultButton}"
-                        Clicked="HKGroteskClicked"/>
+                        x:Name="HKGroteskButton"
+                        Style="{StaticResource ChangeFontButton}"
+                        FontFamily="{StaticResource HKGrotesk}"
+                        Clicked="SetFontClicked"/>
                 <Button Grid.Column="1" Grid.Row="5"
-                        Text="Set"
-                        Style="{StaticResource DefaultButton}"
-                        Clicked="AndadaClicked"/>
+                        x:Name="AndadaButton"
+                        Style="{StaticResource ChangeFontButton}"
+                        FontFamily="{StaticResource Andada}"
+                        Clicked="SetFontClicked"/>
             </Grid>
             <!--Font Size-->
             <Label Text="Font Sizes" 
@@ -231,18 +241,6 @@
                         Style="{StaticResource DefaultButton}"
                         HorizontalOptions="Center"
                         VerticalOptions="Center"/>
-                <!--<Button Grid.Column="2" Grid.Row="0" 
-                        Text="Set"
-                        Style="{StaticResource DefaultButton}"
-                        Command="{Binding SetDefaultFontSize}"/>
-                <Button Grid.Column="2" Grid.Row="1" 
-                        Text="Set"
-                        Style="{StaticResource DefaultButton}"
-                        Command="{Binding SetMediumFontSize}"/>
-                <Button Grid.Column="2" Grid.Row="2" 
-                        Text="Set"
-                        Style="{StaticResource DefaultButton}"
-                        Command="{Binding SetLargeFontSize}"/>-->
             </Grid>
         </StackLayout>
     </ScrollView>

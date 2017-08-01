@@ -21,7 +21,9 @@
             <OnPlatform x:Key="RegularFontName" x:TypeArguments="x:String"/>
             <OnPlatform x:Key="BoldFontName" x:TypeArguments="x:String"/>
             <!--Fonts-->
-            <OnPlatform x:Key="CamingoCodeRegular" x:TypeArguments="x:String">
+            <!--Regular fonts are named FontName
+                Bold fonts are named FontName + "Bold" -->
+            <OnPlatform x:Key="CamingoCode" x:TypeArguments="x:String">
                 <OnPlatform.iOS>CamingoCode</OnPlatform.iOS>
                 <OnPlatform.Android>CamingoCode-Regular.ttf#CamingoCode</OnPlatform.Android>
             </OnPlatform>
@@ -29,7 +31,7 @@
                 <OnPlatform.iOS>CamingoCode-Bold</OnPlatform.iOS>
                 <OnPlatform.Android>CamingoCode-Bold.ttf#CamingoCode</OnPlatform.Android>
             </OnPlatform>
-            <OnPlatform x:Key="EnigmaticRegular" x:TypeArguments="x:String">
+            <OnPlatform x:Key="Enigmatic" x:TypeArguments="x:String">
                 <OnPlatform.iOS>Enigmatic</OnPlatform.iOS>
                 <OnPlatform.Android>Enigma__2.ttf#Enigmatic</OnPlatform.Android>
             </OnPlatform>
@@ -37,7 +39,7 @@
                 <OnPlatform.iOS>Enigmatic</OnPlatform.iOS>
                 <OnPlatform.Android>EnigmaB_2.ttf#Enigmatic</OnPlatform.Android>
             </OnPlatform>
-            <OnPlatform x:Key="GreyscaleBasicRegular" x:TypeArguments="x:String">
+            <OnPlatform x:Key="GreyscaleBasic" x:TypeArguments="x:String">
                 <OnPlatform.iOS>GreyscaleBasic</OnPlatform.iOS>
                 <OnPlatform.Android>Greyscale_Basic_Regular.ttf#GreyscaleBasic</OnPlatform.Android>
             </OnPlatform>
@@ -45,7 +47,7 @@
                 <OnPlatform.iOS>GreyscaleBasic</OnPlatform.iOS>
                 <OnPlatform.Android>Greyscale_Basic_Bold.ttf#GreyscaleBasic</OnPlatform.Android>
             </OnPlatform>
-            <OnPlatform x:Key="NeutonRegular" x:TypeArguments="x:String">
+            <OnPlatform x:Key="Neuton" x:TypeArguments="x:String">
                 <OnPlatform.iOS>Neuton</OnPlatform.iOS>
                 <OnPlatform.Android>Neuton-Regular.ttf#Neuton</OnPlatform.Android>
             </OnPlatform>
@@ -53,7 +55,7 @@
                 <OnPlatform.iOS>Neuton</OnPlatform.iOS>
                 <OnPlatform.Android>Neuton-Bold.ttf#Neuton</OnPlatform.Android>
             </OnPlatform>
-            <OnPlatform x:Key="HKGroteskRegular" x:TypeArguments="x:String">
+            <OnPlatform x:Key="HKGrotesk" x:TypeArguments="x:String">
                 <OnPlatform.iOS>HK Grotesk</OnPlatform.iOS>
                 <OnPlatform.Android>HKGrotesk-Regular.otf#HKGrotesk</OnPlatform.Android>
             </OnPlatform>
@@ -61,7 +63,7 @@
                 <OnPlatform.iOS>HK Grotesk</OnPlatform.iOS>
                 <OnPlatform.Android>HKGrotesk-Bold.otf#HKGrotesk</OnPlatform.Android>
             </OnPlatform>
-            <OnPlatform x:Key="AndadaRegular" x:TypeArguments="x:String">
+            <OnPlatform x:Key="Andada" x:TypeArguments="x:String">
                 <OnPlatform.iOS>Andada</OnPlatform.iOS>
                 <OnPlatform.Android>Andada-Regular.otf#Andada</OnPlatform.Android>
             </OnPlatform>

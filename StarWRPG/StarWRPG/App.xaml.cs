@@ -64,8 +64,8 @@ namespace StarWRPG
 
         public static void SetDefaultFont()
         {
-            Current.Resources["RegularFontName"] = Current.Resources["CamingoCodeRegular"];
-            Current.Resources["BoldFontName"] = Current.Resources["CamingoCodeBold"];
+            Current.Resources["RegularFontName"] = Current.Resources[FontNames.CamingoCode];
+            Current.Resources["BoldFontName"] = Current.Resources[FontNames.CamingoCode+"Bold"];
 
             Current.Resources["DefaultFontSize"] = 15d;
             Current.Resources["MediumFontSize"] = 20d;

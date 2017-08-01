@@ -11,6 +11,9 @@ using Xamarin.Forms.Xaml;
 
 namespace StarWRPG.Views
 {
+    // Page for displaying and changing app settings like:
+    // - Colors of text and background
+    // - Font and Font Size
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage
     {
@@ -23,6 +26,13 @@ namespace StarWRPG.Views
             BindingContext = settingsViewModel;
 
             AddResetToDefaultToolbarItem();
+        }
+
+        protected override void OnAppearing()
+        {
+            EnableAllButtons();
+            DisableCurrentFontButton();
+            base.OnAppearing();
         }
 
         private void AddResetToDefaultToolbarItem()
@@ -38,13 +48,14 @@ namespace StarWRPG.Views
             if (answer)
             {
                 settingsViewModel.RestoreDefaultSettings();
+                OnAppearing();
             }
         }
 
         private async void ChangeColorClickedAsync(object sender, EventArgs e)
         {
-            var buttonClicked = (Button)sender;
             string resourceKey;
+            var buttonClicked = (Button)sender;
 
             if (buttonClicked == BackgroundColorButton)
             {
@@ -75,40 +86,84 @@ namespace StarWRPG.Views
             await Navigation.PushAsync(new ColorPage(settingsViewModel, previousColor, resourceKey));
         }
 
-        private void SetFont(string fontName, string boldFontName)
+        private void SetFont(string fontName)
         {
             Application.Current.Resources["RegularFontName"] = Application.Current.Resources[fontName];
-            Application.Current.Resources["BoldFontName"] = Application.Current.Resources[boldFontName];
+            Application.Current.Resources["BoldFontName"] = Application.Current.Resources[fontName+"Bold"];
         }
 
-        private void CamingoCodeClicked(object sender, EventArgs e)
+        private void SetFontClicked(object sender, EventArgs e)
         {
-            SetFont("CamingoCodeRegular", "CamingoCodeBold");
+            string fontName;
+            var buttonClicked = (Button)sender;
+
+            if (buttonClicked == CamingoCodeButton)
+            { 
+                fontName = FontNames.CamingoCode;
+            }
+            else if (buttonClicked == EnigmaticButton)
+            {
+                fontName = FontNames.Enigmatic;
+            }
+            else if (buttonClicked == AndadaButton)
+            {
+                fontName = FontNames.Andada;
+            }
+            else if (buttonClicked == GreyscaleBasicButton)
+            {
+                fontName = FontNames.GreyscaleBasic;
+            }
+            else if (buttonClicked == HKGroteskButton)
+            {
+                fontName = FontNames.HKGrotesk;
+            }
+            else
+            {
+                fontName = FontNames.Neuton;
+            }
+            EnableAllButtons();
+            buttonClicked.IsEnabled = false;
+            SetFont(fontName);
         }
 
-        private void EnigmaticClicked(object sender, EventArgs e)
+        private void EnableAllButtons()
         {
-            SetFont("EnigmaticRegular", "EnigmaticBold");
+            AndadaButton.IsEnabled = true;
+            CamingoCodeButton.IsEnabled = true;
+            EnigmaticButton.IsEnabled = true;
+            GreyscaleBasicButton.IsEnabled = true;
+            HKGroteskButton.IsEnabled = true;
+            NeutonButton.IsEnabled = true;
         }
 
-        private void GreyscaleBasicClicked(object sender, EventArgs e)
+        private void DisableCurrentFontButton()
         {
-            SetFont("GreyscaleBasicRegular", "GreyscaleBasicBold");
-        }
+            var currentFont = Application.Current.Resources["RegularFontName"];
 
-        private void NeutonClicked(object sender, EventArgs e)
-        {
-            SetFont("NeutonRegular", "NeutonBold");
-        }
-
-        private void HKGroteskClicked(object sender, EventArgs e)
-        {
-            SetFont("HKGroteskRegular", "HKGroteskBold");
-        }
-
-        private void AndadaClicked(object sender, EventArgs e)
-        {
-            SetFont("AndadaRegular", "AndadaBold");
+            if (currentFont == Application.Current.Resources[FontNames.Andada])
+            {
+                AndadaButton.IsEnabled = false;
+            }
+            else if (currentFont == Application.Current.Resources[FontNames.CamingoCode])
+            {
+                CamingoCodeButton.IsEnabled = false;
+            }
+            else if (currentFont == Application.Current.Resources[FontNames.Enigmatic])
+            {
+                EnigmaticButton.IsEnabled = false;
+            }
+            else if (currentFont == Application.Current.Resources[FontNames.GreyscaleBasic])
+            {
+                GreyscaleBasicButton.IsEnabled = false;
+            }
+            else if (currentFont == Application.Current.Resources[FontNames.HKGrotesk])
+            {
+                HKGroteskButton.IsEnabled = false;
+            }
+            else if (currentFont == Application.Current.Resources[FontNames.Neuton])
+            {
+                NeutonButton.IsEnabled = false;
+            }
         }
     }
 }
