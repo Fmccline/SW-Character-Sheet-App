@@ -64,8 +64,8 @@ namespace StarWRPG
 
         public static void GetUserSettingFonts()
         {
-            Current.Resources["RegularFontName"] = UserSettings.RegularFontFilePath;
-            Current.Resources["BoldFontName"] = UserSettings.BoldFontFilePath;
+            Current.Resources["RegularFontName"] = FontNames.FilePathToFont(UserSettings.FontName);
+            Current.Resources["BoldFontName"] = FontNames.FilePathToFont(UserSettings.FontName, true);
 
             Current.Resources["DefaultFontSize"] = UserSettings.RegularFontSize;
             Current.Resources["MediumFontSize"] = UserSettings.MediumFontSize;

@@ -20,57 +20,6 @@
             <!--FontNames are set in App constructor-->
             <x:String x:Key="RegularFontName"/>
             <x:String x:Key="BoldFontName"/>
-            <!--Fonts-->
-
-            <!--<OnPlatform x:Key="CamingoCode" x:TypeArguments="x:String">
-                <OnPlatform.iOS>CamingoCode</OnPlatform.iOS>
-                <OnPlatform.Android>CamingoCode-Regular.ttf#CamingoCode</OnPlatform.Android>
-            </OnPlatform>
-            <OnPlatform x:Key="CamingoCodeBold" x:TypeArguments="x:String">
-                <OnPlatform.iOS>CamingoCode-Bold</OnPlatform.iOS>
-                <OnPlatform.Android>CamingoCode-Bold.ttf#CamingoCode</OnPlatform.Android>
-            </OnPlatform>
-            <OnPlatform x:Key="Enigmatic" x:TypeArguments="x:String">
-                <OnPlatform.iOS>Enigmatic</OnPlatform.iOS>
-                <OnPlatform.Android>Enigma__2.ttf#Enigmatic</OnPlatform.Android>
-            </OnPlatform>
-            <OnPlatform x:Key="EnigmaticBold" x:TypeArguments="x:String">
-                <OnPlatform.iOS>Enigmatic</OnPlatform.iOS>
-                <OnPlatform.Android>EnigmaB_2.ttf#Enigmatic</OnPlatform.Android>
-            </OnPlatform>
-            <OnPlatform x:Key="GreyscaleBasic" x:TypeArguments="x:String">
-                <OnPlatform.iOS>GreyscaleBasic</OnPlatform.iOS>
-                <OnPlatform.Android>Greyscale_Basic_Regular.ttf#GreyscaleBasic</OnPlatform.Android>
-            </OnPlatform>
-            <OnPlatform x:Key="GreyscaleBasicBold" x:TypeArguments="x:String">
-                <OnPlatform.iOS>GreyscaleBasic</OnPlatform.iOS>
-                <OnPlatform.Android>Greyscale_Basic_Bold.ttf#GreyscaleBasic</OnPlatform.Android>
-            </OnPlatform>
-            <OnPlatform x:Key="Neuton" x:TypeArguments="x:String">
-                <OnPlatform.iOS>Neuton</OnPlatform.iOS>
-                <OnPlatform.Android>Neuton-Regular.ttf#Neuton</OnPlatform.Android>
-            </OnPlatform>
-            <OnPlatform x:Key="NeutonBold" x:TypeArguments="x:String">
-                <OnPlatform.iOS>Neuton</OnPlatform.iOS>
-                <OnPlatform.Android>Neuton-Bold.ttf#Neuton</OnPlatform.Android>
-            </OnPlatform>
-            <OnPlatform x:Key="HKGrotesk" x:TypeArguments="x:String">
-                <OnPlatform.iOS>HK Grotesk</OnPlatform.iOS>
-                <OnPlatform.Android>HKGrotesk-Regular.otf#HKGrotesk</OnPlatform.Android>
-            </OnPlatform>
-            <OnPlatform x:Key="HKGroteskBold" x:TypeArguments="x:String">
-                <OnPlatform.iOS>HK Grotesk</OnPlatform.iOS>
-                <OnPlatform.Android>HKGrotesk-Bold.otf#HKGrotesk</OnPlatform.Android>
-            </OnPlatform>
-            <OnPlatform x:Key="Andada" x:TypeArguments="x:String">
-                <OnPlatform.iOS>Andada</OnPlatform.iOS>
-                <OnPlatform.Android>Andada-Regular.otf#Andada</OnPlatform.Android>
-            </OnPlatform>
-            <OnPlatform x:Key="AndadaBold" x:TypeArguments="x:String">
-                <OnPlatform.iOS>Andada</OnPlatform.iOS>
-                <OnPlatform.Android>Andada-Bold.otf#Andada</OnPlatform.Android>
-            </OnPlatform>-->
-            
             <!--Button-->
             <Style x:Key="DefaultButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{DynamicResource ButtonColor}"/>

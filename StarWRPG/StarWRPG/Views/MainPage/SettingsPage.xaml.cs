@@ -54,44 +54,42 @@ namespace StarWRPG.Views
 
         private async void ChangeColorClickedAsync(object sender, EventArgs e)
         {
-            string resourceKey;
             var buttonClicked = (Button)sender;
+            Color previousColor;
+            ColorViewModel colorViewModel;
 
             if (buttonClicked == BackgroundColorButton)
             {
-                resourceKey = "BackgroundColor";
+                previousColor = UserSettings.BackgroundColor;
+                colorViewModel = new BackgroundColorViewModel();
             }
             else if (buttonClicked == TextColorButton)
             {
-                resourceKey = "TextColor";
+                previousColor = UserSettings.TextColor;
+                colorViewModel = new TextColorViewModel();
             }
             else if (buttonClicked == TitleBackgroundColorButton)
             {
-                resourceKey = "TitleBackgroundColor";
+                previousColor = UserSettings.TitleBackgroundColor;
+                colorViewModel = new TitleBackgroundColorViewModel();
             }
             else if (buttonClicked == TitleTextColorButton)
             {
-                resourceKey = "TitleTextColor";
+                previousColor = UserSettings.TitleTextColor;
+                colorViewModel = new TitleTextColorViewModel();
             }
             else if (buttonClicked == ButtonColorButton)
             {
-                resourceKey = "ButtonColor";
+                previousColor = UserSettings.ButtonColor;
+                colorViewModel = new ButtonColorViewModel();
             }
             else
             {
-                resourceKey = "ButtonTextColor";
+                previousColor = UserSettings.ButtonTextColor;
+                colorViewModel = new ButtonTextColorViewModel();
             }
 
-            var previousColor = (Color)Application.Current.Resources[resourceKey];
-            await Navigation.PushAsync(new ColorPage(settingsViewModel, previousColor, resourceKey));
-        }
-
-        private void SetFont(string fontName)
-        {
-            UserSettings.RegularFontFilePath = FontNames.FilePathToFont(fontName);
-            UserSettings.BoldFontFilePath = FontNames.FilePathToFont(fontName,true);
-
-            App.GetUserSettingFonts();
+            await Navigation.PushAsync(new ColorPage(colorViewModel, previousColor));
         }
 
         private void SetFontClicked(object sender, EventArgs e)
@@ -125,7 +123,7 @@ namespace StarWRPG.Views
             }
             EnableAllButtons();
             buttonClicked.IsEnabled = false;
-            SetFont(fontName);
+            UserSettings.FontName = fontName;
         }
 
         private void EnableAllButtons()
@@ -140,7 +138,7 @@ namespace StarWRPG.Views
 
         private void DisableCurrentFontButton()
         {
-            var currentFont = UserSettings.RegularFontFilePath;
+            var currentFont = UserSettings.FontName;
 
             if (currentFont.Equals(FontNames.FilePathToFont(FontNames.Andada)))
             {

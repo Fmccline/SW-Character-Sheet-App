@@ -13,11 +13,10 @@ namespace StarWRPG.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ColorPage : ContentPage
 	{
-        string resourceKey;
-        SettingsViewModel settingsViewModel;
+        ColorViewModel colorViewModel;
         Dictionary<string, Tuple<double, double, double>> presetColors;
 
-        public ColorPage (SettingsViewModel settingsViewModel, Color previousColor, string resourceKey)
+        public ColorPage (ColorViewModel colorViewModel, Color previousColor)
 		{
 			InitializeComponent ();
 
@@ -34,10 +33,9 @@ namespace StarWRPG.Views
                 ["Black"] = new Tuple<double, double, double>(0, 0, 0),
             };
 
-            this.settingsViewModel = settingsViewModel;
-            this.resourceKey = resourceKey;
+            this.colorViewModel = colorViewModel;
             PreviousColorBoxView.Color = previousColor;
-            BindingContext = settingsViewModel;
+            BindingContext = colorViewModel;
 
             AddSaveAndCancelToolbarItem();
 		}
@@ -67,7 +65,7 @@ namespace StarWRPG.Views
 
         private async void SaveClickedAsync(object sender, EventArgs e)
         {
-            settingsViewModel.SetResourceColor(resourceKey);
+            colorViewModel.SaveColor();
             await Navigation.PopAsync(false);
         }
 
@@ -84,9 +82,9 @@ namespace StarWRPG.Views
             var colorName = await DisplayActionSheet("Colors", "Cancel", null, colorNames);
             if (colorName != null && !colorName.Equals("Cancel"))
             {
-                settingsViewModel.Red = presetColors[colorName].Item1;
-                settingsViewModel.Green = presetColors[colorName].Item2;
-                settingsViewModel.Blue = presetColors[colorName].Item3;
+                colorViewModel.Red = presetColors[colorName].Item1;
+                colorViewModel.Green = presetColors[colorName].Item2;
+                colorViewModel.Blue = presetColors[colorName].Item3;
             }
         }
     }

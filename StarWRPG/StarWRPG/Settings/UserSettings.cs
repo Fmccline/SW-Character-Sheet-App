@@ -10,6 +10,8 @@ using Xamarin.Forms;
 
 namespace StarWRPG
 {
+    // Used for saving user settings such as text color and font names
+    // Whenever a property is changed, the corrisponding Application.Current.Resources[<key>] is set to the new user setting
     public class UserSettings
     {
         private static ISettings AppSettings => CrossSettings.Current;
@@ -21,8 +23,7 @@ namespace StarWRPG
         public static readonly Color DefaultButtonColor = Color.FromHex("#282828");
         public static readonly Color DefaultButtonTextColor = Color.White;
 
-        public static readonly string DefaultRegularFontFilePath = FontNames.FilePathToFont(FontNames.CamingoCode);
-        public static readonly string DefaultBoldFontFilePath = FontNames.FilePathToFont(FontNames.CamingoCode,true);
+        public static readonly string DefaultFontName = FontNames.CamingoCode;
 
         public static readonly double DefaultRegularFontSize = 15d;
         public static readonly double DefaultMediumFontSize = 20d;
@@ -37,7 +38,9 @@ namespace StarWRPG
             }
             set
             {
-                AppSettings.AddOrUpdateValue(nameof(BackgroundColor), ColorToHex(value));
+                string color = ColorToHex(value);
+                AppSettings.AddOrUpdateValue(nameof(BackgroundColor), color);
+                Application.Current.Resources["BackgroundColor"] = color;
             }
         }
         public static Color TextColor
@@ -49,7 +52,9 @@ namespace StarWRPG
             }
             set
             {
-                AppSettings.AddOrUpdateValue(nameof(TextColor), ColorToHex(value));
+                string color = ColorToHex(value);
+                AppSettings.AddOrUpdateValue(nameof(TextColor), color);
+                Application.Current.Resources["TextColor"] = color;
             }
         }
         public static Color TitleBackgroundColor
@@ -61,7 +66,9 @@ namespace StarWRPG
             }
             set
             {
-                AppSettings.AddOrUpdateValue(nameof(TitleBackgroundColor), ColorToHex(value));
+                string color = ColorToHex(value);
+                AppSettings.AddOrUpdateValue(nameof(TitleBackgroundColor), color);
+                Application.Current.Resources["TitleBackgroundColor"] = color;
             }
         }
         public static Color TitleTextColor
@@ -73,7 +80,9 @@ namespace StarWRPG
             }
             set
             {
-                AppSettings.AddOrUpdateValue(nameof(TitleTextColor), ColorToHex(value));
+                string color = ColorToHex(value);
+                AppSettings.AddOrUpdateValue(nameof(TitleTextColor), color);
+                Application.Current.Resources["TitleTextColor"] = color;
             }
         }
         public static Color ButtonColor
@@ -85,7 +94,9 @@ namespace StarWRPG
             }
             set
             {
-                AppSettings.AddOrUpdateValue(nameof(ButtonColor), ColorToHex(value));
+                string color = ColorToHex(value);
+                AppSettings.AddOrUpdateValue(nameof(ButtonColor), color);
+                Application.Current.Resources["ButtonColor"] = color;
             }
         }
         public static Color ButtonTextColor
@@ -97,30 +108,24 @@ namespace StarWRPG
             }
             set
             {
-                AppSettings.AddOrUpdateValue(nameof(ButtonTextColor), ColorToHex(value));
+                string color = ColorToHex(value);
+                AppSettings.AddOrUpdateValue(nameof(ButtonTextColor), color);
+                Application.Current.Resources["ButtonTextColor"] = color;
             }
         }
 
-        public static string RegularFontFilePath
+        // When setting this property use a font from FontNames.<Font Name>
+        public static string FontName
         {
             get
             {
-                return AppSettings.GetValueOrDefault(nameof(RegularFontFilePath), DefaultRegularFontFilePath);
+                return AppSettings.GetValueOrDefault(nameof(FontName), DefaultFontName);
             }
             set
             {
-                AppSettings.AddOrUpdateValue(nameof(RegularFontFilePath), value);
-            }
-        }
-        public static string BoldFontFilePath
-        {
-            get
-            {
-                return AppSettings.GetValueOrDefault(nameof(RegularFontFilePath), DefaultBoldFontFilePath);
-            }
-            set
-            {
-                AppSettings.AddOrUpdateValue(nameof(BoldFontFilePath), value);
+                AppSettings.AddOrUpdateValue(nameof(FontName), value);
+                Application.Current.Resources["RegularFontName"] = FontNames.FilePathToFont(value);
+                Application.Current.Resources["BoldFontName"] = FontNames.FilePathToFont(value,true);
             }
         }
 
@@ -134,6 +139,7 @@ namespace StarWRPG
             {
                 value = PutFontSizeInRange(value);
                 AppSettings.AddOrUpdateValue(nameof(RegularFontSize), value);
+                Application.Current.Resources["DefaultFontSize"] = value;
             }
         }
         public static double MediumFontSize
@@ -146,6 +152,7 @@ namespace StarWRPG
             {
                 value = PutFontSizeInRange(value);
                 AppSettings.AddOrUpdateValue(nameof(MediumFontSize), value);
+                Application.Current.Resources["MediumFontSize"] = value;
             }
         }
         public static double LargeFontSize
@@ -158,6 +165,7 @@ namespace StarWRPG
             {
                 value = PutFontSizeInRange(value);
                 AppSettings.AddOrUpdateValue(nameof(LargeFontSize), value);
+                Application.Current.Resources["LargeFontSize"] = value;
             }
         }
 
@@ -170,8 +178,7 @@ namespace StarWRPG
             ButtonColor = DefaultButtonColor;
             ButtonTextColor = DefaultButtonTextColor;
 
-            RegularFontFilePath = DefaultRegularFontFilePath;
-            BoldFontFilePath = DefaultBoldFontFilePath;
+            FontName = DefaultFontName;
 
             RegularFontSize = DefaultRegularFontSize;
             MediumFontSize = DefaultMediumFontSize;

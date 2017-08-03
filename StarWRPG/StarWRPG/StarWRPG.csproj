@@ -83,6 +83,12 @@
     <Compile Include="Models\CharacterMembers\Skills\CoercionSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\CharmSkill.cs" />
     <Compile Include="Settings\UserSettings.cs" />
+    <Compile Include="ViewModels\Colors\ButtonTextColorViewModel.cs" />
+    <Compile Include="ViewModels\Colors\ButtonColorViewModel.cs" />
+    <Compile Include="ViewModels\Colors\TitleTextColorViewModel.cs" />
+    <Compile Include="ViewModels\Colors\TitleBackgroundColorViewModel.cs" />
+    <Compile Include="ViewModels\Colors\TextColorViewModel.cs" />
+    <Compile Include="ViewModels\Colors\BackgroundColorViewModel.cs" />
     <Compile Include="ViewModels\CriticalInjuries\AllCriticalInjuries.cs" />
     <Compile Include="Models\CriticalInjuries\Dead.cs" />
     <Compile Include="Models\CriticalInjuries\TheEndIsNigh.cs" />
@@ -113,6 +119,7 @@
     <Compile Include="Models\CriticalInjuries\SuddenJolt.cs" />
     <Compile Include="Models\CriticalInjuries\SlowedDown.cs" />
     <Compile Include="Models\CriticalInjuries\MinorNick.cs" />
+    <Compile Include="ViewModels\Colors\ColorViewModel.cs" />
     <Compile Include="ViewModels\Presets\IFFGPreset.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Views\CharacterSelection\CharacterSelectionPage.cs" />
