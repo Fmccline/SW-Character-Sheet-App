@@ -29,7 +29,7 @@ namespace StarWRPG
             try
             {
                 InitializeComponent();
-                SetDefaultSettings();
+                GetUserSettings();
                 var navPage = new NavigationPage(new MainPage());
                 navPage.SetDynamicResource(NavigationPage.BarBackgroundColorProperty, "TitleBackgroundColor");
                 navPage.SetDynamicResource(NavigationPage.BarTextColorProperty, "TitleTextColor");
@@ -46,35 +46,35 @@ namespace StarWRPG
             //CharacterDatabase.DeleteAllItems();
         }
 
-        public static void SetDefaultSettings()
+        public static void GetUserSettings()
         {
-            SetDefaultFont();
-            SetDefaultColors();
+            GetUserSettingFonts();
+            GetUserSettingColors();
         }
 
-        public static void SetDefaultColors()
+        public static void GetUserSettingColors()
         {
-            Current.Resources["BackgroundColor"] = Color.FromHex("#F1F1D4");
-            Current.Resources["TextColor"] = Color.Black;
-            Current.Resources["ButtonColor"] = Color.LightGray;
-            Current.Resources["ButtonTextColor"] = Color.Black;
-            Current.Resources["TitleTextColor"] = Color.Yellow;
-            Current.Resources["TitleBackgroundColor"] = Color.Black;
+            Current.Resources["BackgroundColor"] = UserSettings.BackgroundColor;
+            Current.Resources["TextColor"] = UserSettings.TextColor;
+            Current.Resources["ButtonColor"] = UserSettings.ButtonColor;
+            Current.Resources["ButtonTextColor"] = UserSettings.ButtonTextColor;
+            Current.Resources["TitleTextColor"] = UserSettings.TitleTextColor;
+            Current.Resources["TitleBackgroundColor"] = UserSettings.TitleBackgroundColor;
         }
 
-        public static void SetDefaultFont()
+        public static void GetUserSettingFonts()
         {
-            Current.Resources["RegularFontName"] = Current.Resources[FontNames.CamingoCode];
-            Current.Resources["BoldFontName"] = Current.Resources[FontNames.CamingoCode+"Bold"];
+            Current.Resources["RegularFontName"] = UserSettings.RegularFontFilePath;
+            Current.Resources["BoldFontName"] = UserSettings.BoldFontFilePath;
 
-            Current.Resources["DefaultFontSize"] = 15d;
-            Current.Resources["MediumFontSize"] = 20d;
-            Current.Resources["LargeFontSize"] = 25d;
+            Current.Resources["DefaultFontSize"] = UserSettings.RegularFontSize;
+            Current.Resources["MediumFontSize"] = UserSettings.MediumFontSize;
+            Current.Resources["LargeFontSize"] = UserSettings.LargeFontSize;
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+
         }
 
         protected override void OnSleep()

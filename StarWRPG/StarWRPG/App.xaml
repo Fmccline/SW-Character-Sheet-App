@@ -7,23 +7,22 @@
         <!-- Application resource dictionary -->
         <ResourceDictionary>
             <!--Colors are set to default in the App constructor-->
-            <Color x:Key="BackgroundColor">Black</Color>
-            <Color x:Key="TextColor">Black</Color>
-            <Color x:Key="ButtonColor">Black</Color>
-            <Color x:Key="ButtonTextColor">Black</Color>
-            <Color x:Key="TitleTextColor">Black</Color>
-            <Color x:Key="TitleBackgroundColor">Black</Color>
-            <!--Font Sizes-->
-            <x:Double x:Key="DefaultFontSize">18</x:Double>
-            <x:Double x:Key="MediumFontSize">24</x:Double>
-            <x:Double x:Key="LargeFontSize">30</x:Double>
+            <Color x:Key="BackgroundColor"/>
+            <Color x:Key="TextColor"/>
+            <Color x:Key="ButtonColor"/>
+            <Color x:Key="ButtonTextColor"/>
+            <Color x:Key="TitleTextColor"/>
+            <Color x:Key="TitleBackgroundColor"/>
+            <!--Font Sizes are set in App constructor-->
+            <x:Double x:Key="DefaultFontSize"/>
+            <x:Double x:Key="MediumFontSize"/>
+            <x:Double x:Key="LargeFontSize"/>
             <!--FontNames are set in App constructor-->
-            <OnPlatform x:Key="RegularFontName" x:TypeArguments="x:String"/>
-            <OnPlatform x:Key="BoldFontName" x:TypeArguments="x:String"/>
+            <x:String x:Key="RegularFontName"/>
+            <x:String x:Key="BoldFontName"/>
             <!--Fonts-->
-            <!--Regular fonts are named FontName
-                Bold fonts are named FontName + "Bold" -->
-            <OnPlatform x:Key="CamingoCode" x:TypeArguments="x:String">
+
+            <!--<OnPlatform x:Key="CamingoCode" x:TypeArguments="x:String">
                 <OnPlatform.iOS>CamingoCode</OnPlatform.iOS>
                 <OnPlatform.Android>CamingoCode-Regular.ttf#CamingoCode</OnPlatform.Android>
             </OnPlatform>
@@ -70,7 +69,8 @@
             <OnPlatform x:Key="AndadaBold" x:TypeArguments="x:String">
                 <OnPlatform.iOS>Andada</OnPlatform.iOS>
                 <OnPlatform.Android>Andada-Bold.otf#Andada</OnPlatform.Android>
-            </OnPlatform>
+            </OnPlatform>-->
+            
             <!--Button-->
             <Style x:Key="DefaultButton" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="{DynamicResource ButtonColor}"/>

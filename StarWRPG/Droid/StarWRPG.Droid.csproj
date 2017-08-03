@@ -43,6 +43,12 @@
     <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
     </Reference>
+    <Reference Include="Plugin.Settings, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.0.1\lib\MonoAndroid10\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.0.1\lib\MonoAndroid10\Plugin.Settings.Abstractions.dll</HintPath>
+    </Reference>
     <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\sqlite-net-pcl.1.2.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
     </Reference>
@@ -110,23 +116,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FileHelper.cs" />
+    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidAsset Include="Assets\CamingoCode-Regular.ttf" />
-    <AndroidAsset Include="Assets\CamingoCode-Bold.ttf" />
-    <AndroidAsset Include="Assets\Enigma__2.ttf" />
-    <AndroidAsset Include="Assets\EnigmaB_2.ttf" />
-    <AndroidAsset Include="Assets\Greyscale_Basic_Bold.ttf" />
-    <AndroidAsset Include="Assets\Greyscale_Basic_Regular.ttf" />
-    <AndroidAsset Include="Assets\Neuton-Bold.ttf" />
-    <AndroidAsset Include="Assets\Neuton-Regular.ttf" />
-    <AndroidAsset Include="Assets\HKGrotesk-Bold.otf" />
-    <AndroidAsset Include="Assets\HKGrotesk-Regular.otf" />
-    <AndroidAsset Include="Assets\Andada-Bold.otf" />
-    <AndroidAsset Include="Assets\Andada-Regular.otf" />
+    <AndroidAsset Include="Assets\CamingoCode.ttf" />
+    <AndroidAsset Include="Assets\CamingoCodeBold.ttf" />
+    <AndroidAsset Include="Assets\Enigmatic.ttf" />
+    <AndroidAsset Include="Assets\EnigmaticBold.ttf" />
+    <AndroidAsset Include="Assets\GreyscaleBasicBold.ttf" />
+    <AndroidAsset Include="Assets\GreyscaleBasic.ttf" />
+    <AndroidAsset Include="Assets\NeutonBold.ttf" />
+    <AndroidAsset Include="Assets\Neuton.ttf" />
+    <AndroidAsset Include="Assets\HKGroteskBold.otf" />
+    <AndroidAsset Include="Assets\HKGrotesk.otf" />
+    <AndroidAsset Include="Assets\Andada.otf" />
+    <AndroidAsset Include="Assets\AndadaBold.otf" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Assets\AboutAssets.txt" />

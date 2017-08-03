@@ -33,6 +33,31 @@
                 <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
                 <Setter Property="VerticalOptions" Value="Center"/>
             </Style>
+
+            <OnPlatform x:Key="CamingoCode" x:TypeArguments="x:String">
+                <OnPlatform.iOS>CamingoCode</OnPlatform.iOS>
+                <OnPlatform.Android>CamingoCode.ttf#CamingoCode</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="Enigmatic" x:TypeArguments="x:String">
+                <OnPlatform.iOS>Enigmatic</OnPlatform.iOS>
+                <OnPlatform.Android>Enigmatic.ttf#Enigmatic</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="GreyscaleBasic" x:TypeArguments="x:String">
+                <OnPlatform.iOS>GreyscaleBasic</OnPlatform.iOS>
+                <OnPlatform.Android>GreyscaleBasic.ttf#GreyscaleBasic</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="Neuton" x:TypeArguments="x:String">
+                <OnPlatform.iOS>Neuton</OnPlatform.iOS>
+                <OnPlatform.Android>Neuton.ttf#Neuton</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="HKGrotesk" x:TypeArguments="x:String">
+                <OnPlatform.iOS>HK Grotesk</OnPlatform.iOS>
+                <OnPlatform.Android>HKGrotesk.otf#HKGrotesk</OnPlatform.Android>
+            </OnPlatform>
+            <OnPlatform x:Key="Andada" x:TypeArguments="x:String">
+                <OnPlatform.iOS>Andada</OnPlatform.iOS>
+                <OnPlatform.Android>Andada.otf#Andada</OnPlatform.Android>
+            </OnPlatform>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -116,11 +141,6 @@
                         Clicked="ChangeColorClickedAsync"
                         Style="{StaticResource ChangeColorButton}"/>
             </Grid>
-            <!--Default Theme-->
-            <Button Text="Default Colors"
-                    Command="{Binding RestoreDefaultColorsCommand}"
-                    HorizontalOptions="Center"
-                    VerticalOptions="CenterAndExpand"/>
             <!--Fonts-->
             <Label Text="Fonts" 
                    Style="{StaticResource CenterBoldLabel}"
@@ -140,63 +160,53 @@
                 </Grid.RowDefinitions>
 
                 <Label Grid.Column="0" Grid.Row="0" 
-                        Text="Camingo Code"
-                        Style="{StaticResource CenterLabel}"
-                        FontFamily="{StaticResource CamingoCode}"/>
+                       Text="Camingo Code"
+                       Style="{StaticResource CenterLabel}"
+                       FontFamily="{StaticResource CamingoCode}"/>
                 <Label Grid.Column="0" Grid.Row="1" 
-                        Text="Enigmatic"
-                        Style="{StaticResource CenterLabel}"
-                        FontFamily="{StaticResource Enigmatic}"/>
+                       Text="Enigmatic"
+                       Style="{StaticResource CenterLabel}"
+                       FontFamily="{StaticResource Enigmatic}"/>
                 <Label Grid.Column="0" Grid.Row="2" 
-                        Text="Greyscale Basic"
-                        Style="{StaticResource CenterLabel}"
-                        FontFamily="{StaticResource GreyscaleBasic}"/>
+                       Text="Greyscale Basic"
+                       Style="{StaticResource CenterLabel}"
+                       FontFamily="{StaticResource GreyscaleBasic}"/>
                 <Label Grid.Column="0" Grid.Row="3" 
-                        Text="Neuton"
-                        Style="{StaticResource CenterLabel}"
-                        FontFamily="{StaticResource Neuton}"/>
+                       Text="Neuton"
+                       Style="{StaticResource CenterLabel}"
+                       FontFamily="{StaticResource Neuton}"/>
                 <Label Grid.Column="0" Grid.Row="4"
                        Text="HK Grotesk"
-                       TextColor="{DynamicResource TextColor}"
-                       FontFamily="{StaticResource HKGrotesk}"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"/>
+                       Style="{StaticResource CenterLabel}"
+                       FontFamily="{StaticResource HKGrotesk}"/>
                 <Label Grid.Column="0" Grid.Row="5"
                        Text="Andada"
-                       TextColor="{DynamicResource TextColor}"
-                       FontFamily="{StaticResource Andada}"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Center"/>
+                       Style="{StaticResource CenterLabel}"
+                       FontFamily="{StaticResource Andada}"/>
 
                 <Button Grid.Column="1" Grid.Row="0"
                         x:Name="CamingoCodeButton"
                         Style="{StaticResource ChangeFontButton}"
-                        FontFamily="{StaticResource CamingoCode}"
                         Clicked="SetFontClicked"/>
                 <Button Grid.Column="1" Grid.Row="1"
                         x:Name="EnigmaticButton"
                         Style="{StaticResource ChangeFontButton}"
-                        FontFamily="{StaticResource Enigmatic}"
                         Clicked="SetFontClicked"/>
                 <Button Grid.Column="1" Grid.Row="2"
                         x:Name="GreyscaleBasicButton"
                         Style="{StaticResource ChangeFontButton}"
-                        FontFamily="{StaticResource GreyscaleBasic}"
                         Clicked="SetFontClicked"/>
                 <Button Grid.Column="1" Grid.Row="3"
                         x:Name="NeutonButton"
                         Style="{StaticResource ChangeFontButton}"
-                        FontFamily="{DynamicResource Neuton}"
                         Clicked="SetFontClicked"/>
                 <Button Grid.Column="1" Grid.Row="4"
                         x:Name="HKGroteskButton"
                         Style="{StaticResource ChangeFontButton}"
-                        FontFamily="{StaticResource HKGrotesk}"
                         Clicked="SetFontClicked"/>
                 <Button Grid.Column="1" Grid.Row="5"
                         x:Name="AndadaButton"
                         Style="{StaticResource ChangeFontButton}"
-                        FontFamily="{StaticResource Andada}"
                         Clicked="SetFontClicked"/>
             </Grid>
             <!--Font Size-->
@@ -226,7 +236,7 @@
                        Style="{StaticResource StartBoldLabel}"/>
 
                 <Entry Grid.Column="1" Grid.Row="0" 
-                       Text="{Binding DefaultFontSize}" 
+                       Text="{Binding RegularFontSize}" 
                        Style="{StaticResource FontSizeEntry}"/>
                 <Entry Grid.Column="1" Grid.Row="1" 
                        Text="{Binding MediumFontSize}" 

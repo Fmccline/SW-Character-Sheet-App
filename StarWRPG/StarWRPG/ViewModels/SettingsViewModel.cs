@@ -19,7 +19,7 @@ namespace StarWRPG.ViewModels
         double mediumFontSize;
         double largeFontSize;
 
-        public double DefaultFontSize
+        public double RegularFontSize
         {
             get { return defaultFontSize; }
             set
@@ -99,18 +99,17 @@ namespace StarWRPG.ViewModels
 
         public void RestoreDefaultSettings()
         {
-            App.SetDefaultSettings();
+            UserSettings.RestoreDefaultSettings();
+            App.GetUserSettings();
             GetFontSizes();
         }
 
         public void GetFontSizes()
         {
-            DefaultFontSize = (double)Application.Current.Resources["DefaultFontSize"];
+            RegularFontSize = (double)Application.Current.Resources["DefaultFontSize"];
             MediumFontSize = (double)Application.Current.Resources["MediumFontSize"];
             LargeFontSize = (double)Application.Current.Resources["LargeFontSize"];
         }
-
-        public void RestoreDefaultColors() { App.SetDefaultColors(); }
 
         public void SetResourceColor(string resourceKey)
         {
@@ -124,12 +123,15 @@ namespace StarWRPG.ViewModels
 
         private void SetFontSizes()
         {
-            DefaultFontSize = PutFontSizeInRange(DefaultFontSize);
+            RegularFontSize = PutFontSizeInRange(RegularFontSize);
             MediumFontSize = PutFontSizeInRange(MediumFontSize);
             LargeFontSize = PutFontSizeInRange(LargeFontSize);
-            Application.Current.Resources["DefaultFontSize"] = DefaultFontSize;
-            Application.Current.Resources["MediumFontSize"] = MediumFontSize;
-            Application.Current.Resources["LargeFontSize"] = LargeFontSize;
+
+            UserSettings.RegularFontSize = RegularFontSize;
+            UserSettings.MediumFontSize = MediumFontSize;
+            UserSettings.LargeFontSize = LargeFontSize;
+
+            App.GetUserSettingFonts();
         }
 
         private double PutFontSizeInRange(double fontSize)

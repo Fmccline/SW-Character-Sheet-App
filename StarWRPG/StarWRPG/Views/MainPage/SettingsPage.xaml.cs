@@ -88,8 +88,10 @@ namespace StarWRPG.Views
 
         private void SetFont(string fontName)
         {
-            Application.Current.Resources["RegularFontName"] = Application.Current.Resources[fontName];
-            Application.Current.Resources["BoldFontName"] = Application.Current.Resources[fontName+"Bold"];
+            UserSettings.RegularFontFilePath = FontNames.FilePathToFont(fontName);
+            UserSettings.BoldFontFilePath = FontNames.FilePathToFont(fontName,true);
+
+            App.GetUserSettingFonts();
         }
 
         private void SetFontClicked(object sender, EventArgs e)
@@ -138,29 +140,29 @@ namespace StarWRPG.Views
 
         private void DisableCurrentFontButton()
         {
-            var currentFont = Application.Current.Resources["RegularFontName"];
+            var currentFont = UserSettings.RegularFontFilePath;
 
-            if (currentFont == Application.Current.Resources[FontNames.Andada])
+            if (currentFont.Equals(FontNames.FilePathToFont(FontNames.Andada)))
             {
                 AndadaButton.IsEnabled = false;
             }
-            else if (currentFont == Application.Current.Resources[FontNames.CamingoCode])
+            else if (currentFont.Equals(FontNames.FilePathToFont(FontNames.CamingoCode)))
             {
                 CamingoCodeButton.IsEnabled = false;
             }
-            else if (currentFont == Application.Current.Resources[FontNames.Enigmatic])
+            else if (currentFont.Equals(FontNames.FilePathToFont(FontNames.Enigmatic)))
             {
                 EnigmaticButton.IsEnabled = false;
             }
-            else if (currentFont == Application.Current.Resources[FontNames.GreyscaleBasic])
+            else if (currentFont.Equals(FontNames.FilePathToFont(FontNames.GreyscaleBasic)))
             {
                 GreyscaleBasicButton.IsEnabled = false;
             }
-            else if (currentFont == Application.Current.Resources[FontNames.HKGrotesk])
+            else if (currentFont.Equals(FontNames.FilePathToFont(FontNames.HKGrotesk)))
             {
                 HKGroteskButton.IsEnabled = false;
             }
-            else if (currentFont == Application.Current.Resources[FontNames.Neuton])
+            else if (currentFont.Equals(FontNames.FilePathToFont(FontNames.Neuton)))
             {
                 NeutonButton.IsEnabled = false;
             }
