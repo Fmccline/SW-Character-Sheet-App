@@ -44,12 +44,27 @@ namespace StarWRPG.Views
 
         private async void DefaultClickedAsync(object sender, EventArgs e)
         {
-            var answer = await DisplayAlert("Revert to Default", "Are you sure you want to revert back to the default settings?", "Yes", "No");
-            if (answer)
+            var options = new string[] { "Default Colors", "Default Fonts", "All of the Above" };
+            var answer = await DisplayActionSheet("Restore Settings To:", "Cancel", null, options);
+
+            if (answer == null || answer.Equals("Cancel"))
+            {
+                return;
+            }
+            else if (answer.Equals(options[0]))
+            {
+                settingsViewModel.RestoreDefaultColors();
+            }
+            else if (answer.Equals(options[1]))
+            {
+                settingsViewModel.RestoreDefaultFont();
+            }
+            else
             {
                 settingsViewModel.RestoreDefaultSettings();
-                OnAppearing();
             }
+
+            OnAppearing();
         }
 
         private async void ChangeColorClickedAsync(object sender, EventArgs e)

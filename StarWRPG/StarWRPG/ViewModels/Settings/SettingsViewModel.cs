@@ -45,24 +45,29 @@ namespace StarWRPG.ViewModels
 
         public ICommand SetUserSettingsFontSizesComand { get => new Command(SetUserSettingsFontSizes); }
 
-        public SettingsViewModel()
+        public SettingsViewModel() { GetFontSizes(); }
+
+        public void RestoreDefaultColors()
         {
+            UserSettings.RestoreDefaultColors();
+        }
+        public void RestoreDefaultFont()
+        {
+            UserSettings.RestoreDefaultFont();
             GetFontSizes();
         }
-
         public void RestoreDefaultSettings()
         {
-            UserSettings.RestoreDefaultSettings();
-            GetFontSizes();
+            RestoreDefaultColors();
+            RestoreDefaultFont();
         }
 
-        public void GetFontSizes()
+        private void GetFontSizes()
         {
             RegularFontSize = UserSettings.RegularFontSize;
             MediumFontSize = UserSettings.MediumFontSize;
             LargeFontSize = UserSettings.LargeFontSize;
         }
-
         private void SetUserSettingsFontSizes()
         {
             UserSettings.RegularFontSize = RegularFontSize;

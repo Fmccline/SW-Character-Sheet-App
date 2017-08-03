@@ -167,7 +167,7 @@ namespace StarWRPG
             }
         }
 
-        public static void RestoreDefaultSettings()
+        public static void RestoreDefaultColors()
         {
             BackgroundColor = DefaultBackgroundColor;
             TextColor = DefaultTextColor;
@@ -175,12 +175,19 @@ namespace StarWRPG
             TitleTextColor = DefaultTitleTextColor;
             ButtonColor = DefaultButtonColor;
             ButtonTextColor = DefaultButtonTextColor;
-
+        }
+        public static void RestoreDefaultFont()
+        {
             FontName = DefaultFontName;
 
             RegularFontSize = DefaultRegularFontSize;
             MediumFontSize = DefaultMediumFontSize;
             LargeFontSize = DefaultLargeFontSize;
+        }
+        public static void RestoreDefaultSettings()
+        {
+            RestoreDefaultColors();
+            RestoreDefaultFont();
         }
 
         private static string ColorToHex(Color color)
