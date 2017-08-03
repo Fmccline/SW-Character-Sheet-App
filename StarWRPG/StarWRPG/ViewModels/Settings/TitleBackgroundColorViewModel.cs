@@ -7,11 +7,13 @@ using Xamarin.Forms;
 
 namespace StarWRPG.ViewModels
 {
-    public class ButtonColorViewModel : ColorViewModel
+    public class TitleBackgroundColorViewModel : ColorViewModel
     {
+        public TitleBackgroundColorViewModel(Color previousColor) : base(previousColor) { }
+
         public override void SaveColor()
         {
-            UserSettings.ButtonColor = CustomColor;
+            UserSettings.TitleBackgroundColor = CustomColor;
         }
     }
 }

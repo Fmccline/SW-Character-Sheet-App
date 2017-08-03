@@ -61,32 +61,32 @@ namespace StarWRPG.Views
             if (buttonClicked == BackgroundColorButton)
             {
                 previousColor = UserSettings.BackgroundColor;
-                colorViewModel = new BackgroundColorViewModel();
+                colorViewModel = new BackgroundColorViewModel(previousColor);
             }
             else if (buttonClicked == TextColorButton)
             {
                 previousColor = UserSettings.TextColor;
-                colorViewModel = new TextColorViewModel();
+                colorViewModel = new TextColorViewModel(previousColor);
             }
             else if (buttonClicked == TitleBackgroundColorButton)
             {
                 previousColor = UserSettings.TitleBackgroundColor;
-                colorViewModel = new TitleBackgroundColorViewModel();
+                colorViewModel = new TitleBackgroundColorViewModel(previousColor);
             }
             else if (buttonClicked == TitleTextColorButton)
             {
                 previousColor = UserSettings.TitleTextColor;
-                colorViewModel = new TitleTextColorViewModel();
+                colorViewModel = new TitleTextColorViewModel(previousColor);
             }
             else if (buttonClicked == ButtonColorButton)
             {
                 previousColor = UserSettings.ButtonColor;
-                colorViewModel = new ButtonColorViewModel();
+                colorViewModel = new ButtonColorViewModel(previousColor);
             }
             else
             {
                 previousColor = UserSettings.ButtonTextColor;
-                colorViewModel = new ButtonTextColorViewModel();
+                colorViewModel = new ButtonTextColorViewModel(previousColor);
             }
 
             await Navigation.PushAsync(new ColorPage(colorViewModel, previousColor));

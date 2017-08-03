@@ -9,6 +9,8 @@ namespace StarWRPG.ViewModels
 {
     public class TitleTextColorViewModel : ColorViewModel
     {
+        public TitleTextColorViewModel(Color previousColor) : base(previousColor) { }
+
         public override void SaveColor()
         {
             UserSettings.TitleTextColor = CustomColor;

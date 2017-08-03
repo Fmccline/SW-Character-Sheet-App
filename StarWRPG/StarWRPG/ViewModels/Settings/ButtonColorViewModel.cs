@@ -7,11 +7,13 @@ using Xamarin.Forms;
 
 namespace StarWRPG.ViewModels
 {
-    public class ButtonTextColorViewModel : ColorViewModel
+    public class ButtonColorViewModel : ColorViewModel
     {
+        public ButtonColorViewModel(Color previousColor) : base(previousColor) { }
+
         public override void SaveColor()
         {
-            UserSettings.ButtonTextColor = CustomColor;
+            UserSettings.ButtonColor = CustomColor;
         }
     }
 }

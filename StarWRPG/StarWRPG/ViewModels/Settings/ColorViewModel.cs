@@ -28,7 +28,7 @@ namespace StarWRPG.ViewModels
             get { return red; }
             set
             {
-                red = value;
+                red = Math.Round(value);
                 SetCustomColor();
                 OnPropertyChanged();
             }
@@ -38,7 +38,7 @@ namespace StarWRPG.ViewModels
             get { return green; }
             set
             {
-                green = value;
+                green = Math.Round(value);
                 SetCustomColor();
                 OnPropertyChanged();
             }
@@ -48,18 +48,18 @@ namespace StarWRPG.ViewModels
             get { return blue; }
             set
             {
-                blue = value;
+                blue = Math.Round(value);
                 SetCustomColor();
                 OnPropertyChanged();
             }
         }
 
 
-        public ColorViewModel()
+        public ColorViewModel(Color previousColor)
         {
-            Red = 255 / 2;
-            Green = 255 / 2;
-            Blue = 255 / 2;
+            Red = previousColor.R * 255;
+            Green = previousColor.G * 255;
+            Blue = previousColor.B * 255;
         }
 
         public abstract void SaveColor();

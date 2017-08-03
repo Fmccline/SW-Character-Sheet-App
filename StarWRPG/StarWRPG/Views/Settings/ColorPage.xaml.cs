@@ -17,10 +17,21 @@ namespace StarWRPG.Views
         Dictionary<string, Tuple<double, double, double>> presetColors;
 
         public ColorPage (ColorViewModel colorViewModel, Color previousColor)
-		{
-			InitializeComponent ();
+        {
+            InitializeComponent();
 
-            presetColors = new Dictionary<string, Tuple<double, double, double>>
+            presetColors = GetPresetColors();
+
+            this.colorViewModel = colorViewModel;
+            PreviousColorBoxView.Color = previousColor;
+            BindingContext = colorViewModel;
+
+            AddSaveAndCancelToolbarItem();
+        }
+
+        private Dictionary<string, Tuple<double, double, double>> GetPresetColors()
+        {
+            return new Dictionary<string, Tuple<double, double, double>>
             {
                 ["Red"] = new Tuple<double, double, double>(128, 0, 0),
                 ["Green"] = new Tuple<double, double, double>(0, 128, 0),
@@ -32,13 +43,7 @@ namespace StarWRPG.Views
                 ["Gray"] = new Tuple<double, double, double>(128, 128, 128),
                 ["Black"] = new Tuple<double, double, double>(0, 0, 0),
             };
-
-            this.colorViewModel = colorViewModel;
-            PreviousColorBoxView.Color = previousColor;
-            BindingContext = colorViewModel;
-
-            AddSaveAndCancelToolbarItem();
-		}
+        }
 
         private void AddSaveAndCancelToolbarItem()
         {
@@ -74,9 +79,9 @@ namespace StarWRPG.Views
             string[] colorNames = new string[presetColors.Count];
 
             int index = 0;
-            foreach (var color in presetColors)
+            foreach (var key in presetColors.Keys)
             {
-                colorNames[index++] = color.Key;
+                colorNames[index++] = key;
             }
 
             var colorName = await DisplayActionSheet("Colors", "Cancel", null, colorNames);
