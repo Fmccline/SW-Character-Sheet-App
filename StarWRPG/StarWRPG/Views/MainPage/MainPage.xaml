@@ -3,23 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarWRPG.Views.MainPage"
              xmlns:local="clr-namespace:StarWRPG.Views" 
-             Title="FFG Character Sheet"
-             BackgroundColor="Black">
+             Style="{StaticResource PageStyle}"
+             Title="Main Menu">
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="MediumStartBoldLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Start" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="FontSize" Value="Medium"/>
+            <Style x:Key="MediumStartBoldLabel" TargetType="Label" BasedOn="{StaticResource StartBoldLabel}">
+                <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}"/>
             </Style>
-            <Style x:Key="MediumCenterBoldLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="FontAttributes" Value="Bold" />
-                <Setter Property="FontSize" Value="Medium"/>
-                <Setter Property="TextColor" Value="White"/>
+            <Style x:Key="MediumCenterBoldLabel" TargetType="Label" BasedOn="{StaticResource CenterBoldLabel}">
+                <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -31,16 +24,16 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0"
-               Text="FFG Character Sheet"
-               TextColor="Yellow"
-               FontAttributes="Bold"
-               FontSize="Large"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
+               Text="Welcome to FFG Sheet!"
+               HorizontalTextAlignment="Center"
+               FontSize="{DynamicResource LargeFontSize}"
+               Style="{StaticResource CenterBoldLabel}"
+               TextColor="{DynamicResource TextColor}"/>
 
         <Label Grid.Row="2"
                Text="Select Character" 
@@ -61,6 +54,13 @@
                Style="{StaticResource MediumCenterBoldLabel}">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Tapped="DeleteCharacterAsync"/>
+            </Label.GestureRecognizers>
+        </Label>
+        <Label Grid.Row="5"
+               Text="Settings" 
+               Style="{StaticResource MediumCenterBoldLabel}">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="SettingsTappedAsync"/>
             </Label.GestureRecognizers>
         </Label>
     </Grid>

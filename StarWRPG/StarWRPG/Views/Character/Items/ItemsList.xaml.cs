@@ -10,6 +10,8 @@ using Xamarin.Forms.Xaml;
 
 namespace StarWRPG.Views
 {
+    // Intent
+    //      Displays a list of items
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ItemsList : ContentView
 	{

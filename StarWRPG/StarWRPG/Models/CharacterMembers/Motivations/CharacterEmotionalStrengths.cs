@@ -8,6 +8,6 @@ namespace StarWRPG.Models
 {
     public class CharacterEmotionalStrengths : CharacterMotivationBase
     {
-        public CharacterEmotionalStrengths() : base("Emotional Strengths") { }
+        public CharacterEmotionalStrengths() : base("Emotional Strength") { }
     }
 }

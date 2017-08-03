@@ -20,6 +20,8 @@ namespace StarWRPG.Views
             characterSelectionLayout = new CharacterSelectionLayout();
             characterSelectionLayout.CharactersListView.ItemSelected += CharacterSelected;
             Content = characterSelectionLayout;
+
+            Style = (Style)Application.Current.Resources["PageStyle"];
         }
 
         protected abstract void CharacterSelected(object sender, SelectedItemChangedEventArgs e);

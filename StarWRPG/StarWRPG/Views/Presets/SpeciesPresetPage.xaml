@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarWRPG.Views.SpeciesPresetPage"
+             Style="{StaticResource PageStyle}"
              Title="{Binding SpeciesName}">
 
     <StackLayout>
@@ -17,17 +18,23 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Column="0" Grid.Row="1" 
-                   Text="{Binding MaxWounds}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding MaxWounds}" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="1" Grid.Row="1" 
-                   Text="{Binding MaxStrain}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding MaxStrain}" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="0" Grid.Row="0" 
-                   Text="Max Wounds " Style="{StaticResource CenterBoldLabel}"/>
+                   Text="Wound Threshold" 
+                   Style="{StaticResource CenterBoldLabel}"/>
             <Label Grid.Column="1" Grid.Row="0" 
-                   Text="Max Strain" Style="{StaticResource CenterBoldLabel}"/>
+                   Text="Strain Threshold"
+                   Style="{StaticResource CenterBoldLabel}"/>
         </Grid>
         <!--Experience-->
-        <Label Text="Starting Experience" Style="{StaticResource CenterBoldLabel}"/>
-        <Label Text="{Binding StartingXP}" Style="{StaticResource CenterLabel}"/>
+        <Label Text="Starting Experience" 
+               Style="{StaticResource CenterBoldLabel}"/>
+        <Label Text="{Binding StartingXP}" 
+               Style="{StaticResource CenterLabel}"/>
         <!--Characteristics-->
         <Grid>
             <Grid.ColumnDefinitions>
@@ -45,35 +52,50 @@
             </Grid.RowDefinitions>
 
             <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="6"
-                           Text="Characteristics" Style="{StaticResource CenterBoldLabel}"/>
+                   Text="Characteristics" 
+                   Style="{StaticResource CenterBoldLabel}"/>
             <Label Grid.Column="0" Grid.Row="1"
-                           Text="{Binding Brawn}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding Brawn}" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="1" Grid.Row="1"
-                           Text="{Binding Agility}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding Agility}"
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="2" Grid.Row="1"
-                           Text="{Binding Intellect}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding Intellect}" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="3" Grid.Row="1"
-                           Text="{Binding Cunning}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding Cunning}"
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="4" Grid.Row="1"
-                           Text="{Binding Willpower}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding Willpower}" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="5" Grid.Row="1"
-                           Text="{Binding Presence}" Style="{StaticResource CenterLabel}"/>
+                   Text="{Binding Presence}" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="0" Grid.Row="2"
-                           Text="Br" Style="{StaticResource CenterLabel}"/>
+                   Text="Br" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="1" Grid.Row="2"
-                           Text="Ag" Style="{StaticResource CenterLabel}"/>
+                   Text="Ag" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="2" Grid.Row="2"
-                           Text="Int" Style="{StaticResource CenterLabel}"/>
+                   Text="Int" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="3" Grid.Row="2"
-                           Text="Cun" Style="{StaticResource CenterLabel}"/>
+                   Text="Cun" 
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="4" Grid.Row="2"
-                           Text="Will" Style="{StaticResource CenterLabel}"/>
+                   Text="Will"
+                   Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="5" Grid.Row="2"
-                           Text="Pr" Style="{StaticResource CenterLabel}"/>
+                   Text="Pr"
+                   Style="{StaticResource CenterLabel}"/>
         </Grid>
         <!--Special Abilities-->
-        <Label Text="Special Abilities" Style="{StaticResource CenterBoldLabel}"/>
-        <Label Text="{Binding SpecialAbilities}" Style="{StaticResource CenterLabel}"/>
+        <Label Text="Special Abilities" 
+               Style="{StaticResource CenterBoldLabel}"/>
+        <Label Text="{Binding SpecialAbilities}" 
+               Style="{StaticResource CenterLabel}"/>
         <!--Talents-->
         <ContentView x:Name="TalentsLayout"/>
 

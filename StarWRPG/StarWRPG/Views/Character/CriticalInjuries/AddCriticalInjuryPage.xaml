@@ -2,15 +2,12 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="StarWRPG.Views.AddCriticalInjuryPage"
-             Title="Add Critical Injury">
+             Title="Add Critical Injury"
+             Style="{StaticResource PageStyle}">
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="CenterTopLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Start" />
-            </Style>
-            <Style x:Key="StartTopLabel" TargetType="Label">
+            <Style x:Key="StartTopLabel" TargetType="Label" BasedOn="{StaticResource DefaultLabel}">
                 <Setter Property="HorizontalOptions" Value="Start" />
                 <Setter Property="VerticalOptions" Value="Start" />
             </Style>
@@ -21,16 +18,19 @@
         <StackLayout>
             <Label Text="Severity" Style="{StaticResource CenterBoldLabel}" />
             <Entry x:Name="SeverityEntry"
-                   Placeholder="Severity"/>
+                   Placeholder="Severity"
+                   Style="{StaticResource DefaultEntry}"/>
             <Label Text="Result" Style="{StaticResource CenterBoldLabel}" />
             <Entry x:Name="ResultEntry"
-                   Placeholder="Result"/>
+                   Placeholder="Result"
+                   Style="{StaticResource DefaultEntry}"/>
 
             <ListView x:Name="AllCriticalInjuriesListView"
                       ItemsSource="{Binding AllCriticalInjuries}"
                       ItemSelected="CriticalInjurySelected"
                       SeparatorVisibility="None"
-                      HasUnevenRows="True">
+                      HasUnevenRows="True"
+                      BackgroundColor="{DynamicResource BackgroundColor}">
                 <ListView.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -65,7 +65,8 @@
 
             <Button Text="Accept"
                     Clicked="AcceptClickedAsync"
-                    HorizontalOptions="Center"/>
+                    HorizontalOptions="Center"
+                    Style="{StaticResource DefaultButton}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

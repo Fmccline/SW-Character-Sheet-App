@@ -41,6 +41,8 @@
     <Compile Include="Controls\EditCharacterToolbarItem.cs" />
     <Compile Include="Controls\ISearchable.cs" />
     <Compile Include="Controls\SaveCharacterToolbarItem.cs" />
+    <Compile Include="Controls\SettingsToolbarItem.cs" />
+    <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Models\CharacterDescription.cs" />
     <Compile Include="Models\CharacterMembers\Presets\TogrutaPreset.cs" />
     <Compile Include="Models\CharacterMembers\Presets\NautolanPreset.cs" />
@@ -80,6 +82,13 @@
     <Compile Include="Models\CharacterMembers\Skills\ComputersSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\CoercionSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\CharmSkill.cs" />
+    <Compile Include="Settings\UserSettings.cs" />
+    <Compile Include="ViewModels\Settings\ButtonTextColorViewModel.cs" />
+    <Compile Include="ViewModels\Settings\ButtonColorViewModel.cs" />
+    <Compile Include="ViewModels\Settings\TitleTextColorViewModel.cs" />
+    <Compile Include="ViewModels\Settings\TitleBackgroundColorViewModel.cs" />
+    <Compile Include="ViewModels\Settings\TextColorViewModel.cs" />
+    <Compile Include="ViewModels\Settings\BackgroundColorViewModel.cs" />
     <Compile Include="ViewModels\CriticalInjuries\AllCriticalInjuries.cs" />
     <Compile Include="Models\CriticalInjuries\Dead.cs" />
     <Compile Include="Models\CriticalInjuries\TheEndIsNigh.cs" />
@@ -110,7 +119,9 @@
     <Compile Include="Models\CriticalInjuries\SuddenJolt.cs" />
     <Compile Include="Models\CriticalInjuries\SlowedDown.cs" />
     <Compile Include="Models\CriticalInjuries\MinorNick.cs" />
+    <Compile Include="ViewModels\Settings\ColorViewModel.cs" />
     <Compile Include="ViewModels\Presets\IFFGPreset.cs" />
+    <Compile Include="ViewModels\Settings\SettingsViewModel.cs" />
     <Compile Include="Views\CharacterSelection\CharacterSelectionPage.cs" />
     <Compile Include="Views\CharacterSelection\CharacterSelectionPageBase.cs" />
     <Compile Include="Views\CharacterSelection\CharacterDeletionPage.cs" />
@@ -170,10 +181,10 @@
     <Compile Include="ViewModels\Talents\TalentViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\Inventory\WeaponViewModel.cs" />
-    <Compile Include="Views\CharacterCreation\StatsCreationPage.xaml.cs">
+    <Compile Include="Views\Character\CharacterStats\StatsCreationPage.xaml.cs">
       <DependentUpon>StatsCreationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterDetail\StatsDetailPage.xaml.cs">
+    <Compile Include="Views\Character\CharacterStats\StatsDetailPage.xaml.cs">
       <DependentUpon>StatsDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\Motivations\MotivationDetailLayout.cs" />
@@ -186,16 +197,20 @@
       <DependentUpon>MotivationsDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\Motivations\MotivationPageBase.cs" />
-    <Compile Include="Views\Character\PageSelectionLayout.xaml.cs">
+    <Compile Include="Settings\FontNames.cs" />
+    <Compile Include="Views\Settings\ColorPage.xaml.cs">
+      <DependentUpon>ColorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PageNavigation\PageSelectionLayout.xaml.cs">
       <DependentUpon>PageSelectionLayout.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\Skills\AddCustomSkillPage.xaml.cs">
       <DependentUpon>AddCustomSkillPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\BasePage.cs" />
-    <Compile Include="Views\CharacterCreation\CharacterCreationNavigation.cs" />
-    <Compile Include="Views\CharacterDetail\CharacterDetailNavigation.cs" />
-    <Compile Include="Views\Character\CharacterNavigation.cs" />
+    <Compile Include="Views\PageNavigation\CharacterCreationNavigation.cs" />
+    <Compile Include="Views\PageNavigation\CharacterDetailNavigation.cs" />
+    <Compile Include="Views\PageNavigation\CharacterNavigationBase.cs" />
     <Compile Include="Views\Character\CriticalInjuries\AddCriticalInjuryPage.xaml.cs">
       <DependentUpon>AddCriticalInjuryPage.xaml</DependentUpon>
     </Compile>
@@ -213,10 +228,10 @@
     <Compile Include="Views\Character\Items\ItemPage.xaml.cs">
       <DependentUpon>ItemPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterCreation\InfoCreationPage.xaml.cs">
+    <Compile Include="Views\Character\CharacterInfo\InfoCreationPage.xaml.cs">
       <DependentUpon>InfoCreationPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CharacterDetail\InfoDetailPage.xaml.cs">
+    <Compile Include="Views\Character\CharacterInfo\InfoDetailPage.xaml.cs">
       <DependentUpon>InfoDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\CharacterMembers\Experience.cs" />
@@ -250,17 +265,19 @@
     <Compile Include="Views\Character\Skills\SkillPage.xaml.cs">
       <DependentUpon>SkillPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Settings\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Presets\SpeciesPresetPage.xaml.cs">
       <DependentUpon>SpeciesPresetPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\Talents\TalentPage.xaml.cs">
       <DependentUpon>TalentPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ToPageButton.cs" />
     <Compile Include="Views\Character\Talents\TalentsLayout.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterDetail\InfoDetailPage.xaml">
+    <EmbeddedResource Include="Views\Character\CharacterInfo\InfoDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -268,6 +285,12 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.0.1\lib\netstandard1.0\Plugin.Settings.dll</HintPath>
+    </Reference>
+    <Reference Include="Plugin.Settings.Abstractions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Xam.Plugins.Settings.3.0.1\lib\netstandard1.0\Plugin.Settings.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\sqlite-net-pcl.1.2.1\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
@@ -295,7 +318,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterCreation\InfoCreationPage.xaml">
+    <EmbeddedResource Include="Views\Character\CharacterInfo\InfoCreationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -391,13 +414,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterCreation\StatsCreationPage.xaml">
+    <EmbeddedResource Include="Views\Character\CharacterStats\StatsCreationPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\CharacterDetail\StatsDetailPage.xaml">
+    <EmbeddedResource Include="Views\Character\CharacterStats\StatsDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -427,7 +450,19 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Character\PageSelectionLayout.xaml">
+    <EmbeddedResource Include="Views\PageNavigation\PageSelectionLayout.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Settings\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Settings\ColorPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

@@ -10,6 +10,8 @@ using Xamarin.Forms.Xaml;
 
 namespace StarWRPG.Views
 {
+    // Intent
+    //      Page for creating and editing items
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemPage : ItemBasePage
     {

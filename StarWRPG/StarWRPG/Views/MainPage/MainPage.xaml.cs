@@ -27,7 +27,6 @@ namespace StarWRPG.Views
         public MainPage()
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this, false);
 
             selectionPage = new CharacterSelectionPage();
             deletionPage = new CharacterDeletionPage();
@@ -48,6 +47,11 @@ namespace StarWRPG.Views
             var newCharacter = await App.CharacterDatabase.SaveAndReturnCharacterAsync(new FFGCharacterViewModel());
             var characterCreationNavigation = new CharacterCreationNavigation(newCharacter);
             await Navigation.PushAsync(characterCreationNavigation.DefaultPage);
+        }
+
+        private async void SettingsTappedAsync(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SettingsPage());
         }
     }
 }

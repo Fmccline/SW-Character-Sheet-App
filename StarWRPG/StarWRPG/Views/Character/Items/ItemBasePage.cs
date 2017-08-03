@@ -8,6 +8,8 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Views
 {
+    // Intent
+    //      Base page for Item pages that allows the items to be saved and deleted
     public abstract class ItemBasePage : ContentPage
     {
         protected InventoryViewModel inventoryViewModel;

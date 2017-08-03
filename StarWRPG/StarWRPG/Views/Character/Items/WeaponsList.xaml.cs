@@ -10,7 +10,9 @@ using Xamarin.Forms.Xaml;
 
 namespace StarWRPG.Views
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
+    // Intent
+    //      Displays a list of weapons
+    [XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class WeaponsList : ContentView
 	{
         InventoryViewModel inventoryViewModel;

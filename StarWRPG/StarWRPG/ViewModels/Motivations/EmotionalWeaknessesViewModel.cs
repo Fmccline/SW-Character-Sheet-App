@@ -16,7 +16,7 @@ namespace StarWRPG.ViewModels
 
         public override string NameOnView
         {
-            get { return Name; }
+            get { return $"{Name}:"; }
         }
     }
 }

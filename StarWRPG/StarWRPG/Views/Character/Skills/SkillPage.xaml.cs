@@ -11,6 +11,8 @@ using Xamarin.Forms.Xaml;
 
 namespace StarWRPG.Views
 {
+    // Intent
+    //      Page for displaying and editing a specific skill
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SkillPage : ContentPage
     {

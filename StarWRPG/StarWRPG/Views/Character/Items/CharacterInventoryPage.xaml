@@ -11,17 +11,21 @@
             <Button x:Name="WeaponsButton" 
                     Text="Weapons" 
                     Clicked="WeaponsClicked"
-                    HorizontalOptions="FillAndExpand"/>
+                    HorizontalOptions="FillAndExpand"
+                    Style="{StaticResource DefaultButton}"/>
             <Button x:Name="ArmorButton" 
                     Text="Armor"
                     Clicked="ArmorClicked"
-                    HorizontalOptions="FillAndExpand"/>
+                    HorizontalOptions="FillAndExpand"
+                    Style="{StaticResource DefaultButton}"/>
             <Button x:Name="ItemsButton" 
                     Text="Items" 
                     Clicked="ItemsClicked"
-                    HorizontalOptions="FillAndExpand"/>
+                    HorizontalOptions="FillAndExpand"
+                    Style="{StaticResource DefaultButton}"/>
             <Button Text="+" 
-                    Clicked="AddItemAsync"/>
+                    Clicked="AddItemAsync"
+                    Style="{StaticResource DefaultButton}"/>
         </StackLayout>
         <!--Layout where the items ListView is added-->
         <StackLayout x:Name="ItemsLayout" VerticalOptions="FillAndExpand"/>

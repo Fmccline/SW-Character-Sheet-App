@@ -9,6 +9,8 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Controls
 {
+    // Intent
+    //      Button for the user to save their character to the database
     class SaveCharacterToolbarItem : ToolbarItem
     {
         FFGCharacterViewModel ffgCharacterViewModel;
@@ -39,7 +41,7 @@ namespace StarWRPG.Controls
                 }
                 catch (Exception ex)
                 {
-                    await currentPage.DisplayAlert("Oops, an Error", ex.Message, "Ok");
+                    await currentPage.DisplayAlert("Error: Droids Not Found", ex.Message, "Ok");
                 }
             }
         }

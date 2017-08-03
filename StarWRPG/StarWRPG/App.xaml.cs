@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using StarWRPG.ViewModels;
 using System.Diagnostics;
 using Newtonsoft.Json;
+using System;
 
 namespace StarWRPG
 {
@@ -25,20 +26,55 @@ namespace StarWRPG
 
         public App()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+                GetUserSettings();
+                var navPage = new NavigationPage(new MainPage());
+                navPage.SetDynamicResource(NavigationPage.BarBackgroundColorProperty, "TitleBackgroundColor");
+                navPage.SetDynamicResource(NavigationPage.BarTextColorProperty, "TitleTextColor");
+
+                MainPage = navPage;
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.StackTrace);
+                Debug.WriteLine(e.Source);
+                Debug.WriteLine(e.Message);
+            }
 
             //CharacterDatabase.DeleteAllItems();
+        }
 
-            MainPage = new NavigationPage(new MainPage())
-            {
-                BarBackgroundColor = Color.Black,
-                BarTextColor = Color.Yellow,
-            };
+        public static void GetUserSettings()
+        {
+            GetUserSettingFonts();
+            GetUserSettingColors();
+        }
+
+        public static void GetUserSettingColors()
+        {
+            Current.Resources["BackgroundColor"] = UserSettings.BackgroundColor;
+            Current.Resources["TextColor"] = UserSettings.TextColor;
+            Current.Resources["ButtonColor"] = UserSettings.ButtonColor;
+            Current.Resources["ButtonTextColor"] = UserSettings.ButtonTextColor;
+            Current.Resources["TitleTextColor"] = UserSettings.TitleTextColor;
+            Current.Resources["TitleBackgroundColor"] = UserSettings.TitleBackgroundColor;
+        }
+
+        public static void GetUserSettingFonts()
+        {
+            Current.Resources["RegularFontName"] = FontNames.FilePathToFont(UserSettings.FontName);
+            Current.Resources["BoldFontName"] = FontNames.FilePathToFont(UserSettings.FontName, true);
+
+            Current.Resources["DefaultFontSize"] = UserSettings.RegularFontSize;
+            Current.Resources["MediumFontSize"] = UserSettings.MediumFontSize;
+            Current.Resources["LargeFontSize"] = UserSettings.LargeFontSize;
         }
 
         protected override void OnStart()
         {
-            // Handle when your app starts
+
         }
 
         protected override void OnSleep()

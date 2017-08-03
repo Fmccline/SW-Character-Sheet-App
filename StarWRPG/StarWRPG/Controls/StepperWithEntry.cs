@@ -8,6 +8,8 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Views
 {
+    // Intent
+    //     Fullfills the purpose of a stepper while also having an entry between the increment/decrement buttons
     public class StepperWithEntry : StackLayout
     {
         public static readonly BindableProperty MaximumProperty = BindableProperty.Create(nameof(Maximum), typeof(uint), typeof(StepperWithEntry), 0u);
@@ -53,6 +55,7 @@ namespace StarWRPG.Views
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Keyboard = Keyboard.Numeric,
                 Text = 1.ToString(),
+                Style = (Style)Application.Current.Resources["DefaultEntry"],
             };
         }
 
@@ -62,6 +65,7 @@ namespace StarWRPG.Views
             {
                 Text = text,
                 WidthRequest = 50,
+                Style = (Style)Application.Current.Resources["DefaultButton"],
             };
             button.Clicked += clicked;
             return button;

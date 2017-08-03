@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StarWRPG.Views.PageSelectionLayout"
+             BackgroundColor="{DynamicResource TitleBackgroundColor}">
+
+    <StackLayout Orientation="Horizontal">
+        <Button Text="&lt;--"
+                Clicked="PreviousPageAsync"
+                HorizontalOptions="StartAndExpand"
+                Style="{StaticResource DefaultButton}"/>
+        <Button Text="Select"
+                Clicked="SelectPageAsync"
+                HorizontalOptions="CenterAndExpand"
+                Style="{StaticResource DefaultButton}"/>
+        <Button Text="-->"
+                Clicked="NextPageAsync"
+                HorizontalOptions="EndAndExpand"
+                Style="{StaticResource DefaultButton}"/>
+    </StackLayout>
+
+</ContentView>

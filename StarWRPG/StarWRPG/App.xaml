@@ -1,48 +1,104 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             xmlns:local="clr-namespace:StarWRPG" 
+             xmlns:local="clr-namespace:StarWRPG"
              x:Class="StarWRPG.App">
-	<Application.Resources>
-		<!-- Application resource dictionary -->
+    <Application.Resources>
+        <!-- Application resource dictionary -->
         <ResourceDictionary>
-            <Style x:Key="CenterBoldLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="FontAttributes" Value="Bold" />
+            <!--Colors are set to default in the App constructor-->
+            <Color x:Key="BackgroundColor"/>
+            <Color x:Key="TextColor"/>
+            <Color x:Key="ButtonColor"/>
+            <Color x:Key="ButtonTextColor"/>
+            <Color x:Key="TitleTextColor"/>
+            <Color x:Key="TitleBackgroundColor"/>
+            <!--Font Sizes are set in App constructor-->
+            <x:Double x:Key="DefaultFontSize"/>
+            <x:Double x:Key="MediumFontSize"/>
+            <x:Double x:Key="LargeFontSize"/>
+            <!--FontNames are set in App constructor-->
+            <x:String x:Key="RegularFontName"/>
+            <x:String x:Key="BoldFontName"/>
+            <!--Button-->
+            <Style x:Key="DefaultButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource ButtonColor}"/>
+                <Setter Property="TextColor" Value="{DynamicResource ButtonTextColor}"/>
+                <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
+                <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
             </Style>
-            <Style x:Key="CenterLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
+            <!--Editor-->
+            <Style x:Key="DefaultEditor" TargetType="Editor">
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
+                <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
             </Style>
-            <Style x:Key="CenterTopLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Start" />
+            <!--Entries-->
+            <Style x:Key="DefaultEntry" TargetType="Entry">
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="PlaceholderColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
+                <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
             </Style>
-            <Style x:Key="CenterBottomBoldLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="End" />
-                <Setter Property="FontAttributes" Value="Bold"/>
-            </Style>
-            <Style x:Key="StartLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Start" />
-                <Setter Property="VerticalOptions" Value="Center" />
-            </Style>
-            <Style x:Key="StartBoldLabel" TargetType="Label">
-                <Setter Property="HorizontalOptions" Value="Start" />
-                <Setter Property="VerticalOptions" Value="Center" />
-                <Setter Property="FontAttributes" Value="Bold" />
-            </Style>
-            <Style x:Key="CenterNumericEntry" TargetType="Entry">
-                <Setter Property="HorizontalOptions" Value="Center" />
-                <Setter Property="VerticalOptions" Value="Center" />
+            <Style x:Key="DefaultNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultEntry}">
                 <Setter Property="Keyboard" Value="Numeric" />
             </Style>
-            <Style x:Key="FillAndExpandNumericEntry" TargetType="Entry">
+            <Style x:Key="CenterFillEntry" TargetType="Entry" BasedOn="{StaticResource DefaultEntry}">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="CenterFillNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultNumericEntry}">
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="CenterNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultNumericEntry}">
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="FillAndExpandNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultNumericEntry}">
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="VerticalOptions" Value="FillAndExpand" />
-                <Setter Property="Keyboard" Value="Numeric" />
+            </Style>
+            <!--Labels-->
+            <Style x:Key="DefaultLabel" TargetType="Label">
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
+                <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
+            </Style>
+            <Style x:Key="DefaultBoldLabel" TargetType="Label" BasedOn="{StaticResource DefaultLabel}">
+                <Setter Property="FontFamily" Value="{DynamicResource BoldFontName}" />
+            </Style>
+            <Style x:Key="CenterLabel" TargetType="Label" BasedOn="{StaticResource DefaultLabel}">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="CenterBoldLabel" TargetType="Label" BasedOn="{StaticResource DefaultBoldLabel}">
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="CenterTopLabel" TargetType="Label" BasedOn="{StaticResource CenterLabel}">
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+            <Style x:Key="CenterBottomBoldLabel" TargetType="Label" BasedOn="{StaticResource CenterBoldLabel}">
+                <Setter Property="VerticalOptions" Value="End" />
+            </Style>
+            <Style x:Key="StartLabel" TargetType="Label" BasedOn="{StaticResource DefaultLabel}">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style x:Key="StartBoldLabel" TargetType="Label" BasedOn="{StaticResource DefaultBoldLabel}">
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <!--Page-->
+            <Style x:Key="PageStyle" TargetType="Page">
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}"/>
+            </Style>
+            <!--Search Bar-->
+            <Style x:Key="DefaultSearchBar" TargetType="SearchBar">
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}"/>
+                <Setter Property="PlaceholderColor" Value="{DynamicResource TextColor}"/>
+                <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
+                <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
             </Style>
         </ResourceDictionary>
-	</Application.Resources>
+    </Application.Resources>
 </Application>

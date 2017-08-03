@@ -9,14 +9,14 @@
                          IsVisible="False">
                 <Label Text="Character Motivations"
                        Style="{StaticResource CenterBoldLabel}"
-                       FontSize="Medium"/>
+                       FontSize="{DynamicResource MediumFontSize}"/>
             </StackLayout>
 
             <StackLayout x:Name="ObligationsLayout"
                          IsVisible="False">
                 <Label Text="Character Obligations"
                        Style="{StaticResource CenterBoldLabel}"
-                       FontSize="Medium"/>
+                       FontSize="{DynamicResource MediumFontSize}"/>
                 <Label Text="{Binding TotalObligationText}"
                        Style="{StaticResource CenterBoldLabel}"/>
             </StackLayout>
@@ -38,7 +38,7 @@
                     <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
                            Text="Character Duty"
                            Style="{StaticResource CenterBoldLabel}"
-                           FontSize="Medium"/>
+                           FontSize="{DynamicResource MediumFontSize}"/>
                     <Label Grid.Column="0" Grid.Row="1"
                            Text="Total Duty:"
                            Style="{StaticResource StartBoldLabel}"/>
@@ -71,7 +71,7 @@
                     <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
                            Text="Character Morality"
                            Style="{StaticResource CenterBoldLabel}"
-                           FontSize="Medium"/>
+                           FontSize="{DynamicResource MediumFontSize}"/>
                     <Label Grid.Column="0" Grid.Row="1"
                            Text="Morality:"
                            Style="{StaticResource StartBoldLabel}"/>

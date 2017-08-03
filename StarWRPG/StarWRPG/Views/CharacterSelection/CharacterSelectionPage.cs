@@ -1,6 +1,7 @@
 ﻿using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -8,9 +9,8 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Views
 {
-    /* Intent
-     *      For selecting a character from a list of characters to view/edit
-     */
+    // Intent
+    //      For selecting a character from a list of characters to view/edit
     public class CharacterSelectionPage : CharacterSelectionPageBase
     {
         public CharacterSelectionPage()
@@ -23,9 +23,18 @@ namespace StarWRPG.Views
             // Select Character
             if (e.SelectedItem is FFGCharacterViewModel character)
             {
-                var characterDetailNavigation = new CharacterDetailNavigation(character);
-                await Navigation.PushAsync(characterDetailNavigation.DefaultPage);
-                characterSelectionLayout.CharactersListView.SelectedItem = null;
+                try
+                {
+                    var characterDetailNavigation = new CharacterDetailNavigation(character);
+                    await Navigation.PushAsync(characterDetailNavigation.DefaultPage);
+                    characterSelectionLayout.CharactersListView.SelectedItem = null;
+                }
+                catch(Exception ex)
+                {
+                    Debug.WriteLine(ex.StackTrace);
+                    Debug.WriteLine(ex.Source);
+                    Debug.WriteLine(ex.Message);
+                }
             }
         }
     }

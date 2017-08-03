@@ -8,6 +8,8 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Views
 {
+    // Intent
+    //      Layout for creating Motivations, Obligations, Duty, and Emotional Strengths/Weaknesses
     public class MotivationCreationLayout : MotivationLayout
     {
         public MotivationCreationLayout(CharacterMotivationViewModel motivation) : base(motivation) { }
@@ -17,6 +19,7 @@ namespace StarWRPG.Views
             Editor motivationDescription = new Editor
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
+                TextColor = (Color)Application.Current.Resources["TextColor"],
             };
             motivationDescription.SetBinding(Editor.TextProperty, "Description");
             return motivationDescription;
@@ -27,6 +30,7 @@ namespace StarWRPG.Views
             Entry motivationType = new Entry
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
+                Style = (Style)Application.Current.Resources["DefaultEntry"],
             };
             motivationType.SetBinding(Entry.TextProperty, "Type");
             return motivationType;
@@ -38,6 +42,7 @@ namespace StarWRPG.Views
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Keyboard = Keyboard.Numeric,
+                Style = (Style)Application.Current.Resources["DefaultEntry"],
             };
             valueView.SetBinding(Entry.TextProperty, "Value");
             return valueView;

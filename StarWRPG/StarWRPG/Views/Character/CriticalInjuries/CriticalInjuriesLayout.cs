@@ -74,7 +74,7 @@ namespace StarWRPG.Views
             Label noCrit = new Label
             {
                 Text = "None",
-                HorizontalOptions = LayoutOptions.Center,
+                Style = (Style)Application.Current.Resources["CenterLabel"]
             };
 
             Children.Add(noCrit, 0, 1);

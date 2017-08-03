@@ -10,6 +10,8 @@ using Xamarin.Forms.Xaml;
 
 namespace StarWRPG.Views
 {
+    // Intent
+    //      Page for creating and editing weapon items
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class WeaponPage : ItemBasePage
     {

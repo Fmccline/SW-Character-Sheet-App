@@ -9,6 +9,8 @@ using Xamarin.Forms;
 
 namespace StarWRPG.Views
 {
+    // Intent
+    //      Base page for interacting with character motivations
     public abstract class MotivationPageBase : BasePage
     {
         protected CharacterMotivationsViewModel characterMotivationsViewModel;
@@ -23,8 +25,9 @@ namespace StarWRPG.Views
         {
             Title = "Motivations";
             characterMotivationsViewModel = character.CharacterMotivationsViewModel;
-
             BindingContext = character;
+
+            Style = (Style)Application.Current.Resources["PageStyle"];
         }
 
         protected void AddMotivationToAppropriateLayout(CharacterMotivationViewModel motivation)

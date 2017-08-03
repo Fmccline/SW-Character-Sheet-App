@@ -3,40 +3,69 @@
                      xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                      xmlns:local="clr-namespace:StarWRPG.Views" 
                      x:Class="StarWRPG.Views.WeaponPage"
+                    Style="{StaticResource PageStyle}"
                     Title="Weapon">
-    <ContentPage.Content>
-        <StackLayout>
-            <TableView Intent="Form">
-                <TableRoot>
-                    <TableSection>
-                        <EntryCell Label="Name"
-                                   Text="{Binding Name}"/>
-                        <EntryCell Label="Description"
-                                   Text="{Binding Description}"/>
-                        <EntryCell Label="Damage"
-                                   Keyboard="Numeric"
-                                   Text="{Binding Damage}"/>
-                        <EntryCell Label="Skill"
-                                   Text="{Binding Skill}"/>
-                        <EntryCell Label="Range"
-                                   Text="{Binding Range}"/>
-                        <EntryCell Label="Crit"
-                                   Keyboard="Numeric"
-                                   Text="{Binding Crit}"/>
-                        <EntryCell Label="Special"
-                                   Text="{Binding Special}"/>
-                        <EntryCell Label="Encumbrance"
-                                   Text="{Binding Encumbrance}"
-                                   Keyboard="Numeric"/>
-                        <EntryCell Label="Hard Points"
-                                   Text="{Binding HardPoints}"
-                                   Keyboard="Numeric"/>
-                        <EntryCell Label="Quantity"
-                                   Text="{Binding Quantity}"
-                                   Keyboard="Numeric"/>
-                    </TableSection>
-                </TableRoot>
-            </TableView>
-        </StackLayout>
-    </ContentPage.Content>
+
+    <ScrollView Padding="10,0,10,0">
+        <Grid ColumnSpacing="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0"
+                   Text="Name" Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="0" Grid.Row="1"
+                   Text="Description" Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="0" Grid.Row="2"
+                   Text="Damage" Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="0" Grid.Row="3"
+                   Text="Skill" Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="0" Grid.Row="4"
+                   Text="Range" Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="0" Grid.Row="5"
+                   Text="Crit" Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="0" Grid.Row="6"
+                   Text="Special" Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="0" Grid.Row="7"
+                   Text="Encumbrance" Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="0" Grid.Row="8"
+                   Text="Hard Points" Style="{StaticResource StartLabel}"/>
+            <Label Grid.Column="0" Grid.Row="9"
+                   Text="Quantity" Style="{StaticResource StartLabel}"/>
+
+            <Entry Grid.Column="1" Grid.Row="0"
+                   Text="{Binding Name}" Style="{StaticResource CenterFillEntry}"/>
+            <Entry Grid.Column="1" Grid.Row="1"
+                   Text="{Binding Description}" Style="{StaticResource CenterFillEntry}"/>
+            <Entry Grid.Column="1" Grid.Row="2"
+                   Text="{Binding Damage}" Style="{StaticResource CenterFillNumericEntry}"/>
+            <Entry Grid.Column="1" Grid.Row="3"
+                   Text="{Binding Skill}" Style="{StaticResource CenterFillEntry}"/>
+            <Entry Grid.Column="1" Grid.Row="4"
+                   Text="{Binding Range}" Style="{StaticResource CenterFillEntry}"/>
+            <Entry Grid.Column="1" Grid.Row="5"
+                   Text="{Binding Crit}" Style="{StaticResource CenterFillNumericEntry}"/>
+            <Entry Grid.Column="1" Grid.Row="6"
+                   Text="{Binding Special}" Style="{StaticResource CenterFillEntry}"/>
+            <Entry Grid.Column="1" Grid.Row="7"
+                   Text="{Binding Encumbrance}" Style="{StaticResource CenterFillNumericEntry}"/>
+            <Entry Grid.Column="1" Grid.Row="8"
+                   Text="{Binding HardPoints}" Style="{StaticResource CenterFillNumericEntry}"/>
+            <Entry Grid.Column="1" Grid.Row="9"
+                   Text="{Binding Quantity}" Style="{StaticResource CenterFillNumericEntry}"/>
+        </Grid>
+    </ScrollView>
 </local:ItemBasePage>

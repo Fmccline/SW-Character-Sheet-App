@@ -11,6 +11,8 @@ using Xamarin.Forms.Xaml;
 
 namespace StarWRPG.Views
 {
+    // Intent
+    //      Page for creating motivations
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MotivationsCreationPage : MotivationPageBase
     {
