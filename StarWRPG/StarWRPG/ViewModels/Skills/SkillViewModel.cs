@@ -43,7 +43,6 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
-        public bool NotEnoughXP { get; set; }
         public bool UseXP
         {
             get { return useXP; }
@@ -108,35 +107,16 @@ namespace StarWRPG.ViewModels
             get { return Skill.Rank; }
             set
             {
-                if (UseXP)
-                {
-                    if (value > Skill.Rank && CanRankUp(value))
-                    {
-                        SpendXPToRankUp(value);
-                        SetRank(value);
-                    }
-                    else if (value < Skill.Rank)
-                    {
-                        GainXPToRankDown(value);
-                        SetRank(value);
-                    }
-                    else
-                    {
-                        NotEnoughXP = true;
-                        OnPropertyChanged();
-                    }
-                }
-                else
-                {
-                    SetRank(value);
-                }
+                Skill.Rank = value;
+                CalculateDicePool();
+                OnPropertyChanged();
             }
         }
         public uint MaxRank
         {
             get { return Skill.MaxRank; }
         }
-        
+
         public SkillViewModel(Skill skill, Characteristics characteristics, Experience xp)
         {
             Skill = skill;
@@ -179,11 +159,6 @@ namespace StarWRPG.ViewModels
             }
         }
 
-        public bool CanRankUp(uint newRank)
-        {
-            return (XPToRank(newRank) <= AvailableXP);
-        }
-
         public void ChangeCharacteristic(string characteristicType)
         {
             const string AGILITY = "Agility";
@@ -216,26 +191,24 @@ namespace StarWRPG.ViewModels
             }
         }
 
-        public void GainXPToRankDown(uint newRank)
+        public void RankUpWithXP()
         {
-            AvailableXP += XPToRank(newRank + 1);
+            AvailableXP -= XPToRank(++Rank);
         }
 
-        public void SpendXPToRankUp(uint newRank)
+        public void RankDownWithXP()
         {
-            AvailableXP -= XPToRank(newRank);
+            AvailableXP += XPToRank(Rank--);
         }
 
+        public bool CanRankUp()
+        {
+            return ((XPToRank(Rank + 1) <= AvailableXP) && (Rank + 1 <= MaxRank));
+        }
+        
         public uint XPToRank(uint rank)
         {
             return (IsCareer) ? 5 * rank : (5 * rank) + 5;
-        }
-
-        public void SetRank(uint rank)
-        {
-            Skill.Rank = rank;
-            CalculateDicePool();
-            OnPropertyChanged("Rank");
         }
     }
 }

@@ -14,8 +14,8 @@ namespace StarWRPG.Views
 
         public static readonly BindableProperty MaximumProperty = BindableProperty.Create(nameof(Maximum), typeof(uint), typeof(CustomStepper), UInt32.MaxValue);
         public static readonly BindableProperty MinimumProperty = BindableProperty.Create(nameof(Minimum), typeof(uint), typeof(CustomStepper), 0u);
-        public static readonly BindableProperty ValueProperty = BindableProperty.Create(nameof(Value), typeof(uint), typeof(CustomStepper), 0u, BindingMode.TwoWay);
         public static readonly BindableProperty IncrementValueProperty = BindableProperty.Create(nameof(IncrementValue), typeof(uint), typeof(CustomStepper), 1u);
+        public static readonly BindableProperty ValueProperty = BindableProperty.Create(nameof(Value), typeof(uint), typeof(CustomStepper), 0u, BindingMode.TwoWay);
 
         public uint Maximum
         {
@@ -32,6 +32,10 @@ namespace StarWRPG.Views
             get { return (uint)GetValue(ValueProperty); }
             set
             {
+                if (value < Maximum)
+                    incrementButton.IsEnabled = true;
+                if (value > Minimum)
+                    decrementButton.IsEnabled = true;
                 SetValue(ValueProperty, value);
             }
         }
@@ -61,28 +65,26 @@ namespace StarWRPG.Views
         {
             if (Maximum - Value <= IncrementValue)
             {
-                Value = Maximum;
                 incrementButton.IsEnabled = false;
+                Value = Maximum;
             }
             else
             {
                 Value += IncrementValue;
             }
-            decrementButton.IsEnabled = true;
         }
 
         private void DecrementClicked(object sender, EventArgs e)
         {
             if (Convert.ToInt32(Value) - Convert.ToInt32(IncrementValue) <= Minimum)
             {
-                Value = Minimum;
                 decrementButton.IsEnabled = false;
+                Value = Minimum;
             }
             else
             {
                 Value -= IncrementValue;
             }
-            incrementButton.IsEnabled = true;
         }
 
         private Button MakeStepperButton(string text, EventHandler clicked)

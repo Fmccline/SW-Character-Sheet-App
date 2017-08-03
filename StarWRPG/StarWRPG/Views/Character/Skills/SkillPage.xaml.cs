@@ -43,20 +43,6 @@ namespace StarWRPG.Views
             await Navigation.PopAsync();
         }
 
-        private async void RankChangedAsync(object sender, ValueChangedEventArgs e)
-        {
-            uint oldRank = Convert.ToUInt32(e.OldValue);
-            uint newRank = Convert.ToUInt32(e.NewValue);
-
-            if (skillViewModel.NotEnoughXP && newRank > oldRank)
-            {
-                string message = String.Format("You need {0} XP to go from Rank {1} to Rank {2}.",
-                                                        skillViewModel.XPToRank(newRank), oldRank, newRank);
-                await DisplayAlert("Not enough XP", message, "Ok");
-                skillViewModel.NotEnoughXP = false;
-            }
-        }
-
         private async void ChangeCharacteristicClickedAsync(object sender, EventArgs e)
         {
             const string AGILITY = "Agility";
@@ -68,6 +54,44 @@ namespace StarWRPG.Views
             string characteristicType = await DisplayActionSheet("Characteristic", "Cancel", null, AGILITY, BRAWN, CUNNING, INTELLECT, PRESENCE, WILLPOWER);
             if (characteristicType != null && !characteristicType.Equals("Cancel"))
                 skillViewModel.ChangeCharacteristic(characteristicType);
+        }
+
+        private void DecrementClicked(object sender, EventArgs e)
+        {
+            if (skillViewModel.UseXP)
+            {
+                skillViewModel.RankDownWithXP();
+            }
+            else
+            {
+                skillViewModel.Rank--;
+            }
+            IncrementButton.IsEnabled = true;
+            DecrementButton.IsEnabled = (skillViewModel.Rank != 0);
+        }
+
+        private async void IncrementClicked(object sender, EventArgs e)
+        {
+            if (skillViewModel.UseXP)
+            {
+                if (skillViewModel.CanRankUp())
+                {
+                    skillViewModel.RankUpWithXP();
+                }
+                else
+                {
+                    uint rank = skillViewModel.Rank;
+                    string message = String.Format("You need {0} XP to go from Rank {1} to Rank {2}. \nHowever, you only have {3} XP.",
+                                                    skillViewModel.XPToRank(rank + 1), rank, rank + 1, skillViewModel.AvailableXP);
+                    await DisplayAlert("Not enough XP", message, "Ok");
+                }
+            }
+            else
+            {
+                skillViewModel.Rank++;
+            }
+            IncrementButton.IsEnabled = (skillViewModel.Rank != skillViewModel.MaxRank);
+            DecrementButton.IsEnabled = true;
         }
     }
 }

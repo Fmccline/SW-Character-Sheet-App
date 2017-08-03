@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:StarWRPG.Views"
              x:Class="StarWRPG.Views.SkillPage"
              Style="{StaticResource PageStyle}"
              Title="{Binding SkillName}">
@@ -14,12 +15,14 @@
         <StackLayout Orientation="Horizontal">
             <Label Text="Rank: " Style="{StaticResource StartBoldLabel}"/>
             <Label Text="{Binding Rank}" Style="{StaticResource StartLabel}"/>
-            <Stepper Increment="1"
-                     Maximum="{Binding MaxRank}"
-                     Minimum="0"
-                     Value="{Binding Rank}"
-                     ValueChanged="RankChangedAsync"
-                     VerticalOptions="Center"/>
+            <Button x:Name="DecrementButton"
+                    Text="-"
+                    Clicked="DecrementClicked"
+                    Style="{StaticResource DefaultButton}"/>
+            <Button x:Name="IncrementButton"
+                    Text="+"
+                    Clicked="IncrementClicked"
+                    Style="{StaticResource DefaultButton}"/>
             <StackLayout>
                 <Label Text="Use XP" Style="{StaticResource CenterLabel}"/>
                 <Switch IsToggled="{Binding UseXP}"
