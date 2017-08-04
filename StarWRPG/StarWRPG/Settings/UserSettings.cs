@@ -28,6 +28,15 @@ namespace StarWRPG
         public static readonly double DefaultMediumFontSize = 20d;
         public static readonly double DefaultLargeFontSize = 25d;
 
+        public static bool UseXPForSkills
+        {
+            get { return AppSettings.GetValueOrDefault(nameof(UseXPForSkills), false); }
+            set
+            {
+                AppSettings.AddOrUpdateValue(nameof(UseXPForSkills), value);
+            }
+        }
+
         public static Color BackgroundColor
         {
             get

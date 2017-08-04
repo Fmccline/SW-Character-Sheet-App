@@ -10,7 +10,6 @@ namespace StarWRPG.ViewModels
 {
     public class SkillViewModel : ViewModelBase
     {
-        bool useXP;
         bool[] hasDice;
         Characteristics characteristics;
         Experience xp;
@@ -45,10 +44,10 @@ namespace StarWRPG.ViewModels
         }
         public bool UseXP
         {
-            get { return useXP; }
+            get { return UserSettings.UseXPForSkills; }
             set
             {
-                useXP = value;
+                UserSettings.UseXPForSkills = value;
                 OnPropertyChanged();
             }
         }
