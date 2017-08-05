@@ -12,7 +12,7 @@ namespace StarWRPG.Views
     //     Fullfills the purpose of a stepper while also having an entry between the increment/decrement buttons
     public class StepperWithEntry : StackLayout
     {
-        public static readonly BindableProperty MaximumProperty = BindableProperty.Create(nameof(Maximum), typeof(uint), typeof(StepperWithEntry), 0u);
+        public static readonly BindableProperty MaximumProperty = BindableProperty.Create(nameof(Maximum), typeof(uint), typeof(StepperWithEntry), UInt32.MaxValue);
         public static readonly BindableProperty MinimumProperty = BindableProperty.Create(nameof(Minimum), typeof(uint), typeof(StepperWithEntry), 0u);
         public static readonly BindableProperty ValueProperty = BindableProperty.Create(nameof(Value), typeof(uint), typeof(StepperWithEntry), 1u, BindingMode.TwoWay);
 
@@ -93,7 +93,7 @@ namespace StarWRPG.Views
         {
             if (UInt32.TryParse(incrementValueEntry.Text, out uint increment))
             {
-                if (Maximum == 0 || Value + increment < Maximum)
+                if (Maximum - increment >= Value)
                 {
                     Value += increment;
                 }
