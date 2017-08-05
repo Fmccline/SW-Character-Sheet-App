@@ -21,8 +21,8 @@ namespace StarWRPG.Views
                 new StatsCreationPage(ffgCharacterViewModel),
                 new CharacterSkillsPage(ffgCharacterViewModel),
                 new CharacterTalentsPage(ffgCharacterViewModel),
-                new CharacterInventoryPage(ffgCharacterViewModel),
                 new MotivationsCreationPage(ffgCharacterViewModel),
+                new CharacterInventoryPage(ffgCharacterViewModel),
             };
         }
 

@@ -83,7 +83,7 @@
     <Compile Include="Models\CharacterMembers\Skills\ComputersSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\CoercionSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\CharmSkill.cs" />
-    <Compile Include="Settings\UserSettings.cs" />
+    <Compile Include="Helpers\UserSettings.cs" />
     <Compile Include="ViewModels\Settings\ButtonTextColorViewModel.cs" />
     <Compile Include="ViewModels\Settings\ButtonColorViewModel.cs" />
     <Compile Include="ViewModels\Settings\TitleTextColorViewModel.cs" />
@@ -198,7 +198,7 @@
       <DependentUpon>MotivationsDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\Motivations\MotivationPageBase.cs" />
-    <Compile Include="Settings\FontNames.cs" />
+    <Compile Include="Helpers\FontNames.cs" />
     <Compile Include="Views\Settings\ColorPage.xaml.cs">
       <DependentUpon>ColorPage.xaml</DependentUpon>
     </Compile>
