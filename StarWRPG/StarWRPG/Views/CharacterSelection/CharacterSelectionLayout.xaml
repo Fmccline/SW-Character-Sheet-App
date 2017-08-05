@@ -20,7 +20,7 @@
     </ContentView.Resources>
 
     <ContentView.Content>
-        <StackLayout>
+        <StackLayout x:Name="MainStackLayout">
             <!--Character Search Bar-->
             <local:CustomSearchBar x:Name="Search"
                                 HorizontalOptions="FillAndExpand"
@@ -28,14 +28,13 @@
                                 SearchCommand="{Binding SearchCommand}" 
                                 SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
                                 TextChangedCommand="{Binding DefaultSortCommand}"/>
+            <!--No Characters Label-->
+            <Label x:Name="noCharactersLabel"
+                   Text="I find your lack of characters disturbing."
+                   Style="{StaticResource StartLabel}"/>
             <!--Character List-->
-            <Label Text="You have no characters. We should fix that!"
-                   IsVisible="{Binding CharactersIsEmpty}"
-                   Style="{StaticResource DefaultLabel}"/>
-
             <ListView x:Name="charactersListView"
-                      ItemsSource="{Binding Characters}"
-                      IsVisible="{Binding CharactersIsNotEmpty}">
+                      ItemsSource="{Binding Characters}">
                 <ListView.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>

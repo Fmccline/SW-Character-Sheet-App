@@ -28,47 +28,17 @@ namespace StarWRPG.ViewModels
             }
         }
 
-        bool charactersIsEmpty;
-        bool charactersIsNotEmpty;
-
-        public bool CharactersIsEmpty
-        {
-            get { return (charactersIsEmpty); }
-            set
-            {
-                charactersIsEmpty = value;
-                OnPropertyChanged();
-            }
-        }
-        public bool CharactersIsNotEmpty
-        {
-            get { return (charactersIsNotEmpty); }
-            set
-            {
-                charactersIsNotEmpty = value;
-                OnPropertyChanged();
-            }
-        }
-
         public CharacterListViewModel()
         {
-            SetCharactersIsEmpty(true);
+            var task = Task.Run(async () =>
+            {
+                Characters = await GetCharactersAsync();
+            });
         }
 
         public async Task<List<FFGCharacterViewModel>> GetCharactersAsync()
         {
-            Characters = await App.CharacterDatabase.GetCharacterViewModelsAsync();
-
-            bool isEmpty = (Characters.Count == 0) ? true : false;
-            SetCharactersIsEmpty(isEmpty);
-
-            return Characters;
-        }
-
-        private void SetCharactersIsEmpty(bool value)
-        {
-            CharactersIsEmpty = value;
-            CharactersIsNotEmpty = !value;
+            return await App.CharacterDatabase.GetCharacterViewModelsAsync();
         }
 
         public void DefaultSort()
