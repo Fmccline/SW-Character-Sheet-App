@@ -52,10 +52,10 @@
                 <Grid HorizontalOptions="FillAndExpand" Padding="0,20,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
@@ -65,39 +65,39 @@
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3"
+                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
                            Text="Character Description" 
                            Style="{StaticResource StartBoldLabel}"
                            FontSize="{DynamicResource MediumFontSize}"/>
 
                     <Label Grid.Column="0" Grid.Row="1"
                            Text="Gender" Style="{StaticResource StartLabel}"/>
-                    <Label Grid.Column="1" Grid.Row="1"
-                           Text="Age" Style="{StaticResource StartLabel}"/>
-                    <Label Grid.Column="2" Grid.Row="1"
-                           Text="Height" Style="{StaticResource StartLabel}"/>
-                    <Label Grid.Column="0" Grid.Row="3"
-                           Text="Build" Style="{StaticResource StartLabel}"/>
-                    <Label Grid.Column="1" Grid.Row="3"
-                           Text="Hair" Style="{StaticResource StartLabel}"/>
-                    <Label Grid.Column="2" Grid.Row="3"
-                           Text="Eyes" Style="{StaticResource StartLabel}"/>
-                    <Label Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="3"
-                           Text="Notable Features" Style="{StaticResource StartLabel}"/>
-
                     <Label Grid.Column="0" Grid.Row="2"
+                           Text="Age" Style="{StaticResource StartLabel}"/>
+                    <Label Grid.Column="0" Grid.Row="3"
+                           Text="Height" Style="{StaticResource StartLabel}"/>
+                    <Label Grid.Column="0" Grid.Row="4"
+                           Text="Build" Style="{StaticResource StartLabel}"/>
+                    <Label Grid.Column="0" Grid.Row="5"
+                           Text="Hair" Style="{StaticResource StartLabel}"/>
+                    <Label Grid.Column="0" Grid.Row="6"
+                           Text="Eyes" Style="{StaticResource StartLabel}"/>
+                    <Label Grid.Column="0" Grid.Row="7"
+                           Text="Features" Style="{StaticResource StartLabel}"/>
+
+                    <Label Grid.Column="1" Grid.Row="1"
                            Text="{Binding Gender}" Style="{StaticResource StartBoldLabel}"/>
                     <Label Grid.Column="1" Grid.Row="2"
                            Text="{Binding Age}" Style="{StaticResource StartBoldLabel}"/>
-                    <Label Grid.Column="2" Grid.Row="2"
+                    <Label Grid.Column="1" Grid.Row="3"
                            Text="{Binding Height}" Style="{StaticResource StartBoldLabel}"/>
-                    <Label Grid.Column="0" Grid.Row="4"
-                           Text="{Binding Build}" Style="{StaticResource StartBoldLabel}"/>
                     <Label Grid.Column="1" Grid.Row="4"
+                           Text="{Binding Build}" Style="{StaticResource StartBoldLabel}"/>
+                    <Label Grid.Column="1" Grid.Row="5"
                            Text="{Binding Hair}" Style="{StaticResource StartBoldLabel}"/>
-                    <Label Grid.Column="2" Grid.Row="4"
+                    <Label Grid.Column="1" Grid.Row="6"
                            Text="{Binding Eyes}" Style="{StaticResource StartBoldLabel}"/>
-                    <Label Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="3"
+                    <Label Grid.Column="1" Grid.Row="7"
                            Text="{Binding NotableFeatures}" 
                            Style="{StaticResource StartBoldLabel}"
                            VerticalOptions="Start"/>
