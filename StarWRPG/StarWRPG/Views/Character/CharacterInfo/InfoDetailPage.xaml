@@ -6,8 +6,8 @@
                 Title="Info">
 
     <StackLayout x:Name="MainStackLayout">
-        <ScrollView Padding="10,0,10,0">
-            <StackLayout x:Name="ScrollViewStackLayout">
+        <ScrollView>
+            <StackLayout x:Name="ScrollViewStackLayout" Padding="10,0,10,10">
                 <!--Name-->
                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                     <Label Text="Name:" Style="{StaticResource StartLabel}"/>
