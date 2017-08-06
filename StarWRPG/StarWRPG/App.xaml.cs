@@ -79,7 +79,7 @@ namespace StarWRPG
 
         protected override void OnSleep()
         {
-
+            MessagingCenter.Send(this, "OnAppSleep");
         }
 
         protected override void OnResume()

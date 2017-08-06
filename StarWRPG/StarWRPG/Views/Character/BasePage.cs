@@ -18,6 +18,12 @@ namespace StarWRPG.Views
             ffgCharacterViewModel = character;
             NavigationPage.SetHasBackButton(this, false);
             Style = (Style)Application.Current.Resources["PageStyle"];
+
+            // When the user exits the app, save the character
+            MessagingCenter.Subscribe<App>(this, "OnAppSleep", async (sender) =>
+              {
+                  await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
+              });
         }
 
         public void AddPageSelection(List<BasePage> pages)
