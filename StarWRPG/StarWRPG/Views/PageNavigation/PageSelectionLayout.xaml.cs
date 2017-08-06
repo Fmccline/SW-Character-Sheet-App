@@ -80,14 +80,18 @@ namespace StarWRPG.Views
 
         private async void NextPageAsync(object sender, EventArgs e)
         {
+            NextPageButton.IsEnabled = false;
             var nextPage = GetNextPage();
             await InsertPageBeforeAndPop(nextPage);
+            NextPageButton.IsEnabled = true;
         }
 
         private async void PreviousPageAsync(object sender, EventArgs e)
         {
+            PreviousPageButton.IsEnabled = false;
             var previousPage = GetPreviousPage();
             await InsertPageBeforeAndPop(previousPage);
+            PreviousPageButton.IsEnabled = true;
         }
 
         private async void SelectPageAsync(object sender, EventArgs e)
@@ -97,7 +101,9 @@ namespace StarWRPG.Views
             {
                 if (page.Title.Equals(pageSelected) && !page.Title.Equals(currentPage.Title))
                 {
+                    SelectPageButton.IsEnabled = false;
                     await InsertPageBeforeAndPop(page);
+                    SelectPageButton.IsEnabled = true;
                 }
             }
         }

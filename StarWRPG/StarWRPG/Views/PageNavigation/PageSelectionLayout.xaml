@@ -9,7 +9,8 @@
                 Clicked="PreviousPageAsync"
                 HorizontalOptions="FillAndExpand"
                 Style="{StaticResource DefaultButton}"/>
-        <Button Text="  Select  "
+        <Button x:Name="SelectPageButton"
+                Text="  Select  "
                 Clicked="SelectPageAsync"
                 HorizontalOptions="CenterAndExpand"
                 Style="{StaticResource DefaultButton}"/>
