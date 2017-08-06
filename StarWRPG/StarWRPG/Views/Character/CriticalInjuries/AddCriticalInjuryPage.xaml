@@ -16,34 +16,36 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Severity" Style="{StaticResource CenterBoldLabel}" />
+            <Label Text="Severity" 
+                   Style="{StaticResource CenterBoldLabel}" />
             <Entry x:Name="SeverityEntry"
                    Placeholder="Severity"
                    Style="{StaticResource DefaultEntry}"/>
-            <Label Text="Result" Style="{StaticResource CenterBoldLabel}" />
+            <Label Text="Result" 
+                   Style="{StaticResource CenterBoldLabel}" />
             <Entry x:Name="ResultEntry"
                    Placeholder="Result"
                    Style="{StaticResource DefaultEntry}"/>
 
+            <!--Injuries List Header-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0" Text="d100" Style="{StaticResource CenterBoldLabel}"/>
+                <Label Grid.Column="1" Text="Severity" Style="{StaticResource CenterBoldLabel}"/>
+                <Label Grid.Column="2" Text="Result" Style="{StaticResource CenterBoldLabel}"/>
+            </Grid>
+            <!--Injuries List-->
             <ListView x:Name="AllCriticalInjuriesListView"
                       ItemsSource="{Binding AllCriticalInjuries}"
                       ItemSelected="CriticalInjurySelected"
                       SeparatorVisibility="None"
                       HasUnevenRows="True"
                       BackgroundColor="{DynamicResource BackgroundColor}">
-                <ListView.Header>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="4*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Label Grid.Column="0" Text="d100" Style="{StaticResource CenterBoldLabel}"/>
-                        <Label Grid.Column="1" Text="Severity" Style="{StaticResource CenterBoldLabel}"/>
-                        <Label Grid.Column="2" Text="Result" Style="{StaticResource CenterBoldLabel}"/>
-                    </Grid>
-                </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -62,11 +64,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
-            <Button Text="Accept"
-                    Clicked="AcceptClickedAsync"
-                    HorizontalOptions="Center"
-                    Style="{StaticResource DefaultButton}"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

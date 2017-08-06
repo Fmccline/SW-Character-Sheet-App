@@ -20,9 +20,17 @@ namespace StarWRPG.Views
             InitializeComponent();
             criticalInjuriesViewModel = injuries;
             BindingContext = criticalInjuriesViewModel;
+            AddSaveToolbarItem();
         }
 
-        private async void AcceptClickedAsync(object sender, EventArgs e)
+        private void AddSaveToolbarItem()
+        {
+            var save = new ToolbarItem { Text = "Save" };
+            save.Clicked += SaveClickedAsync;
+            ToolbarItems.Add(save);
+        }
+
+        private async void SaveClickedAsync(object sender, EventArgs e)
         {
             if (ResultEntry.Text.Equals("") || SeverityEntry.Text.Equals(""))
             {
