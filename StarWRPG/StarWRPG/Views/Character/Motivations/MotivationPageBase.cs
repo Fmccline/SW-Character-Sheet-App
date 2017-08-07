@@ -1,6 +1,7 @@
 ﻿using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -28,9 +29,60 @@ namespace StarWRPG.Views
             BindingContext = character;
 
             Style = (Style)Application.Current.Resources["PageStyle"];
+
+            characterMotivationsViewModel.CharacterMotivationViewModels.CollectionChanged += MotivationsCollectionChanged;
+        }
+
+        private void MotivationsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (var newItem in e.NewItems)
+                {
+                    if (newItem is CharacterMotivationViewModel motivation)
+                    {
+                        AddMotivationToAppropriateLayout(motivation);
+                    }
+                }
+            }
+            if (e.OldItems != null)
+            {
+                foreach (var oldItem in e.OldItems)
+                {
+                    if (oldItem is CharacterMotivationViewModel motivation)
+                    {
+                        RemoveMotivationFromAppropriateLayout(motivation);
+                    }
+                }
+            }
         }
 
         protected void AddMotivationToAppropriateLayout(CharacterMotivationViewModel motivation)
+        {
+            var layout = GetMotivationLayout(motivation);
+            var motivationLayout = MakeMotivationLayout(motivation);
+
+            layout.Children.Add(motivationLayout);
+        }
+
+        protected void RemoveMotivationFromAppropriateLayout(CharacterMotivationViewModel motivation)
+        {
+            var layout = GetMotivationLayout(motivation);
+            foreach (var view in layout.Children)
+            {
+                if (view is MotivationLayout motivationLayout)
+                {
+                    if (motivationLayout.MotivationName.Equals(motivation.Name) &&
+                        motivationLayout.MotivationDescription.Equals(motivation.Description))
+                    {
+                        layout.Children.Remove(view);
+                        return;
+                    }
+                }
+            }
+        }
+
+        protected StackLayout GetMotivationLayout(CharacterMotivationViewModel motivation)
         {
             StackLayout layout;
             if (motivation.GetType() == typeof(MotivationViewModel))
@@ -49,8 +101,7 @@ namespace StarWRPG.Views
             {
                 layout = moralityLayout;
             }
-            layout.Children.Add(MakeMotivationLayout(motivation));
-            layout.IsVisible = true;
+            return layout;
         }
     }
 }

@@ -7,15 +7,16 @@
     <StackLayout x:Name="MainStackLayout">
         <ScrollView Padding="10,10,10,10">
             <StackLayout>
-                <StackLayout x:Name="MotivationsLayout"
-                             IsVisible="False">
+
+                <StackLayout x:Name="MotivationsLayout" 
+                             IsVisible="{Binding CharacterMotivationsViewModel.MotivationsIsVisible}">
                     <Label Text="Character Motivations"
                            Style="{StaticResource CenterBoldLabel}"
                            FontSize="{DynamicResource MediumFontSize}"/>
                 </StackLayout>
 
                 <StackLayout x:Name="ObligationsLayout"
-                             IsVisible="False">
+                             IsVisible="{Binding CharacterMotivationsViewModel.ObligationsIsVisible}">
                     <Label Text="Character Obligations"
                            Style="{StaticResource CenterBoldLabel}"
                            FontSize="{DynamicResource MediumFontSize}"/>
@@ -24,70 +25,44 @@
                 </StackLayout>
 
                 <StackLayout x:Name="DutyLayout"
-                             IsVisible="False">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-
-                        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
-                               Text="Character Duty"
+                             IsVisible="{Binding CharacterMotivationsViewModel.DutyIsVisible}">
+                    <Label Text="Character Duty"
+                           Style="{StaticResource CenterBoldLabel}"
+                           FontSize="{DynamicResource MediumFontSize}"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="Total Duty:"
                                Style="{StaticResource CenterBoldLabel}"
-                               FontSize="{DynamicResource MediumFontSize}"/>
-                        <Label Grid.Column="0" Grid.Row="1"
-                               Text="Total Duty:"
-                               Style="{StaticResource StartBoldLabel}"/>
-                        <Label Grid.Column="1" Grid.Row="1"
-                               Text="{Binding TotalDuty}"
-                               Style="{StaticResource StartLabel}"/>
-                        <Label Grid.Column="2" Grid.Row="1"
-                               Text="Contribution:"
-                               Style="{StaticResource StartBoldLabel}"/>
-                        <Label Grid.Column="3" Grid.Row="1"
-                               Text="{Binding Contribution}"
-                               Style="{StaticResource StartLabel}"/>
-                    </Grid>
+                               HorizontalOptions="Start"/>
+                        <Label Text="{Binding TotalDuty}"
+                               Style="{StaticResource CenterLabel}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="Contribution:"
+                               Style="{StaticResource CenterBoldLabel}"/>
+                        <Label Text="{Binding Contribution}"
+                               Style="{StaticResource CenterLabel}"/>
+                    </StackLayout>
                 </StackLayout>
 
                 <StackLayout x:Name="MoralityLayout"
-                             IsVisible="False">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-
-                        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
-                               Text="Character Morality"
-                               Style="{StaticResource CenterBoldLabel}"
-                               FontSize="{DynamicResource MediumFontSize}"/>
-                        <Label Grid.Column="0" Grid.Row="1"
-                               Text="Morality:"
-                               Style="{StaticResource StartBoldLabel}"/>
-                        <Label Grid.Column="1" Grid.Row="1"
-                               Text="{Binding Morality}"
-                               Style="{StaticResource StartLabel}"/>
-                        <Label Grid.Column="2" Grid.Row="1"
-                               Text="Conflict:"
-                               Style="{StaticResource StartBoldLabel}"/>
-                        <Label Grid.Column="3" Grid.Row="1"
-                               Text="{Binding Conflict}"
-                               Style="{StaticResource StartLabel}"/>
-                    </Grid>
+                             IsVisible="{Binding CharacterMotivationsViewModel.MoralityIsVisible}">
+                    <Label Text="Character Morality"
+                           Style="{StaticResource CenterBoldLabel}"
+                           FontSize="{DynamicResource MediumFontSize}"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="Morality:"
+                               Style="{StaticResource CenterBoldLabel}"/>
+                        <Label Text="{Binding Morality}"
+                               Style="{StaticResource CenterLabel}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Label Text="Conflict:"
+                               Style="{StaticResource CenterBoldLabel}"/>
+                        <Label Text="{Binding Conflict}"
+                               Style="{StaticResource CenterLabel}"/>
+                    </StackLayout>
                 </StackLayout>
+                
             </StackLayout>
         </ScrollView>
     </StackLayout>

@@ -27,10 +27,13 @@ namespace StarWRPG.Controls
         private async void EditButtonActivatedAsync(object sender, EventArgs e)
         {
             var characterCreationNavigation = new CharacterCreationNavigation(ffgCharacterViewModel);
+
             try
             {
-                currentPage.Navigation.InsertPageBefore(characterCreationNavigation.GetPageByTitle(currentPage.Title), currentPage);
-                await currentPage.Navigation.PopAsync();
+                var nextPage = characterCreationNavigation.GetPageByTitle(currentPage.Title);
+                var firstPage = currentPage.Navigation.NavigationStack.First();
+                currentPage.Navigation.InsertPageBefore(nextPage,firstPage);
+                await currentPage.Navigation.PopToRootAsync();
             }
             catch (Exception ex)
             {

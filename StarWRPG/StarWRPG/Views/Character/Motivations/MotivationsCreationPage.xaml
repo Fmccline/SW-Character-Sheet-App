@@ -8,15 +8,15 @@
         <ScrollView Padding="10,10,10,10"
                     VerticalOptions="FillAndExpand">
             <StackLayout>
-                <StackLayout x:Name="MotivationsLayout" 
-                             IsVisible="False">
+                <StackLayout x:Name="MotivationsLayout"
+                             IsVisible="{Binding CharacterMotivationsViewModel.MotivationsIsVisible}">
                     <Label Text="Character Motivations"
                            Style="{StaticResource CenterBoldLabel}"
                            FontSize="{DynamicResource MediumFontSize}"/>
                 </StackLayout>
 
                 <StackLayout x:Name="ObligationsLayout"
-                             IsVisible="False">
+                             IsVisible="{Binding CharacterMotivationsViewModel.ObligationsIsVisible}">
                     <Label Text="Character Obligations"
                            Style="{StaticResource CenterBoldLabel}"
                            FontSize="{DynamicResource MediumFontSize}"/>
@@ -25,7 +25,7 @@
                 </StackLayout>
 
                 <StackLayout x:Name="DutyLayout"
-                             IsVisible="False">
+                             IsVisible="{Binding CharacterMotivationsViewModel.DutyIsVisible}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1.5*"/>
@@ -62,7 +62,7 @@
                 </StackLayout>
 
                 <StackLayout x:Name="MoralityLayout"
-                             IsVisible="False">
+                             IsVisible="{Binding CharacterMotivationsViewModel.MoralityIsVisible}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -99,12 +99,19 @@
                 </StackLayout>
             </StackLayout>
         </ScrollView>
-        
-        <Button Text="Add"
-                Clicked="AddMotivationAsync"
-                HorizontalOptions="Center"
-                VerticalOptions="End"
-                Style="{StaticResource DefaultButton}"/>
+
+        <StackLayout Orientation="Horizontal"
+                     VerticalOptions="End"
+                     BackgroundColor="{DynamicResource TitleBackgroundColor}">
+            <Button Text="Remove"
+                    Clicked="RemoveMotivationAsync"
+                    HorizontalOptions="CenterAndExpand"
+                    Style="{StaticResource DefaultButton}"/>
+            <Button Text="Add"
+                    Clicked="AddMotivationAsync"
+                    HorizontalOptions="CenterAndExpand"
+                    Style="{StaticResource DefaultButton}"/>
+        </StackLayout>
     </StackLayout>
 
 </local:MotivationPageBase>

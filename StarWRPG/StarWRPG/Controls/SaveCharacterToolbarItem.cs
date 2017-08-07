@@ -34,10 +34,13 @@ namespace StarWRPG.Controls
             {
                 await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
                 var characterDetailNavigation = new CharacterDetailNavigation(ffgCharacterViewModel);
+
                 try
                 {
-                    currentPage.Navigation.InsertPageBefore(characterDetailNavigation.GetPageByTitle(currentPage.Title), currentPage);
-                    await currentPage.Navigation.PopAsync();
+                    var nextPage = characterDetailNavigation.GetPageByTitle(currentPage.Title);
+                    var firstPage = currentPage.Navigation.NavigationStack.First();
+                    currentPage.Navigation.InsertPageBefore(nextPage, firstPage);
+                    await currentPage.Navigation.PopToRootAsync();
                 }
                 catch (Exception ex)
                 {

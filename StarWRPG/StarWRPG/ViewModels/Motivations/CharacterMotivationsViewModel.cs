@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,48 @@ namespace StarWRPG.ViewModels
     public class CharacterMotivationsViewModel : ViewModelBase
     {
         FFGCharacterViewModel ffgCharacterViewModel;
+        bool motivationsIsVisible;
+        bool obligationsIsVisible;
+        bool dutyIsVisible;
+        bool moralityIsVisible;
         ObservableCollection<CharacterMotivationBase> characterMotivations;
+
+        public bool MotivationsIsVisible
+        {
+            get { return motivationsIsVisible; }
+            set
+            {
+                motivationsIsVisible = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool ObligationsIsVisible
+        {
+            get { return obligationsIsVisible; }
+            set
+            {
+                obligationsIsVisible = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool DutyIsVisible
+        {
+            get { return dutyIsVisible; }
+            set
+            {
+                dutyIsVisible = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool MoralityIsVisible
+        {
+            get { return moralityIsVisible; }
+            set
+            {
+                moralityIsVisible = value;
+                OnPropertyChanged();
+            }
+        }
         public ObservableCollection<CharacterMotivationViewModel> CharacterMotivationViewModels;
 
         public CharacterMotivationsViewModel(ObservableCollection<CharacterMotivationBase> motivations, FFGCharacterViewModel character)
@@ -20,6 +62,7 @@ namespace StarWRPG.ViewModels
             ffgCharacterViewModel = character;
             characterMotivations = motivations;
             CharacterMotivationViewModels = new ObservableCollection<CharacterMotivationViewModel>();
+            CharacterMotivationViewModels.CollectionChanged += MotivationsCollectionChanged;
             foreach (var motivation in characterMotivations)
             {
                 if (motivation.GetType() == typeof(CharacterMotivation))
@@ -44,6 +87,65 @@ namespace StarWRPG.ViewModels
                 {
                     CharacterMotivationViewModels.Add(new EmotionalWeaknessesViewModel(motivation));
                 }
+            }
+        }
+
+        private void MotivationsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+            {
+                foreach (var newItem in e.NewItems)
+                {
+                    if (newItem is CharacterMotivationViewModel motivation)
+                    {
+                        var motivationType = motivation.GetType();
+                        SetMotivationVisibilty(motivationType, true);
+                    }
+                }
+            }
+            else if (e.OldItems != null)
+            {
+                foreach (var oldItem in e.OldItems)
+                {
+                    if (oldItem is CharacterMotivationViewModel motivation)
+                    {
+                        var motivationType = motivation.GetType();
+                        var isVisible = IsMotivationInCharacterMotivationViewModels(motivationType);
+                        SetMotivationVisibilty(motivationType, isVisible);
+                    }
+                }
+            }
+        }
+
+        private bool IsMotivationInCharacterMotivationViewModels(Type motivationViewModelType)
+        {
+            foreach (var motivation in CharacterMotivationViewModels)
+            {
+                if (motivation.GetType() == motivationViewModelType)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private void SetMotivationVisibilty(Type motivationType, bool isVisible)
+        {
+            if (motivationType == typeof(MotivationViewModel))
+            {
+                MotivationsIsVisible = isVisible;
+            }
+            else if (motivationType == typeof(ObligationViewModel))
+            {
+                ObligationsIsVisible = isVisible;
+            }
+            else if (motivationType == typeof(DutyViewModel))
+            {
+                DutyIsVisible = isVisible;
+            }
+            else // Emotional strength or weakness
+            {
+                MoralityIsVisible = isVisible;
             }
         }
 
