@@ -44,6 +44,7 @@
     <Compile Include="Controls\SaveCharacterToolbarItem.cs" />
     <Compile Include="Controls\SettingsToolbarItem.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Helpers\SingleClick.cs" />
     <Compile Include="Models\CharacterDescription.cs" />
     <Compile Include="Models\CharacterMembers\Presets\TogrutaPreset.cs" />
     <Compile Include="Models\CharacterMembers\Presets\NautolanPreset.cs" />

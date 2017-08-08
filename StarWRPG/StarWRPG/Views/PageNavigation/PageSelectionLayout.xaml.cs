@@ -1,5 +1,7 @@
-﻿using System;
+﻿using StarWRPG.Helpers;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,10 +25,18 @@ namespace StarWRPG.Views
             this.pages = pages;
 
             InitializePageTitles();
-            SetButtonText();
+            SetButtonsText();
+            SetButtonsClicked();
         }
 
-        private void SetButtonText()
+        private void SetButtonsClicked()
+        {
+            NextPageButton.Clicked += new SingleClick(GoToNextPage).Click;
+            PreviousPageButton.Clicked += new SingleClick(GoToPreviousPage).Click;
+            SelectPageButton.Clicked += new SingleClick(GoToSelectedPage).Click;
+        }
+
+        private void SetButtonsText()
         {
             string previousPageTitle = ToShortTitle(GetPreviousPage().Title);
             string nextPageTitle = ToShortTitle(GetNextPage().Title);
@@ -71,39 +81,43 @@ namespace StarWRPG.Views
             return pages[indexOfPreviousPage];
         }
 
-        private async Task InsertPageBeforeAndPop(Page page)
+        private async void PushPageAsync(Page page)
         {
-            var pageToBeRemoved = currentPage.Navigation.NavigationStack.Last();
-            currentPage.Navigation.InsertPageBefore(page, pageToBeRemoved);
-            await currentPage.Navigation.PopAsync(false);
+            var navigation = currentPage.Navigation;
+            try
+            {
+                if (navigation.NavigationStack.Contains(page))
+                {
+                    navigation.RemovePage(page);
+                }
+                await navigation.PushAsync(page, false);
+            }
+            catch (Exception)
+            {
+                await currentPage.DisplayAlert("Oops", "A Nerf Herding error occured! Hopefully that's the last of them.", "OK");
+            }
         }
 
-        private async void NextPageAsync(object sender, EventArgs e)
+        private void GoToNextPage(object sender, EventArgs e)
         {
-            NextPageButton.IsEnabled = false;
             var nextPage = GetNextPage();
-            await InsertPageBeforeAndPop(nextPage);
-            NextPageButton.IsEnabled = true;
+            PushPageAsync(nextPage);
         }
 
-        private async void PreviousPageAsync(object sender, EventArgs e)
+        private void GoToPreviousPage(object sender, EventArgs e)
         {
-            PreviousPageButton.IsEnabled = false;
             var previousPage = GetPreviousPage();
-            await InsertPageBeforeAndPop(previousPage);
-            PreviousPageButton.IsEnabled = true;
+            PushPageAsync(previousPage);
         }
 
-        private async void SelectPageAsync(object sender, EventArgs e)
+        private async void GoToSelectedPage(object sender, EventArgs e)
         {
             var pageSelected = await currentPage.DisplayActionSheet("Character Details Selection", "Cancel", null, pageTitles);
             foreach (var page in pages)
             {
                 if (page.Title.Equals(pageSelected) && !page.Title.Equals(currentPage.Title))
                 {
-                    SelectPageButton.IsEnabled = false;
-                    await InsertPageBeforeAndPop(page);
-                    SelectPageButton.IsEnabled = true;
+                    PushPageAsync(page);
                 }
             }
         }

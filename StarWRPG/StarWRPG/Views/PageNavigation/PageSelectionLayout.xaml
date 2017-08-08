@@ -6,16 +6,13 @@
 
     <StackLayout Orientation="Horizontal">
         <Button x:Name="PreviousPageButton"
-                Clicked="PreviousPageAsync"
                 HorizontalOptions="FillAndExpand"
                 Style="{StaticResource DefaultButton}"/>
         <Button x:Name="SelectPageButton"
                 Text="  Select  "
-                Clicked="SelectPageAsync"
                 HorizontalOptions="CenterAndExpand"
                 Style="{StaticResource DefaultButton}"/>
         <Button x:Name="NextPageButton"
-                Clicked="NextPageAsync"
                 HorizontalOptions="FillAndExpand"
                 Style="{StaticResource DefaultButton}"/>
     </StackLayout>

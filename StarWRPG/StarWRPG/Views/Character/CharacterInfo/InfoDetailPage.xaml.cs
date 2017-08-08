@@ -1,4 +1,5 @@
 ﻿using StarWRPG.Controls;
+using StarWRPG.Helpers;
 using StarWRPG.Models;
 using StarWRPG.ViewModels;
 using Xamarin.Forms;
@@ -18,6 +19,9 @@ namespace StarWRPG.Views
             BindingContext = ffgCharacterViewModel;
 
             CriticalInjuriesLayout.Children.Add(new CriticalInjuriesLayout(ffgCharacterViewModel.CriticalInjuriesViewModel));
+
+            AddCritButton.Clicked += new SingleClick(AddCriticalInjuryAsync).Click;
+            RemoveCritButton.Clicked += new SingleClick(RemoveCriticalInjuryAsync).Click;
         }
 
         private async void AddCriticalInjuryAsync(object sender, System.EventArgs e)

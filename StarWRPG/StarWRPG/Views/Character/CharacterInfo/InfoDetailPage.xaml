@@ -36,13 +36,13 @@
                         <Label Text="Critical Injuries" 
                                Style="{StaticResource StartBoldLabel}"
                                FontSize="{DynamicResource MediumFontSize}"/>
-                        <Button Text="-" 
-                                Clicked="RemoveCriticalInjuryAsync"
+                        <Button x:Name="RemoveCritButton"
+                                Text="-" 
                                 Style="{DynamicResource DefaultButton}"
                                 HeightRequest="40"
                                 WidthRequest="50"/>
-                        <Button Text="+" 
-                                Clicked="AddCriticalInjuryAsync"
+                        <Button x:Name="AddCritButton"
+                                Text="+" 
                                 Style="{DynamicResource DefaultButton}"
                                 HeightRequest="40"
                                 WidthRequest="50"/>
