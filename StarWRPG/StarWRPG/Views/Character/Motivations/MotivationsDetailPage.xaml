@@ -4,31 +4,41 @@
                 xmlns:local="clr-namespace:StarWRPG.Views" 
                 x:Class="StarWRPG.Views.MotivationsDetailPage">
 
+    <local:MotivationPageBase.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MotivationsLayout" TargetType="StackLayout">
+                <Setter Property="Spacing" Value="12"/>
+            </Style>
+            <Style x:Key="MotivationHeader" TargetType="Label" BasedOn="{StaticResource CenterBoldLabel}">
+                <Setter Property="FontSize" Value="{DynamicResource LargeFontSize}"/>
+            </Style>
+        </ResourceDictionary>
+    </local:MotivationPageBase.Resources>
+    
     <StackLayout x:Name="MainStackLayout">
         <ScrollView Padding="10,10,10,10">
-            <StackLayout>
+            <StackLayout Style="{StaticResource MotivationsLayout}">
 
                 <StackLayout x:Name="MotivationsLayout" 
-                             IsVisible="{Binding CharacterMotivationsViewModel.MotivationsIsVisible}">
-                    <Label Text="Character Motivations"
-                           Style="{StaticResource CenterBoldLabel}"
-                           FontSize="{DynamicResource MediumFontSize}"/>
+                             IsVisible="{Binding CharacterMotivationsViewModel.MotivationsIsVisible}"
+                             Style="{StaticResource MotivationsLayout}">
+                    <Label Text="Motivations"
+                           Style="{StaticResource MotivationHeader}"/>
                 </StackLayout>
 
                 <StackLayout x:Name="ObligationsLayout"
                              IsVisible="{Binding CharacterMotivationsViewModel.ObligationsIsVisible}">
-                    <Label Text="Character Obligations"
-                           Style="{StaticResource CenterBoldLabel}"
-                           FontSize="{DynamicResource MediumFontSize}"/>
+                    <Label Text="Obligations"
+                           Style="{StaticResource MotivationHeader}"/>
                     <Label Text="{Binding TotalObligationText}"
                            Style="{StaticResource CenterBoldLabel}"/>
                 </StackLayout>
 
                 <StackLayout x:Name="DutyLayout"
-                             IsVisible="{Binding CharacterMotivationsViewModel.DutyIsVisible}">
-                    <Label Text="Character Duty"
-                           Style="{StaticResource CenterBoldLabel}"
-                           FontSize="{DynamicResource MediumFontSize}"/>
+                             IsVisible="{Binding CharacterMotivationsViewModel.DutyIsVisible}"
+                             Style="{StaticResource MotivationsLayout}">
+                    <Label Text="Duty"
+                           Style="{StaticResource MotivationHeader}"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                         <Label Text="Total Duty:"
                                Style="{StaticResource CenterBoldLabel}"
@@ -45,12 +55,12 @@
                 </StackLayout>
 
                 <StackLayout x:Name="MoralityLayout"
-                             IsVisible="{Binding CharacterMotivationsViewModel.MoralityIsVisible}">
-                    <Label Text="Character Morality"
-                           Style="{StaticResource CenterBoldLabel}"
-                           FontSize="{DynamicResource MediumFontSize}"/>
+                             IsVisible="{Binding CharacterMotivationsViewModel.MoralityIsVisible}"
+                             Style="{StaticResource MotivationsLayout}">
+                    <Label Text="Morality"
+                           Style="{StaticResource MotivationHeader}"/>
                     <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                        <Label Text="Morality:"
+                        <Label Text="Total Morality:"
                                Style="{StaticResource CenterBoldLabel}"/>
                         <Label Text="{Binding Morality}"
                                Style="{StaticResource CenterLabel}"/>

@@ -8,16 +8,17 @@
         <ScrollView Padding="10,10,10,10"
                     VerticalOptions="FillAndExpand">
             <StackLayout>
+                
                 <StackLayout x:Name="MotivationsLayout"
                              IsVisible="{Binding CharacterMotivationsViewModel.MotivationsIsVisible}">
-                    <Label Text="Character Motivations"
+                    <Label Text="Motivations"
                            Style="{StaticResource CenterBoldLabel}"
                            FontSize="{DynamicResource MediumFontSize}"/>
                 </StackLayout>
 
                 <StackLayout x:Name="ObligationsLayout"
                              IsVisible="{Binding CharacterMotivationsViewModel.ObligationsIsVisible}">
-                    <Label Text="Character Obligations"
+                    <Label Text="Obligations"
                            Style="{StaticResource CenterBoldLabel}"
                            FontSize="{DynamicResource MediumFontSize}"/>
                     <Label Text="{Binding TotalObligationText}"
@@ -26,76 +27,44 @@
 
                 <StackLayout x:Name="DutyLayout"
                              IsVisible="{Binding CharacterMotivationsViewModel.DutyIsVisible}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="1.5*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="1.5*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-
-                        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
-                               Text="Character Duty"
-                               Style="{StaticResource CenterBoldLabel}"
-                               FontSize="{DynamicResource MediumFontSize}"/>
-                        <Label Grid.Column="0" Grid.Row="1"
-                               Text="Total Duty:"
+                    <Label Text="Duty"
+                           Style="{StaticResource CenterBoldLabel}"
+                           FontSize="{DynamicResource MediumFontSize}"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Total Duty:"
                                Style="{StaticResource StartBoldLabel}"/>
-                        <Entry Grid.Column="1" Grid.Row="1"
-                               Text="{Binding TotalDuty}"
+                        <Entry Text="{Binding TotalDuty}"
                                Style="{StaticResource DefaultEntry}"
                                HorizontalOptions="FillAndExpand"
                                Keyboard="Numeric"/>
-                        <Label Grid.Column="2" Grid.Row="1"
-                               Text="Contribution:"
+                        <Label Text="Contribution:"
                                Style="{StaticResource StartBoldLabel}"/>
-                        <Entry Grid.Column="3" Grid.Row="1"
-                               Text="{Binding Contribution}"
+                        <Entry Text="{Binding Contribution}"
                                Style="{StaticResource DefaultEntry}"
                                HorizontalOptions="FillAndExpand"
                                Keyboard="Numeric"/>
-                    </Grid>
+                    </StackLayout>
                 </StackLayout>
 
                 <StackLayout x:Name="MoralityLayout"
                              IsVisible="{Binding CharacterMotivationsViewModel.MoralityIsVisible}">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
-
-                        <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4"
-                               Text="Character Morality"
-                               Style="{StaticResource CenterBoldLabel}"
-                               FontSize="{DynamicResource MediumFontSize}"/>
-                        <Label Grid.Column="0" Grid.Row="1"
-                               Text="Morality:"
+                    <Label Text="Morality"
+                           Style="{StaticResource CenterBoldLabel}"
+                           FontSize="{DynamicResource MediumFontSize}"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Morality:"
                                Style="{StaticResource StartBoldLabel}"/>
-                        <Entry Grid.Column="1" Grid.Row="1"
-                               Text="{Binding Morality}"
+                        <Entry Text="{Binding Morality}"
                                Style="{StaticResource DefaultEntry}"
                                HorizontalOptions="FillAndExpand"
                                Keyboard="Numeric"/>
-                        <Label Grid.Column="2" Grid.Row="1"
-                               Text="Conflict:"
+                        <Label Text="Conflict:"
                                Style="{StaticResource StartBoldLabel}"/>
-                        <Entry Grid.Column="3" Grid.Row="1"
-                               Text="{Binding Conflict}"
+                        <Entry Text="{Binding Conflict}"
                                Style="{StaticResource DefaultEntry}"
                                HorizontalOptions="FillAndExpand"
                                Keyboard="Numeric"/>
-                    </Grid>
+                    </StackLayout>
                 </StackLayout>
             </StackLayout>
         </ScrollView>
