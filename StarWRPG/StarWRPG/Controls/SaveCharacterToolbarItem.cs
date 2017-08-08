@@ -38,9 +38,8 @@ namespace StarWRPG.Controls
                 try
                 {
                     var nextPage = characterDetailNavigation.GetPageByTitle(currentPage.Title);
-                    var firstPage = currentPage.Navigation.NavigationStack.First();
-                    currentPage.Navigation.InsertPageBefore(nextPage, firstPage);
-                    await currentPage.Navigation.PopToRootAsync();
+                    currentPage.Navigation.InsertPageBefore(nextPage, currentPage);
+                    await currentPage.Navigation.PopAsync();
                 }
                 catch (Exception ex)
                 {
