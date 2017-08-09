@@ -85,7 +85,7 @@ namespace StarWRPG.Views
 
         private async void RemoveMotivationAsync(object sender, EventArgs e)
         {
-            var motivations = characterMotivationsViewModel.CharacterMotivationViewModels;
+            List<CharacterMotivationViewModel> motivations = GetSortedMotivations();
             List<string> motivationsToStrings = new List<string>();
 
             foreach (var motivation in motivations)
@@ -95,7 +95,7 @@ namespace StarWRPG.Views
 
                 motivationsToStrings.Add(motivationName + ": " + motivationType);
             }
-            
+
             var answer = await DisplayActionSheet("Remove Motivation", "Cancel", null, motivationsToStrings.ToArray());
             if (answer != null && !answer.Equals("Cancel"))
             {
@@ -103,6 +103,17 @@ namespace StarWRPG.Views
                 var motivationToBeRemoved = motivations[index];
                 characterMotivationsViewModel.RemoveMotivation(motivationToBeRemoved);
             }
+        }
+
+        private List<CharacterMotivationViewModel> GetSortedMotivations()
+        {
+            List<CharacterMotivationViewModel> motivations = characterMotivationsViewModel.CharacterMotivationViewModels.ToList();
+            motivations = motivations.OrderBy(x => x.GetType() == typeof(MotivationViewModel)).ToList();
+            motivations = motivations.OrderBy(x => x.GetType() == typeof(ObligationViewModel)).ToList();
+            motivations = motivations.OrderBy(x => x.GetType() == typeof(DutyViewModel)).ToList();
+            motivations = motivations.OrderBy(x => x.GetType() == typeof(EmotionalStrengthsViewModel)).ToList();
+            motivations = motivations.OrderBy(x => x.GetType() == typeof(EmotionalWeaknessesViewModel)).ToList();
+            return motivations;
         }
     }
 }
