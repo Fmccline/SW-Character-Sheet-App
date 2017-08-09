@@ -26,7 +26,7 @@
                     <Label Text="Species:" Style="{StaticResource StartBoldLabel}"/>
                     <Entry Text="{Binding Species}" Style="{StaticResource FillAndExpandEntry}"/>
                     <Button Text="Preset" 
-                            Clicked="ChangeSpeciePresetAsync"
+                            x:Name="PresetSpeciesButton"
                             HorizontalOptions="End"
                             Style="{StaticResource DefaultButton}"/>
                 </StackLayout>

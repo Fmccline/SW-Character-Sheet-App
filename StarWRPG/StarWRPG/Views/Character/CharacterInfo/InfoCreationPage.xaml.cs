@@ -1,4 +1,5 @@
 ﻿using StarWRPG.Controls;
+using StarWRPG.Helpers;
 using StarWRPG.Models;
 using StarWRPG.ViewModels;
 using System;
@@ -23,9 +24,11 @@ namespace StarWRPG.Views
             InitializeComponent();
 
             BindingContext = ffgCharacterViewModel;
+
+            PresetSpeciesButton.Clicked += new SingleClick(ChangeSpeciesPresetAsync).Click;
         }
 
-        private async void ChangeSpeciePresetAsync(object sender, EventArgs e)
+        private async void ChangeSpeciesPresetAsync(object sender, EventArgs e)
         {
             string cancel = "Cancel";
             var speciePresetsViewModel = new SpeciesPresetsViewModel(ffgCharacterViewModel);
