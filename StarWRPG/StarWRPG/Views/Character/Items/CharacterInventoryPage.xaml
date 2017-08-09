@@ -24,7 +24,7 @@
                     HorizontalOptions="FillAndExpand"
                     Style="{StaticResource DefaultButton}"/>
             <Button Text="+" 
-                    Clicked="AddItemAsync"
+                    x:Name="AddItemButton"
                     Style="{StaticResource DefaultButton}"/>
         </StackLayout>
         <!--Layout where the items ListView is added-->

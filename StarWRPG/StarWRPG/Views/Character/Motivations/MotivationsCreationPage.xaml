@@ -73,11 +73,11 @@
                      VerticalOptions="End"
                      BackgroundColor="{DynamicResource TitleBackgroundColor}">
             <Button Text="Remove"
-                    Clicked="RemoveMotivationAsync"
+                    x:Name="RemoveMotivationButton"
                     HorizontalOptions="CenterAndExpand"
                     Style="{StaticResource DefaultButton}"/>
             <Button Text="Add"
-                    Clicked="AddMotivationAsync"
+                    x:Name="AddMotivationButton"
                     HorizontalOptions="CenterAndExpand"
                     Style="{StaticResource DefaultButton}"/>
         </StackLayout>

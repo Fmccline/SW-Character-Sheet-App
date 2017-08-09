@@ -26,16 +26,13 @@ namespace StarWRPG.Helpers
             {
                 CanExecute = false;
                 clicked(s, e);
+
+                await Task.Run(async () =>
+                {
+                    await Task.Delay(delay);
+                    CanExecute = true;
+                });
             }
-            else
-            {
-                Debug.WriteLine("CanExecute is false right now.");
-            }
-            await Task.Run(async () =>
-            {
-                await Task.Delay(delay);
-                CanExecute = true;
-            });
         }
     }
 }

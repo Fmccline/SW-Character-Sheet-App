@@ -1,4 +1,5 @@
-﻿using StarWRPG.ViewModels;
+﻿using StarWRPG.Helpers;
+using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -32,6 +33,9 @@ namespace StarWRPG.Views
 
             allMotivations = ListOfAllMotivations();
             motivationNames = ListOfMotivationNames(allMotivations);
+
+            AddMotivationButton.Clicked += new SingleClick(AddMotivationAsync).Click;
+            RemoveMotivationButton.Clicked += new SingleClick(RemoveMotivationAsync).Click;
 
             foreach (var motivation in characterMotivationsViewModel.CharacterMotivationViewModels)
             {
