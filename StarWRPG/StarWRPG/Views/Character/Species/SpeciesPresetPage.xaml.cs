@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using StarWRPG.Models;
 using System.Diagnostics;
+using StarWRPG.Helpers;
 
 namespace StarWRPG.Views
 {
@@ -18,29 +19,42 @@ namespace StarWRPG.Views
         SpeciesPresetsViewModel speciesPresetsViewModel;
         SpeciesPresetViewModel speciesPresetViewModel;
 
-        public SpeciesPresetPage(SpeciesPresetsViewModel speciesPresets, string speciesName)
+        public SpeciesPresetPage(SpeciesPresetsViewModel speciesPresets)
         {
             InitializeComponent();
 
             speciesPresetsViewModel = speciesPresets;
-            speciesPresetViewModel = speciesPresetsViewModel.GetSpeciesPresetViewModelByName(speciesName);
+            speciesPresetViewModel = speciesPresetsViewModel.FFGCharacterSpecies;
 
             BindingContextChanged += SetTalentsLayout;
             BindingContext = speciesPresetViewModel;
 
-            AddSaveAndChangeToolbarItems();
+            AddSaveToolbarItem();
+            SetButtonClicks();
         }
 
-        private void AddSaveAndChangeToolbarItems()
+        private void AddSaveToolbarItem()
         {
             var save = new ToolbarItem { Text = "Save" };
             save.Clicked += SaveClickedAsync;
-
-            var change = new ToolbarItem { Text = "Change" };
-            change.Clicked += ChangeSpeciesClickedAsync;
-
-            ToolbarItems.Add(change);
             ToolbarItems.Add(save);
+        }
+
+        private void SetButtonClicks()
+        {
+            PreviousSpeciesButton.Clicked += new SingleClick((sender, e) =>
+            {
+                speciesPresetViewModel = speciesPresetsViewModel.GetPreviousSpecies(speciesPresetViewModel);
+                BindingContext = speciesPresetViewModel;
+            }).Click;
+
+            NextSpeciesButton.Clicked += new SingleClick((sender, e) =>
+            {
+                speciesPresetViewModel = speciesPresetsViewModel.GetNextSpecies(speciesPresetViewModel);
+                BindingContext = speciesPresetViewModel;
+            }).Click;
+
+            SelectSpeciesButton.Clicked += new SingleClick(SelectSpeciesClickedAsync).Click;
         }
 
         private void SetTalentsLayout(object sender, EventArgs e)
@@ -54,7 +68,7 @@ namespace StarWRPG.Views
             await Navigation.PopAsync();
         }
 
-        private async void ChangeSpeciesClickedAsync(object sender, EventArgs e)
+        private async void SelectSpeciesClickedAsync(object sender, EventArgs e)
         {
             var speciesName = await DisplayActionSheet("Species", "Cancel", null, speciesPresetsViewModel.SpeciesNames);
             if (speciesName != null && !speciesName.Equals("Cancel"))
