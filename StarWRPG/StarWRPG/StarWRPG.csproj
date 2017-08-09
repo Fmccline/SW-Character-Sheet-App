@@ -270,7 +270,7 @@
     <Compile Include="Views\Settings\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Presets\SpeciesPresetPage.xaml.cs">
+    <Compile Include="Views\Character\Species\SpeciesPresetPage.xaml.cs">
       <DependentUpon>SpeciesPresetPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\Talents\TalentPage.xaml.cs">
@@ -398,7 +398,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Presets\SpeciesPresetPage.xaml">
+    <EmbeddedResource Include="Views\Character\Species\SpeciesPresetPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

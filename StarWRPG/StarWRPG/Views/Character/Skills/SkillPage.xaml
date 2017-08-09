@@ -4,29 +4,40 @@
              xmlns:local="clr-namespace:StarWRPG.Views"
              x:Class="StarWRPG.Views.SkillPage"
              Style="{StaticResource PageStyle}"
-             Title="{Binding SkillName}">
+             Title="Skill">
 
-    <StackLayout>
+    <StackLayout Padding="10,10,10,10"
+                 Spacing="15">
         
         <Label Text="{Binding Name}"
                FontSize="{DynamicResource MediumFontSize}"
-               Style="{StaticResource DefaultBoldLabel}"/>
+               Style="{StaticResource DefaultBoldLabel}"
+               Margin="0,20,0,20"/>
 
         <StackLayout Orientation="Horizontal">
-            <Label Text="Rank: " Style="{StaticResource StartBoldLabel}"/>
-            <Label Text="{Binding Rank}" Style="{StaticResource StartLabel}"/>
+            <Label Text="Rank: " 
+                   Style="{StaticResource StartBoldLabel}"/>
+            <Label Text="{Binding Rank}" 
+                   Style="{StaticResource DefaultLabel}"
+                   FontSize="{DynamicResource LargeFontSize}"
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"/>
             <Button x:Name="DecrementButton"
                     Text="-"
                     Clicked="DecrementClicked"
+                    HorizontalOptions="End"
                     Style="{StaticResource DefaultButton}"/>
             <Button x:Name="IncrementButton"
                     Text="+"
                     Clicked="IncrementClicked"
+                    HorizontalOptions="End"
                     Style="{StaticResource DefaultButton}"/>
             <StackLayout>
-                <Label Text="Use XP" Style="{StaticResource CenterLabel}"/>
+                <Label Text="Use XP" 
+                       Style="{StaticResource DefaultLabel}"
+                       HorizontalOptions="End"/>
                 <Switch IsToggled="{Binding UseXP}"
-                        HorizontalOptions="Center"
+                        HorizontalOptions="End"
                         VerticalOptions="Center"/>
             </StackLayout>
         </StackLayout>        
@@ -43,10 +54,11 @@
                     Clicked="ChangeCharacteristicClickedAsync" 
                     IsVisible="{Binding CanSetCharacteristic}"
                     VerticalOptions="Center"
+                    HorizontalOptions="EndAndExpand"
                     Style="{StaticResource DefaultButton}"/>
         </StackLayout>
 
-        <Grid>
+        <Grid VerticalOptions="EndAndExpand"> 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
