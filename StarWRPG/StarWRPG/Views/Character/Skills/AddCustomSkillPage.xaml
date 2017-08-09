@@ -4,34 +4,26 @@
              x:Class="StarWRPG.Views.AddCustomSkillPage"
              Style="{StaticResource PageStyle}"
              Title="Custom Skill">
-    <StackLayout>
 
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
+    <StackLayout Padding="10,10,10,10">
 
-            <Label Grid.Column="0" Grid.Row="0"
-                   Text="Name" Style="{StaticResource StartBoldLabel}"/>
-            <Entry Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
-                   Text="{Binding Name}" 
-                   Style="{StaticResource DefaultEntry}"/>
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Name" 
+                   Style="{StaticResource StartBoldLabel}"/>
+            <Entry Text="{Binding Name}" 
+                   Style="{StaticResource DefaultEntry}"
+                   HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
 
-            <Label Grid.Column="0" Grid.Row="1"
-                   Text="Characteristic" Style="{StaticResource StartBoldLabel}"/>
-            <Label Grid.Column="1" Grid.Row="1"
-                   Text="{Binding CharacteristicName}" Style="{StaticResource StartLabel}"/>
-            <Button Grid.Column="2" Grid.Row="1"
-                    Text="Change"
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Characteristic: " 
+                   Style="{StaticResource StartBoldLabel}"/>
+            <Label Text="{Binding CharacteristicName}" 
+                   Style="{StaticResource StartLabel}"/>
+            <Button Text="Change"
                     Clicked="ChangeCharacteristicClickedAsync"
-                    Style="{StaticResource DefaultButton}"/>
-        </Grid>
-
+                    Style="{StaticResource DefaultButton}"
+                    HorizontalOptions="EndAndExpand"/>
+        </StackLayout>
     </StackLayout>
 </ContentPage>

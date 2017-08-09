@@ -42,14 +42,12 @@ namespace StarWRPG.Views
 
         private async void ChangeCharacteristicClickedAsync(object sender, EventArgs e)
         {
-            const string AGILITY = "Agility";
-            const string BRAWN = "Brawn";
-            const string CUNNING = "Cunning";
-            const string INTELLECT = "Intellect";
-            const string PRESENCE = "Presence";
-            const string WILLPOWER = "Willpower";
-            string characteristicType = await DisplayActionSheet("Characteristic", "Cancel", null, AGILITY, BRAWN, CUNNING, INTELLECT, PRESENCE, WILLPOWER);
-            skillCreationViewModel.ChangeCharacteristic(characteristicType);
+            string[] CharacteristicNames = { "Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower", };
+            string characteristicType = await DisplayActionSheet("Characteristic", "Cancel", null, CharacteristicNames);
+            if (characteristicType != null && !characteristicType.Equals("Cancel"))
+            {
+                skillCreationViewModel.ChangeCharacteristic(characteristicType);
+            }
         }
 
         private async void SaveClickedAsync(object sender, EventArgs e)
