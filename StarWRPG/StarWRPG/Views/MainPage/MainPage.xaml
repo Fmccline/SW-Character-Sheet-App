@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid>
+    <Grid RowSpacing="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0"
-               Text="Welcome to FFG Sheet!"
+               Text="FFG Character Sheet"
                HorizontalTextAlignment="Center"
                FontSize="{DynamicResource LargeFontSize}"
                Style="{StaticResource CenterBoldLabel}"

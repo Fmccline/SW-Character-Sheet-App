@@ -36,16 +36,8 @@ namespace StarWRPG.Views
         public async Task RefreshCharactersAsync()
         {
             characterListViewModel.Characters = await characterListViewModel.GetCharactersAsync();
-            if (characterListViewModel.Characters.Count == 0)
-            {
-                charactersListView.IsVisible = false;
-                noCharactersLabel.IsVisible = true;
-            }
-            else
-            {
-                noCharactersLabel.IsVisible = false;
-                charactersListView.IsVisible = true;
-            }
+            charactersListView.IsVisible = (characterListViewModel.Characters.Count != 0);
+            noCharactersLabel.IsVisible = (characterListViewModel.Characters.Count == 0);
         }
     }
 }

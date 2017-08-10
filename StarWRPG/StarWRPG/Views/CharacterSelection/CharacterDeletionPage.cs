@@ -25,7 +25,8 @@ namespace StarWRPG.Views
                 if (answer)
                 {
                     await App.CharacterDatabase.DeleteCharacterAsync(character);
-                    await Navigation.PopAsync();
+                    await characterSelectionLayout.RefreshCharactersAsync();
+                    characterSelectionLayout.CharactersListView.SelectedItem = null;
                 }
             }
         }
