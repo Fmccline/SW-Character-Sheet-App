@@ -32,6 +32,8 @@ namespace StarWRPG.Views
             {
                 AddDeleteToolbarItem();
             }
+
+            SkillUsesView.Content = new SkillUsesGrid(skillViewModel.SkillUses).Content;
         }
 
         private void AddDeleteToolbarItem()

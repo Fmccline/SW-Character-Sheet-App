@@ -94,6 +94,15 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
+        public List<string> SkillUses
+        {
+            get { return Skill.SkillUses; }
+            set
+            {
+                Skill.SkillUses = value;
+                OnPropertyChanged();
+            }
+        }
 
         public uint AvailableXP
         {
