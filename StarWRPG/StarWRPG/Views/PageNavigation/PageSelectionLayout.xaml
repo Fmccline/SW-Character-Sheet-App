@@ -4,17 +4,29 @@
              x:Class="StarWRPG.Views.PageSelectionLayout"
              BackgroundColor="{DynamicResource TitleBackgroundColor}">
 
-    <StackLayout Orientation="Horizontal">
-        <Button x:Name="PreviousPageButton"
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Button Grid.Column="0"
+                x:Name="PreviousPageButton"
                 HorizontalOptions="FillAndExpand"
                 Style="{StaticResource DefaultButton}"/>
-        <Button x:Name="SelectPageButton"
+        <Button Grid.Column="1"
+                x:Name="SelectPageButton"
                 Text="  Select  "
                 HorizontalOptions="CenterAndExpand"
                 Style="{StaticResource DefaultButton}"/>
-        <Button x:Name="NextPageButton"
+        <Button Grid.Column="2"
+                x:Name="NextPageButton"
                 HorizontalOptions="FillAndExpand"
                 Style="{StaticResource DefaultButton}"/>
-    </StackLayout>
+    </Grid>
 
 </ContentView>
