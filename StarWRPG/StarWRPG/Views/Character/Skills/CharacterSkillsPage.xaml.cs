@@ -39,7 +39,7 @@ namespace StarWRPG.Views
         {
             if (e.SelectedItem is SkillViewModel skill)
             {
-                await Navigation.PushAsync(new SkillPage(skill));
+                await Navigation.PushAsync(new SkillPage(skill,skillsViewModel));
                 SkillsListView.SelectedItem = null;
             }
         }

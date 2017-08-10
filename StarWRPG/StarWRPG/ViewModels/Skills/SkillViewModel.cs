@@ -29,6 +29,13 @@ namespace StarWRPG.ViewModels
             }
         }
 
+        public bool CanDelete
+        {
+            get
+            {
+                return (Skill.GetType() == typeof(CustomSkill));
+            }
+        }
         public bool CanSetCharacteristic
         {
             get { return Skill.CanSetCharacteristic; }
