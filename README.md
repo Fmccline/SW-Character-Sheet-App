@@ -1,4 +1,4 @@
-# SW-Character-Sheet-App
+# FFG RPG Character Sheet App
 
 ## Objective
 To build a cross platform iOS/Android app for creating and maintaining character sheets for Force and Destiny, Edge of the Empire, and Age of Rebellion.
