@@ -24,13 +24,15 @@
                     HorizontalOptions="FillAndExpand"
                     Style="{StaticResource DefaultButton}"/>
             <Button Text="+" 
-                    Clicked="AddItemAsync"
+                    x:Name="AddItemButton"
                     Style="{StaticResource DefaultButton}"/>
         </StackLayout>
         <!--Layout where the items ListView is added-->
-        <StackLayout x:Name="ItemsLayout" VerticalOptions="FillAndExpand"/>
+        <StackLayout x:Name="ItemsLayout" 
+                     VerticalOptions="FillAndExpand"
+                     Padding="5,0,5,0"/>
         <!--Encumbrance and Credits-->
-        <Grid>
+        <Grid VerticalOptions="EndAndExpand">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>

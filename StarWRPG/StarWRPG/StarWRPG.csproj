@@ -37,12 +37,14 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\CustomSearchBar.cs" />
+    <Compile Include="Controls\CustomStepper.cs" />
     <Compile Include="Controls\MainMenuToolbarItem.cs" />
     <Compile Include="Controls\EditCharacterToolbarItem.cs" />
     <Compile Include="Controls\ISearchable.cs" />
     <Compile Include="Controls\SaveCharacterToolbarItem.cs" />
     <Compile Include="Controls\SettingsToolbarItem.cs" />
     <Compile Include="Helpers\Settings.cs" />
+    <Compile Include="Helpers\SingleClick.cs" />
     <Compile Include="Models\CharacterDescription.cs" />
     <Compile Include="Models\CharacterMembers\Presets\TogrutaPreset.cs" />
     <Compile Include="Models\CharacterMembers\Presets\NautolanPreset.cs" />
@@ -82,7 +84,7 @@
     <Compile Include="Models\CharacterMembers\Skills\ComputersSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\CoercionSkill.cs" />
     <Compile Include="Models\CharacterMembers\Skills\CharmSkill.cs" />
-    <Compile Include="Settings\UserSettings.cs" />
+    <Compile Include="Helpers\UserSettings.cs" />
     <Compile Include="ViewModels\Settings\ButtonTextColorViewModel.cs" />
     <Compile Include="ViewModels\Settings\ButtonColorViewModel.cs" />
     <Compile Include="ViewModels\Settings\TitleTextColorViewModel.cs" />
@@ -197,7 +199,7 @@
       <DependentUpon>MotivationsDetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\Motivations\MotivationPageBase.cs" />
-    <Compile Include="Settings\FontNames.cs" />
+    <Compile Include="Helpers\FontNames.cs" />
     <Compile Include="Views\Settings\ColorPage.xaml.cs">
       <DependentUpon>ColorPage.xaml</DependentUpon>
     </Compile>
@@ -268,7 +270,7 @@
     <Compile Include="Views\Settings\SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Presets\SpeciesPresetPage.xaml.cs">
+    <Compile Include="Views\Character\Species\SpeciesPresetPage.xaml.cs">
       <DependentUpon>SpeciesPresetPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Character\Talents\TalentPage.xaml.cs">
@@ -396,7 +398,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\Presets\SpeciesPresetPage.xaml">
+    <EmbeddedResource Include="Views\Character\Species\SpeciesPresetPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

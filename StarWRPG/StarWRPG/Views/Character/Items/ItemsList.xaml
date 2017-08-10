@@ -4,9 +4,10 @@
              x:Class="StarWRPG.Views.ItemsList">
 
     <ListView x:Name="ItemsListView" 
-                ItemsSource="{Binding Items}"
-                ItemSelected="ItemSelectedAsync"
-                VerticalOptions="Start">
+              ItemsSource="{Binding Items}"
+              ItemSelected="ItemSelectedAsync"
+              HasUnevenRows="True"
+              SeparatorVisibility="None">
         <ListView.Header>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -25,7 +26,7 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <Grid>
+                    <Grid Margin="0,8,0,8">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="2*"/>

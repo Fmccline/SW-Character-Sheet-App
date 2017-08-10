@@ -25,11 +25,19 @@ namespace StarWRPG.Views
             BindingContext = characterListViewModel;
 
             CharactersListView = charactersListView;
+            MainStackLayout.Children.Add(noCharactersLabel);
+
+            var task = Task.Run(async () =>
+            {
+                await RefreshCharactersAsync();
+            });
         }
 
         public async Task RefreshCharactersAsync()
         {
             characterListViewModel.Characters = await characterListViewModel.GetCharactersAsync();
+            charactersListView.IsVisible = (characterListViewModel.Characters.Count != 0);
+            noCharactersLabel.IsVisible = (characterListViewModel.Characters.Count == 0);
         }
     }
 }

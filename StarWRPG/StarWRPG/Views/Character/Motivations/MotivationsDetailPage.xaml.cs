@@ -1,6 +1,7 @@
 ﻿using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,31 +22,27 @@ namespace StarWRPG.Views
         protected override StackLayout moralityLayout { get { return MoralityLayout; } }
         protected override StackLayout mainStackLayout { get { return MainStackLayout; } }
 
+        private int numberOfMotivations;
+
         public MotivationsDetailPage(FFGCharacterViewModel character) : base(character)
         {
             InitializeComponent();
+        }
 
-            foreach (var motivation in characterMotivationsViewModel.CharacterMotivationViewModels)
-            {
-                AddMotivationToAppropriateLayout(motivation);
-            }
+        protected override void OnDisappearing()
+        {
+            numberOfMotivations = characterMotivationsViewModel.CharacterMotivationViewModels.Count;
         }
 
         protected override void OnAppearing()
         {
-            ClearLayouts();
-            foreach (var motivation in characterMotivationsViewModel.CharacterMotivationViewModels)
+            if (numberOfMotivations != characterMotivationsViewModel.CharacterMotivationViewModels.Count)
             {
-                AddMotivationToAppropriateLayout(motivation);
+                foreach (var motivation in characterMotivationsViewModel.CharacterMotivationViewModels)
+                {
+                    AddMotivationToAppropriateLayout(motivation);
+                }
             }
-        }
-
-        private void ClearLayouts()
-        {
-            motivationsLayout.Children.Clear();
-            obligationsLayout.Children.Clear();
-            dutyLayout.Children.Clear();
-            moralityLayout.Children.Clear();
         }
 
         protected override MotivationLayout MakeMotivationLayout(CharacterMotivationViewModel motivation)

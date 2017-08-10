@@ -1,5 +1,7 @@
-﻿using System;
+﻿using StarWRPG.Helpers;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +25,37 @@ namespace StarWRPG.Views
             this.pages = pages;
 
             InitializePageTitles();
+            SetButtonsText();
+            SetButtonsClicked();
+        }
+
+        private void SetButtonsClicked()
+        {
+            NextPageButton.Clicked += new SingleClick(GoToNextPage).Click;
+            PreviousPageButton.Clicked += new SingleClick(GoToPreviousPage).Click;
+            SelectPageButton.Clicked += new SingleClick(GoToSelectedPage).Click;
+        }
+
+        private void SetButtonsText()
+        {
+            string previousPageTitle = ToShortTitle(GetPreviousPage().Title);
+            string nextPageTitle = ToShortTitle(GetNextPage().Title);
+
+            PreviousPageButton.Text = "<-- " + previousPageTitle;
+            NextPageButton.Text = nextPageTitle + " -->";
+        }
+
+        private string ToShortTitle(string title)
+        {
+            int maxLength = 6;
+            if (title.Length <= maxLength)
+            {
+                return title;
+            }
+            else
+            {
+                return title.Substring(0, maxLength) + ".";
+            }
         }
 
         private void InitializePageTitles()
@@ -34,39 +67,59 @@ namespace StarWRPG.Views
             }
         }
 
-        private async Task InsertPageBeforeAndPop(Page page)
+        private BasePage GetNextPage()
         {
-            var pageToBeRemoved = currentPage.Navigation.NavigationStack.Last();
-            currentPage.Navigation.InsertPageBefore(page, pageToBeRemoved);
-            await currentPage.Navigation.PopAsync(false);
+            int indexOfCurrentPage = pages.IndexOf(currentPage);
+            int indexOfNextPage = (currentPage == pages.Last()) ? 0 : indexOfCurrentPage + 1;
+            return pages[indexOfNextPage];
         }
 
-        private async void PreviousPageAsync(object sender, EventArgs e)
+        private BasePage GetPreviousPage()
         {
             int indexOfCurrentPage = pages.IndexOf(currentPage);
             int indexOfPreviousPage = (currentPage == pages.First()) ? pages.Count - 1 : indexOfCurrentPage - 1;
-
-            await InsertPageBeforeAndPop(pages[indexOfPreviousPage]);
+            return pages[indexOfPreviousPage];
         }
 
-        private async void SelectPageAsync(object sender, EventArgs e)
+        private async void PushPageAsync(Page page)
+        {
+            var navigation = currentPage.Navigation;
+            try
+            {
+                if (navigation.NavigationStack.Contains(page))
+                {
+                    navigation.RemovePage(page);
+                }
+                await navigation.PushAsync(page, false);
+            }
+            catch (Exception)
+            {
+                await currentPage.DisplayAlert("Oops", "A Nerf Herding error occured! Hopefully that's the last of them.", "OK");
+            }
+        }
+
+        private void GoToNextPage(object sender, EventArgs e)
+        {
+            var nextPage = GetNextPage();
+            PushPageAsync(nextPage);
+        }
+
+        private void GoToPreviousPage(object sender, EventArgs e)
+        {
+            var previousPage = GetPreviousPage();
+            PushPageAsync(previousPage);
+        }
+
+        private async void GoToSelectedPage(object sender, EventArgs e)
         {
             var pageSelected = await currentPage.DisplayActionSheet("Character Details Selection", "Cancel", null, pageTitles);
             foreach (var page in pages)
             {
                 if (page.Title.Equals(pageSelected) && !page.Title.Equals(currentPage.Title))
                 {
-                    await InsertPageBeforeAndPop(page);
+                    PushPageAsync(page);
                 }
             }
-        }
-
-        private async void NextPageAsync(object sender, EventArgs e)
-        {
-            int indexOfCurrentPage = pages.IndexOf(currentPage);
-            int indexOfNextPage = (currentPage == pages.Last()) ? 0 : indexOfCurrentPage + 1;
-
-            await InsertPageBeforeAndPop(pages[indexOfNextPage]);
         }
     }
 }

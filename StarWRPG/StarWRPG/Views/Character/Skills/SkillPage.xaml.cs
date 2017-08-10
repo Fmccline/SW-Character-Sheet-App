@@ -25,49 +25,67 @@ namespace StarWRPG.Views
             skillViewModel = skill;
             BindingContext = skillViewModel;
 
-            AddSaveSkillToolbarItem();
-        }
-
-        private void AddSaveSkillToolbarItem()
-        {
-            ToolbarItem saveSkill = new ToolbarItem
-            {
-                Text = "Save"
-            };
-            saveSkill.Clicked += SaveClickedAsync;
-            ToolbarItems.Add(saveSkill);
-        }
-
-        private async void SaveClickedAsync(object sender, EventArgs e)
-        {
-            await Navigation.PopAsync();
-        }
-
-        private async void RankChangedAsync(object sender, ValueChangedEventArgs e)
-        {
-            uint oldRank = Convert.ToUInt32(e.OldValue);
-            uint newRank = Convert.ToUInt32(e.NewValue);
-
-            if (skillViewModel.NotEnoughXP && newRank > oldRank)
-            {
-                string message = String.Format("You need {0} XP to go from Rank {1} to Rank {2}.",
-                                                        skillViewModel.XPToRank(newRank), oldRank, newRank);
-                await DisplayAlert("Not enough XP", message, "Ok");
-                skillViewModel.NotEnoughXP = false;
-            }
+            SetIncrementAndDecrementIsEnabled();
         }
 
         private async void ChangeCharacteristicClickedAsync(object sender, EventArgs e)
         {
-            const string AGILITY = "Agility";
-            const string BRAWN = "Brawn";
-            const string CUNNING = "Cunning";
-            const string INTELLECT = "Intellect";
-            const string PRESENCE = "Presence";
-            const string WILLPOWER = "Willpower";
-            string characteristicType = await DisplayActionSheet("Characteristic", "Cancel", null, AGILITY, BRAWN, CUNNING, INTELLECT, PRESENCE, WILLPOWER);
+            string[] CharacteristicNames = { "Agility", "Brawn", "Cunning", "Intellect", "Presence", "Willpower", };
+            string characteristicType = await DisplayActionSheet("Characteristic", "Cancel", null, CharacteristicNames);
             if (characteristicType != null && !characteristicType.Equals("Cancel"))
+            {
                 skillViewModel.ChangeCharacteristic(characteristicType);
+            }
+        }
+
+        private void DecrementClicked(object sender, EventArgs e)
+        {
+            if (skillViewModel.Rank > 0)
+            {
+                if (skillViewModel.UseXP)
+                {
+                    skillViewModel.RankDownWithXP();
+                }
+                else
+                {
+                    skillViewModel.Rank--;
+                }
+            }
+            SetIncrementAndDecrementIsEnabled();
+        }
+
+        private async void IncrementClicked(object sender, EventArgs e)
+        {
+            if (skillViewModel.Rank < skillViewModel.MaxRank)
+            {
+                if (skillViewModel.UseXP)
+                {
+                    if (skillViewModel.CanRankUp())
+                    {
+                        skillViewModel.RankUpWithXP();
+                    }
+                    else
+                    {
+                        uint rank = skillViewModel.Rank;
+                        uint xpToRank = skillViewModel.XPToRank(rank + 1);
+                        uint availableXP = skillViewModel.AvailableXP;
+                        string message = $"You need {xpToRank} XP to go from Rank {rank} to Rank {rank + 1}. " +
+                                         $"\nHowever, you only have {availableXP} XP.";
+                        await DisplayAlert("Need more experience, you do.", message, "Ok");
+                    }
+                }
+                else
+                {
+                    skillViewModel.Rank++;
+                }
+            }
+            SetIncrementAndDecrementIsEnabled();
+        }
+
+        private void SetIncrementAndDecrementIsEnabled()
+        {
+            DecrementButton.IsEnabled = (skillViewModel.Rank > 0);
+            IncrementButton.IsEnabled = (skillViewModel.Rank < skillViewModel.MaxRank);
         }
     }
 }

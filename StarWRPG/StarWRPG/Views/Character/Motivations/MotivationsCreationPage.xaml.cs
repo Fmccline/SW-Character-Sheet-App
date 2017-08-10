@@ -1,6 +1,8 @@
-﻿using StarWRPG.ViewModels;
+﻿using StarWRPG.Helpers;
+using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -22,35 +24,22 @@ namespace StarWRPG.Views
         protected override StackLayout moralityLayout { get { return MoralityLayout; } }
         protected override StackLayout mainStackLayout { get { return MainStackLayout; } }
 
+        List<CharacterMotivationViewModel> allMotivations;
+        string[] motivationNames;
+
         public MotivationsCreationPage(FFGCharacterViewModel character) : base(character)
         {
             InitializeComponent();
 
+            allMotivations = ListOfAllMotivations();
+            motivationNames = ListOfMotivationNames(allMotivations);
+
+            AddMotivationButton.Clicked += new SingleClick(AddMotivationAsync).Click;
+            RemoveMotivationButton.Clicked += new SingleClick(RemoveMotivationAsync).Click;
+
             foreach (var motivation in characterMotivationsViewModel.CharacterMotivationViewModels)
             {
                 AddMotivationToAppropriateLayout(motivation);
-            }
-        }
-
-        protected override MotivationLayout MakeMotivationLayout(CharacterMotivationViewModel motivation)
-        {
-            return new MotivationCreationLayout(motivation);
-        }
-
-        private async void AddMotivationAsync(object sender, EventArgs e)
-        {
-            List<CharacterMotivationViewModel> allMotivations = ListOfAllMotivations();
-            string[] motivationNames = ListOfMotivationNames(allMotivations); 
-
-            var motivationName = await DisplayActionSheet("Add", "Cancel", null, motivationNames);
-            foreach (var motivation in allMotivations)
-            {
-                if (motivation.Name.Equals(motivationName))
-                {
-                    characterMotivationsViewModel.AddMotivation(motivation);
-                    AddMotivationToAppropriateLayout(motivation);
-                    return;
-                }
             }
         }
 
@@ -74,6 +63,57 @@ namespace StarWRPG.Views
                 new EmotionalStrengthsViewModel(),
                 new EmotionalWeaknessesViewModel(),
             };
+        }
+
+        protected override MotivationLayout MakeMotivationLayout(CharacterMotivationViewModel motivation)
+        {
+            return new MotivationCreationLayout(motivation);
+        }
+
+        private async void AddMotivationAsync(object sender, EventArgs e)
+        {
+            var motivationName = await DisplayActionSheet("Add", "Cancel", null, motivationNames);
+            foreach (var motivation in allMotivations)
+            {
+                if (motivation.Name.Equals(motivationName))
+                {
+                    characterMotivationsViewModel.AddMotivation(motivation);
+                    return;
+                }
+            }
+        }
+
+        private async void RemoveMotivationAsync(object sender, EventArgs e)
+        {
+            List<CharacterMotivationViewModel> motivations = GetSortedMotivations();
+            List<string> motivationsToStrings = new List<string>();
+
+            foreach (var motivation in motivations)
+            {
+                string motivationName = motivation.Name;
+                string motivationType = motivation.Type;
+
+                motivationsToStrings.Add(motivationName + ": " + motivationType);
+            }
+
+            var answer = await DisplayActionSheet("Remove Motivation", "Cancel", null, motivationsToStrings.ToArray());
+            if (answer != null && !answer.Equals("Cancel"))
+            {
+                var index = motivationsToStrings.IndexOf(answer);
+                var motivationToBeRemoved = motivations[index];
+                characterMotivationsViewModel.RemoveMotivation(motivationToBeRemoved);
+            }
+        }
+
+        private List<CharacterMotivationViewModel> GetSortedMotivations()
+        {
+            List<CharacterMotivationViewModel> motivations = characterMotivationsViewModel.CharacterMotivationViewModels.ToList();
+            motivations = motivations.OrderBy(x => x.GetType() == typeof(MotivationViewModel)).ToList();
+            motivations = motivations.OrderBy(x => x.GetType() == typeof(ObligationViewModel)).ToList();
+            motivations = motivations.OrderBy(x => x.GetType() == typeof(DutyViewModel)).ToList();
+            motivations = motivations.OrderBy(x => x.GetType() == typeof(EmotionalStrengthsViewModel)).ToList();
+            motivations = motivations.OrderBy(x => x.GetType() == typeof(EmotionalWeaknessesViewModel)).ToList();
+            return motivations;
         }
     }
 }

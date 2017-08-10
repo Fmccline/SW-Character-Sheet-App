@@ -1,4 +1,5 @@
-﻿using StarWRPG.ViewModels;
+﻿using StarWRPG.Helpers;
+using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,6 +25,8 @@ namespace StarWRPG.Views
 
             talentsViewModel = ffgCharacterViewModel.TalentsViewModel;
             BindingContext = talentsViewModel;
+
+            AddTalentButton.Clicked += new SingleClick(AddTalentClickedAsync).Click;
         }
 
         private async void TalentSelectedAsync(object sender, SelectedItemChangedEventArgs e)

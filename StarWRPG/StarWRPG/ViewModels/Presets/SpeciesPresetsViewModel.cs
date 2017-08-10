@@ -10,6 +10,20 @@ namespace StarWRPG.ViewModels
         FFGCharacterViewModel ffgCharacterViewModel;
 
         public string[] SpeciesNames { get { return GetSpeciesNames(); } }
+        public SpeciesPresetViewModel FFGCharacterSpecies
+        {
+            get
+            {
+                if (String.IsNullOrEmpty(ffgCharacterViewModel.Species))
+                {
+                    return SpeciesPresetViewModels[0];
+                }
+                else
+                {
+                    return GetSpeciesPresetViewModelByName(ffgCharacterViewModel.Species);
+                }
+            }
+        }
 
         public SpeciesPresetsViewModel(FFGCharacterViewModel character)
         {
@@ -53,6 +67,38 @@ namespace StarWRPG.ViewModels
         public void SetSpeciesPreset(SpeciesPresetViewModel speciesPresetViewModel)
         {
             ffgCharacterViewModel.SetSpeciesPreset(speciesPresetViewModel);
+        }
+
+        public SpeciesPresetViewModel GetSpecies(SpeciesPresetViewModel currentSpecies, Func<int, int> returnSpeciesIndexFuntion)
+        {
+            int returnSpeciesIndex = 0;
+            for (int index = 0; index < SpeciesPresetViewModels.Count; ++index)
+            {
+                if (SpeciesPresetViewModels[index] == currentSpecies)
+                {
+                    returnSpeciesIndex = returnSpeciesIndexFuntion(index);
+                    break;
+                }
+            }
+            return SpeciesPresetViewModels[returnSpeciesIndex];
+        }
+
+        public SpeciesPresetViewModel GetPreviousSpecies(SpeciesPresetViewModel currentSpecies)
+        {
+            Func<int, int> previousSpeciesIndex = (index) =>
+            {
+                return (index > 0) ? index - 1 : SpeciesPresetViewModels.Count - 1;
+            };
+            return GetSpecies(currentSpecies, previousSpeciesIndex);
+        }
+
+        public SpeciesPresetViewModel GetNextSpecies(SpeciesPresetViewModel currentSpecies)
+        {
+            Func<int, int> nextSpeciesIndex = (index) =>
+            {
+                return (index == SpeciesPresetViewModels.Count - 1) ? 0 : index + 1;
+            };
+            return GetSpecies(currentSpecies, nextSpeciesIndex);
         }
     }
 }

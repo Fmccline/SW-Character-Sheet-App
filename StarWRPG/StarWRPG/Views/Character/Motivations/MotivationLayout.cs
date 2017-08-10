@@ -13,6 +13,8 @@ namespace StarWRPG.Views
     public abstract class MotivationLayout : Grid
     {
         CharacterMotivationViewModel characterMotivation;
+        public string MotivationName { get { return characterMotivation.Name; } }
+        public string MotivationDescription { get { return characterMotivation.Description; } }
 
         public MotivationLayout(CharacterMotivationViewModel motivation)
         {

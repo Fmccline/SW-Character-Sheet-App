@@ -1,4 +1,5 @@
-﻿using StarWRPG.ViewModels;
+﻿using StarWRPG.Helpers;
+using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -35,7 +36,9 @@ namespace StarWRPG.Views
             itemsList = new ItemsList(inventoryViewModel);
             weaponsList = new WeaponsList(inventoryViewModel);
 
-            WeaponsClicked(null,null);
+            AddItemButton.Clicked += new SingleClick(AddItemAsync).Click;
+
+            WeaponsClicked(null, null);
         }
 
         public async void AddItemAsync(object sender, EventArgs e)

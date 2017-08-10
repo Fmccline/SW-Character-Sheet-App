@@ -10,12 +10,12 @@
         <StackLayout Orientation="Horizontal">
             <local:CustomSearchBar x:Name="Search"
                                    HorizontalOptions="FillAndExpand"
-                                   Placeholder="Search by name, description, or page #"
+                                   Placeholder="Name, description, or page #"
                                    SearchCommand="{Binding SearchCommand}" 
                                    SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
                                    TextChangedCommand="{Binding DefaultSortCommand}"/>
             <Button Text="+"
-                    Clicked="AddTalentClickedAsync"
+                    x:Name="AddTalentButton"
                     HorizontalOptions="EndAndExpand"
                     WidthRequest="50"
                     Style="{StaticResource DefaultButton}"/>

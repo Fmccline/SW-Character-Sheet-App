@@ -19,7 +19,7 @@ namespace StarWRPG.Views
             Editor motivationDescription = new Editor
             {
                 HorizontalOptions = LayoutOptions.FillAndExpand,
-                TextColor = (Color)Application.Current.Resources["TextColor"],
+                Style = (Style)Application.Current.Resources["DefaultEditor"],
             };
             motivationDescription.SetBinding(Editor.TextProperty, "Description");
             return motivationDescription;

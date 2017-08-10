@@ -5,17 +5,15 @@
              BackgroundColor="{DynamicResource TitleBackgroundColor}">
 
     <StackLayout Orientation="Horizontal">
-        <Button Text="&lt;--"
-                Clicked="PreviousPageAsync"
-                HorizontalOptions="StartAndExpand"
+        <Button x:Name="PreviousPageButton"
+                HorizontalOptions="FillAndExpand"
                 Style="{StaticResource DefaultButton}"/>
-        <Button Text="Select"
-                Clicked="SelectPageAsync"
+        <Button x:Name="SelectPageButton"
+                Text="  Select  "
                 HorizontalOptions="CenterAndExpand"
                 Style="{StaticResource DefaultButton}"/>
-        <Button Text="-->"
-                Clicked="NextPageAsync"
-                HorizontalOptions="EndAndExpand"
+        <Button x:Name="NextPageButton"
+                HorizontalOptions="FillAndExpand"
                 Style="{StaticResource DefaultButton}"/>
     </StackLayout>
 

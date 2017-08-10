@@ -15,7 +15,7 @@
     
     <StackLayout x:Name="MainStackLayout">
         <ScrollView>
-            <StackLayout x:Name="ScrollViewStackLayout">
+            <StackLayout x:Name="ScrollViewStackLayout" Padding="10,10,10,10">
                 <!--Name-->
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Name:" Style="{StaticResource StartBoldLabel}"/>
@@ -26,7 +26,7 @@
                     <Label Text="Species:" Style="{StaticResource StartBoldLabel}"/>
                     <Entry Text="{Binding Species}" Style="{StaticResource FillAndExpandEntry}"/>
                     <Button Text="Preset" 
-                            Clicked="ChangeSpeciePresetAsync"
+                            x:Name="PresetSpeciesButton"
                             HorizontalOptions="End"
                             Style="{StaticResource DefaultButton}"/>
                 </StackLayout>
@@ -54,11 +54,14 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.5*"/>
                         <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
 
                     <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
-                           Text="Character Description" Style="{StaticResource StartBoldLabel}"/>
+                           Text="Character Description" 
+                           Style="{StaticResource StartBoldLabel}"
+                           FontSize="{DynamicResource MediumFontSize}"/>
                     <Label Grid.Column="0" Grid.Row="1"
                            Text="Gender" Style="{StaticResource CenterBoldLabel}"/>
                     <Label Grid.Column="0" Grid.Row="2"
@@ -72,7 +75,9 @@
                     <Label Grid.Column="0" Grid.Row="6"
                            Text="Eyes" Style="{StaticResource CenterBoldLabel}"/>
                     <Label Grid.Column="0" Grid.Row="7"
-                           Text="Features" Style="{StaticResource CenterBoldLabel}"/>
+                           Text="Features" 
+                           Style="{StaticResource CenterBoldLabel}"
+                           VerticalOptions="End"/>
 
                     <Entry Grid.Column="1" Grid.Row="1"
                            Text="{Binding Gender}" Style="{StaticResource FillAndExpandEntry}"/>
@@ -86,15 +91,13 @@
                            Text="{Binding Hair}" Style="{StaticResource FillAndExpandEntry}"/>
                     <Entry Grid.Column="1" Grid.Row="6"
                            Text="{Binding Eyes}" Style="{StaticResource FillAndExpandEntry}"/>
-                    <Editor Grid.Column="1" Grid.Row="7"
-                            Text="{Binding NotableFeatures}" 
-                            Style="{StaticResource DefaultEditor}"
-                            VerticalOptions="Center"/>
+                    <Editor Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2"
+                            Text="{Binding NotableFeatures}" Style="{StaticResource DefaultEditor}"/>
                 </Grid>
                 <!--Character Background-->
                 <Label Text="Character Background"                    
-                       Style="{StaticResource CenterBoldLabel}"
-                       HorizontalOptions="Fill"/>
+                       Style="{StaticResource StartBoldLabel}"
+                       FontSize="{DynamicResource MediumFontSize}"/>
                 <Editor Text="{Binding Background}"
                         HeightRequest="150"
                         Style="{StaticResource DefaultEditor}"/>

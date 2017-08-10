@@ -17,6 +17,7 @@ namespace StarWRPG.Views
 
         public CriticalInjuriesLayout(CriticalInjuriesViewModel injuriesViewModel)
         {
+            RowSpacing = 10;
             ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
             ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(3, GridUnitType.Star) });
 
@@ -60,10 +61,13 @@ namespace StarWRPG.Views
                 Label injuryResult = new Label
                 {
                     Text = criticalInjuries[index].Result,
-                    Style = (Style)Application.Current.Resources["StartLabel"]
+                    Style = (Style)Application.Current.Resources["StartLabel"],
+                    VerticalOptions = LayoutOptions.Center,
                 };
-                Children.Add(injurySeverity, 0, index + 2);
-                Children.Add(injuryResult, 1, index + 2);
+
+                int row = index + 1; // Plus one because header is at row = 0
+                Children.Add(injurySeverity, 0, row);
+                Children.Add(injuryResult, 1, row);
             }
         }
 

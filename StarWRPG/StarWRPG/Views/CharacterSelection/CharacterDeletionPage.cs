@@ -21,8 +21,13 @@ namespace StarWRPG.Views
         {
             if (e.SelectedItem is FFGCharacterViewModel character)
             {
-                await App.CharacterDatabase.DeleteCharacterAsync(character);
-                await Navigation.PopAsync();
+                var answer = await DisplayAlert("Delete Character", $"Are you sure you want to delete {character.Name}?", "Yes", "No");
+                if (answer)
+                {
+                    await App.CharacterDatabase.DeleteCharacterAsync(character);
+                    await characterSelectionLayout.RefreshCharactersAsync();
+                    characterSelectionLayout.CharactersListView.SelectedItem = null;
+                }
             }
         }
     }
