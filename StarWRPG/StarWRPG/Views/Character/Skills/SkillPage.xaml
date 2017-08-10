@@ -8,12 +8,12 @@
 
     <StackLayout Padding="10,10,10,10"
                  Spacing="15">
-        
+        <!--Name-->
         <Label Text="{Binding Name}"
                FontSize="{DynamicResource LargeFontSize}"
                Style="{StaticResource CenterBoldLabel}"
                Margin="0,0,0,20"/>
-
+        <!--Rank-->
         <StackLayout Orientation="Horizontal">
             <Label Text="Rank: " 
                    Style="{StaticResource StartBoldLabel}"/>
@@ -41,12 +41,33 @@
                         VerticalOptions="Center"/>
             </StackLayout>
         </StackLayout>        
-
+        <!--Dice Pool-->
         <StackLayout Orientation="Horizontal">
-            <Label Text="Career: " Style="{StaticResource StartBoldLabel}"/>
-            <Switch IsToggled="{Binding IsCareer}"/>
+            <Label Text="Dice Pool: "
+                   Style="{StaticResource StartBoldLabel}"/>
+            <Image Source="{Binding ImageSourceForDice[0]}"
+                   IsVisible="{Binding HasDice[0]}"
+                   HorizontalOptions="Start"/>
+            <Image Source="{Binding ImageSourceForDice[1]}"
+                   IsVisible="{Binding HasDice[1]}"
+                   HorizontalOptions="Start"/>
+            <Image Source="{Binding ImageSourceForDice[2]}"
+                   IsVisible="{Binding HasDice[2]}"
+                   HorizontalOptions="Start"/>
+            <Image Source="{Binding ImageSourceForDice[3]}"
+                   IsVisible="{Binding HasDice[3]}"
+                   HorizontalOptions="Start"/>
+            <Image Source="{Binding ImageSourceForDice[4]}"
+                   IsVisible="{Binding HasDice[4]}"
+                   HorizontalOptions="Start"/>
+            <Image Source="{Binding ImageSourceForDice[5]}"
+                   IsVisible="{Binding HasDice[5]}"
+                   HorizontalOptions="Start"/>
+            <Image Source="{Binding ImageSourceForDice[6]}"
+                   IsVisible="{Binding HasDice[6]}"
+                   HorizontalOptions="Start"/>
         </StackLayout>
-
+        <!--Characteristic-->
         <StackLayout Orientation="Horizontal">
             <Label Text="Characteristic: " Style="{StaticResource StartBoldLabel}"/>
             <Label Text="{Binding CharacteristicName}" Style="{StaticResource StartLabel}"/>
@@ -57,7 +78,12 @@
                     HorizontalOptions="EndAndExpand"
                     Style="{StaticResource DefaultButton}"/>
         </StackLayout>
-
+        <!--Is Career-->
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Career: " Style="{StaticResource StartBoldLabel}"/>
+            <Switch IsToggled="{Binding IsCareer}"/>
+        </StackLayout>
+        <!--Experience-->
         <Grid VerticalOptions="EndAndExpand"> 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
