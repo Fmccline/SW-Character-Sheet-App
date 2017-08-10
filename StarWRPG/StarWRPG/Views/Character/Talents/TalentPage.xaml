@@ -9,7 +9,7 @@
         10,20,10,0
     </ContentPage.Padding>
 
-    <ContentPage.Content>
+    <ScrollView>
         <StackLayout>
             <!--Talent Name-->
             <Label Text="Name" Style="{StaticResource StartLabel}"/>
@@ -47,23 +47,26 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <Entry Grid.Column="0" Grid.Row="0" 
-                        Text="{Binding TotalXP}"
-                        Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
+                       Text="{Binding TotalXP}"
+                       Style="{StaticResource FillAndExpandCenterNumericEntry}"
+                       VerticalOptions="End"/>
                 <Label Grid.Column="0" Grid.Row="1" 
-                        Text="Total XP" 
-                        Style="{StaticResource CenterBoldLabel}"
-                        VerticalOptions="Start"/>
+                       Text="Total XP" 
+                       Style="{StaticResource CenterBoldLabel}"
+                       VerticalOptions="Start"/>
                 <Entry Grid.Column="2" Grid.Row="0" 
-                        Text="{Binding AvailableXP}" 
-                        Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
+                       Text="{Binding AvailableXP}" 
+                       Style="{StaticResource FillAndExpandCenterNumericEntry}"
+                       VerticalOptions="End"/>
                 <Label Grid.Column="2" Grid.Row="1" 
-                        Text="Available XP" 
-                        Style="{StaticResource CenterBoldLabel}"
-                        VerticalOptions="Start"/>
+                       Text="Available XP" 
+                       Style="{StaticResource CenterBoldLabel}"
+                       VerticalOptions="Start"/>
             </Grid>
         </StackLayout>
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>

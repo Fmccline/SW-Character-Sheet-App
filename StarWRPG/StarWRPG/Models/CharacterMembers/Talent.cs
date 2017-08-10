@@ -15,7 +15,7 @@ namespace StarWRPG.Models
 
         public Talent()
         {
-            Description = "";
+            Description = "Insert description here...";
             Name = "";
         }
     }

@@ -47,14 +47,14 @@ namespace StarWRPG.Views
 
         private string ToShortTitle(string title)
         {
-            int maxLength = 6;
+            int maxLength = 5;
             if (title.Length <= maxLength)
             {
                 return title;
             }
             else
             {
-                return title.Substring(0, maxLength) + ".";
+                return title.Substring(0, maxLength);
             }
         }
 

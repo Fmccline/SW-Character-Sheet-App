@@ -24,7 +24,9 @@
                 <!--Species-->
                 <StackLayout Orientation="Horizontal">
                     <Label Text="Species:" Style="{StaticResource StartBoldLabel}"/>
-                    <Entry Text="{Binding Species}" Style="{StaticResource FillAndExpandEntry}"/>
+                    <Entry Text="{Binding Species}" 
+                           Style="{StaticResource FillAndExpandEntry}"
+                           VerticalOptions="Center"/>
                     <Button Text="Preset" 
                             x:Name="PresetSpeciesButton"
                             HorizontalOptions="End"
