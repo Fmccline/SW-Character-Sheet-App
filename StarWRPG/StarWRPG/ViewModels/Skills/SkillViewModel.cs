@@ -29,6 +29,13 @@ namespace StarWRPG.ViewModels
             }
         }
 
+        public bool CanDelete
+        {
+            get
+            {
+                return (Skill.GetType() == typeof(CustomSkill));
+            }
+        }
         public bool CanSetCharacteristic
         {
             get { return Skill.CanSetCharacteristic; }
@@ -84,6 +91,15 @@ namespace StarWRPG.ViewModels
             set
             {
                 imageSourceForDice = value;
+                OnPropertyChanged();
+            }
+        }
+        public List<string> SkillUses
+        {
+            get { return Skill.SkillUses; }
+            set
+            {
+                Skill.SkillUses = value;
                 OnPropertyChanged();
             }
         }

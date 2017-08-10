@@ -61,6 +61,7 @@ namespace StarWRPG.ViewModels
             {
                 SkillViewModels.Add(new SkillViewModel(skill, characteristics, xp));
             }
+            DefaultSort();
         }
 
         public void AddSkill(SkillViewModel skill)

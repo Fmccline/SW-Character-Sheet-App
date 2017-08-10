@@ -3,6 +3,13 @@ namespace StarWRPG.Models
 {
 	public class RangedHeavySkill : Skill
 	{
-        public RangedHeavySkill(Characteristic c) : base(c, "Ranged-Heavy") { }
+        public RangedHeavySkill(Characteristic c) : base(c, "Ranged-Heavy")
+        {
+            SkillUses.Add("At short range, the difficulty of a Ranged-Heavy attack is Easy (one purple). For each range band " +
+                          "after short, increase the difficulty by one.");
+            SkillUses.Add("When engaged with your target, increase the difficulty of the attack by two.");
+            SkillUses.Add("When an ally is engaged with your target, upgrade the difficulty of the attack. " +
+                          "Despair generated is automatically spent to make your attack hit one of your allies.");
+        }
     }
 }

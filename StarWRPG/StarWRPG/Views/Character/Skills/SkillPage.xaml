@@ -6,78 +6,116 @@
              Style="{StaticResource PageStyle}"
              Title="Skill">
 
-    <StackLayout Padding="10,10,10,10"
-                 Spacing="15">
-        
-        <Label Text="{Binding Name}"
-               FontSize="{DynamicResource LargeFontSize}"
-               Style="{StaticResource CenterBoldLabel}"
-               Margin="0,0,0,20"/>
-
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Rank: " 
-                   Style="{StaticResource StartBoldLabel}"/>
-            <Label Text="{Binding Rank}" 
-                   Style="{StaticResource DefaultLabel}"
+    <ScrollView>
+        <StackLayout x:Name="MainStackLayout"
+                     Padding="10,10,10,10"
+                     Spacing="15">
+            <!--Name-->
+            <Label Text="{Binding Name}"
                    FontSize="{DynamicResource LargeFontSize}"
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="Center"/>
-            <Button x:Name="DecrementButton"
-                    Text="-"
-                    Clicked="DecrementClicked"
-                    HorizontalOptions="End"
-                    Style="{StaticResource DefaultButton}"/>
-            <Button x:Name="IncrementButton"
-                    Text="+"
-                    Clicked="IncrementClicked"
-                    HorizontalOptions="End"
-                    Style="{StaticResource DefaultButton}"/>
-            <StackLayout>
-                <Label Text="Use XP" 
+                   Style="{StaticResource CenterBoldLabel}"
+                   Margin="0,0,0,20"/>
+            <!--Rank-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Rank: " 
+                       Style="{StaticResource StartBoldLabel}"/>
+                <Label Text="{Binding Rank}" 
                        Style="{StaticResource DefaultLabel}"
-                       HorizontalOptions="End"/>
-                <Switch IsToggled="{Binding UseXP}"
+                       FontSize="{DynamicResource LargeFontSize}"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center"/>
+                <Button x:Name="DecrementButton"
+                        Text="-"
+                        Clicked="DecrementClicked"
                         HorizontalOptions="End"
-                        VerticalOptions="Center"/>
+                        Style="{StaticResource DefaultButton}"/>
+                <Button x:Name="IncrementButton"
+                        Text="+"
+                        Clicked="IncrementClicked"
+                        HorizontalOptions="End"
+                        Style="{StaticResource DefaultButton}"/>
+                <StackLayout>
+                    <Label Text="Use XP" 
+                           Style="{StaticResource DefaultLabel}"
+                           HorizontalOptions="End"/>
+                    <Switch IsToggled="{Binding UseXP}"
+                            HorizontalOptions="End"
+                            VerticalOptions="Center"/>
+                </StackLayout>
             </StackLayout>
-        </StackLayout>        
+            <!--Dice Pool-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Dice Pool: "
+                       Style="{StaticResource StartBoldLabel}"/>
+                <Image Source="{Binding ImageSourceForDice[0]}"
+                       IsVisible="{Binding HasDice[0]}"
+                       HorizontalOptions="Start"/>
+                <Image Source="{Binding ImageSourceForDice[1]}"
+                       IsVisible="{Binding HasDice[1]}"
+                       HorizontalOptions="Start"/>
+                <Image Source="{Binding ImageSourceForDice[2]}"
+                       IsVisible="{Binding HasDice[2]}"
+                       HorizontalOptions="Start"/>
+                <Image Source="{Binding ImageSourceForDice[3]}"
+                       IsVisible="{Binding HasDice[3]}"
+                       HorizontalOptions="Start"/>
+                <Image Source="{Binding ImageSourceForDice[4]}"
+                       IsVisible="{Binding HasDice[4]}"
+                       HorizontalOptions="Start"/>
+                <Image Source="{Binding ImageSourceForDice[5]}"
+                       IsVisible="{Binding HasDice[5]}"
+                       HorizontalOptions="Start"/>
+                <Image Source="{Binding ImageSourceForDice[6]}"
+                       IsVisible="{Binding HasDice[6]}"
+                       HorizontalOptions="Start"/>
+            </StackLayout>
+            <!--Characteristic-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Characteristic: " Style="{StaticResource StartBoldLabel}"/>
+                <Label Text="{Binding CharacteristicName}" Style="{StaticResource StartLabel}"/>
+                <Button Text="Change" 
+                        Clicked="ChangeCharacteristicClickedAsync" 
+                        IsVisible="{Binding CanSetCharacteristic}"
+                        VerticalOptions="Center"
+                        HorizontalOptions="EndAndExpand"
+                        Style="{StaticResource DefaultButton}"/>
+            </StackLayout>
+            <!--Is Career-->
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Career: " Style="{StaticResource StartBoldLabel}"/>
+                <Switch IsToggled="{Binding IsCareer}"/>
+            </StackLayout>
+            <!--Skill Uses-->
+            <Label x:Name="SkillUsesLabel"
+                   Text="Skill Uses:" 
+                   Style="{StaticResource StartBoldLabel}"
+                   IsVisible="False"/>
+            <ContentView x:Name="SkillUsesView"/>
+            <!--Experience-->
+            <Grid VerticalOptions="EndAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Career: " Style="{StaticResource StartBoldLabel}"/>
-            <Switch IsToggled="{Binding IsCareer}"/>
+                <Label Grid.Column="0" Grid.Row="0"
+                       Text="{Binding TotalXP}" 
+                       Style="{StaticResource CenterLabel}"/>
+                <Label Grid.Column="0" Grid.Row="1"
+                       Text="Total XP" 
+                       Style="{StaticResource CenterLabel}"/>
+                <Label Grid.Column="1" Grid.Row="0"
+                       Text="{Binding AvailableXP}"
+                       Style="{StaticResource CenterLabel}"/>
+                <Label Grid.Column="1" Grid.Row="1"
+                       Text="Available XP" 
+                       Style="{StaticResource CenterLabel}"/>
+            </Grid>
         </StackLayout>
+    </ScrollView>
 
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Characteristic: " Style="{StaticResource StartBoldLabel}"/>
-            <Label Text="{Binding CharacteristicName}" Style="{StaticResource StartLabel}"/>
-            <Button Text="Change" 
-                    Clicked="ChangeCharacteristicClickedAsync" 
-                    IsVisible="{Binding CanSetCharacteristic}"
-                    VerticalOptions="Center"
-                    HorizontalOptions="EndAndExpand"
-                    Style="{StaticResource DefaultButton}"/>
-        </StackLayout>
-
-        <Grid VerticalOptions="EndAndExpand"> 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-
-            <Label Grid.Column="0" Grid.Row="0"
-                   Text="{Binding TotalXP}" Style="{StaticResource CenterLabel}"/>
-            <Label Grid.Column="0" Grid.Row="1"
-                   Text="Total XP" Style="{StaticResource CenterLabel}"/>
-            <Label Grid.Column="1" Grid.Row="0"
-                   Text="{Binding AvailableXP}" Style="{StaticResource CenterLabel}"/>
-            <Label Grid.Column="1" Grid.Row="1"
-                   Text="Available XP" Style="{StaticResource CenterLabel}"/>
-        </Grid>
-        
-    </StackLayout>
-    
 </ContentPage>

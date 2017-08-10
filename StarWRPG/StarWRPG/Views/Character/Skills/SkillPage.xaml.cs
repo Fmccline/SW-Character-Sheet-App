@@ -17,15 +17,42 @@ namespace StarWRPG.Views
     public partial class SkillPage : ContentPage
     {
         SkillViewModel skillViewModel;
+        SkillsViewModel skillsViewModel;
 
-        public SkillPage(SkillViewModel skill)
+        public SkillPage(SkillViewModel skill, SkillsViewModel skills)
         {
             InitializeComponent();
 
             skillViewModel = skill;
+            skillsViewModel = skills;
             BindingContext = skillViewModel;
 
             SetIncrementAndDecrementIsEnabled();
+            if (skillViewModel.CanDelete)
+            {
+                AddDeleteToolbarItem();
+            }
+            if (skillViewModel.SkillUses.Count > 0)
+            {
+                SkillUsesLabel.IsVisible = true;
+                SkillUsesView.Content = new SkillUsesGrid(skillViewModel.SkillUses).Content;
+            }
+        }
+
+        private void AddDeleteToolbarItem()
+        {
+            var deleteSkill = new ToolbarItem { Text = "Delete" };
+            deleteSkill.Clicked += async (sender, e) =>
+            {
+                string message = $"Are you sure you want to delete the skill {skillViewModel.SkillName}?";
+                var answer = await DisplayAlert("Delete Skill", message, "Yes", "No");
+                if (answer)
+                {
+                    skillsViewModel.RemoveSkill(skillViewModel);
+                    await Navigation.PopAsync(false);
+                }
+            };
+            ToolbarItems.Add(deleteSkill);
         }
 
         private async void ChangeCharacteristicClickedAsync(object sender, EventArgs e)

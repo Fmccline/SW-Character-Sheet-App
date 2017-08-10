@@ -13,21 +13,11 @@ namespace StarWRPG.ViewModels
         Characteristic characteristic;
         Experience xp;
 
-        string name;
-
         public string CharacteristicName
         {
             get { return characteristic.Name; }
         }
-        public string Name
-        {
-            get { return name; }
-            set
-            {
-                name = value;
-                OnPropertyChanged();
-            }
-        }
+        public string Name { get; set; }
 
         public SkillCreationViewModel(Characteristics characteristics, Experience xp)
         {
