@@ -86,7 +86,10 @@
                 <Switch IsToggled="{Binding IsCareer}"/>
             </StackLayout>
             <!--Skill Uses-->
-            <Label Text="Skill Uses:" Style="{StaticResource StartBoldLabel}"/>
+            <Label x:Name="SkillUsesLabel"
+                   Text="Skill Uses:" 
+                   Style="{StaticResource StartBoldLabel}"
+                   IsVisible="False"/>
             <ContentView x:Name="SkillUsesView"/>
             <!--Experience-->
             <Grid VerticalOptions="EndAndExpand">
