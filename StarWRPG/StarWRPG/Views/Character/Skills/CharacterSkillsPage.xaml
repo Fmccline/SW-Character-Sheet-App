@@ -120,8 +120,8 @@
             <Label Grid.Column="0" Grid.Row="1" 
                    Text="Total XP" Style="{StaticResource CenterBoldLabel}"/>
             <Button Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" 
+                    x:Name="AddSkillButton"
                     Text="Add Skill" 
-                    Clicked="AddCustomSkillClickedAsync" 
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     Style="{StaticResource DefaultButton}"/>

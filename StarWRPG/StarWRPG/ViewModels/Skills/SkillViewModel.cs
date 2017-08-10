@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace StarWRPG.ViewModels
 {
@@ -138,6 +139,16 @@ namespace StarWRPG.ViewModels
             this.characteristics = characteristics;
             this.xp = xp;
             CalculateDicePool();
+            SubscribeToExperienceChanged();
+        }
+
+        private void SubscribeToExperienceChanged()
+        {
+            MessagingCenter.Subscribe<Experience>(this, "Experience Changed", (s) =>
+            {
+                OnPropertyChanged(nameof(AvailableXP));
+                OnPropertyChanged(nameof(TotalXP));
+            });
         }
 
         public void CalculateDicePool()

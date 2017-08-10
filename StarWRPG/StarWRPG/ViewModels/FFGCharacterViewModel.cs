@@ -165,8 +165,16 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
-
         // Stats
+        public Experience XP
+        {
+            get { return FFGCharacter.XP; }
+            set
+            {
+                FFGCharacter.XP = value;
+                OnPropertyChanged();
+            }
+        }
         public uint AvailableXP
         {
             get { return FFGCharacter.XP.AvailableXP; }
@@ -420,6 +428,16 @@ namespace StarWRPG.ViewModels
         {
             FFGCharacter = character;
             InitializeViewModels();
+            SubscribeToExperienceChanged();
+        }
+
+        private void SubscribeToExperienceChanged()
+        {
+            MessagingCenter.Subscribe<Experience>(this, "Experience Changed", (s)=> 
+            {
+                OnPropertyChanged(nameof(AvailableXP));
+                OnPropertyChanged(nameof(TotalXP));
+            });
         }
 
         // Private Methods
@@ -427,9 +445,9 @@ namespace StarWRPG.ViewModels
         {
             CharacterMotivationsViewModel = new CharacterMotivationsViewModel(FFGCharacter.Motivations, this);
             CriticalInjuriesViewModel = new CriticalInjuriesViewModel(FFGCharacter.CriticalInjuries);
-            InventoryViewModel = new InventoryViewModel(this,FFGCharacter.Inventory);
+            InventoryViewModel = new InventoryViewModel(this, FFGCharacter.Inventory);
             SkillsViewModel = new SkillsViewModel(FFGCharacter.Skills, FFGCharacter.Characteristics, FFGCharacter.XP);
-            TalentsViewModel = new TalentsViewModel(FFGCharacter.Talents);
+            TalentsViewModel = new TalentsViewModel(FFGCharacter.Talents, FFGCharacter.XP);
         }
 
         private void SetCharacteristicForSkills(Characteristic characteristic)

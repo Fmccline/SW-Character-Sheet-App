@@ -6,21 +6,14 @@
                 Title="Talents">
     
     <StackLayout x:Name="MainStackLayout">
-
-        <StackLayout Orientation="Horizontal">
-            <local:CustomSearchBar x:Name="Search"
-                                   HorizontalOptions="FillAndExpand"
-                                   Placeholder="Name, description, or page #"
-                                   SearchCommand="{Binding SearchCommand}" 
-                                   SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
-                                   TextChangedCommand="{Binding DefaultSortCommand}"/>
-            <Button Text="+"
-                    x:Name="AddTalentButton"
-                    HorizontalOptions="EndAndExpand"
-                    WidthRequest="50"
-                    Style="{StaticResource DefaultButton}"/>
-        </StackLayout>
-
+        <!--Talent Search Bar-->
+        <local:CustomSearchBar x:Name="Search"
+                                HorizontalOptions="FillAndExpand"
+                                Placeholder="Name, description, or page #"
+                                SearchCommand="{Binding SearchCommand}" 
+                                SearchCommandParameter="{Binding Text, Source={x:Reference Search}}"
+                                TextChangedCommand="{Binding DefaultSortCommand}"/>
+        <!--Talents List-->
         <ListView x:Name="TalentsListView"
                   ItemsSource="{Binding TalentViewModels}"
                   ItemSelected="TalentSelectedAsync"
@@ -68,6 +61,29 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <!--Experience and Add Talent-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0" Grid.Row="0" 
+                   Text="{Binding TotalXP}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="0" Grid.Row="1" 
+                   Text="Total XP" Style="{StaticResource CenterBoldLabel}"/>
+            <Button Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" 
+                    Text="Add Talent"
+                    x:Name="AddTalentButton"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    Style="{StaticResource DefaultButton}"/>
+            <Label Grid.Column="2" Grid.Row="0" 
+                   Text="{Binding AvailableXP}" Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="2" Grid.Row="1" 
+                   Text="Available XP" Style="{StaticResource CenterBoldLabel}"/>
+        </Grid>
     </StackLayout>
     
 </local:BasePage>

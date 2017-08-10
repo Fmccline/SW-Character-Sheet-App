@@ -1,4 +1,5 @@
-﻿using StarWRPG.ViewModels;
+﻿using StarWRPG.Helpers;
+using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,18 +22,11 @@ namespace StarWRPG.Views
 
         public CharacterSkillsPage(FFGCharacterViewModel character) : base(character)
         {
-            try
-            {
-                InitializeComponent();
-                skillsViewModel = character.SkillsViewModel;
-                BindingContext = skillsViewModel;
-            }
-            catch(Exception e)
-            {
-                Debug.WriteLine(e.StackTrace);
-                Debug.WriteLine(e.Source);
-                Debug.WriteLine(e.Message);
-            }
+            InitializeComponent();
+            skillsViewModel = character.SkillsViewModel;
+            BindingContext = skillsViewModel;
+
+            AddSkillButton.Clicked += new SingleClick(AddCustomSkillClickedAsync).Click;
         }
 
         private async void SkillSelected(object sender, SelectedItemChangedEventArgs e)

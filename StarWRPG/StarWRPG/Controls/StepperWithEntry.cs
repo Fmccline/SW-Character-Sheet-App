@@ -55,7 +55,7 @@ namespace StarWRPG.Views
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 Keyboard = Keyboard.Numeric,
                 Text = 1.ToString(),
-                Style = (Style)Application.Current.Resources["DefaultEntry"],
+                Style = (Style)Application.Current.Resources["FillAndExpandCenterNumericEntry"],
             };
         }
 

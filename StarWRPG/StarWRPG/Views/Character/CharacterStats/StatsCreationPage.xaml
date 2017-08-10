@@ -39,18 +39,20 @@
                     <Label Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="2"
                            Text="Force Rating" 
                            Style="{StaticResource CenterBottomBoldLabel}" />
+                    
                     <Entry Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"
                            Text="{Binding SoakValue}" 
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
                     <Entry Grid.Column="2" Grid.Row="2"
                            Text="{Binding MeleeDefense}" 
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
                     <Entry Grid.Column="3" Grid.Row="2"
                            Text="{Binding RangedDefense}" 
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
                     <Entry Grid.Column="4" Grid.Row="2" Grid.ColumnSpan="2"
                            Text="{Binding ForceRating}" 
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
+                    
                     <Label Grid.Column="2" Grid.Row="3"
                            Text="Melee" 
                            Style="{StaticResource CenterTopLabel}"/>
@@ -78,18 +80,20 @@
                     <Label Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2"
                            Text="Strain" 
                            Style="{StaticResource CenterBoldLabel}"/>
+                    
                     <Entry Grid.Column="0" Grid.Row="1" 
                            Text="{Binding CurrentWounds}"
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
                     <Entry Grid.Column="1" Grid.Row="1" 
                            Text="{Binding MaxWounds}"
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
                     <Entry Grid.Column="2" Grid.Row="1" 
                            Text="{Binding CurrentStrain}"
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
                     <Entry Grid.Column="3" Grid.Row="1" 
                            Text="{Binding MaxStrain}"                          
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
+                    
                     <Label Grid.Column="0" Grid.Row="2" 
                            Text="Current"                          
                            Style="{StaticResource CenterTopLabel}"/>
@@ -124,13 +128,13 @@
                            Style="{StaticResource CenterBoldLabel}" />
                     <Entry Grid.Column="0" Grid.Row="1"
                            Text="{Binding TotalDuty}" 
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
                     <Label Grid.Column="0" Grid.Row="2"
                            Text="Contribution" 
                            Style="{StaticResource CenterBoldLabel}" />
                     <Entry Grid.Column="0" Grid.Row="3"
                            Text="{Binding Contribution}" 
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
                     <!--Obligation-->
                     <Label Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2"
                            Text="Total Obligation" 
@@ -144,13 +148,13 @@
                            Style="{StaticResource CenterBoldLabel}" />
                     <Entry Grid.Column="3" Grid.Row="1"
                            Text="{Binding Morality}" 
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
                     <Label Grid.Column="3" Grid.Row="2"
                            Text="Conflict" 
                            Style="{StaticResource CenterBoldLabel}" />
                     <Entry Grid.Column="3" Grid.Row="3"
                            Text="{Binding Conflict}" 
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
                     <!--Encumbrance-->
                     <Label Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
                            Text="Encumbrance" 
@@ -160,7 +164,7 @@
                            Style="{StaticResource CenterLabel}"/>
                     <Entry Grid.Column="2" Grid.Row="3"
                            Text="{Binding EncumbranceThreshold}" 
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
                     <Label Grid.Column="1" Grid.Row="4"
                            Text="Current" 
                            Style="{StaticResource CenterTopLabel}"/>
@@ -254,14 +258,14 @@
 
                     <Entry Grid.Column="0" Grid.Row="0" 
                            Text="{Binding TotalXP}"
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
                     <Label Grid.Column="0" Grid.Row="1" 
                            Text="Total XP" 
                            Style="{StaticResource CenterBoldLabel}"
                            VerticalOptions="Start"/>
                     <Entry Grid.Column="2" Grid.Row="0" 
                            Text="{Binding AvailableXP}" 
-                           Style="{StaticResource FillAndExpandNumericEntry}"/>
+                           Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
                     <Label Grid.Column="2" Grid.Row="1" 
                            Text="Available XP" 
                            Style="{StaticResource CenterBoldLabel}"

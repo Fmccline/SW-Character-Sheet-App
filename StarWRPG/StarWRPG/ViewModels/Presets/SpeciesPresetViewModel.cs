@@ -84,7 +84,7 @@ namespace StarWRPG.ViewModels
             TalentViewModels = new List<TalentViewModel>();
             foreach (var talent in SpeciesPreset.Talents)
             {
-                TalentViewModels.Add(new TalentViewModel(talent));
+                TalentViewModels.Add(new TalentViewModel(talent, FFGCharacterViewModel.XP));
             }
         }
 

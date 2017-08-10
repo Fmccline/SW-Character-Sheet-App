@@ -57,6 +57,9 @@
                 <Setter Property="HorizontalOptions" Value="FillAndExpand" />
                 <Setter Property="VerticalOptions" Value="FillAndExpand" />
             </Style>
+            <Style x:Key="FillAndExpandCenterNumericEntry" TargetType="Entry" BasedOn="{StaticResource FillAndExpandNumericEntry}">
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+            </Style>
             <!--Labels-->
             <Style x:Key="DefaultLabel" TargetType="Label">
                 <Setter Property="TextColor" Value="{DynamicResource TextColor}" />

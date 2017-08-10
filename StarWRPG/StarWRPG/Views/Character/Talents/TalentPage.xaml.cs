@@ -26,7 +26,7 @@ namespace StarWRPG.Views
 
             if (talent == null)
             {
-                talentViewModel = new TalentViewModel();
+                talentViewModel = new TalentViewModel(talents.XP);
                 talentExists = false;
             }
             else
@@ -60,11 +60,16 @@ namespace StarWRPG.Views
 
         private async void DeleteClickedAsync(object sender, EventArgs e)
         {
-            var answer = await DisplayAlert("Delete Talent", "Are you sure you want to delete this talent?", "Yes", "No");
+            uint xpCost = talentViewModel.XPCost;
+            string message = "Are you sure you want to delete this talent?";
+            message = (talentViewModel.UseXP) ? message + $"\nDeleting this talent will refund {xpCost} XP." : message;
+
+            var answer = await DisplayAlert("Delete Talent", message, "Yes", "No");
             if (answer)
             {
                 if (talentExists)
                 {
+                    talentsViewModel.AvailableXP += (talentViewModel.UseXP) ? xpCost : 0;
                     talentsViewModel.RemoveTalent(talentViewModel);
                 }
                 await Navigation.PopAsync();
@@ -75,16 +80,29 @@ namespace StarWRPG.Views
         {
             if (talentViewModel.Name.Equals("") || talentViewModel.Description.Equals(""))
             {
-                await DisplayAlert("Invalid", "You forgot to enter in the Name and/or Description!", "Oops, I'll get to that!");
+                await DisplayAlert("Invalid", "Please enter both a name and description for this talent.", "Oops, I'll get to that!");
+                return;
             }
-            else
+            if (!talentExists)
             {
-                if (!talentExists)
+                if (talentViewModel.UseXP)
                 {
-                    talentsViewModel.AddTalent(talentViewModel);
+                    uint xpCost = talentViewModel.XPCost;
+                    uint availableXP = talentViewModel.AvailableXP;
+                    if (xpCost <= availableXP)
+                    {
+                        talentsViewModel.AvailableXP -= xpCost;
+                    }
+                    else
+                    {
+                        string message = $"This talent costs {xpCost} XP.\nHowever, you only have {availableXP} XP.";
+                        await DisplayAlert("Need more experience, you do.", message, "Ok");
+                        return;
+                    }
                 }
-                await Navigation.PopAsync();
+                talentsViewModel.AddTalent(talentViewModel);
             }
+            await Navigation.PopAsync();
         }
     }
 }

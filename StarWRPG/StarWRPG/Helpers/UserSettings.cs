@@ -36,6 +36,14 @@ namespace StarWRPG
                 AppSettings.AddOrUpdateValue(nameof(UseXPForSkills), value);
             }
         }
+        public static bool UseXPForTalents
+        {
+            get { return AppSettings.GetValueOrDefault(nameof(UseXPForTalents), false); }
+            set
+            {
+                AppSettings.AddOrUpdateValue(nameof(UseXPForTalents), value);
+            }
+        }
 
         public static Color BackgroundColor
         {

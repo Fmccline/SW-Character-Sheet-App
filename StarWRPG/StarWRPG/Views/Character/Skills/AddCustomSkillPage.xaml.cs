@@ -52,6 +52,11 @@ namespace StarWRPG.Views
 
         private async void SaveClickedAsync(object sender, EventArgs e)
         {
+            if (String.IsNullOrWhiteSpace(skillCreationViewModel.Name))
+            {
+                await DisplayAlert("No Name", "Please name your new skill!", "Ok");
+                return;
+            }
             var skill = skillCreationViewModel.MakeCustomSkill();
             skillsViewModel.AddSkill(skill);
             await Navigation.PopAsync();

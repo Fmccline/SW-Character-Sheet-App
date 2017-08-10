@@ -16,6 +16,8 @@ namespace StarWRPG.ViewModels
     {
         ObservableCollection<Talent> talents;
         ObservableCollection<TalentViewModel> talentViewModels;
+
+        public Experience XP;
         public ObservableCollection<TalentViewModel> TalentViewModels
         {
             get { return talentViewModels; }
@@ -25,19 +27,47 @@ namespace StarWRPG.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        public uint AvailableXP
+        {
+            get { return XP.AvailableXP; }
+            set
+            {
+                XP.AvailableXP = value;
+                OnPropertyChanged();
+            }
+        }
+        public uint TotalXP
+        {
+            get { return XP.TotalXP; }
+            set
+            {
+                XP.TotalXP = value;
+                OnPropertyChanged();
+            }
+        }
+        
         public ICommand SearchCommand { get { return new Command<String>(Search); } }
         public ICommand DefaultSortCommand { get { return new Command(DefaultSort); } }
 
-        public TalentsViewModel(ObservableCollection<Talent> talents)
+        public TalentsViewModel(ObservableCollection<Talent> talents, Experience xp)
         {
             this.talents = talents;
-
+            XP = xp;
             TalentViewModels = new ObservableCollection<TalentViewModel>();
             foreach (var talent in talents)
             {
-                TalentViewModels.Add(new TalentViewModel(talent));
+                TalentViewModels.Add(new TalentViewModel(talent,xp));
             }
+            SubscribeToExperienceChanged();
+        }
+
+        private void SubscribeToExperienceChanged()
+        {
+            MessagingCenter.Subscribe<Experience>(this, "Experience Changed", (s) =>
+            {
+                OnPropertyChanged(nameof(AvailableXP));
+                OnPropertyChanged(nameof(TotalXP));
+            });
         }
 
         public void AddTalent(TalentViewModel talentViewModel)
@@ -48,7 +78,7 @@ namespace StarWRPG.ViewModels
 
         public void AddTalent(Talent talent)
         {
-            AddTalent(new TalentViewModel(talent));
+            AddTalent(new TalentViewModel(talent,XP));
         }
 
         public void RemoveTalent(TalentViewModel talentViewModel)

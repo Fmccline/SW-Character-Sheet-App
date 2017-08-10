@@ -11,6 +11,7 @@ namespace StarWRPG.Models
         public string Description { get; set; }
         public string Name { get; set; }
         public uint PageNumber { get; set; }
+        public uint XPCost { get; set; }
 
         public Talent()
         {

@@ -1,15 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace StarWRPG.Models
 { 
     public class Experience
     {
-        public uint TotalXP { get; set; }
-        public uint AvailableXP { get; set; }
+        uint totalXP;
+        uint availableXP;
+        public uint TotalXP
+        {
+            get { return totalXP; }
+            set
+            {
+                totalXP = value;
+                MessagingCenter.Send(this, "Experience Changed");
+            }
+        }
+        public uint AvailableXP
+        {
+            get { return availableXP; }
+            set
+            {
+                availableXP = value;
+                MessagingCenter.Send(this, "Experience Changed");
+            }
+        }
 
         public void GainXP(uint xp)
         {
