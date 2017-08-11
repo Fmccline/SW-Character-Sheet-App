@@ -38,7 +38,24 @@ namespace StarWRPG.ViewModels
                 new SpeciesPresetViewModel(character, new TogrutaPreset()),
                 new SpeciesPresetViewModel(character, new TwilekPreset()),
                 new SpeciesPresetViewModel(character, new ZabrakPreset()),
+                new SpeciesPresetViewModel(character, new BothanPreset()),
+                new SpeciesPresetViewModel(character, new ChissPreset()),
+                new SpeciesPresetViewModel(character, new DroidPreset()),
+                new SpeciesPresetViewModel(character, new DurosPreset()),
+                new SpeciesPresetViewModel(character, new FalleenPreset()),
+                new SpeciesPresetViewModel(character, new GandPreset()),
+                new SpeciesPresetViewModel(character, new GotalPreset()),
+                new SpeciesPresetViewModel(character, new GranPreset()),
+                new SpeciesPresetViewModel(character, new IthorianPreset()),
+                new SpeciesPresetViewModel(character, new MonCalamariPreset()),
+                new SpeciesPresetViewModel(character, new QuarrenPreset()),
+                new SpeciesPresetViewModel(character, new RodianPreset()),
+                new SpeciesPresetViewModel(character, new SullustanPreset()),
+                new SpeciesPresetViewModel(character, new ToydarianPreset()),
+                new SpeciesPresetViewModel(character, new TrandoshanPreset()),
+                new SpeciesPresetViewModel(character, new WookieePreset()),
             };
+            SpeciesPresetViewModels.Sort((x, y) => x.SpeciesName.CompareTo(y.SpeciesName));
         }
 
         private string[] GetSpeciesNames()

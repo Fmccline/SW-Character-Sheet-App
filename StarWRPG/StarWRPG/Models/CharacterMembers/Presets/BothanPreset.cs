@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace StarWRPG.Models
 {
-    public class NautolanPreset : SpeciesPreset
+    public class BothanPreset : SpeciesPreset
     {
         public override string SpeciesName
         {
-            get { return "Nautolan"; }
+            get { return "Bothan"; }
         }
 
         public override string SpecialAbilities
         {
-            get { return "Nautolans begin the game with one rank in Athletics." + AUTOMATIC; }
+            get { return "Bothans begin the game with one rank in Streetwise." + AUTOMATIC; }
         }
 
         public override uint MaxWounds
         {
-            get { return 11; }
+            get { return 10; }
         }
 
         public override uint MaxStrain
         {
-            get { return 9; }
+            get { return 11; }
         }
 
         public override uint StartingXP
@@ -35,14 +35,14 @@ namespace StarWRPG.Models
 
         public override Characteristics InitializeCharacteristics()
         {
-            return new Characteristics(3, 2, 2, 2, 1, 2);
+            return new Characteristics(1, 2, 2, 3, 2, 2);
         }
 
         public override List<Skill> InitializeSkills()
         {
             return new List<Skill>()
             {
-                new AthleticsSkill(Characteristics.Brawn) { Rank = 1 },
+                new StreetwiseSkill(Characteristics.Cunning) { Rank = 1 },
             };
         }
 
@@ -52,10 +52,9 @@ namespace StarWRPG.Models
             {
                 new Talent
                 {
-                    Name = "Amphibious",
-                    Description = "Nautolans may breathe underwater without penalty and never suffer movement" +
-                                    "penalties for traveling through water.",
-                    PageNumber = 59,
+                    Name = "Convincing Demeanor",
+                    Description = "Remove 1 setback per rank of Convincing Demeanor from Deception and Skulduggery checks.",
+                    PageNumber = 52,
                 }
             };
         }
