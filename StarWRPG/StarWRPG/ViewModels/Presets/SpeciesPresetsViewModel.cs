@@ -9,7 +9,6 @@ namespace StarWRPG.ViewModels
         public List<SpeciesPresetViewModel> SpeciesPresetViewModels;
         FFGCharacterViewModel ffgCharacterViewModel;
 
-        public string[] SpeciesNames { get { return GetSpeciesNames(); } }
         public SpeciesPresetViewModel FFGCharacterSpecies
         {
             get
@@ -58,15 +57,14 @@ namespace StarWRPG.ViewModels
             SpeciesPresetViewModels.Sort((x, y) => x.SpeciesName.CompareTo(y.SpeciesName));
         }
 
-        private string[] GetSpeciesNames()
+        public string[] GetSpeciesNames()
         {
-            string[] speciesNames = new string[SpeciesPresetViewModels.Count];
+            List<string> speciesNames = new List<string>();
             foreach (var species in SpeciesPresetViewModels)
             {
-                int index = SpeciesPresetViewModels.IndexOf(species);
-                speciesNames[index] = species.SpeciesName;
+                speciesNames.Add(species.SpeciesName);
             }
-            return speciesNames;
+            return speciesNames.ToArray();
         }
 
         public SpeciesPresetViewModel GetSpeciesPresetViewModelByName(string speciesName = null)

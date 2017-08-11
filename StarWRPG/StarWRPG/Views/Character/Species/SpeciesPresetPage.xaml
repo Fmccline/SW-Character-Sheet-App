@@ -15,15 +15,13 @@
         <StackLayout Orientation="Horizontal"
                      BackgroundColor="{DynamicResource TitleBackgroundColor}">
             <Button x:Name="PreviousSpeciesButton"
-                    Text="&lt;--"
                     Style="{StaticResource DefaultButton}"
                     HorizontalOptions="FillAndExpand"/>
             <Button x:Name="SelectSpeciesButton"
                     Text="Select"
                     Style="{StaticResource DefaultButton}"
-                    HorizontalOptions="CenterAndExpand"/>
+                    HorizontalOptions="Center"/>
             <Button x:Name="NextSpeciesButton"
-                    Text="-->"
                     Style="{StaticResource DefaultButton}"
                     HorizontalOptions="FillAndExpand"/>
         </StackLayout>

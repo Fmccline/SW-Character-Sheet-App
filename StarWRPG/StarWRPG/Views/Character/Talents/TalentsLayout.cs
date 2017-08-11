@@ -13,6 +13,7 @@ namespace StarWRPG.Views
         public TalentsLayout(List<TalentViewModel> talents)
         {
             HorizontalOptions = LayoutOptions.Center;
+            Spacing = 15;
 
             Children.Add(MakeTitle());
             if (talents.Count > 0)

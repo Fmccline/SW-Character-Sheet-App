@@ -27,10 +27,20 @@ namespace StarWRPG.Views
             speciesPresetViewModel = speciesPresetsViewModel.FFGCharacterSpecies;
 
             BindingContextChanged += SetTalentsLayout;
+            BindingContextChanged += SetButtonsText;
             BindingContext = speciesPresetViewModel;
 
             AddSaveToolbarItem();
             SetButtonClicks();
+        }
+
+        private void SetButtonsText(object sender, EventArgs e)
+        {
+            string previousSpeciesName = speciesPresetsViewModel.GetPreviousSpecies(speciesPresetViewModel).SpeciesName;
+            string nextSpeciesName = speciesPresetsViewModel.GetNextSpecies(speciesPresetViewModel).SpeciesName;
+
+            PreviousSpeciesButton.Text = "<-- " + previousSpeciesName;
+            NextSpeciesButton.Text = nextSpeciesName + " -->";
         }
 
         private void AddSaveToolbarItem()
@@ -70,7 +80,7 @@ namespace StarWRPG.Views
 
         private async void SelectSpeciesClickedAsync(object sender, EventArgs e)
         {
-            var speciesName = await DisplayActionSheet("Species", "Cancel", null, speciesPresetsViewModel.SpeciesNames);
+            var speciesName = await DisplayActionSheet("Species", "Cancel", null, speciesPresetsViewModel.GetSpeciesNames());
             if (speciesName != null && !speciesName.Equals("Cancel"))
             {
                 speciesPresetViewModel = speciesPresetsViewModel.GetSpeciesPresetViewModelByName(speciesName);
