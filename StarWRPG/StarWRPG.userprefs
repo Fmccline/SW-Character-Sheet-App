@@ -1,16 +1,14 @@
 ﻿<Properties StartupConfiguration="{C6D25133-58F7-4599-AEF7-60250596F58E}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="StarWRPG/FaDCharacterDetailsPage.xaml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="StarWRPG/Controls/CustomSearchBar.cs">
     <Files>
-      <File FileName="StarWRPG/Models/FaDCharacter.cs" Line="67" Column="42" />
-      <File FileName="StarWRPG/FaDCharacterDetailsPage.xaml" Line="50" Column="16" />
-      <File FileName="StarWRPG/ViewModels/FaDCharacterViewModel.cs" Line="226" Column="31" />
+      <File FileName="StarWRPG/Controls/CustomSearchBar.cs" Line="47" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.ItemProperties.StarWRPG.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.E8FDCBBD-E190-4E4A-B67E-580B689DF0E9" />
+  <MonoDevelop.Ide.ItemProperties.StarWRPG.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneDeviceTarget.d77ca6145f5804d9173d3889ead9d290b8aaa524" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MultiItemStartupConfigurations />
 </Properties>

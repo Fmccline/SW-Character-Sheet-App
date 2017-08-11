@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
@@ -42,5 +42,20 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Fonts/Andada.otf</string>
+		<string>Fonts/AndadaBold.otf</string>
+		<string>Fonts/CamingoCode.ttf</string>
+		<string>Fonts/CamingoCodeBold.ttf</string>
+		<string>Fonts/Enigmatic.ttf</string>
+		<string>Fonts/EnigmaticBold.ttf</string>
+		<string>Fonts/GreyscaleBasic.ttf</string>
+		<string>Fonts/GreyscaleBasicBold.ttf</string>
+		<string>Fonts/HKGrotesk.otf</string>
+		<string>Fonts/HKGroteskBold.otf</string>
+		<string>Fonts/Neuton.ttf</string>
+		<string>Fonts/NeutonBold.ttf</string>
+	</array>
 </dict>
 </plist>
