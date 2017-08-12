@@ -49,16 +49,21 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid Margin="0,10,0,0">
+                            <Grid>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="4*"/>
                                 </Grid.ColumnDefinitions>
-
-                                <Label Grid.Column="0" Text="{Binding D100Roll}" Style="{StaticResource CenterTopLabel}"/>
-                                <Label Grid.Column="1" Text="{Binding Severity}" Style="{StaticResource CenterTopLabel}"/>
-                                <Label Grid.Column="2" Text="{Binding Result}" Style="{StaticResource StartTopLabel}"/>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="5"/>
+                                </Grid.RowDefinitions>
+                                
+                                <Label Grid.Column="0" Grid.Row="1" Text="{Binding D100Roll}" Style="{StaticResource CenterTopLabel}"/>
+                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding Severity}" Style="{StaticResource CenterTopLabel}"/>
+                                <Label Grid.Column="2" Grid.Row="1" Text="{Binding Result}" Style="{StaticResource StartTopLabel}"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

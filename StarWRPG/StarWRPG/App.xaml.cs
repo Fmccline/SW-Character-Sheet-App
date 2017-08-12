@@ -35,7 +35,7 @@ namespace StarWRPG
                 navPage.SetDynamicResource(NavigationPage.BarTextColorProperty, "TitleTextColor");
 
                 MainPage = navPage;
-            }
+            } 
             catch (Exception e)
             {
                 Debug.WriteLine(e.StackTrace);

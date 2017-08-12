@@ -6,10 +6,11 @@
              Style="{StaticResource PageStyle}">
     <ContentPage.Content>
         <ListView x:Name="InjuryListView"
-                    ItemsSource="{Binding CriticalInjuryViewModels}"
-                    ItemSelected="InjurySelectedAsync"
-                    SeparatorVisibility="None"
-                    HasUnevenRows="True">
+                  ItemsSource="{Binding CriticalInjuryViewModels}"
+                  ItemSelected="InjurySelectedAsync"
+                  SeparatorVisibility="None"
+                  HasUnevenRows="True"
+                  BackgroundColor="{DynamicResource BackgroundColor}">
             <ListView.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -33,11 +34,16 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="3*"/>
                             </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="5"/>
+                            </Grid.RowDefinitions>
 
-                            <Label Grid.Column="0" 
+                            <Label Grid.Column="0" Grid.Row="1"
                                     Text="{Binding Severity}"
                                     Style="{StaticResource CenterLabel}"/>
-                            <Label Grid.Column="1" 
+                            <Label Grid.Column="1" Grid.Row="1"
                                     Text="{Binding Result}"
                                     Style="{StaticResource StartLabel}"/>
                         </Grid>

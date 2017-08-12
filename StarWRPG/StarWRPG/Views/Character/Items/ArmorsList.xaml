@@ -7,7 +7,8 @@
               ItemsSource="{Binding Armors}"
               ItemSelected="ArmorSelectedAsync"
               HasUnevenRows="True"
-              SeparatorVisibility="None">
+              SeparatorVisibility="None"
+              BackgroundColor="{DynamicResource BackgroundColor}">
         <ListView.Header>
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -16,7 +17,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                
+
                 <Label Grid.Column="0" Text="Name" Style="{StaticResource StartBoldLabel}"/>
                 <Label Grid.Column="1" Text="Soak" Style="{StaticResource CenterBoldLabel}"/>
                 <Label Grid.Column="2" Text="Ranged D." Style="{StaticResource CenterBoldLabel}"/>
@@ -26,18 +27,23 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <Grid Margin="0,8,0,8">
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1.5*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="5"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="5"/>
+                        </Grid.RowDefinitions>
                         
-                        <Label Grid.Column="0" Text="{Binding Name}" Style="{StaticResource StartLabel}"/>
-                        <Label Grid.Column="1" Text="{Binding Soak}" Style="{StaticResource CenterLabel}"/>
-                        <Label Grid.Column="2" Text="{Binding RangedDefense}" Style="{StaticResource CenterLabel}"/>
-                        <Label Grid.Column="3" Text="{Binding MeleeDefense}" Style="{StaticResource CenterLabel}"/>
+                        <Label Grid.Column="0" Grid.Row="1" Text="{Binding Name}" Style="{StaticResource StartLabel}"/>
+                        <Label Grid.Column="1" Grid.Row="1" Text="{Binding Soak}" Style="{StaticResource CenterLabel}"/>
+                        <Label Grid.Column="2" Grid.Row="1" Text="{Binding RangedDefense}" Style="{StaticResource CenterLabel}"/>
+                        <Label Grid.Column="3" Grid.Row="1" Text="{Binding MeleeDefense}" Style="{StaticResource CenterLabel}"/>
                     </Grid>
                 </ViewCell>
             </DataTemplate>

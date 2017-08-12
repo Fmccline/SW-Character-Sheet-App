@@ -17,7 +17,8 @@
                   CachingStrategy="RecycleElement"
                   ItemsSource="{Binding SkillViewModels}"
                   ItemSelected="SkillSelected"
-                  Margin="10,0,10,0">
+                  Margin="10,0,10,0"
+                  BackgroundColor="{DynamicResource BackgroundColor}">
             <ListView.Header>
                 <Grid>
                     <Grid.ColumnDefinitions>

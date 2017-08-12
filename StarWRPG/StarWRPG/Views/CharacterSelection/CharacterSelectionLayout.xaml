@@ -34,7 +34,8 @@
                    Style="{StaticResource StartLabel}"/>
             <!--Character List-->
             <ListView x:Name="charactersListView"
-                      ItemsSource="{Binding Characters}">
+                      ItemsSource="{Binding Characters}"
+                      BackgroundColor="{DynamicResource BackgroundColor}">
                 <ListView.Header>
                     <Grid>
                         <Grid.ColumnDefinitions>
