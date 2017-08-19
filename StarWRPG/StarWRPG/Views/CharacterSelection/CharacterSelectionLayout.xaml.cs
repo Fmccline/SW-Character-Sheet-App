@@ -25,12 +25,6 @@ namespace StarWRPG.Views
             BindingContext = characterListViewModel;
 
             CharactersListView = charactersListView;
-            MainStackLayout.Children.Add(noCharactersLabel);
-
-            var task = Task.Run(async () =>
-            {
-                await RefreshCharactersAsync();
-            });
         }
 
         public async Task RefreshCharactersAsync()

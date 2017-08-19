@@ -19,16 +19,30 @@ namespace StarWRPG.Views
         {
             characterSelectionLayout = new CharacterSelectionLayout();
             characterSelectionLayout.CharactersListView.ItemSelected += CharacterSelected;
-            Content = characterSelectionLayout;
 
             Style = (Style)Application.Current.Resources["PageStyle"];
+            Content = null;
         }
 
         protected abstract void CharacterSelected(object sender, SelectedItemChangedEventArgs e);
 
         protected override async void OnAppearing()
         {
+            base.OnAppearing();
+            Content = new ActivityIndicator
+            {
+                Color = (Color)Application.Current.Resources["TextColor"],
+                IsRunning = true,
+            };
+
             await characterSelectionLayout.RefreshCharactersAsync();
+            Content = characterSelectionLayout;
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            Content = null;
         }
     }
 }
