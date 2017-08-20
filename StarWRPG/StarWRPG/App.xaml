@@ -32,6 +32,7 @@
                 <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
                 <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
                 <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
+                <Setter Property="BackgroundColor" Value="Transparent"/>
             </Style>
             <!--Entries-->
             <Style x:Key="DefaultEntry" TargetType="Entry">
@@ -39,6 +40,7 @@
                 <Setter Property="PlaceholderColor" Value="{DynamicResource TextColor}" />
                 <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
                 <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
+                <Setter Property="BackgroundColor" Value="Transparent"/>
             </Style>
             <Style x:Key="DefaultNumericEntry" TargetType="Entry" BasedOn="{StaticResource DefaultEntry}">
                 <Setter Property="Keyboard" Value="Numeric" />
@@ -101,6 +103,7 @@
                 <Setter Property="PlaceholderColor" Value="{DynamicResource TextColor}"/>
                 <Setter Property="FontFamily" Value="{DynamicResource RegularFontName}" />
                 <Setter Property="FontSize" Value="{DynamicResource DefaultFontSize}" />
+                <Setter Property="BackgroundColor" Value="Transparent"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

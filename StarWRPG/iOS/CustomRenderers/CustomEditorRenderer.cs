@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+
+using Foundation;
+using UIKit;
+using Xamarin.Forms.Platform.iOS;
 using Xamarin.Forms;
 using StarWRPG.Views;
+using StarWRPG.iOS;
 using System.Diagnostics;
 using System.Threading.Tasks;
-using Xamarin.Forms.Platform.Android;
-using StarWRPG.Droid;
 
 [assembly: ExportRenderer(typeof(Editor), typeof(CustomEditorRenderer))]
-namespace StarWRPG.Droid
+namespace StarWRPG.iOS
 {
     public class CustomEditorRenderer : EditorRenderer
     {
@@ -18,12 +21,10 @@ namespace StarWRPG.Droid
         {
             base.OnElementChanged(e);
 
-            Control?.SetBackgroundColor(Android.Graphics.Color.Transparent);
-
             if (Control != null && String.IsNullOrWhiteSpace(Control.Text))
             {
                 string placeholder = "Input text here...";
-                Control.SetText(placeholder.ToCharArray(), 0, placeholder.Length);
+                Control.Text = placeholder;
             }
         }
     }

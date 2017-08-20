@@ -32,6 +32,7 @@ namespace StarWRPG
                 InitializeComponent();
                 SetDefaultFontSizes();
                 GetUserSettings();
+
                 var navPage = new NavigationPage(new MainPage());
                 navPage.SetDynamicResource(NavigationPage.BarBackgroundColorProperty, "TitleBackgroundColor");
                 navPage.SetDynamicResource(NavigationPage.BarTextColorProperty, "TitleTextColor");
@@ -55,13 +56,13 @@ namespace StarWRPG
             UserSettings.DefaultLargeFontSize = Math.Ceiling(ScreenWidth / 15);
         }
 
-        public static void GetUserSettings()
+        private void GetUserSettings()
         {
             GetUserSettingFonts();
             GetUserSettingColors();
         }
 
-        public static void GetUserSettingColors()
+        private void GetUserSettingColors()
         {
             Current.Resources["BackgroundColor"] = UserSettings.BackgroundColor;
             Current.Resources["TextColor"] = UserSettings.TextColor;
@@ -71,7 +72,7 @@ namespace StarWRPG
             Current.Resources["TitleBackgroundColor"] = UserSettings.TitleBackgroundColor;
         }
 
-        public static void GetUserSettingFonts()
+        private void GetUserSettingFonts()
         {
             Current.Resources["RegularFontName"] = FontNames.FilePathToFont(UserSettings.FontName);
             Current.Resources["BoldFontName"] = FontNames.FilePathToFont(UserSettings.FontName, true);

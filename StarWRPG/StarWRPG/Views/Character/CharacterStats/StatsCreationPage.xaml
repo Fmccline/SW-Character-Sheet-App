@@ -250,39 +250,39 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <!--Obligation-->
-                    <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
-                           Text="Total Obligation" 
-                           Style="{StaticResource CenterBoldLabel}" />
-                    <Label Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
-                           Text="{Binding TotalObligation}" 
-                           Style="{StaticResource CenterLabel}"/>
                     <!--Duty and Contribution-->
-                    <Label Grid.Column="0" Grid.Row="2"
+                    <Label Grid.Column="0" Grid.Row="0"
                            Text="Total Duty" 
                            Style="{StaticResource CenterBoldLabel}" />
-                    <Label Grid.Column="1" Grid.Row="2"
+                    <Label Grid.Column="1" Grid.Row="0"
                            Text="Contribution" 
                            Style="{StaticResource CenterBoldLabel}" />
-                    <Entry Grid.Column="0" Grid.Row="3"
+                    <Entry Grid.Column="0" Grid.Row="1"
                            Text="{Binding TotalDuty}" 
                            Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
-                    <Entry Grid.Column="1" Grid.Row="3"
+                    <Entry Grid.Column="1" Grid.Row="1"
                            Text="{Binding Contribution}" 
                            Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
                     <!--Morality and Conflict-->
-                    <Label Grid.Column="0" Grid.Row="4"
+                    <Label Grid.Column="0" Grid.Row="2"
                            Text="Morality" 
                            Style="{StaticResource CenterBoldLabel}" />
-                    <Label Grid.Column="1" Grid.Row="4"
+                    <Label Grid.Column="1" Grid.Row="2"
                            Text="Conflict" 
                            Style="{StaticResource CenterBoldLabel}" />
-                    <Entry Grid.Column="0" Grid.Row="5"
+                    <Entry Grid.Column="0" Grid.Row="3"
                            Text="{Binding Morality}" 
                            Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
-                    <Entry Grid.Column="1" Grid.Row="5"
+                    <Entry Grid.Column="1" Grid.Row="3"
                            Text="{Binding Conflict}" 
                            Style="{StaticResource FillAndExpandCenterNumericEntry}"/>
+                    <!--Obligation-->
+                    <Label Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2"
+                           Text="Total Obligation" 
+                           Style="{StaticResource CenterBoldLabel}" />
+                    <Label Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2"
+                           Text="{Binding TotalObligation}" 
+                           Style="{StaticResource CenterLabel}"/>
                 </Grid>
             </StackLayout>
         </ScrollView>
