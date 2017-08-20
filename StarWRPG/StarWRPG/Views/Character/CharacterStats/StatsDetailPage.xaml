@@ -167,7 +167,7 @@
                            Style="{StaticResource CenterBoldLabel}" />
                 </Grid>
                 <!-- Available and Total XP -->
-                <Grid>
+                <Grid Margin="0,10,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
