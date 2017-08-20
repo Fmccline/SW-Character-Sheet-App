@@ -1,6 +1,7 @@
 ﻿using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
@@ -28,21 +29,23 @@ namespace StarWRPG.Views
 
         protected override async void OnAppearing()
         {
-            base.OnAppearing();
-            Content = new ActivityIndicator
+            try
             {
-                Color = (Color)Application.Current.Resources["TextColor"],
-                IsRunning = true,
-            };
+                base.OnAppearing();
+                Content = new ActivityIndicator
+                {
+                    Color = (Color)Application.Current.Resources["TextColor"],
+                    IsRunning = true,
+                };
 
-            await characterSelectionLayout.RefreshCharactersAsync();
-            Content = characterSelectionLayout;
-        }
-
-        protected override void OnDisappearing()
-        {
-            base.OnDisappearing();
-            Content = null;
+                await characterSelectionLayout.RefreshCharactersAsync();
+                Content = characterSelectionLayout;
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex.StackTrace);
+                Debug.WriteLine(ex.Message);
+            }
         }
     }
 }

@@ -24,9 +24,9 @@ namespace StarWRPG
         public static readonly Color DefaultButtonTextColor = Color.White;
 
         public static readonly string DefaultFontName = FontNames.CamingoCode;
-        public static readonly double DefaultRegularFontSize = 14d;
-        public static readonly double DefaultMediumFontSize = 20d;
-        public static readonly double DefaultLargeFontSize = 26d;
+        public static readonly double DefaultRegularFontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label));
+        public static readonly double DefaultMediumFontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
+        public static readonly double DefaultLargeFontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label));
 
         public static bool UseXPForSkills
         {
@@ -56,7 +56,7 @@ namespace StarWRPG
             {
                 string color = ColorToHex(value);
                 AppSettings.AddOrUpdateValue(nameof(BackgroundColor), color);
-                Application.Current.Resources["BackgroundColor"] = color;
+                Application.Current.Resources["BackgroundColor"] = Color.FromHex(color);
             }
         }
         public static Color TextColor
@@ -70,7 +70,7 @@ namespace StarWRPG
             {
                 string color = ColorToHex(value);
                 AppSettings.AddOrUpdateValue(nameof(TextColor), color);
-                Application.Current.Resources["TextColor"] = color;
+                Application.Current.Resources["TextColor"] = Color.FromHex(color);
             }
         }
         public static Color TitleBackgroundColor
@@ -84,7 +84,7 @@ namespace StarWRPG
             {
                 string color = ColorToHex(value);
                 AppSettings.AddOrUpdateValue(nameof(TitleBackgroundColor), color);
-                Application.Current.Resources["TitleBackgroundColor"] = color;
+                Application.Current.Resources["TitleBackgroundColor"] = Color.FromHex(color);
             }
         }
         public static Color TitleTextColor
@@ -98,7 +98,7 @@ namespace StarWRPG
             {
                 string color = ColorToHex(value);
                 AppSettings.AddOrUpdateValue(nameof(TitleTextColor), color);
-                Application.Current.Resources["TitleTextColor"] = color;
+                Application.Current.Resources["TitleTextColor"] = Color.FromHex(color);
             }
         }
         public static Color ButtonColor
@@ -112,7 +112,7 @@ namespace StarWRPG
             {
                 string color = ColorToHex(value);
                 AppSettings.AddOrUpdateValue(nameof(ButtonColor), color);
-                Application.Current.Resources["ButtonColor"] = color;
+                Application.Current.Resources["ButtonColor"] = Color.FromHex(color);
             }
         }
         public static Color ButtonTextColor
@@ -126,7 +126,7 @@ namespace StarWRPG
             {
                 string color = ColorToHex(value);
                 AppSettings.AddOrUpdateValue(nameof(ButtonTextColor), color);
-                Application.Current.Resources["ButtonTextColor"] = color;
+                Application.Current.Resources["ButtonTextColor"] = Color.FromHex(color);
             }
         }
 

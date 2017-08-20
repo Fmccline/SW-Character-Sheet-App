@@ -22,15 +22,9 @@ namespace StarWRPG.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
-        CharacterSelectionPage selectionPage;
-        CharacterDeletionPage deletionPage;
-
         public MainPage()
         {
             InitializeComponent();
-
-            selectionPage = new CharacterSelectionPage();
-            deletionPage = new CharacterDeletionPage();
 
             SetLabelsTapped();
         }
@@ -55,12 +49,12 @@ namespace StarWRPG.Views
 
         private async void SelectCharacterAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(selectionPage);
+            await Navigation.PushAsync(new CharacterSelectionPage());
         }
 
         private async void DeleteCharacterAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(deletionPage);
+            await Navigation.PushAsync(new CharacterDeletionPage());
         }
 
         private async void CreateCharacterAsync(object sender, EventArgs e)
