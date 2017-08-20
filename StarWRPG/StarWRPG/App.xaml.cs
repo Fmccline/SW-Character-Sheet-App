@@ -23,19 +23,21 @@ namespace StarWRPG
                 return characterDatabase;
             }
         }
+        public static double ScreenWidth; 
 
         public App()
         {
             try
             {
                 InitializeComponent();
+                SetDefaultFontSizes();
                 GetUserSettings();
                 var navPage = new NavigationPage(new MainPage());
                 navPage.SetDynamicResource(NavigationPage.BarBackgroundColorProperty, "TitleBackgroundColor");
                 navPage.SetDynamicResource(NavigationPage.BarTextColorProperty, "TitleTextColor");
 
                 MainPage = navPage;
-            } 
+            }
             catch (Exception e)
             {
                 Debug.WriteLine(e.StackTrace);
@@ -44,6 +46,13 @@ namespace StarWRPG
             }
 
             //CharacterDatabase.DeleteAllItems();
+        }
+
+        private void SetDefaultFontSizes()
+        {
+            UserSettings.DefaultRegularFontSize = Math.Ceiling(ScreenWidth / 30);
+            UserSettings.DefaultMediumFontSize = Math.Ceiling(ScreenWidth / 20);
+            UserSettings.DefaultLargeFontSize = Math.Ceiling(ScreenWidth / 15);
         }
 
         public static void GetUserSettings()

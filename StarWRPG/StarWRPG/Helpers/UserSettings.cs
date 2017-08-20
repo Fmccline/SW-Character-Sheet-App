@@ -24,9 +24,9 @@ namespace StarWRPG
         public static readonly Color DefaultButtonTextColor = Color.White;
 
         public static readonly string DefaultFontName = FontNames.CamingoCode;
-        public static readonly double DefaultRegularFontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label));
-        public static readonly double DefaultMediumFontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
-        public static readonly double DefaultLargeFontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label));
+        public static double DefaultRegularFontSize = Device.GetNamedSize(NamedSize.Small, typeof(Label));
+        public static double DefaultMediumFontSize = Device.GetNamedSize(NamedSize.Medium, typeof(Label));
+        public static double DefaultLargeFontSize = Device.GetNamedSize(NamedSize.Large, typeof(Label));
 
         public static bool UseXPForSkills
         {

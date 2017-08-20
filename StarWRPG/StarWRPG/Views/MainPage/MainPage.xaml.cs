@@ -25,7 +25,6 @@ namespace StarWRPG.Views
         public MainPage()
         {
             InitializeComponent();
-
             SetLabelsTapped();
         }
 

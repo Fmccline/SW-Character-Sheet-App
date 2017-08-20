@@ -22,7 +22,9 @@ namespace StarWRPG.Droid
 
 			global::Xamarin.Forms.Forms.Init(this, bundle);
 
-			LoadApplication(new App());
+            App.ScreenWidth = (Resources.DisplayMetrics.WidthPixels / Resources.DisplayMetrics.Density);
+
+            LoadApplication(new App());
 		}
 	}
 }
