@@ -28,7 +28,15 @@ namespace StarWRPG.Views
 
         public void AddPageSelection(List<BasePage> pages)
         {
-            mainStackLayout.Children.Insert(0, new PageSelectionLayout(this, pages));
+            switch (Device.RuntimePlatform)
+            {
+                case Device.Android:
+                    mainStackLayout.Children.Insert(0, new PageSelectionLayout(this, pages));
+                    break;
+                case Device.iOS:
+                    mainStackLayout.Children.Add(new PageSelectionLayout(this, pages));
+                    break;
+            }
         }
 
         public void AddToolBarItems(List<ToolbarItem> items)

@@ -30,8 +30,8 @@ namespace StarWRPG.Views
         {
             return new List<ToolbarItem>
             {
-                new SettingsToolbarItem(page),
                 new MainMenuToolbarItem(ffgCharacterViewModel, page),
+                new SettingsToolbarItem(page),
                 new EditCharacterToolbarItem(ffgCharacterViewModel, page),
             };
         }
