@@ -21,11 +21,28 @@ namespace StarWRPG.iOS
         {
             base.OnElementChanged(e);
 
-            if (Control != null && String.IsNullOrWhiteSpace(Control.Text))
+            if (Control != null)
             {
-                string placeholder = "Input text here...";
-                Control.Text = placeholder;
+                if (String.IsNullOrWhiteSpace(Control.Text))
+                {
+                    string placeholder = "Input text here...";
+                    Control.Text = placeholder;
+                }
+                AddDoneButton();
             }
+        }
+
+        private void AddDoneButton()
+        {
+            var toolbar = new UIToolbar(new CoreGraphics.CGRect(0.0f, 0.0f, Control.Frame.Size.Width, 44.0f))
+            {
+                Items = new[]
+                {
+                    new UIBarButtonItem(UIBarButtonSystemItem.FlexibleSpace),
+                    new UIBarButtonItem(UIBarButtonSystemItem.Done, delegate { Control.ResignFirstResponder(); })
+                }
+            };
+            Control.InputAccessoryView = toolbar;
         }
     }
 }

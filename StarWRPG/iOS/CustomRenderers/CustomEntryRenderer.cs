@@ -25,12 +25,12 @@ namespace StarWRPG.iOS
             {
                 if (entry.Keyboard == Keyboard.Numeric)
                 {
-                    AddDoneButton(entry);
+                    AddDoneButton();
                 }
             }
         }
 
-        private void AddDoneButton(Entry entry)
+        private void AddDoneButton()
         {
             var toolbar = new UIToolbar(new CoreGraphics.CGRect(0.0f, 0.0f, Control.Frame.Size.Width, 44.0f))
             {
