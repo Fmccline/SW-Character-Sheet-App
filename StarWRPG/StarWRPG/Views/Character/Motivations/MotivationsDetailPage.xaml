@@ -16,7 +16,8 @@
     </local:MotivationPageBase.Resources>
     
     <StackLayout x:Name="MainStackLayout">
-        <ScrollView Padding="10,10,10,10">
+        <ScrollView Padding="10,10,10,10"
+                    VerticalOptions="FillAndExpand">
             <StackLayout Style="{StaticResource MotivationsLayout}">
 
                 <StackLayout x:Name="MotivationsLayout" 
