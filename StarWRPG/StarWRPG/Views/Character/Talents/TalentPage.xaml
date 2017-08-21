@@ -20,21 +20,34 @@
                    Keyboard="Numeric"
                    Style="{StaticResource DefaultEntry}"/>
             <!--XP Cost-->
-            <StackLayout Orientation="Horizontal">
-                <Label Text="XP Cost: " Style="{StaticResource StartLabel}"/>
-                <Entry Text="{Binding XPCost}"
+            <Grid Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Column="2" Grid.Row="0" 
+                       Text="Use XP" 
+                       Style="{StaticResource DefaultLabel}"
+                       HorizontalOptions="End"/>
+                <Label Grid.Column="0" Grid.Row="1" 
+                       Text="XP Cost: " 
+                       Style="{StaticResource StartLabel}"/>
+                <Entry Grid.Column="1" Grid.Row="1" 
+                       Text="{Binding XPCost}"
                        Style="{StaticResource DefaultNumericEntry}"
                        HorizontalOptions="FillAndExpand"
                        VerticalOptions="Center"/>
-                <StackLayout>
-                    <Label Text="Use XP" 
-                           Style="{StaticResource DefaultLabel}"
-                           HorizontalOptions="End"/>
-                    <Switch IsToggled="{Binding UseXP}"
-                            HorizontalOptions="End"
-                            VerticalOptions="Center"/>
-                </StackLayout>
-            </StackLayout>
+                <Switch Grid.Column="2" Grid.Row="1" 
+                        IsToggled="{Binding UseXP}"
+                        HorizontalOptions="End"
+                        VerticalOptions="Center"/>
+            </Grid>
             <!--Description-->
             <Label Text="Description"
                    VerticalOptions="Start"

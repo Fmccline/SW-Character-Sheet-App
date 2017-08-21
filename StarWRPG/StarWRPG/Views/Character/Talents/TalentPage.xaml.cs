@@ -20,42 +20,27 @@ namespace StarWRPG.Views
         public TalentPage(TalentsViewModel talents, TalentViewModel talent = null)
         {
             InitializeComponent();
-            NavigationPage.SetHasBackButton(this, false);
 
             talentsViewModel = talents;
 
-            if (talent == null)
-            {
-                talentViewModel = new TalentViewModel(talents.XP);
-                talentExists = false;
-            }
-            else
-            {
-                talentViewModel = talent;
-                talentExists = true;
-            }
+            talentViewModel = talent ?? new TalentViewModel(talents.XP);
+            talentExists = (talent != null);
             
             BindingContext = talentViewModel;
 
-            AddSaveAndDeleteTalentToolbarItems();
+            AddSaveAndDelete();
         }
 
-        private void AddSaveAndDeleteTalentToolbarItems()
+        private void AddSaveAndDelete()
         {
-            ToolbarItem saveTalent = new ToolbarItem
-            {
-                Text = "Save"
-            };
-            saveTalent.Clicked += SaveClickedAsync;
+            ToolbarItem saveTalent = new ToolbarItem { Text = "Save" };
+            ToolbarItem deleteTalent = new ToolbarItem { Text = "Delete" };
 
-            ToolbarItem deleteTalent = new ToolbarItem
-            {
-                Text = "Delete"
-            };
+            saveTalent.Clicked += SaveClickedAsync;
             deleteTalent.Clicked += DeleteClickedAsync;
 
-            ToolbarItems.Add(deleteTalent);
             ToolbarItems.Add(saveTalent);
+            ToolbarItems.Add(deleteTalent);
         }
 
         private async void DeleteClickedAsync(object sender, EventArgs e)

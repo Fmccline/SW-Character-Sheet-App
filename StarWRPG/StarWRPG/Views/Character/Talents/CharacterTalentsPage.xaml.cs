@@ -40,7 +40,15 @@ namespace StarWRPG.Views
 
         private async void AddTalentClickedAsync(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new TalentPage(talentsViewModel));
+            try
+            {
+                await Navigation.PushAsync(new TalentPage(talentsViewModel));
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.StackTrace);
+                Debug.WriteLine(ex.Message);
+            }
         }
     }
 }
