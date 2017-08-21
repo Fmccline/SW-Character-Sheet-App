@@ -25,6 +25,14 @@ namespace StarWRPG.iOS
             {
                 var page = e.NewElement as Page;
                 NavigationPage.SetBackButtonTitle(page, "");
+
+                foreach (var toolbarItem in page.ToolbarItems ?? Enumerable.Empty<ToolbarItem>())
+                {
+                    if (toolbarItem.Text.Contains("|"))
+                        return;
+
+                    toolbarItem.Text = "| " + toolbarItem.Text;
+                }
             }
         }
     }
