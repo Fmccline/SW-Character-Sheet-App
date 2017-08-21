@@ -158,10 +158,10 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\yellow_die%402x.png" />
-    <BundleResource Include="Resources\Fonts\Andada.otf">
+    <BundleResource Include="Resources\Fonts\AndadaBold.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
-    <BundleResource Include="Resources\Fonts\AndadaBold.otf">
+    <BundleResource Include="Resources\Fonts\Andada.otf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </BundleResource>
     <BundleResource Include="Resources\Fonts\CamingoCode.ttf">

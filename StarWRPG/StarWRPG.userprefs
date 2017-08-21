@@ -1,7 +1,12 @@
 ﻿<Properties StartupConfiguration="{C6D25133-58F7-4599-AEF7-60250596F58E}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="StarWRPG/Controls/CustomSearchBar.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="StarWRPG/Helpers/FontNames.cs">
     <Files>
       <File FileName="StarWRPG/Controls/CustomSearchBar.cs" Line="47" Column="14" />
+      <File FileName="iOS/Info.plist" />
+      <File FileName="iOS/Entitlements.plist" />
+      <File FileName="StarWRPG/App.xaml" Line="1" Column="1" />
+      <File FileName="StarWRPG/Helpers/UserSettings.cs" Line="1" Column="1" />
+      <File FileName="StarWRPG/Helpers/FontNames.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|iPhone" />
