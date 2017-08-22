@@ -86,20 +86,20 @@
                            Text="Features" Style="{StaticResource StartLabel}"/>
 
                     <Label Grid.Column="1" Grid.Row="1"
-                           Text="{Binding Gender}" Style="{StaticResource StartBoldLabel}"/>
+                           Text="{Binding Gender}" Style="{StaticResource StartLabel}"/>
                     <Label Grid.Column="1" Grid.Row="2"
-                           Text="{Binding Age}" Style="{StaticResource StartBoldLabel}"/>
+                           Text="{Binding Age}" Style="{StaticResource StartLabel}"/>
                     <Label Grid.Column="1" Grid.Row="3"
-                           Text="{Binding Height}" Style="{StaticResource StartBoldLabel}"/>
+                           Text="{Binding Height}" Style="{StaticResource StartLabel}"/>
                     <Label Grid.Column="1" Grid.Row="4"
-                           Text="{Binding Build}" Style="{StaticResource StartBoldLabel}"/>
+                           Text="{Binding Build}" Style="{StaticResource StartLabel}"/>
                     <Label Grid.Column="1" Grid.Row="5"
-                           Text="{Binding Hair}" Style="{StaticResource StartBoldLabel}"/>
+                           Text="{Binding Hair}" Style="{StaticResource StartLabel}"/>
                     <Label Grid.Column="1" Grid.Row="6"
-                           Text="{Binding Eyes}" Style="{StaticResource StartBoldLabel}"/>
+                           Text="{Binding Eyes}" Style="{StaticResource StartLabel}"/>
                     <Label Grid.Column="1" Grid.Row="7"
                            Text="{Binding NotableFeatures}" 
-                           Style="{StaticResource StartBoldLabel}"
+                           Style="{StaticResource StartLabel}"
                            VerticalOptions="Start"/>
                 </Grid>
                 <!--Background-->

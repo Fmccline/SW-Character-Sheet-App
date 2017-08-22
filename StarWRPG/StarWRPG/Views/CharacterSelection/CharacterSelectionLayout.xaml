@@ -55,7 +55,7 @@
                            Text="Career" 
                            Style="{StaticResource CenterBoldLabel}"/>
                         <Label Grid.Column="3" 
-                           Text="Total XP" 
+                           Text="XP" 
                            Style="{StaticResource CenterBoldLabel}"/>
                     </Grid>
                 </ListView.Header>

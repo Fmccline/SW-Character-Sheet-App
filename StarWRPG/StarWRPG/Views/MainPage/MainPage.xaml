@@ -8,7 +8,7 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="MediumCenterBoldLabel" TargetType="Label" BasedOn="{StaticResource CenterBoldLabel}">
+            <Style x:Key="MediumCenterLabel" TargetType="Label" BasedOn="{StaticResource CenterLabel}">
                 <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}"/>
             </Style>
         </ResourceDictionary>
@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Row="0"
-               Text="FFG Character Sheet"
+               Text="Star Sheet"
                HorizontalTextAlignment="Center"
                FontSize="{DynamicResource LargeFontSize}"
                Style="{StaticResource CenterBoldLabel}"
@@ -35,18 +35,18 @@
         <Label Grid.Row="2"
                x:Name="CreateCharacterLabel"
                Text="Create Character" 
-               Style="{StaticResource MediumCenterBoldLabel}"/>
+               Style="{StaticResource MediumCenterLabel}"/>
         <Label Grid.Row="3"
                x:Name="SelecteCharacterLabel"
                Text="Select Character" 
-               Style="{StaticResource MediumCenterBoldLabel}"/>
+               Style="{StaticResource MediumCenterLabel}"/>
         <Label Grid.Row="4"
                x:Name="DeleteCharacterLabel"
                Text="Delete Character" 
-               Style="{StaticResource MediumCenterBoldLabel}"/>
+               Style="{StaticResource MediumCenterLabel}"/>
         <Label Grid.Row="5"
                x:Name="SettingsLabel"
                Text="Settings" 
-               Style="{StaticResource MediumCenterBoldLabel}"/>
+               Style="{StaticResource MediumCenterLabel}"/>
     </Grid>
 </ContentPage>

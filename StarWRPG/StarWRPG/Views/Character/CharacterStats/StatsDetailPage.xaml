@@ -149,22 +149,22 @@
                            Style="{StaticResource CenterLabel}" />
                     <Label Grid.Column="0" Grid.Row="2"                    
                            Text="Br" 
-                           Style="{StaticResource CenterBoldLabel}" />
+                           Style="{StaticResource CenterLabel}" />
                     <Label Grid.Column="1" Grid.Row="2"                     
                            Text="Ag"
-                           Style="{StaticResource CenterBoldLabel}" />
+                           Style="{StaticResource CenterLabel}" />
                     <Label Grid.Column="2" Grid.Row="2"                     
                            Text="Int"
-                           Style="{StaticResource CenterBoldLabel}" />
+                           Style="{StaticResource CenterLabel}" />
                     <Label Grid.Column="3" Grid.Row="2"                     
                            Text="Cun" 
-                           Style="{StaticResource CenterBoldLabel}" />
+                           Style="{StaticResource CenterLabel}" />
                     <Label Grid.Column="4" Grid.Row="2"                     
                            Text="Will"
-                           Style="{StaticResource CenterBoldLabel}" />
+                           Style="{StaticResource CenterLabel}" />
                     <Label Grid.Column="5" Grid.Row="2"                      
                            Text="Pr"
-                           Style="{StaticResource CenterBoldLabel}" />
+                           Style="{StaticResource CenterLabel}" />
                 </Grid>
                 <!-- Available and Total XP -->
                 <Grid Margin="0,10,0,0">
