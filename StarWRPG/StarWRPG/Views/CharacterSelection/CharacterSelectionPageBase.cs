@@ -34,8 +34,17 @@ namespace StarWRPG.Views
                 Color = (Color)Application.Current.Resources["TextColor"],
                 IsRunning = true,
             };
-            await characterSelectionLayout.RefreshCharactersAsync();
-            Content = characterSelectionLayout;
+            try
+            {
+                await characterSelectionLayout.RefreshCharactersAsync();
+                Content = characterSelectionLayout;
+            }
+            catch (Exception)
+            {
+                string message = "A stuck up, half-witted, scruffy-looking error occured! I'm going to bring you back to the main menu, sorry about that.";
+                await DisplayAlert("Oops", message, "It's OK", "Do better");
+                await Navigation.PopToRootAsync();
+            }
         }
     }
 }

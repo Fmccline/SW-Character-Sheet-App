@@ -24,7 +24,22 @@ namespace StarWRPG.iOS
             if (Control != null)
             {
                 Control.SearchBarStyle = UISearchBarStyle.Minimal;
+                Control.ShowsCancelButton = false;
+                AddCancelButton();
             }
+        }
+
+        private void AddCancelButton()
+        {
+            var toolbar = new UIToolbar(new CoreGraphics.CGRect(0.0f, 0.0f, Control.Frame.Size.Width, 44.0f))
+            {
+                Items = new[]
+                {
+                    new UIBarButtonItem(UIBarButtonSystemItem.FlexibleSpace),
+                    new UIBarButtonItem(UIBarButtonSystemItem.Cancel, delegate { Control.ResignFirstResponder(); })
+                }
+            };
+            Control.InputAccessoryView = toolbar;
         }
     }
 }

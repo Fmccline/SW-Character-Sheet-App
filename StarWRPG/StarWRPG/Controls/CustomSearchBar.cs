@@ -34,13 +34,13 @@ namespace StarWRPG.Views
         // Unfocuses the search bar if the cancel button is clicked
         private void SearchTextChanged(object sender, TextChangedEventArgs e)
         {
-            if (Device.RuntimePlatform.Equals(Device.Android) && Text.Equals(""))
+            if (Text.Equals(""))
             {
                 if (TextChangedCommand.CanExecute(null))
                 {
                     TextChangedCommand.Execute(null);
                 }
-                if (IsFocused)
+                if (Device.RuntimePlatform.Equals(Device.Android) && IsFocused)
                 {
                     Unfocus();
                 }

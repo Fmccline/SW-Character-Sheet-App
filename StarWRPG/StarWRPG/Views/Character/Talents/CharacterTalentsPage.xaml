@@ -74,7 +74,11 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            
             <Label Grid.Column="0" Grid.Row="0" 
                    Text="{Binding TotalXP}" Style="{StaticResource CenterLabel}"/>
             <Label Grid.Column="0" Grid.Row="1" 
