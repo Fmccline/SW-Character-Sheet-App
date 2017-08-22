@@ -204,6 +204,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomRenderers\CustomSearchBarRenderer.cs" />
     <Compile Include="CustomRenderers\CustomEntryRenderer.cs" />
     <Compile Include="CustomRenderers\CustomEditorRenderer.cs" />
     <Compile Include="CustomRenderers\CustomNavigationRenderer.cs" />
