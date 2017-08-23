@@ -43,6 +43,7 @@
     <Compile Include="Controls\ISearchable.cs" />
     <Compile Include="Controls\SaveCharacterToolbarItem.cs" />
     <Compile Include="Controls\SettingsToolbarItem.cs" />
+    <Compile Include="Helpers\MessagingCenterMessages.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Helpers\SingleClick.cs" />
     <Compile Include="Models\CharacterDescription.cs" />

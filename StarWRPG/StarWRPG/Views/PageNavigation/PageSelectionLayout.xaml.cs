@@ -92,9 +92,12 @@ namespace StarWRPG.Views
                 }
                 await navigation.PushAsync(page, false);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                await currentPage.DisplayAlert("Oops", "A Nerf Herding error occured! Hopefully that's the last of them.", "OK");
+                Debug.WriteLine(ex.StackTrace);
+                Debug.WriteLine(ex.Message);
+                await currentPage.DisplayAlert("Blast!", "An error occured! I'm going to have to bring you back to the main menu.", "OK");
+                await currentPage.Navigation.PopToRootAsync();
             }
         }
 

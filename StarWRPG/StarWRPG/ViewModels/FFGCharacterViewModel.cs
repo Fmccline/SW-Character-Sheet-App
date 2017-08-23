@@ -1,4 +1,5 @@
-﻿using StarWRPG.Models;
+﻿using StarWRPG.Helpers;
+using StarWRPG.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -431,9 +432,14 @@ namespace StarWRPG.ViewModels
             SubscribeToExperienceChanged();
         }
 
+        ~FFGCharacterViewModel()
+        {
+            MessagingCenter.Unsubscribe<Experience>(this, MessagingCenterMessages.ExperienceChanged);
+        }
+
         private void SubscribeToExperienceChanged()
         {
-            MessagingCenter.Subscribe<Experience>(this, "Experience Changed", (s)=> 
+            MessagingCenter.Subscribe<Experience>(this, MessagingCenterMessages.ExperienceChanged, (s)=> 
             {
                 OnPropertyChanged(nameof(AvailableXP));
                 OnPropertyChanged(nameof(TotalXP));

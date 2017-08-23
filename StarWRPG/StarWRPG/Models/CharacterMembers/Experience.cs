@@ -1,6 +1,8 @@
-﻿using System;
+﻿using StarWRPG.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -19,7 +21,7 @@ namespace StarWRPG.Models
             set
             {
                 totalXP = value;
-                MessagingCenter.Send(this, "Experience Changed");
+                SendXPChanged();
             }
         }
         public uint AvailableXP
@@ -28,7 +30,20 @@ namespace StarWRPG.Models
             set
             {
                 availableXP = value;
-                MessagingCenter.Send(this, "Experience Changed");
+                SendXPChanged();
+            }
+        }
+
+        private void SendXPChanged()
+        {
+            try
+            {
+                MessagingCenter.Send(this, MessagingCenterMessages.ExperienceChanged);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.StackTrace);
+                Debug.WriteLine(ex.Message);
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using StarWRPG.ViewModels;
+﻿using StarWRPG.Helpers;
+using StarWRPG.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,12 +19,23 @@ namespace StarWRPG.Views
             ffgCharacterViewModel = character;
             NavigationPage.SetHasBackButton(this, false);
             Style = (Style)Application.Current.Resources["PageStyle"];
+        }
 
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
             // When the user exits the app, save the character
-            MessagingCenter.Subscribe<App>(this, "OnAppSleep", async (sender) =>
-              {
-                  await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
-              });
+            MessagingCenter.Subscribe<App>(this, MessagingCenterMessages.OnAppSleep,
+                async (sender) =>
+                {
+                    await App.CharacterDatabase.SaveCharacterAsync(ffgCharacterViewModel);
+                });
+        }
+
+        protected override void OnDisappearing()
+        {
+            base.OnDisappearing();
+            MessagingCenter.Unsubscribe<App>(this, MessagingCenterMessages.OnAppSleep);
         }
 
         public void AddPageSelection(List<BasePage> pages)
