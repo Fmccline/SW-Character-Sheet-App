@@ -8,45 +8,62 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="MediumCenterLabel" TargetType="Label" BasedOn="{StaticResource CenterLabel}">
+            <Style x:Key="MediumCenterBoldLabel" TargetType="Label" BasedOn="{StaticResource CenterBoldLabel}">
                 <Setter Property="FontSize" Value="{DynamicResource MediumFontSize}"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid RowSpacing="20">
+    <Grid RowSpacing="20"
+          Padding="0,0,0,5">
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1.5*"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
-        <Label Grid.Row="0"
-               Text="Star Sheet"
+        <Label Grid.Row="1"
+               Text="Welcome to Star Sheet!"
                HorizontalTextAlignment="Center"
                FontSize="{DynamicResource LargeFontSize}"
-               Style="{StaticResource CenterBoldLabel}"
-               TextColor="{DynamicResource TextColor}"/>
+               Style="{StaticResource CenterBoldLabel}"/>
+        <StackLayout Grid.Row="2" Padding="20,0,20,0">
+            <Label Text="The App for creating and maintaining your Force and Destiny, Age of Rebellion, and Edge of the Empire characters."
+                   HorizontalTextAlignment="Center"
+                   Style="{StaticResource CenterLabel}"
+                   VerticalOptions="Start"/>
+        </StackLayout>
 
-        <Label Grid.Row="2"
+        <Label Grid.Row="3"
                x:Name="CreateCharacterLabel"
                Text="Create Character" 
-               Style="{StaticResource MediumCenterLabel}"/>
-        <Label Grid.Row="3"
+               Style="{StaticResource MediumCenterBoldLabel}"/>
+        <Label Grid.Row="4"
                x:Name="SelecteCharacterLabel"
                Text="Select Character" 
-               Style="{StaticResource MediumCenterLabel}"/>
-        <Label Grid.Row="4"
+               Style="{StaticResource MediumCenterBoldLabel}"/>
+        <Label Grid.Row="5"
                x:Name="DeleteCharacterLabel"
                Text="Delete Character" 
-               Style="{StaticResource MediumCenterLabel}"/>
-        <Label Grid.Row="5"
+               Style="{StaticResource MediumCenterBoldLabel}"/>
+        <Label Grid.Row="6"
                x:Name="SettingsLabel"
                Text="Settings" 
-               Style="{StaticResource MediumCenterLabel}"/>
+               Style="{StaticResource MediumCenterBoldLabel}"/>
+
+        <StackLayout Grid.Row="7"
+                     Padding="20,0,20,0"
+                     VerticalOptions="End">
+            <Label Text="This App has no official affiliation to Lucasfilm Ltd. or Fantasy Flight Publishing, Inc."
+                   HorizontalTextAlignment="Center"
+                   Style="{StaticResource CenterLabel}"
+                   FontSize="7"
+                   VerticalOptions="End"/>
+        </StackLayout>
     </Grid>
 </ContentPage>

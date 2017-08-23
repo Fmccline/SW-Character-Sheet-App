@@ -57,5 +57,9 @@
 		<string>Fonts/Neuton.ttf</string>
 		<string>Fonts/NeutonBold.ttf</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
