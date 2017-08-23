@@ -74,8 +74,13 @@ namespace StarWRPG.Views
 
         private async void SaveClickedAsync(object sender, EventArgs e)
         {
-            speciesPresetsViewModel.SetSpeciesPreset(speciesPresetViewModel);
-            await Navigation.PopAsync();
+            var message = "Setting the species will reset your Characteristics to this species' Characteristics.";
+            var answer = await DisplayAlert("Set Species?", message, "OK", "Nevermind");
+            if (answer)
+            {
+                speciesPresetsViewModel.SetSpeciesPreset(speciesPresetViewModel);
+                await Navigation.PopAsync();
+            }
         }
 
         private async void SelectSpeciesClickedAsync(object sender, EventArgs e)

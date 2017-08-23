@@ -88,22 +88,22 @@ namespace StarWRPG.ViewModels
             }
         }
 
-        public void RemovePreset()
-        {
-            SetCharacteristics(DifferenceOfUInts);
-            SetSpeciesName();
-            SetSkills(DifferenceOfUInts);
-            RemoveTalents();
-            SetStartingStats(DifferenceOfUInts);
-        }
-
         public void SetPreset()
         {
-            SetCharacteristics(SumOfUInts);
+            SetCharacteristics();
             SetSpeciesName(SpeciesName);
             SetSkills(SumOfUInts);
             AddTalents();
             SetStartingStats(SumOfUInts);
+        }
+
+        public void RemovePreset()
+        {
+            ResetCharacteristics();
+            SetSpeciesName();
+            SetSkills(DifferenceOfUInts);
+            RemoveTalents();
+            SetStartingStats(DifferenceOfUInts);
         }
 
         private uint DifferenceOfUInts(uint a, uint b)
@@ -116,14 +116,24 @@ namespace StarWRPG.ViewModels
             return a + b;
         }
 
-        private void SetCharacteristics(Func<uint, uint, uint> operation)
+        private void SetCharacteristics()
         {
-            FFGCharacterViewModel.Agility = operation(FFGCharacterViewModel.Agility, Agility);
-            FFGCharacterViewModel.Brawn = operation(FFGCharacterViewModel.Brawn, Brawn);
-            FFGCharacterViewModel.Cunning = operation(FFGCharacterViewModel.Cunning, Cunning);
-            FFGCharacterViewModel.Intellect = operation(FFGCharacterViewModel.Intellect, Intellect);
-            FFGCharacterViewModel.Presence = operation(FFGCharacterViewModel.Presence, Presence);
-            FFGCharacterViewModel.Willpower = operation(FFGCharacterViewModel.Willpower, Willpower);
+            FFGCharacterViewModel.Agility = Agility;
+            FFGCharacterViewModel.Brawn = Brawn;
+            FFGCharacterViewModel.Cunning = Cunning;
+            FFGCharacterViewModel.Intellect = Intellect;
+            FFGCharacterViewModel.Presence = Presence;
+            FFGCharacterViewModel.Willpower = Willpower;
+        }
+
+        private void ResetCharacteristics()
+        {
+            FFGCharacterViewModel.Agility = 0;
+            FFGCharacterViewModel.Brawn = 0;
+            FFGCharacterViewModel.Cunning = 0;
+            FFGCharacterViewModel.Intellect = 0;
+            FFGCharacterViewModel.Presence = 0;
+            FFGCharacterViewModel.Willpower = 0;
         }
 
         private void SetSpeciesName(string specieName = "")

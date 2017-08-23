@@ -53,6 +53,7 @@ namespace StarWRPG.Views
             Content = new StackLayout
             {
                 Orientation = StackOrientation.Horizontal,
+                Spacing = 2,
                 Children =
                 {
                     decrementButton,
@@ -93,7 +94,7 @@ namespace StarWRPG.Views
             {
                 Text = text,
                 Style = (Style)Application.Current.Resources["DefaultButton"],
-                HorizontalOptions = LayoutOptions.Center,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.Center,
             };
             stepperButton.Clicked += clicked;
