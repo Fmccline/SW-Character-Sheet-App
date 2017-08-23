@@ -118,6 +118,11 @@ namespace StarWRPG.ViewModels
         public uint TotalXP
         {
             get { return xp.TotalXP; }
+            set
+            {
+                xp.TotalXP = value;
+                OnPropertyChanged();
+            }
         }
         public uint Rank
         {
