@@ -207,7 +207,7 @@
     <Compile Include="CustomRenderers\CustomSearchBarRenderer.cs" />
     <Compile Include="CustomRenderers\CustomEntryRenderer.cs" />
     <Compile Include="CustomRenderers\CustomEditorRenderer.cs" />
-    <Compile Include="CustomRenderers\CustomNavigationRenderer.cs" />
+    <Compile Include="CustomRenderers\CustomContentPageRenderer.cs" />
     <Compile Include="Helpers\FileHelper.cs" />
     <Compile Include="Helpers\Settings.cs" />
     <Compile Include="Main.cs" />

@@ -57,12 +57,12 @@
                Style="{StaticResource MediumCenterBoldLabel}"/>
 
         <StackLayout Grid.Row="7"
-                     Padding="20,0,20,0"
+                     Padding="10,0,10,3"
                      VerticalOptions="End">
             <Label Text="This App has no official affiliation to Lucasfilm Ltd. or Fantasy Flight Publishing, Inc."
                    HorizontalTextAlignment="Center"
                    Style="{StaticResource CenterLabel}"
-                   FontSize="7"
+                   FontSize="8"
                    VerticalOptions="End"/>
         </StackLayout>
     </Grid>

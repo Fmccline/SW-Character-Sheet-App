@@ -12,10 +12,10 @@ using StarWRPG.iOS;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-[assembly: ExportRenderer(typeof(ContentPage), typeof(CustomNavigationRenderer))]
+[assembly: ExportRenderer(typeof(ContentPage), typeof(CustomContentPageRenderer))]
 namespace StarWRPG.iOS
 {
-    public class CustomNavigationRenderer : PageRenderer
+    public class CustomContentPageRenderer : PageRenderer
     {
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
         {

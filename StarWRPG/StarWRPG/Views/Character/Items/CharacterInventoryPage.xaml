@@ -5,7 +5,7 @@
              Title="Inventory"
              x:Class="StarWRPG.Views.CharacterInventoryPage">
 
-    <StackLayout x:Name="MainStackLayout">
+    <StackLayout x:Name="MainStackLayout" Spacing="0">
         <!--Select items ListView buttons-->
         <StackLayout Orientation="Horizontal"
                      BackgroundColor="{DynamicResource TitleBackgroundColor}"
@@ -33,9 +33,10 @@
         <!--Layout where the items ListView is added-->
         <StackLayout x:Name="ItemsLayout" 
                      VerticalOptions="FillAndExpand"
-                     Padding="5,0,5,0"/>
+                     Padding="5,2,5,0"/>
         <!--Encumbrance and Credits-->
-        <Grid VerticalOptions="EndAndExpand">
+        <Grid VerticalOptions="EndAndExpand"
+              Padding="0,0,0,3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
