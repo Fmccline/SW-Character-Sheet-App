@@ -432,11 +432,6 @@ namespace StarWRPG.ViewModels
             SubscribeToExperienceChanged();
         }
 
-        ~FFGCharacterViewModel()
-        {
-            MessagingCenter.Unsubscribe<Experience>(this, MessagingCenterMessages.ExperienceChanged);
-        }
-
         private void SubscribeToExperienceChanged()
         {
             MessagingCenter.Subscribe<Experience>(this, MessagingCenterMessages.ExperienceChanged, (s)=> 

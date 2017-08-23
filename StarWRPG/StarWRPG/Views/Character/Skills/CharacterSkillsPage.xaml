@@ -33,7 +33,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <Label Grid.Column="0" 
                            Text="Name" 
                            Style="{StaticResource StartBoldLabel}"/>
@@ -108,32 +108,34 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <Grid>
+        <!--Experience and Add Skill-->
+        <Grid Padding="0,0,0,5">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            
+
             <Label Grid.Column="0" Grid.Row="0" 
-                   Text="{Binding TotalXP}" Style="{StaticResource CenterLabel}"/>
-            <Label Grid.Column="0" Grid.Row="1" 
+                   Text="{Binding TotalXP}"
+                   Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="2" Grid.Row="0" 
+                   Text="{Binding AvailableXP}"
+                   Style="{StaticResource CenterLabel}"/>
+            <Label Grid.Column="0" Grid.Row="1"
                    Text="Total XP" Style="{StaticResource CenterBoldLabel}"/>
+            <Label Grid.Column="2" Grid.Row="1" 
+                   Text="Available XP" Style="{StaticResource CenterBoldLabel}"/>
             <Button Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" 
                     x:Name="AddSkillButton"
                     Text="Add Skill" 
                     Style="{StaticResource DefaultButton}"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"/>
-            <Label Grid.Column="2" Grid.Row="0" 
-                   Text="{Binding AvailableXP}" Style="{StaticResource CenterLabel}"/>
-            <Label Grid.Column="2" Grid.Row="1" 
-                   Text="Available XP" Style="{StaticResource CenterBoldLabel}"/>
         </Grid>
     </StackLayout>
 </local:BasePage>

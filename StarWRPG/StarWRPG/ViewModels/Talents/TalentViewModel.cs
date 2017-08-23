@@ -2,6 +2,7 @@
 using StarWRPG.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -85,11 +86,6 @@ namespace StarWRPG.ViewModels
             Talent = talent;
             this.xp = xp;
             SubscribeToExperienceChanged();
-        }
-
-        ~TalentViewModel()
-        {
-            MessagingCenter.Unsubscribe<Experience>(this, MessagingCenterMessages.ExperienceChanged);
         }
 
         private void SubscribeToExperienceChanged()

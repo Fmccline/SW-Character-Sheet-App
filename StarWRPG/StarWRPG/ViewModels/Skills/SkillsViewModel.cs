@@ -66,11 +66,6 @@ namespace StarWRPG.ViewModels
             SubscribeToExperienceChanged();
         }
 
-        ~SkillsViewModel()
-        {
-            MessagingCenter.Unsubscribe<Experience>(this, MessagingCenterMessages.ExperienceChanged);
-        }
-
         private void SubscribeToExperienceChanged()
         {
             MessagingCenter.Subscribe<Experience>(this, MessagingCenterMessages.ExperienceChanged, (s) =>

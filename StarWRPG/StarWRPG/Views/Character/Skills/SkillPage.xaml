@@ -27,12 +27,12 @@
                 <Button x:Name="DecrementButton"
                         Text="-"
                         Clicked="DecrementClicked"
-                        HorizontalOptions="End"
+                        HorizontalOptions="EndAndExpand"
                         Style="{StaticResource DefaultButton}"/>
                 <Button x:Name="IncrementButton"
                         Text="+"
                         Clicked="IncrementClicked"
-                        HorizontalOptions="End"
+                        HorizontalOptions="EndAndExpand"
                         Style="{StaticResource DefaultButton}"/>
                 <StackLayout>
                     <Label Text="Use XP" 

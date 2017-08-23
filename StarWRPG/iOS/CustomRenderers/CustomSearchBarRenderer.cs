@@ -24,8 +24,17 @@ namespace StarWRPG.iOS
             if (Control != null)
             {
                 Control.SearchBarStyle = UISearchBarStyle.Minimal;
-                Control.ShowsCancelButton = false;
                 AddCancelButton();
+            }
+        }
+
+        protected override void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            base.OnElementPropertyChanged(sender, e);
+
+            if (e.PropertyName == "Text")
+            {
+                Control.ShowsCancelButton = false;
             }
         }
 

@@ -38,7 +38,7 @@ namespace StarWRPG.Models
         {
             try
             {
-                MessagingCenter.Send(this, MessagingCenterMessages.ExperienceChanged);
+                //MessagingCenter.Send(this, MessagingCenterMessages.ExperienceChanged);
             }
             catch (Exception ex)
             {
@@ -47,26 +47,7 @@ namespace StarWRPG.Models
             }
         }
 
-        public void GainXP(uint xp)
-        {
-            AvailableXP += xp;
-            TotalXP += xp;
-        }
-
-        public void RefundXP(uint xp)
-        {
-            AvailableXP += xp;
-        }
-
-        public void SpendXP(uint xp)
-        {
-            if (AvailableXP >= xp)
-                AvailableXP -= xp;
-            else
-                AvailableXP = 0;
-        }
-
-        public Experience() : this(0) { }
+        public Experience() { }
 
         public Experience(uint xp)
         {

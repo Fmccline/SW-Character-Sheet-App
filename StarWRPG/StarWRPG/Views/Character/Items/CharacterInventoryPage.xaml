@@ -7,7 +7,9 @@
 
     <StackLayout x:Name="MainStackLayout">
         <!--Select items ListView buttons-->
-        <StackLayout Orientation="Horizontal">
+        <StackLayout Orientation="Horizontal"
+                     BackgroundColor="{DynamicResource TitleBackgroundColor}"
+                     Padding="2,5,2,5">
             <Button x:Name="WeaponsButton" 
                     Text="Weapons" 
                     Clicked="WeaponsClicked"
@@ -25,6 +27,7 @@
                     Style="{StaticResource DefaultButton}"/>
             <Button Text="+" 
                     x:Name="AddItemButton"
+                    HorizontalOptions="FillAndExpand"
                     Style="{StaticResource DefaultButton}"/>
         </StackLayout>
         <!--Layout where the items ListView is added-->

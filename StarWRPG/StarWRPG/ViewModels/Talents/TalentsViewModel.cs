@@ -62,11 +62,6 @@ namespace StarWRPG.ViewModels
             SubscribeToExperienceChanged();
         }
 
-        ~TalentsViewModel()
-        {
-            MessagingCenter.Unsubscribe<Experience>(this, MessagingCenterMessages.ExperienceChanged);
-        }
-
         private void SubscribeToExperienceChanged()
         {
             MessagingCenter.Subscribe<Experience>(this, MessagingCenterMessages.ExperienceChanged, (s) =>
