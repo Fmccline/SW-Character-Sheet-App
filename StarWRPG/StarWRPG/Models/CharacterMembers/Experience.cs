@@ -13,39 +13,8 @@ namespace StarWRPG.Models
 { 
     public class Experience
     {
-        uint totalXP;
-        uint availableXP;
-        public uint TotalXP
-        {
-            get { return totalXP; }
-            set
-            {
-                totalXP = value;
-                SendXPChanged();
-            }
-        }
-        public uint AvailableXP
-        {
-            get { return availableXP; }
-            set
-            {
-                availableXP = value;
-                SendXPChanged();
-            }
-        }
-
-        private void SendXPChanged()
-        {
-            try
-            {
-                //MessagingCenter.Send(this, MessagingCenterMessages.ExperienceChanged);
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.StackTrace);
-                Debug.WriteLine(ex.Message);
-            }
-        }
+        public uint TotalXP { get; set; }
+        public uint AvailableXP { get; set; }
 
         public Experience() { }
 

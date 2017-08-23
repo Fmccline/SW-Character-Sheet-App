@@ -145,16 +145,6 @@ namespace StarWRPG.ViewModels
             this.characteristics = characteristics;
             this.xp = xp;
             CalculateDicePool();
-            SubscribeToExperienceChanged();
-        }
-
-        private void SubscribeToExperienceChanged()
-        {
-            MessagingCenter.Subscribe<Experience>(this, MessagingCenterMessages.ExperienceChanged, (s) =>
-            {
-                OnPropertyChanged(nameof(AvailableXP));
-                OnPropertyChanged(nameof(TotalXP));
-            });
         }
 
         public void CalculateDicePool()

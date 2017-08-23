@@ -59,16 +59,6 @@ namespace StarWRPG.ViewModels
             {
                 TalentViewModels.Add(new TalentViewModel(talent,xp));
             }
-            SubscribeToExperienceChanged();
-        }
-
-        private void SubscribeToExperienceChanged()
-        {
-            MessagingCenter.Subscribe<Experience>(this, MessagingCenterMessages.ExperienceChanged, (s) =>
-            {
-                OnPropertyChanged(nameof(AvailableXP));
-                OnPropertyChanged(nameof(TotalXP));
-            });
         }
 
         public void AddTalent(TalentViewModel talentViewModel)

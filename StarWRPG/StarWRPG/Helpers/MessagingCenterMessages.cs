@@ -8,7 +8,6 @@ namespace StarWRPG.Helpers
 {
     public class MessagingCenterMessages
     {
-        public static readonly string ExperienceChanged = "Experience Changed";
         public static readonly string OnAppSleep = "On App Sleep";
     }
 }

@@ -29,6 +29,14 @@ namespace StarWRPG.Views
             AddSkillButton.Clicked += new SingleClick(AddCustomSkillClickedAsync).Click;
         }
 
+        // Set XP so that the UI gets updated
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            skillsViewModel.AvailableXP = skillsViewModel.AvailableXP;
+            skillsViewModel.TotalXP = skillsViewModel.TotalXP;
+        }
+
         private async void SkillSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem is SkillViewModel skill)

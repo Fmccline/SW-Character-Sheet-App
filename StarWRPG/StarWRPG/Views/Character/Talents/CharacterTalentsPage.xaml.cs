@@ -29,6 +29,14 @@ namespace StarWRPG.Views
             AddTalentButton.Clicked += new SingleClick(AddTalentClickedAsync).Click;
         }
 
+        // Set XP so that the UI gets updated
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            talentsViewModel.AvailableXP = talentsViewModel.AvailableXP;
+            talentsViewModel.TotalXP = talentsViewModel.TotalXP;
+        }
+
         private async void TalentSelectedAsync(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem is TalentViewModel talent)

@@ -21,5 +21,13 @@ namespace StarWRPG.Views
 
             BindingContext = ffgCharacterViewModel;
         }
+
+        // Set XP so that the UI gets updated
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ffgCharacterViewModel.AvailableXP = ffgCharacterViewModel.AvailableXP;
+            ffgCharacterViewModel.TotalXP = ffgCharacterViewModel.TotalXP;
+        }
     }
 }

@@ -63,16 +63,6 @@ namespace StarWRPG.ViewModels
                 SkillViewModels.Add(new SkillViewModel(skill, characteristics, xp));
             }
             DefaultSort();
-            SubscribeToExperienceChanged();
-        }
-
-        private void SubscribeToExperienceChanged()
-        {
-            MessagingCenter.Subscribe<Experience>(this, MessagingCenterMessages.ExperienceChanged, (s) =>
-            {
-                OnPropertyChanged(nameof(AvailableXP));
-                OnPropertyChanged(nameof(TotalXP));
-            });
         }
 
         public void AddSkill(SkillViewModel skill)
