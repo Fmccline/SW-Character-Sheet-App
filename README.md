@@ -9,5 +9,5 @@ I used this project to familiarize myself with the MVVM pattern because Xamarin 
 ## The Result
 Xamarin Forms uses C# and XAML for building cross platform apps. I had very little experience with C# prior to this project and zero experience with XAML, so it was interesting learning both languages. I also learned about and worked with the MVVM pattern. While it was hard sticking to the pattern at times, the separation of concerns between the models, views, and viewmodels made it easier to work on the project (especially as it grew).
 
-# Code
+### Code
 The bulk of my code written for this project can be found [here](https://github.com/Fmccline/SW-Character-Sheet-App/tree/master/StarWRPG/StarWRPG). 
